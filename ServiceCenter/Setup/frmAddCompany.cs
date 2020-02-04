@@ -29,6 +29,7 @@ namespace ServiceCenter.Setup
             SaveCompany();
         }
          //from Raamod
+         //from git
         public void SaveCompany() 
         {
             CompanyEntity objCompanyEntity = new CompanyEntity
