@@ -17,9 +17,13 @@ namespace ServiceCenter
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             //hello
             //hi
             //l
+=======
+            //hello          world 
+>>>>>>> 6edde1165ccfcb332dbc0b213916d10901c7bc6d
         }
     }
 }
