@@ -17,7 +17,12 @@ namespace ServiceCenter
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             //hello world     car  bus   
+=======
+            //king 
+             
+>>>>>>> d2034fbaaad7a56fbff775df7da0fcc171ea50cf
         }
     }
 }
