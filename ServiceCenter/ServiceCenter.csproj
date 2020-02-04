@@ -104,6 +104,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Setup\frmAddBrand.resx">
+      <DependentUpon>frmAddBrand.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddCompany.resx">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
     </EmbeddedResource>

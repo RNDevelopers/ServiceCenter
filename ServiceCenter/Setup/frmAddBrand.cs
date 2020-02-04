@@ -19,5 +19,10 @@ namespace ServiceCenter.Setup
             this.SetFormName();
 
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

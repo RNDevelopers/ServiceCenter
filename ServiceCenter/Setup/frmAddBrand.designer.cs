@@ -82,6 +82,7 @@
             this.btnSave.TabIndex = 147;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dgvAddSubCategory
             // 
