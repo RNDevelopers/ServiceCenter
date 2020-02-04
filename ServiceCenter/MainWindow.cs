@@ -16,7 +16,7 @@ namespace ServiceCenter
         public MainWindow()
         {
             InitializeComponent();
-
+            //new
         }
     }
 }
