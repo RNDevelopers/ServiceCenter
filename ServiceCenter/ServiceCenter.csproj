@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\BaseUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\BaseUI.Designer.cs">
+      <DependentUpon>BaseUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="Setup\frmAddSupplier.Designer.cs">
       <DependentUpon>frmAddSupplier.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Common\BaseUI.resx">
+      <DependentUpon>BaseUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
