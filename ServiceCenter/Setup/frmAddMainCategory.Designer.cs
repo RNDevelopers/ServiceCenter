@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvStreamDetails = new System.Windows.Forms.DataGridView();
             this.clmBatchID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBatchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,16 +52,6 @@
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStreamDetails)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(217, 85);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // dgvStreamDetails
             // 
@@ -280,10 +269,20 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbStream);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddMainCategory";
             this.Text = "Add Main Category";
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.cmbStream, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.txtBatchNo, 0);
+            this.Controls.SetChildIndex(this.btnSave, 0);
+            this.Controls.SetChildIndex(this.dtStartDate, 0);
+            this.Controls.SetChildIndex(this.label11, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.dgvStreamDetails, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStreamDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -291,8 +290,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvStreamDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBatchID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBatchNo;
