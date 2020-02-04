@@ -18,10 +18,5 @@ namespace ServiceCenter
             InitializeComponent();
 
         }
-
-        public void ramod()
-        {
-
-        }
     }
 }
