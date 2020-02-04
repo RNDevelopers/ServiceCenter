@@ -54,6 +54,9 @@
       <DependentUpon>BaseUI.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection\ClsConnection.cs" />
+    <Compile Include="DBConnection\Execute.cs" />
+    <Compile Include="Entities\CompanyEntity.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,11 +71,11 @@
     <Compile Include="Setup\frmAddMainCategory.Designer.cs">
       <DependentUpon>frmAddMainCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup\frmAddSupplier.cs">
+    <Compile Include="Setup\frmAddCompany.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setup\frmAddSupplier.Designer.cs">
-      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    <Compile Include="Setup\frmAddCompany.Designer.cs">
+      <DependentUpon>frmAddCompany.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
@@ -92,8 +95,8 @@
     <EmbeddedResource Include="Setup\frmAddMainCategory.resx">
       <DependentUpon>frmAddMainCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setup\frmAddSupplier.resx">
-      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="Setup\frmAddCompany.resx">
+      <DependentUpon>frmAddCompany.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -112,7 +115,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Recivces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using ServiceCenter.Common;
+using ServiceCenter.Setup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,12 @@ namespace ServiceCenter
             InitializeComponent();
             this.SetFormName();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAddCompany obj = new frmAddCompany();
+            obj.Show();
         }
     }
 }
