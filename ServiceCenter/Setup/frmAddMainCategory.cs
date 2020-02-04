@@ -18,7 +18,5 @@ namespace ServiceCenter.Setup
             InitializeComponent();
             this.SetFormName();
         }
-
-
     }
 }
