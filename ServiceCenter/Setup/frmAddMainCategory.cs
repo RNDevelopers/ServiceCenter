@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceCenter.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
-    public partial class frmAddMainCategory : Form
+    public partial class frmAddMainCategory : BaseUI
     {
         public frmAddMainCategory()
         {
