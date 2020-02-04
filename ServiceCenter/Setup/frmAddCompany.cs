@@ -30,7 +30,6 @@ namespace ServiceCenter.Setup
         }
          //from Raamod
          //from git
-         //edit 
         public void SaveCompany() 
         {
             CompanyEntity objCompanyEntity = new CompanyEntity
