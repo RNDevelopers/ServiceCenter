@@ -119,8 +119,8 @@
         private System.Windows.Forms.Label lblMinimize;
         private System.Windows.Forms.Label lblClose;
         public System.Windows.Forms.Label lblFormName;
-    }
+    
 
-        #endregion
+
     }
 }
