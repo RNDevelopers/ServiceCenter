@@ -11,14 +11,17 @@ using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
-    public partial class frmAddMainCategory : BaseUI
+    public partial class frmAddSubCategory : BaseUI
     {
-        public frmAddMainCategory()
+        public frmAddSubCategory()
         {
             InitializeComponent();
             this.SetFormName();
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

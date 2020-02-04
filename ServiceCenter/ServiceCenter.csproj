@@ -65,17 +65,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Setup\frmAddMainCategory.cs">
+    <Compile Include="Setup\frmAddBrand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setup\frmAddMainCategory.Designer.cs">
-      <DependentUpon>frmAddMainCategory.cs</DependentUpon>
+    <Compile Include="Setup\frmAddBrand.designer.cs">
+      <DependentUpon>frmAddBrand.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\frmAddCompany.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Setup\frmAddCompany.Designer.cs">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddMainCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddMainCategory.designer.cs">
+      <DependentUpon>frmAddMainCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddSubCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddSubCategory.designer.cs">
+      <DependentUpon>frmAddSubCategory.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
@@ -92,9 +104,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Setup\frmAddMainCategory.resx">
-      <DependentUpon>frmAddMainCategory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddCompany.resx">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
     </EmbeddedResource>

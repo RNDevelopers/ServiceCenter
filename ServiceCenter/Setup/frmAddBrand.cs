@@ -11,14 +11,13 @@ using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
-    public partial class frmAddMainCategory : BaseUI
+    public partial class frmAddBrand : BaseUI
     {
-        public frmAddMainCategory()
+        public frmAddBrand()
         {
             InitializeComponent();
             this.SetFormName();
+
         }
-
-
     }
 }
