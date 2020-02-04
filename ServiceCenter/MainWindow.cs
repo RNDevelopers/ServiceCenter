@@ -26,5 +26,11 @@ namespace ServiceCenter
             frmAddCompany obj = new frmAddCompany();
             obj.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmAddBrand obj = new frmAddBrand();
+            obj.Show();
+        }
     }
 }

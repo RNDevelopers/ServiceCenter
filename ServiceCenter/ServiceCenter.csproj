@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="DBConnection\ClsConnection.cs" />
     <Compile Include="DBConnection\Execute.cs" />
+    <Compile Include="Entities\BrandEntity.cs" />
     <Compile Include="Entities\CompanyEntity.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="MainWindow.cs">
