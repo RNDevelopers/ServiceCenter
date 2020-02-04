@@ -9,15 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ServiceCenter
+namespace ServiceCenter.Setup
 {
-    public partial class MainWindow : BaseUI
+    public partial class frmAddSupplier : BaseUI
     {
-        public MainWindow()
+        public frmAddSupplier()
         {
             InitializeComponent();
-            this.SetFormName();
-
         }
+
+
     }
 }
