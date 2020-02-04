@@ -17,9 +17,7 @@ namespace ServiceCenter
         {
             InitializeComponent();
 
-            //hello world van car  bus  
-            //new 
-             
+            //hello world     car  bus   
         }
     }
 }
