@@ -17,8 +17,6 @@ namespace ServiceCenter
         {
             InitializeComponent();
 
-            //hello world car  
-            //and
         }
     }
 }
