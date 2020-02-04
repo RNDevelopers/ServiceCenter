@@ -90,6 +90,12 @@
     <Compile Include="Setup\frmAddSubCategory.designer.cs">
       <DependentUpon>frmAddSubCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setup\frmAddUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddUnit.Designer.cs">
+      <DependentUpon>frmAddUnit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddCompany.resx">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddSubCategory.resx">
+      <DependentUpon>frmAddSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddUnit.resx">
+      <DependentUpon>frmAddUnit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
