@@ -16,7 +16,7 @@ namespace ServiceCenter.Setup
         public frmAddMainCategory()
         {
             InitializeComponent();
-            this.SetFormName();
+            this.SetFormName();  
         }
 
 
