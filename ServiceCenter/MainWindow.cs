@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceCenter.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ServiceCenter
 {
-    public partial class MainWindow : Form
+    public partial class MainWindow : BaseUI
     {
         public MainWindow()
         {
