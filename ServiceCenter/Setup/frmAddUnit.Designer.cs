@@ -1,6 +1,6 @@
 ﻿namespace ServiceCenter.Setup
 {
-    partial class frmAddBrand
+    partial class frmAddUnit
     {
         /// <summary>
         /// Required designer variable.
@@ -35,18 +35,29 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.dgvBrand = new System.Windows.Forms.DataGridView();
+            this.dgvUnit = new System.Windows.Forms.DataGridView();
             this.clmBrandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmbtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtBrand = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtUnit = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnit)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 45);
+            this.label1.TabIndex = 155;
+            this.label1.Text = "Add Unit";
             // 
             // btnSave
             // 
@@ -57,28 +68,27 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(433, 158);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(429, 152);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 43);
-            this.btnSave.TabIndex = 147;
+            this.btnSave.TabIndex = 154;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // dgvBrand
+            // dgvUnit
             // 
-            this.dgvBrand.AllowUserToAddRows = false;
-            this.dgvBrand.AllowUserToDeleteRows = false;
-            this.dgvBrand.AllowUserToOrderColumns = true;
-            this.dgvBrand.AllowUserToResizeRows = false;
+            this.dgvUnit.AllowUserToAddRows = false;
+            this.dgvUnit.AllowUserToDeleteRows = false;
+            this.dgvUnit.AllowUserToOrderColumns = true;
+            this.dgvUnit.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBrand.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvBrand.BackgroundColor = System.Drawing.Color.White;
-            this.dgvBrand.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBrand.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvBrand.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUnit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUnit.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUnit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUnit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(58)))), ((int)(((byte)(81)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,10 +96,10 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrand.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBrand.ColumnHeadersHeight = 35;
-            this.dgvBrand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvBrand.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUnit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUnit.ColumnHeadersHeight = 35;
+            this.dgvUnit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvUnit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmBrandID,
             this.clmName,
             this.clmbtnEdit});
@@ -100,32 +110,32 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBrand.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvBrand.EnableHeadersVisualStyles = false;
-            this.dgvBrand.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvBrand.Location = new System.Drawing.Point(52, 209);
-            this.dgvBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvBrand.MultiSelect = false;
-            this.dgvBrand.Name = "dgvBrand";
-            this.dgvBrand.ReadOnly = true;
-            this.dgvBrand.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvUnit.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvUnit.EnableHeadersVisualStyles = false;
+            this.dgvUnit.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvUnit.Location = new System.Drawing.Point(48, 203);
+            this.dgvUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvUnit.MultiSelect = false;
+            this.dgvUnit.Name = "dgvUnit";
+            this.dgvUnit.ReadOnly = true;
+            this.dgvUnit.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvBrand.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvBrand.RowHeadersVisible = false;
-            this.dgvBrand.RowHeadersWidth = 15;
+            this.dgvUnit.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvUnit.RowHeadersVisible = false;
+            this.dgvUnit.RowHeadersWidth = 15;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBrand.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvBrand.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvBrand.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBrand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBrand.Size = new System.Drawing.Size(476, 331);
-            this.dgvBrand.TabIndex = 146;
+            this.dgvUnit.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvUnit.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvUnit.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUnit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUnit.Size = new System.Drawing.Size(476, 331);
+            this.dgvUnit.TabIndex = 153;
             // 
             // clmBrandID
             // 
@@ -159,43 +169,32 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(159, 119);
+            this.label7.Location = new System.Drawing.Point(155, 113);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(14, 23);
-            this.label7.TabIndex = 145;
+            this.label7.TabIndex = 152;
             this.label7.Text = ":";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(47, 121);
+            this.label10.Location = new System.Drawing.Point(43, 115);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 23);
-            this.label10.TabIndex = 144;
-            this.label10.Text = "Brand Name";
+            this.label10.Size = new System.Drawing.Size(81, 23);
+            this.label10.TabIndex = 151;
+            this.label10.Text = "Unit type";
             // 
-            // txtBrand
+            // txtUnit
             // 
-            this.txtBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtBrand.Location = new System.Drawing.Point(181, 119);
-            this.txtBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(347, 29);
-            this.txtBrand.TabIndex = 143;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 45);
-            this.label1.TabIndex = 149;
-            this.label1.Text = "Add Brand";
+            this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtUnit.Location = new System.Drawing.Point(177, 113);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(347, 29);
+            this.txtUnit.TabIndex = 150;
             // 
             // btnDelete
             // 
@@ -206,52 +205,52 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(433, 548);
+            this.btnDelete.Location = new System.Drawing.Point(429, 542);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(95, 43);
-            this.btnDelete.TabIndex = 150;
+            this.btnDelete.TabIndex = 156;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // frmAddBrand
+            // frmAddUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 613);
+            this.ClientSize = new System.Drawing.Size(546, 601);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dgvBrand);
+            this.Controls.Add(this.dgvUnit);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtBrand);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmAddBrand";
-            this.Text = "Add Brand";
-            this.Controls.SetChildIndex(this.txtBrand, 0);
+            this.Controls.Add(this.txtUnit);
+            this.Name = "frmAddUnit";
+            this.Text = "frmAddUnit";
+            this.Controls.SetChildIndex(this.txtUnit, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label7, 0);
-            this.Controls.SetChildIndex(this.dgvBrand, 0);
+            this.Controls.SetChildIndex(this.dgvUnit, 0);
             this.Controls.SetChildIndex(this.btnSave, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnDelete, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView dgvBrand;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtBrand;
+
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridView dgvUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBrandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
         private System.Windows.Forms.DataGridViewButtonColumn clmbtnEdit;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Button btnDelete;
     }
 }
