@@ -58,11 +58,11 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="New\frmRamod.cs">
+    <Compile Include="New\frmNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New\frmRamod.Designer.cs">
-      <DependentUpon>frmRamod.cs</DependentUpon>
+    <Compile Include="New\frmNew.Designer.cs">
+      <DependentUpon>frmNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
