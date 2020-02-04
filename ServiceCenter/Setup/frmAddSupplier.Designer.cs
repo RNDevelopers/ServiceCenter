@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBatchNo = new System.Windows.Forms.TextBox();
+            this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,36 +42,36 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDesignature = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSuppilerName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtContactNo = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtBatchNo
+            // txtCompanyName
             // 
-            this.txtBatchNo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtBatchNo.Location = new System.Drawing.Point(250, 139);
-            this.txtBatchNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBatchNo.Name = "txtBatchNo";
-            this.txtBatchNo.Size = new System.Drawing.Size(464, 29);
-            this.txtBatchNo.TabIndex = 116;
+            this.txtCompanyName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtCompanyName.Location = new System.Drawing.Point(250, 139);
+            this.txtCompanyName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.Size = new System.Drawing.Size(464, 29);
+            this.txtCompanyName.TabIndex = 116;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(13, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 38);
+            this.label3.Size = new System.Drawing.Size(229, 46);
             this.label3.TabIndex = 117;
             this.label3.Text = "Add Supplier";
             // 
@@ -97,14 +97,14 @@
             this.label1.TabIndex = 121;
             this.label1.Text = "Address";
             // 
-            // textBox1
+            // txtAddress
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox1.Location = new System.Drawing.Point(250, 190);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(464, 29);
-            this.textBox1.TabIndex = 120;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtAddress.Location = new System.Drawing.Point(250, 190);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(464, 29);
+            this.txtAddress.TabIndex = 120;
             // 
             // label2
             // 
@@ -117,14 +117,14 @@
             this.label2.TabIndex = 123;
             this.label2.Text = "City";
             // 
-            // textBox2
+            // txtCity
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox2.Location = new System.Drawing.Point(250, 244);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(464, 29);
-            this.textBox2.TabIndex = 122;
+            this.txtCity.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtCity.Location = new System.Drawing.Point(250, 244);
+            this.txtCity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(464, 29);
+            this.txtCity.TabIndex = 122;
             // 
             // label4
             // 
@@ -203,14 +203,14 @@
             this.label10.TabIndex = 131;
             this.label10.Text = "Designature";
             // 
-            // textBox3
+            // txtDesignature
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox3.Location = new System.Drawing.Point(250, 504);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(464, 29);
-            this.textBox3.TabIndex = 130;
+            this.txtDesignature.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtDesignature.Location = new System.Drawing.Point(250, 504);
+            this.txtDesignature.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDesignature.Name = "txtDesignature";
+            this.txtDesignature.Size = new System.Drawing.Size(464, 29);
+            this.txtDesignature.TabIndex = 130;
             // 
             // label12
             // 
@@ -223,14 +223,14 @@
             this.label12.TabIndex = 129;
             this.label12.Text = "Supplier Name";
             // 
-            // textBox4
+            // txtSuppilerName
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox4.Location = new System.Drawing.Point(250, 453);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(464, 29);
-            this.textBox4.TabIndex = 128;
+            this.txtSuppilerName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtSuppilerName.Location = new System.Drawing.Point(250, 453);
+            this.txtSuppilerName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSuppilerName.Name = "txtSuppilerName";
+            this.txtSuppilerName.Size = new System.Drawing.Size(464, 29);
+            this.txtSuppilerName.TabIndex = 128;
             // 
             // label13
             // 
@@ -265,14 +265,14 @@
             this.label15.TabIndex = 137;
             this.label15.Text = "E-Mail";
             // 
-            // textBox5
+            // txtEmail
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox5.Location = new System.Drawing.Point(250, 356);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(464, 29);
-            this.textBox5.TabIndex = 136;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtEmail.Location = new System.Drawing.Point(250, 356);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(464, 29);
+            this.txtEmail.TabIndex = 136;
             // 
             // label16
             // 
@@ -285,14 +285,14 @@
             this.label16.TabIndex = 135;
             this.label16.Text = "Contact No";
             // 
-            // textBox6
+            // txtContactNo
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox6.Location = new System.Drawing.Point(250, 302);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(464, 29);
-            this.textBox6.TabIndex = 134;
+            this.txtContactNo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtContactNo.Location = new System.Drawing.Point(250, 302);
+            this.txtContactNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContactNo.Name = "txtContactNo";
+            this.txtContactNo.Size = new System.Drawing.Size(464, 29);
+            this.txtContactNo.TabIndex = 134;
             // 
             // btnSave
             // 
@@ -311,80 +311,80 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(402, 567);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 58);
-            this.button1.TabIndex = 141;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(402, 567);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(152, 58);
+            this.btnClear.TabIndex = 141;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
             // frmAddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 658);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtContactNo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtDesignature);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtSuppilerName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtCity);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBatchNo);
+            this.Controls.Add(this.txtCompanyName);
             this.Name = "frmAddSupplier";
             this.Text = "frmAddSupplier";
-            this.Controls.SetChildIndex(this.txtBatchNo, 0);
+            this.Controls.SetChildIndex(this.txtCompanyName, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label11, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txtAddress, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.txtCity, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
-            this.Controls.SetChildIndex(this.textBox4, 0);
+            this.Controls.SetChildIndex(this.txtSuppilerName, 0);
             this.Controls.SetChildIndex(this.label12, 0);
-            this.Controls.SetChildIndex(this.textBox3, 0);
+            this.Controls.SetChildIndex(this.txtDesignature, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.label8, 0);
-            this.Controls.SetChildIndex(this.textBox6, 0);
+            this.Controls.SetChildIndex(this.txtContactNo, 0);
             this.Controls.SetChildIndex(this.label16, 0);
-            this.Controls.SetChildIndex(this.textBox5, 0);
+            this.Controls.SetChildIndex(this.txtEmail, 0);
             this.Controls.SetChildIndex(this.label15, 0);
             this.Controls.SetChildIndex(this.label14, 0);
             this.Controls.SetChildIndex(this.label13, 0);
             this.Controls.SetChildIndex(this.btnSave, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.btnClear, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,13 +392,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBatchNo;
+        private System.Windows.Forms.TextBox txtCompanyName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -406,16 +406,16 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDesignature;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtSuppilerName;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtContactNo;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClear;
     }
 }
