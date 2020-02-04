@@ -16,6 +16,7 @@ namespace ServiceCenter
         public MainWindow()
         {
             InitializeComponent();
+            this.SetFormName();
 
         }
     }
