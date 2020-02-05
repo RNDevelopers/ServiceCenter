@@ -16,6 +16,8 @@ namespace ServiceCenter.Setup
             GetMainCategory();
             GetBrand();
             GetItemUnit();
+
+            //from Ramod
         }
 
         public void GetCompany()
