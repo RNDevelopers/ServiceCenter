@@ -3,6 +3,8 @@ using ServiceCenter.DBConnection;
 using ServiceCenter.Enums;
 using System;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
@@ -76,6 +78,31 @@ namespace ServiceCenter.Setup
 
         }
 
+        public void SaveSubCategory()
+        {
+            DialogResult dr = MessageBox.Show("Are You Sure Want to Add Sub Category ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
+            if (dr == DialogResult.Yes)
+            {
+
+                Execute objExecute = new Execute();
+                SqlParameter[] param = new SqlParameter[]
+                   {
+                    Execute.AddParameter("@MainCategoryName",.Text.Trim()),
+                     Execute.AddParameter("@vcItemCode",txtCategoryCode.Text.Trim()),
+                   };
+
+                int NoOfRowsEffected = objExecute.Executes("SaveMainCategory", param, CommandType.StoredProcedure);
+
+                if (NoOfRowsEffected < 0)
+                {
+                    MessageBox.Show("Save..");
+                }
+                else
+                {
+                    MessageBox.Show("Cant't Save..");
+                }
+            }
+        }
     }
 }
