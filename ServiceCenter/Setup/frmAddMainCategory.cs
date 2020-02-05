@@ -63,7 +63,7 @@ namespace ServiceCenter.Setup
             catch (Exception)    
             {
 
-                throw;
+                
             }
 
         }

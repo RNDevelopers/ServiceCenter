@@ -61,7 +61,7 @@
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -77,6 +77,12 @@
     </Compile>
     <Compile Include="Setup\frmAddCompany.Designer.cs">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddItem.Designer.cs">
+      <DependentUpon>frmAddItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\frmAddMainCategory.cs">
       <SubType>Form</SubType>
@@ -124,6 +130,9 @@
     <EmbeddedResource Include="Setup\frmAddCompany.resx">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddItem.resx">
+      <DependentUpon>frmAddItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddMainCategory.resx">
       <DependentUpon>frmAddMainCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +159,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Customer\" />
     <Folder Include="Recivces\" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +185,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fiat_500_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

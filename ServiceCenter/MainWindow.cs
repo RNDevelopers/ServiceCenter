@@ -123,5 +123,19 @@ namespace ServiceCenter
         {
 
         }
+
+        private void btnIssues_Click(object sender, EventArgs e)
+        {
+            //issues button
+            slidePlane.Height = btnSetUp.Height;
+            slidePlane.Top = btnIssues.Top;
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            //add customer button
+            slidePlane.Height = btnSetUp.Height;
+            slidePlane.Top = btnCustomer.Top;
+        }
     }
 }

@@ -88,6 +88,8 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
+                   // Execute.AddParameter("@MainCategoryName",Text.Trim()),
+                  //   Execute.AddParameter("@vcItemCode",txtCategoryCode.Text.Trim()),
                      Execute.AddParameter("@intMainCategoryID",Convert.ToInt32(cmbMainCategory.SelectedValue)),
                      Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue)),
                      Execute.AddParameter("@intUnitID",Convert.ToInt32(cmbUnit.SelectedValue)),

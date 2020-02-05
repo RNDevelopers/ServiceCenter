@@ -1,6 +1,6 @@
 ﻿namespace ServiceCenter.Setup
 {
-    partial class frmIssues
+    partial class frmAddItem
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // frmIssues
+            // frmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 587);
-            this.Name = "frmIssues";
-            this.Text = "Issues";
+            this.ClientSize = new System.Drawing.Size(807, 639);
+            this.Name = "frmAddItem";
+            this.Text = "frmAddItem";
             this.ResumeLayout(false);
 
         }
