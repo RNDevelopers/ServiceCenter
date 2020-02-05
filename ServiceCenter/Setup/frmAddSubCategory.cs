@@ -66,5 +66,10 @@ namespace ServiceCenter.Setup
         {
             txtSubCategory.Text = (cmbBrand.Text.ToString() + ' ' + '-' + ' ');
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
