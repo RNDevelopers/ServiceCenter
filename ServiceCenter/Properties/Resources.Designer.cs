@@ -93,6 +93,16 @@ namespace ServiceCenter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download_24px {
+            get {
+                object obj = ResourceManager.GetObject("download_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fiat_500_100px {
             get {
                 object obj = ResourceManager.GetObject("fiat_500_100px", resourceCulture);
@@ -136,6 +146,26 @@ namespace ServiceCenter.Properties {
         internal static System.Drawing.Bitmap undo_30px {
             get {
                 object obj = ResourceManager.GetObject("undo_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_24px {
+            get {
+                object obj = ResourceManager.GetObject("upload_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_24px {
+            get {
+                object obj = ResourceManager.GetObject("user_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
