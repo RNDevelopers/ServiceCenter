@@ -118,6 +118,9 @@
     <EmbeddedResource Include="Setup\frmAddCompany.resx">
       <DependentUpon>frmAddCompany.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddMainCategory.resx">
+      <DependentUpon>frmAddMainCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddSubCategory.resx">
       <DependentUpon>frmAddSubCategory.cs</DependentUpon>
     </EmbeddedResource>

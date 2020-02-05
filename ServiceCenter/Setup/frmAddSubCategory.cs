@@ -12,7 +12,7 @@ namespace ServiceCenter.Setup
         {
             InitializeComponent();
             this.SetFormName();
-            GetCompany();
+
             GetMainCategory();
             GetBrand();
             GetItemUnit();
@@ -22,16 +22,16 @@ namespace ServiceCenter.Setup
             //fromn nethsara
         }
 
-        public void GetCompany()
-        {
-            Execute objExecute = new Execute();
-            DataTable dt = (DataTable)objExecute.Executes("spGetAllCompany", ReturnType.DataTable, CommandType.StoredProcedure);
+        //public void GetCompany()
+        //{
+        //    Execute objExecute = new Execute();
+        //    DataTable dt = (DataTable)objExecute.Executes("spGetAllCompany", ReturnType.DataTable, CommandType.StoredProcedure);
 
-            cmbCompanyName.DataSource = dt;
-            cmbCompanyName.DisplayMember = "vcCompanyName";
-            cmbCompanyName.ValueMember = "intCompanyID";
-            cmbCompanyName.SelectedIndex = -1;
-        }
+        //    cmbCompanyName.DataSource = dt;
+        //    cmbCompanyName.DisplayMember = "vcCompanyName";
+        //    cmbCompanyName.ValueMember = "intCompanyID";
+        //    cmbCompanyName.SelectedIndex = -1;
+        //}
 
         public void GetMainCategory()
         {
@@ -68,12 +68,14 @@ namespace ServiceCenter.Setup
 
         private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            txtSubCategory.Text = (cmbBrand.Text.ToString() + ' ' + '-' + ' ');
+            //txtSubCategory.Text = (cmbBrand.Text.ToString() + ' ' + '-' + ' ');
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
