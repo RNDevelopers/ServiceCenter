@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceCenter.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,12 @@ using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
-    public partial class frmIssues : Form
+    public partial class frmIssues : BaseUI
     {
         public frmIssues()
         {
             InitializeComponent();
+            this.SetFormName();
         }
     }
 }
