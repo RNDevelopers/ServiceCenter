@@ -123,7 +123,7 @@
             this.cmbCompanyName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbCompanyName.FormattingEnabled = true;
             this.cmbCompanyName.Location = new System.Drawing.Point(211, 149);
-            this.cmbCompanyName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCompanyName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCompanyName.Name = "cmbCompanyName";
             this.cmbCompanyName.Size = new System.Drawing.Size(887, 29);
             this.cmbCompanyName.TabIndex = 124;
@@ -135,7 +135,7 @@
             this.cmbMainCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbMainCategory.FormattingEnabled = true;
             this.cmbMainCategory.Location = new System.Drawing.Point(211, 201);
-            this.cmbMainCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMainCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMainCategory.Name = "cmbMainCategory";
             this.cmbMainCategory.Size = new System.Drawing.Size(248, 29);
             this.cmbMainCategory.TabIndex = 131;
@@ -147,7 +147,7 @@
             this.cmbBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbBrand.FormattingEnabled = true;
             this.cmbBrand.Location = new System.Drawing.Point(559, 201);
-            this.cmbBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbBrand.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(249, 29);
             this.cmbBrand.TabIndex = 134;
@@ -201,7 +201,7 @@
             // 
             this.txtSubCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtSubCategory.Location = new System.Drawing.Point(211, 249);
-            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubCategory.Name = "txtSubCategory";
             this.txtSubCategory.Size = new System.Drawing.Size(887, 29);
             this.txtSubCategory.TabIndex = 135;
@@ -245,7 +245,7 @@
             this.dgvAddSubCategory.EnableHeadersVisualStyles = false;
             this.dgvAddSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvAddSubCategory.Location = new System.Drawing.Point(32, 303);
-            this.dgvAddSubCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAddSubCategory.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAddSubCategory.MultiSelect = false;
             this.dgvAddSubCategory.Name = "dgvAddSubCategory";
             this.dgvAddSubCategory.ReadOnly = true;
@@ -307,7 +307,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
@@ -315,7 +315,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(944, 650);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(152, 58);
             this.btnSave.TabIndex = 141;
@@ -325,7 +325,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
@@ -333,7 +333,7 @@
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Location = new System.Drawing.Point(784, 650);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(152, 58);
             this.btnClear.TabIndex = 142;
@@ -347,7 +347,7 @@
             this.cmbUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbUnit.FormattingEnabled = true;
             this.cmbUnit.Location = new System.Drawing.Point(917, 204);
-            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(177, 29);
             this.cmbUnit.TabIndex = 145;
