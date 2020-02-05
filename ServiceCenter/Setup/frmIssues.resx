@@ -117,30 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="curved_arrow_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\curved_arrow_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="report_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\report_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  
-  <data name="arrow_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rounded_up_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rounded_up_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="undo_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\undo_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plus_math_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus_math_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="car_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\car_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fiat_500_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fiat_500_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

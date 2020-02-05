@@ -96,6 +96,12 @@
     <Compile Include="Setup\frmAddUnit.Designer.cs">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setup\frmIssues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmIssues.Designer.cs">
+      <DependentUpon>frmIssues.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddUnit.resx">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmIssues.resx">
+      <DependentUpon>frmIssues.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,9 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\car_100px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\car_100px1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fiat_500_100px.png" />
