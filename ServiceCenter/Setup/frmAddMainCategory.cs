@@ -60,7 +60,7 @@ namespace ServiceCenter.Setup
                 dgvAddMainCategory.DataSource = dt;
             }
 
-            catch (Exception)
+            catch (Exception)    
             {
 
                 throw;
