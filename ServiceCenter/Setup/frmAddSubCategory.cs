@@ -70,12 +70,12 @@ namespace ServiceCenter.Setup
 
         private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //txtSubCategory.Text = (cmbBrand.Text.ToString() + ' ' + '-' + ' ');
+            txtSubCategory.Text = (cmbBrand.Text.ToString() + ' ' + '-' + ' ');
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            SaveSubCategory();
         }
 
         public void SaveSubCategory()
@@ -88,11 +88,13 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                    Execute.AddParameter("@MainCategoryName",.Text.Trim()),
-                     Execute.AddParameter("@vcItemCode",txtCategoryCode.Text.Trim()),
+                     Execute.AddParameter("@intMainCategoryID",Convert.ToInt32(cmbMainCategory.SelectedValue)),
+                     Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue)),
+                     Execute.AddParameter("@intUnitID",Convert.ToInt32(cmbUnit.SelectedValue)),
+                     Execute.AddParameter("@vcSubCategoryName",txtSubCategory.Text.Trim().ToUpper()),
                    };
 
-                int NoOfRowsEffected = objExecute.Executes("SaveMainCategory", param, CommandType.StoredProcedure);
+                int NoOfRowsEffected = objExecute.Executes("SaveSubCategory", param, CommandType.StoredProcedure);
 
                 if (NoOfRowsEffected < 0)
                 {
