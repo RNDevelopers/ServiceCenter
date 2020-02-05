@@ -87,37 +87,13 @@
             this.label2.TabIndex = 126;
             this.label2.Text = ":";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(188, 150);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(14, 23);
-            this.label8.TabIndex = 125;
-            this.label8.Text = ":";
-            // 
-            // cmbCompanyName
-            // 
-            this.cmbCompanyName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbCompanyName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cmbCompanyName.FormattingEnabled = true;
-            this.cmbCompanyName.Location = new System.Drawing.Point(211, 149);
-            this.cmbCompanyName.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbCompanyName.Name = "cmbCompanyName";
-            this.cmbCompanyName.Size = new System.Drawing.Size(887, 29);
-            this.cmbCompanyName.TabIndex = 124;
-            // 
             // cmbMainCategory
             // 
             this.cmbMainCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMainCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbMainCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbMainCategory.FormattingEnabled = true;
-            this.cmbMainCategory.Location = new System.Drawing.Point(211, 201);
-            this.cmbMainCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMainCategory.Location = new System.Drawing.Point(158, 99);
             this.cmbMainCategory.Name = "cmbMainCategory";
             this.cmbMainCategory.Size = new System.Drawing.Size(187, 25);
             this.cmbMainCategory.TabIndex = 131;
@@ -128,8 +104,7 @@
             this.cmbBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbBrand.FormattingEnabled = true;
-            this.cmbBrand.Location = new System.Drawing.Point(559, 201);
-            this.cmbBrand.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbBrand.Location = new System.Drawing.Point(158, 137);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(188, 25);
             this.cmbBrand.TabIndex = 134;
@@ -178,8 +153,7 @@
             // txtSubCategory
             // 
             this.txtSubCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtSubCategory.Location = new System.Drawing.Point(211, 249);
-            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSubCategory.Location = new System.Drawing.Point(156, 208);
             this.txtSubCategory.Name = "txtSubCategory";
             this.txtSubCategory.Size = new System.Drawing.Size(188, 25);
             this.txtSubCategory.TabIndex = 135;
@@ -222,8 +196,7 @@
             this.dgvAddSubCategory.DefaultCellStyle = dataGridViewCellStyle26;
             this.dgvAddSubCategory.EnableHeadersVisualStyles = false;
             this.dgvAddSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAddSubCategory.Location = new System.Drawing.Point(32, 303);
-            this.dgvAddSubCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvAddSubCategory.Location = new System.Drawing.Point(17, 287);
             this.dgvAddSubCategory.MultiSelect = false;
             this.dgvAddSubCategory.Name = "dgvAddSubCategory";
             this.dgvAddSubCategory.ReadOnly = true;
@@ -285,15 +258,14 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(170)))), ((int)(((byte)(231)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(944, 650);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Location = new System.Drawing.Point(317, 246);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(71, 35);
             this.btnSave.TabIndex = 141;
@@ -301,31 +273,13 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(784, 650);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(152, 58);
-            this.btnClear.TabIndex = 142;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
             // cmbUnit
             // 
             this.cmbUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(917, 204);
-            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbUnit.Location = new System.Drawing.Point(159, 173);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(134, 25);
             this.cmbUnit.TabIndex = 145;
