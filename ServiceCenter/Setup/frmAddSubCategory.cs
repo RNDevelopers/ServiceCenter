@@ -16,6 +16,8 @@ namespace ServiceCenter.Setup
             GetMainCategory();
             GetBrand();
             GetItemUnit();
+
+            //fromn nethsara
         }
 
         public void GetCompany()
