@@ -110,6 +110,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Setup\frmAddBrand.resx">
       <DependentUpon>frmAddBrand.cs</DependentUpon>
@@ -141,6 +142,33 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Recivces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_math_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curved_arrow_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rounded_up_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_100px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fiat_500_100px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
