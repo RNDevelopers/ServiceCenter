@@ -30,15 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCustomer = new System.Windows.Forms.Button();
-            this.btnIssues = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.slidePlane = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.btnReceive = new System.Windows.Forms.Button();
-            this.btnSetUp = new System.Windows.Forms.Button();
             this.contextMenuStrip_Setup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCompanySupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMainCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,11 +41,19 @@
             this.toSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnIssues = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnReceive = new System.Windows.Forms.Button();
+            this.btnSetUp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
             this.contextMenuStrip_Returt.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,6 +73,108 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(222, 733);
             this.panel1.TabIndex = 154;
+            // 
+            // slidePlane
+            // 
+            this.slidePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.slidePlane.Location = new System.Drawing.Point(4, 96);
+            this.slidePlane.Name = "slidePlane";
+            this.slidePlane.Size = new System.Drawing.Size(10, 69);
+            this.slidePlane.TabIndex = 155;
+            // 
+            // contextMenuStrip_Setup
+            // 
+            this.contextMenuStrip_Setup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.contextMenuStrip_Setup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.contextMenuStrip_Setup.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip_Setup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCompanySupplierToolStripMenuItem,
+            this.addMainCategoryToolStripMenuItem,
+            this.addSubCategoryToolStripMenuItem,
+            this.addBrandToolStripMenuItem});
+            this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(239, 100);
+            this.contextMenuStrip_Setup.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // addCompanySupplierToolStripMenuItem
+            // 
+            this.addCompanySupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.addCompanySupplierToolStripMenuItem.Name = "addCompanySupplierToolStripMenuItem";
+            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addCompanySupplierToolStripMenuItem.Text = "Add Company Supplier";
+            this.addCompanySupplierToolStripMenuItem.Click += new System.EventHandler(this.addCompanySupplierToolStripMenuItem_Click);
+            // 
+            // addMainCategoryToolStripMenuItem
+            // 
+            this.addMainCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.addMainCategoryToolStripMenuItem.Name = "addMainCategoryToolStripMenuItem";
+            this.addMainCategoryToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addMainCategoryToolStripMenuItem.Text = "Add Main Category";
+            this.addMainCategoryToolStripMenuItem.Click += new System.EventHandler(this.addMainCategoryToolStripMenuItem_Click);
+            // 
+            // addSubCategoryToolStripMenuItem
+            // 
+            this.addSubCategoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addSubCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.addSubCategoryToolStripMenuItem.Name = "addSubCategoryToolStripMenuItem";
+            this.addSubCategoryToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addSubCategoryToolStripMenuItem.Text = "Add Sub Category";
+            this.addSubCategoryToolStripMenuItem.Click += new System.EventHandler(this.addSubCategoryToolStripMenuItem_Click);
+            // 
+            // addBrandToolStripMenuItem
+            // 
+            this.addBrandToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.addBrandToolStripMenuItem.Name = "addBrandToolStripMenuItem";
+            this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addBrandToolStripMenuItem.Text = "Add Brand";
+            this.addBrandToolStripMenuItem.Click += new System.EventHandler(this.addBrandToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip_Returt
+            // 
+            this.contextMenuStrip_Returt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.contextMenuStrip_Returt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.contextMenuStrip_Returt.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip_Returt.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromCustomerToolStripMenuItem,
+            this.toSupplierToolStripMenuItem});
+            this.contextMenuStrip_Returt.Name = "contextMenuStrip_Returt";
+            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(188, 52);
+            // 
+            // fromCustomerToolStripMenuItem
+            // 
+            this.fromCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fromCustomerToolStripMenuItem.Name = "fromCustomerToolStripMenuItem";
+            this.fromCustomerToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.fromCustomerToolStripMenuItem.Text = "From Customer";
+            // 
+            // toSupplierToolStripMenuItem
+            // 
+            this.toSupplierToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.toSupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.toSupplierToolStripMenuItem.Name = "toSupplierToolStripMenuItem";
+            this.toSupplierToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.toSupplierToolStripMenuItem.Text = "To Supplier";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(222, 32);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(950, 88);
+            this.panel2.TabIndex = 155;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(6, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(548, 59);
+            this.label1.TabIndex = 156;
+            this.label1.Text = "Nihal Car Service and Wax";
             // 
             // btnCustomer
             // 
@@ -126,14 +228,6 @@
             this.pictureBox1.TabIndex = 156;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // slidePlane
-            // 
-            this.slidePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.slidePlane.Location = new System.Drawing.Point(4, 96);
-            this.slidePlane.Name = "slidePlane";
-            this.slidePlane.Size = new System.Drawing.Size(10, 69);
-            this.slidePlane.TabIndex = 155;
             // 
             // btnLogout
             // 
@@ -241,100 +335,6 @@
             this.btnSetUp.UseVisualStyleBackColor = true;
             this.btnSetUp.Click += new System.EventHandler(this.button3_Click);
             // 
-            // contextMenuStrip_Setup
-            // 
-            this.contextMenuStrip_Setup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.contextMenuStrip_Setup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.contextMenuStrip_Setup.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip_Setup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCompanySupplierToolStripMenuItem,
-            this.addMainCategoryToolStripMenuItem,
-            this.addSubCategoryToolStripMenuItem,
-            this.addBrandToolStripMenuItem});
-            this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(239, 100);
-            this.contextMenuStrip_Setup.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // addCompanySupplierToolStripMenuItem
-            // 
-            this.addCompanySupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.addCompanySupplierToolStripMenuItem.Name = "addCompanySupplierToolStripMenuItem";
-            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.addCompanySupplierToolStripMenuItem.Text = "Add Company Supplier";
-            this.addCompanySupplierToolStripMenuItem.Click += new System.EventHandler(this.addCompanySupplierToolStripMenuItem_Click);
-            // 
-            // addMainCategoryToolStripMenuItem
-            // 
-            this.addMainCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.addMainCategoryToolStripMenuItem.Name = "addMainCategoryToolStripMenuItem";
-            this.addMainCategoryToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.addMainCategoryToolStripMenuItem.Text = "Add Main Category";
-            this.addMainCategoryToolStripMenuItem.Click += new System.EventHandler(this.addMainCategoryToolStripMenuItem_Click);
-            // 
-            // addSubCategoryToolStripMenuItem
-            // 
-            this.addSubCategoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.addSubCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.addSubCategoryToolStripMenuItem.Name = "addSubCategoryToolStripMenuItem";
-            this.addSubCategoryToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.addSubCategoryToolStripMenuItem.Text = "Add Sub Category";
-            this.addSubCategoryToolStripMenuItem.Click += new System.EventHandler(this.addSubCategoryToolStripMenuItem_Click);
-            // 
-            // addBrandToolStripMenuItem
-            // 
-            this.addBrandToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.addBrandToolStripMenuItem.Name = "addBrandToolStripMenuItem";
-            this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.addBrandToolStripMenuItem.Text = "Add Brand";
-            this.addBrandToolStripMenuItem.Click += new System.EventHandler(this.addBrandToolStripMenuItem_Click);
-            // 
-            // contextMenuStrip_Returt
-            // 
-            this.contextMenuStrip_Returt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.contextMenuStrip_Returt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.contextMenuStrip_Returt.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip_Returt.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fromCustomerToolStripMenuItem,
-            this.toSupplierToolStripMenuItem});
-            this.contextMenuStrip_Returt.Name = "contextMenuStrip_Returt";
-            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(188, 52);
-            // 
-            // fromCustomerToolStripMenuItem
-            // 
-            this.fromCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.fromCustomerToolStripMenuItem.Name = "fromCustomerToolStripMenuItem";
-            this.fromCustomerToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.fromCustomerToolStripMenuItem.Text = "From Customer";
-            // 
-            // toSupplierToolStripMenuItem
-            // 
-            this.toSupplierToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.toSupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.toSupplierToolStripMenuItem.Name = "toSupplierToolStripMenuItem";
-            this.toSupplierToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
-            this.toSupplierToolStripMenuItem.Text = "To Supplier";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(222, 32);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(950, 88);
-            this.panel2.TabIndex = 155;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(6, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(548, 59);
-            this.label1.TabIndex = 156;
-            this.label1.Text = "Nihal Car Service and Wax";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -352,11 +352,11 @@
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip_Setup.ResumeLayout(false);
             this.contextMenuStrip_Returt.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
