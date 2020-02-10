@@ -26,8 +26,9 @@ namespace ServiceCenter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmAddCompany obj = new frmAddCompany();
-            obj.Show();
+           frmAddCompany obj = new frmAddCompany();
+           obj.Show();           
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -53,8 +54,8 @@ namespace ServiceCenter
         private void btnReceive_Click(object sender, EventArgs e)
         {
             //Receive button
-            slidePlane.Height = btnSetUp.Height;
-            slidePlane.Top = btnReceive.Top;
+            frmReceive obj = new frmReceive();
+            obj.Show();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -134,8 +135,15 @@ namespace ServiceCenter
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             //add customer button
-            slidePlane.Height = btnSetUp.Height;
-            slidePlane.Top = btnCustomer.Top;
+            frmCustomerRegister obj = new frmCustomerRegister();
+            obj.Show();
+        }
+
+        private void addItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //add Item
+            frmAddItem obj = new frmAddItem();
+            obj.Show();
         }
     }
 }

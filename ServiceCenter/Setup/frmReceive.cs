@@ -11,30 +11,25 @@ using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
-    public partial class frmAddItem : BaseUI
+    public partial class frmReceive : BaseUI
     {
-        public frmAddItem()
+        public frmReceive()
         {
             InitializeComponent();
             this.SetFormName();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBrand_TextChanged(object sender, EventArgs e)
+        private void frmReceive_Load(object sender, EventArgs e)
         {
 
         }

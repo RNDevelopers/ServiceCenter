@@ -52,9 +52,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 34);
+            this.label1.Location = new System.Drawing.Point(9, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 37);
+            this.label1.Size = new System.Drawing.Size(158, 45);
             this.label1.TabIndex = 155;
             this.label1.Text = "Add Unit";
             // 
@@ -67,9 +68,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(322, 124);
+            this.btnSave.Location = new System.Drawing.Point(429, 153);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(71, 35);
+            this.btnSave.Size = new System.Drawing.Size(95, 43);
             this.btnSave.TabIndex = 154;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -111,7 +113,8 @@
             this.dgvUnit.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUnit.EnableHeadersVisualStyles = false;
             this.dgvUnit.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvUnit.Location = new System.Drawing.Point(36, 165);
+            this.dgvUnit.Location = new System.Drawing.Point(48, 203);
+            this.dgvUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUnit.MultiSelect = false;
             this.dgvUnit.Name = "dgvUnit";
             this.dgvUnit.ReadOnly = true;
@@ -131,7 +134,7 @@
             this.dgvUnit.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvUnit.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUnit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUnit.Size = new System.Drawing.Size(357, 269);
+            this.dgvUnit.Size = new System.Drawing.Size(476, 331);
             this.dgvUnit.TabIndex = 153;
             // 
             // clmBrandID
@@ -166,9 +169,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(110, 92);
+            this.label7.Location = new System.Drawing.Point(147, 113);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 17);
+            this.label7.Size = new System.Drawing.Size(14, 23);
             this.label7.TabIndex = 152;
             this.label7.Text = ":";
             // 
@@ -176,41 +180,44 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(32, 93);
+            this.label10.Location = new System.Drawing.Point(43, 114);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 19);
+            this.label10.Size = new System.Drawing.Size(81, 23);
             this.label10.TabIndex = 151;
             this.label10.Text = "Unit type";
             // 
             // txtUnit
             // 
             this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtUnit.Location = new System.Drawing.Point(133, 92);
+            this.txtUnit.Location = new System.Drawing.Point(177, 113);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(261, 25);
+            this.txtUnit.Size = new System.Drawing.Size(347, 29);
             this.txtUnit.TabIndex = 150;
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDelete.BackColor = System.Drawing.Color.Teal;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(322, 440);
+            this.btnDelete.Location = new System.Drawing.Point(429, 542);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(71, 35);
+            this.btnDelete.Size = new System.Drawing.Size(95, 43);
             this.btnDelete.TabIndex = 156;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // frmAddUnit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 488);
+            this.ClientSize = new System.Drawing.Size(559, 601);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
@@ -218,7 +225,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtUnit);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddUnit";
             this.Text = "frmAddUnit";
             this.Controls.SetChildIndex(this.txtUnit, 0);

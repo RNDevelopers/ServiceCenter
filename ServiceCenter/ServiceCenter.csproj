@@ -130,11 +130,23 @@
     <Compile Include="Setup\frmAddUnit.Designer.cs">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setup\frmCustomerRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmCustomerRegister.Designer.cs">
+      <DependentUpon>frmCustomerRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setup\frmIssues.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Setup\frmIssues.Designer.cs">
       <DependentUpon>frmIssues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmReceive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmReceive.Designer.cs">
+      <DependentUpon>frmReceive.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
@@ -164,11 +176,20 @@
     <EmbeddedResource Include="Setup\frmAddMainCategory.resx">
       <DependentUpon>frmAddMainCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddSubCategory.resx">
+      <DependentUpon>frmAddSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddUnit.resx">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmCustomerRegister.resx">
+      <DependentUpon>frmCustomerRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmIssues.resx">
       <DependentUpon>frmIssues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmReceive.resx">
+      <DependentUpon>frmReceive.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
