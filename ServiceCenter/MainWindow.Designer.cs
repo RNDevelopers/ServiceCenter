@@ -50,7 +50,6 @@
             this.toSupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
@@ -255,7 +254,7 @@
             this.addBrandToolStripMenuItem,
             this.addItemsToolStripMenuItem});
             this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(239, 152);
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(239, 124);
             this.contextMenuStrip_Setup.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addCompanySupplierToolStripMenuItem
@@ -346,20 +345,12 @@
             this.label1.TabIndex = 156;
             this.label1.Text = "Nihal Car Service and Wax";
             // 
-            // pnlMain
-            // 
-            this.pnlMain.Location = new System.Drawing.Point(240, 139);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(920, 614);
-            this.pnlMain.TabIndex = 156;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1172, 765);
-            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -370,7 +361,6 @@
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.pnlMain, 0);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip_Setup.ResumeLayout(false);
@@ -403,7 +393,6 @@
         private System.Windows.Forms.Button btnIssues;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.ToolStripMenuItem addItemsToolStripMenuItem;
-        private System.Windows.Forms.Panel pnlMain;
     }
 }
 
