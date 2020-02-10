@@ -54,6 +54,7 @@
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddSubCategory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             this.cmbMainCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbMainCategory.FormattingEnabled = true;
             this.cmbMainCategory.Location = new System.Drawing.Point(211, 122);
-            this.cmbMainCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMainCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMainCategory.Name = "cmbMainCategory";
             this.cmbMainCategory.Size = new System.Drawing.Size(248, 29);
             this.cmbMainCategory.TabIndex = 131;
@@ -109,7 +110,7 @@
             this.cmbBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbBrand.FormattingEnabled = true;
             this.cmbBrand.Location = new System.Drawing.Point(211, 169);
-            this.cmbBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbBrand.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(249, 29);
             this.cmbBrand.TabIndex = 134;
@@ -163,7 +164,7 @@
             // 
             this.txtSubCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtSubCategory.Location = new System.Drawing.Point(208, 256);
-            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubCategory.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubCategory.Name = "txtSubCategory";
             this.txtSubCategory.Size = new System.Drawing.Size(249, 29);
             this.txtSubCategory.TabIndex = 135;
@@ -207,7 +208,7 @@
             this.dgvAddSubCategory.EnableHeadersVisualStyles = false;
             this.dgvAddSubCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvAddSubCategory.Location = new System.Drawing.Point(23, 353);
-            this.dgvAddSubCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAddSubCategory.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAddSubCategory.MultiSelect = false;
             this.dgvAddSubCategory.Name = "dgvAddSubCategory";
             this.dgvAddSubCategory.ReadOnly = true;
@@ -276,8 +277,8 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(423, 303);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(433, 302);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 43);
             this.btnSave.TabIndex = 141;
@@ -292,7 +293,7 @@
             this.cmbUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbUnit.FormattingEnabled = true;
             this.cmbUnit.Location = new System.Drawing.Point(212, 213);
-            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(177, 29);
             this.cmbUnit.TabIndex = 145;
@@ -319,11 +320,29 @@
             this.label11.TabIndex = 143;
             this.label11.Text = ":";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Teal;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(433, 724);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(95, 43);
+            this.btnDelete.TabIndex = 146;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
             // frmAddSubCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 751);
+            this.ClientSize = new System.Drawing.Size(556, 785);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cmbUnit);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
@@ -357,6 +376,7 @@
             this.Controls.SetChildIndex(this.label11, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.cmbUnit, 0);
+            this.Controls.SetChildIndex(this.btnDelete, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddSubCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -384,5 +404,6 @@
         private System.Windows.Forms.ComboBox cmbUnit;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

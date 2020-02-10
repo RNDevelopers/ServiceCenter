@@ -11,22 +11,12 @@ using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
-    public partial class frmIssues : BaseUI
+    public partial class frmCustomerRegister : BaseUI
     {
-        public frmIssues()
+        public frmCustomerRegister()
         {
             InitializeComponent();
             this.SetFormName();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmIssues_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

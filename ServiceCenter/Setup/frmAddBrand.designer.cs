@@ -58,7 +58,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(433, 158);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 43);
             this.btnSave.TabIndex = 147;
@@ -104,7 +104,7 @@
             this.dgvBrand.EnableHeadersVisualStyles = false;
             this.dgvBrand.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvBrand.Location = new System.Drawing.Point(52, 209);
-            this.dgvBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBrand.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBrand.MultiSelect = false;
             this.dgvBrand.Name = "dgvBrand";
             this.dgvBrand.ReadOnly = true;
@@ -182,7 +182,7 @@
             // 
             this.txtBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtBrand.Location = new System.Drawing.Point(181, 119);
-            this.txtBrand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBrand.Margin = new System.Windows.Forms.Padding(4);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(347, 29);
             this.txtBrand.TabIndex = 143;
@@ -200,7 +200,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDelete.BackColor = System.Drawing.Color.Teal;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
@@ -208,7 +208,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(433, 548);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(95, 43);
             this.btnDelete.TabIndex = 150;
