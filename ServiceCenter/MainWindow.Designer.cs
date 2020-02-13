@@ -72,7 +72,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 733);
+            this.panel1.Size = new System.Drawing.Size(222, 718);
             this.panel1.TabIndex = 154;
             // 
             // btnCustomer
@@ -331,7 +331,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(222, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(950, 88);
+            this.panel2.Size = new System.Drawing.Size(1578, 88);
             this.panel2.TabIndex = 155;
             // 
             // label1
@@ -350,14 +350,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1172, 765);
+            this.ClientSize = new System.Drawing.Size(1800, 750);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MainWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
