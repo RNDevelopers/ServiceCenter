@@ -24,6 +24,45 @@ namespace ServiceCenter
 
         }
 
+            bool flag = false;
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+
+        {
+
+            flag = true;
+
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+
+        {
+
+            //Check if Flag is True ??? if so then make form position same
+
+            //as Cursor position
+
+            if (flag == true)
+
+            {
+
+                this.Location = Cursor.Position;
+
+            }
+
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+
+        {
+
+            flag = false;
+
+        }
+
+
+    
+
         private void button1_Click(object sender, EventArgs e)
         {
            frmAddCompany obj = new frmAddCompany();
