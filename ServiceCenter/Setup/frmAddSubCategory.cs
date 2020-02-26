@@ -108,5 +108,10 @@ namespace ServiceCenter.Setup
                 }
             }
         }
+
+        private void frmAddSubCategory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -70,9 +70,10 @@
             this.panel1.Controls.Add(this.btnReceive);
             this.panel1.Controls.Add(this.btnSetUp);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 32);
+            this.panel1.Location = new System.Drawing.Point(0, 26);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 718);
+            this.panel1.Size = new System.Drawing.Size(166, 583);
             this.panel1.TabIndex = 154;
             // 
             // btnCustomer
@@ -86,10 +87,10 @@
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.Image = global::ServiceCenter.Properties.Resources.user_24px;
             this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomer.Location = new System.Drawing.Point(13, 170);
+            this.btnCustomer.Location = new System.Drawing.Point(10, 138);
             this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(205, 69);
+            this.btnCustomer.Size = new System.Drawing.Size(154, 56);
             this.btnCustomer.TabIndex = 158;
             this.btnCustomer.Text = "     Customer";
             this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -107,10 +108,9 @@
             this.btnIssues.ForeColor = System.Drawing.Color.White;
             this.btnIssues.Image = global::ServiceCenter.Properties.Resources.upload_24px;
             this.btnIssues.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssues.Location = new System.Drawing.Point(13, 318);
-            this.btnIssues.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIssues.Location = new System.Drawing.Point(10, 258);
             this.btnIssues.Name = "btnIssues";
-            this.btnIssues.Size = new System.Drawing.Size(205, 69);
+            this.btnIssues.Size = new System.Drawing.Size(154, 56);
             this.btnIssues.TabIndex = 157;
             this.btnIssues.Text = "      Issues";
             this.btnIssues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -120,10 +120,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ServiceCenter.Properties.Resources.fiat_500_100px;
-            this.pictureBox1.Location = new System.Drawing.Point(26, -8);
+            this.pictureBox1.Location = new System.Drawing.Point(20, -6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(165, 96);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(124, 78);
             this.pictureBox1.TabIndex = 156;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -131,9 +132,10 @@
             // slidePlane
             // 
             this.slidePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.slidePlane.Location = new System.Drawing.Point(4, 96);
+            this.slidePlane.Location = new System.Drawing.Point(3, 78);
+            this.slidePlane.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.slidePlane.Name = "slidePlane";
-            this.slidePlane.Size = new System.Drawing.Size(10, 69);
+            this.slidePlane.Size = new System.Drawing.Size(8, 56);
             this.slidePlane.TabIndex = 155;
             // 
             // btnLogout
@@ -147,10 +149,9 @@
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = global::ServiceCenter.Properties.Resources.rounded_up_24px;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(13, 550);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Location = new System.Drawing.Point(10, 447);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(205, 69);
+            this.btnLogout.Size = new System.Drawing.Size(154, 56);
             this.btnLogout.TabIndex = 156;
             this.btnLogout.Text = "     Log out";
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -168,10 +169,9 @@
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = global::ServiceCenter.Properties.Resources.report_30px;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(13, 471);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReport.Location = new System.Drawing.Point(10, 383);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(205, 69);
+            this.btnReport.Size = new System.Drawing.Size(154, 56);
             this.btnReport.TabIndex = 155;
             this.btnReport.Text = "     Report";
             this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -189,10 +189,9 @@
             this.btnReturn.ForeColor = System.Drawing.Color.White;
             this.btnReturn.Image = global::ServiceCenter.Properties.Resources.undo_30px;
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(13, 392);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReturn.Location = new System.Drawing.Point(10, 318);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(205, 69);
+            this.btnReturn.Size = new System.Drawing.Size(154, 56);
             this.btnReturn.TabIndex = 151;
             this.btnReturn.Text = "     Return";
             this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -210,10 +209,9 @@
             this.btnReceive.ForeColor = System.Drawing.Color.White;
             this.btnReceive.Image = global::ServiceCenter.Properties.Resources.download_24px;
             this.btnReceive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReceive.Location = new System.Drawing.Point(13, 244);
-            this.btnReceive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReceive.Location = new System.Drawing.Point(10, 198);
             this.btnReceive.Name = "btnReceive";
-            this.btnReceive.Size = new System.Drawing.Size(205, 69);
+            this.btnReceive.Size = new System.Drawing.Size(154, 56);
             this.btnReceive.TabIndex = 150;
             this.btnReceive.Text = "     Receive";
             this.btnReceive.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -232,10 +230,9 @@
             this.btnSetUp.ForeColor = System.Drawing.Color.White;
             this.btnSetUp.Image = global::ServiceCenter.Properties.Resources.plus_math_30px;
             this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetUp.Location = new System.Drawing.Point(13, 96);
-            this.btnSetUp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetUp.Location = new System.Drawing.Point(10, 78);
             this.btnSetUp.Name = "btnSetUp";
-            this.btnSetUp.Size = new System.Drawing.Size(205, 69);
+            this.btnSetUp.Size = new System.Drawing.Size(154, 56);
             this.btnSetUp.TabIndex = 149;
             this.btnSetUp.Text = "     Set Up";
             this.btnSetUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -254,14 +251,14 @@
             this.addBrandToolStripMenuItem,
             this.addItemsToolStripMenuItem});
             this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(239, 124);
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(200, 136);
             this.contextMenuStrip_Setup.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addCompanySupplierToolStripMenuItem
             // 
             this.addCompanySupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addCompanySupplierToolStripMenuItem.Name = "addCompanySupplierToolStripMenuItem";
-            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addCompanySupplierToolStripMenuItem.Text = "Add Company Supplier";
             this.addCompanySupplierToolStripMenuItem.Click += new System.EventHandler(this.addCompanySupplierToolStripMenuItem_Click);
             // 
@@ -269,7 +266,7 @@
             // 
             this.addMainCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addMainCategoryToolStripMenuItem.Name = "addMainCategoryToolStripMenuItem";
-            this.addMainCategoryToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addMainCategoryToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addMainCategoryToolStripMenuItem.Text = "Add Main Category";
             this.addMainCategoryToolStripMenuItem.Click += new System.EventHandler(this.addMainCategoryToolStripMenuItem_Click);
             // 
@@ -278,7 +275,7 @@
             this.addSubCategoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.addSubCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addSubCategoryToolStripMenuItem.Name = "addSubCategoryToolStripMenuItem";
-            this.addSubCategoryToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addSubCategoryToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addSubCategoryToolStripMenuItem.Text = "Add Sub Category";
             this.addSubCategoryToolStripMenuItem.Click += new System.EventHandler(this.addSubCategoryToolStripMenuItem_Click);
             // 
@@ -286,7 +283,7 @@
             // 
             this.addBrandToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addBrandToolStripMenuItem.Name = "addBrandToolStripMenuItem";
-            this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addBrandToolStripMenuItem.Text = "Add Brand";
             this.addBrandToolStripMenuItem.Click += new System.EventHandler(this.addBrandToolStripMenuItem_Click);
             // 
@@ -294,7 +291,7 @@
             // 
             this.addItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addItemsToolStripMenuItem.Name = "addItemsToolStripMenuItem";
-            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(238, 24);
+            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.addItemsToolStripMenuItem.Text = "Add Items";
             this.addItemsToolStripMenuItem.Click += new System.EventHandler(this.addItemsToolStripMenuItem_Click);
             // 
@@ -307,13 +304,13 @@
             this.fromCustomerToolStripMenuItem,
             this.toSupplierToolStripMenuItem});
             this.contextMenuStrip_Returt.Name = "contextMenuStrip_Returt";
-            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(188, 52);
+            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(161, 48);
             // 
             // fromCustomerToolStripMenuItem
             // 
             this.fromCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fromCustomerToolStripMenuItem.Name = "fromCustomerToolStripMenuItem";
-            this.fromCustomerToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.fromCustomerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.fromCustomerToolStripMenuItem.Text = "From Customer";
             // 
             // toSupplierToolStripMenuItem
@@ -321,7 +318,7 @@
             this.toSupplierToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.toSupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.toSupplierToolStripMenuItem.Name = "toSupplierToolStripMenuItem";
-            this.toSupplierToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
+            this.toSupplierToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.toSupplierToolStripMenuItem.Text = "To Supplier";
             // 
             // panel2
@@ -329,9 +326,10 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(222, 32);
+            this.panel2.Location = new System.Drawing.Point(166, 26);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1578, 88);
+            this.panel2.Size = new System.Drawing.Size(1184, 72);
             this.panel2.TabIndex = 155;
             // 
             // label1
@@ -339,21 +337,22 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(6, 11);
+            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(548, 59);
+            this.label1.Size = new System.Drawing.Size(432, 46);
             this.label1.TabIndex = 156;
             this.label1.Text = "Nihal Car Service and Wax";
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1800, 750);
+            this.ClientSize = new System.Drawing.Size(1350, 609);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainWindow_Load);
