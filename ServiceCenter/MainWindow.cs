@@ -22,6 +22,8 @@ namespace ServiceCenter
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnSetUp.Top;
 
+            this.IsMdiContainer = true;
+
         }
 
             bool flag = false;
@@ -65,14 +67,16 @@ namespace ServiceCenter
 
         private void button1_Click(object sender, EventArgs e)
         {
-           frmAddCompany obj = new frmAddCompany();
-           obj.Show();           
+           frmAddSupplier obj = new frmAddSupplier();
+            obj.MdiParent = this;
+            obj.Show(); 
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             frmAddBrand obj = new frmAddBrand();
+            obj.MdiParent = this;
             obj.Show();
         }
 
@@ -94,6 +98,7 @@ namespace ServiceCenter
         {
             //Receive button
             frmReceive obj = new frmReceive();
+            obj.MdiParent = this;
             obj.Show();
         }
 
@@ -128,24 +133,28 @@ namespace ServiceCenter
         private void addBrandToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddBrand obj = new frmAddBrand();
+            obj.MdiParent = this;
             obj.Show();
         }
 
         private void addCompanySupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddCompany obj = new frmAddCompany();
+            frmAddSupplier obj = new frmAddSupplier();
+            obj.MdiParent = this;
             obj.Show();
         }
 
         private void addMainCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddMainCategory obj = new frmAddMainCategory();
+            obj.MdiParent = this;
             obj.Show();
         }
 
         private void addSubCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddSubCategory obj = new frmAddSubCategory();
+            obj.MdiParent = this;
             obj.Show();
         }
 
@@ -175,6 +184,7 @@ namespace ServiceCenter
         {
             //add customer button
             frmCustomerRegister obj = new frmCustomerRegister();
+            obj.MdiParent = this;
             obj.Show();
         }
 
@@ -182,6 +192,7 @@ namespace ServiceCenter
         {
             //add Item
             frmAddItem obj = new frmAddItem();
+            obj.MdiParent = this;
             obj.Show();
         }
     }

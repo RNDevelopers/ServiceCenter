@@ -71,9 +71,9 @@
             this.panel1.Controls.Add(this.btnSetUp);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 26);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(166, 583);
+            this.panel1.Size = new System.Drawing.Size(166, 724);
             this.panel1.TabIndex = 154;
             // 
             // btnCustomer
@@ -121,7 +121,7 @@
             // 
             this.pictureBox1.Image = global::ServiceCenter.Properties.Resources.fiat_500_100px;
             this.pictureBox1.Location = new System.Drawing.Point(20, -6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.pictureBox1.Size = new System.Drawing.Size(124, 78);
@@ -133,7 +133,7 @@
             // 
             this.slidePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.slidePlane.Location = new System.Drawing.Point(3, 78);
-            this.slidePlane.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.slidePlane.Margin = new System.Windows.Forms.Padding(2);
             this.slidePlane.Name = "slidePlane";
             this.slidePlane.Size = new System.Drawing.Size(8, 56);
             this.slidePlane.TabIndex = 155;
@@ -251,15 +251,15 @@
             this.addBrandToolStripMenuItem,
             this.addItemsToolStripMenuItem});
             this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(200, 136);
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(181, 136);
             this.contextMenuStrip_Setup.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addCompanySupplierToolStripMenuItem
             // 
             this.addCompanySupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addCompanySupplierToolStripMenuItem.Name = "addCompanySupplierToolStripMenuItem";
-            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.addCompanySupplierToolStripMenuItem.Text = "Add Company Supplier";
+            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addCompanySupplierToolStripMenuItem.Text = "Add Supplier";
             this.addCompanySupplierToolStripMenuItem.Click += new System.EventHandler(this.addCompanySupplierToolStripMenuItem_Click);
             // 
             // addMainCategoryToolStripMenuItem
@@ -327,7 +327,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(166, 26);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1184, 72);
             this.panel2.TabIndex = 155;
@@ -349,7 +349,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1350, 609);
+            this.ClientSize = new System.Drawing.Size(1350, 750);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

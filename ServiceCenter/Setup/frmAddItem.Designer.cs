@@ -42,7 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtItemCode = new System.Windows.Forms.TextBox();
-            this.txtRemark = new System.Windows.Forms.RichTextBox();
+            this.txtDec = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbMeasureUnit = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtStockHand = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbUnitQty = new System.Windows.Forms.ComboBox();
@@ -84,6 +84,7 @@
             this.btnSave.TabIndex = 153;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label7
             // 
@@ -203,20 +204,20 @@
             // 
             this.txtItemCode.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtItemCode.Location = new System.Drawing.Point(155, 375);
-            this.txtItemCode.MaxLength = 2;
+            this.txtItemCode.MaxLength = 2147483647;
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(190, 25);
             this.txtItemCode.TabIndex = 163;
             // 
-            // txtRemark
+            // txtDec
             // 
-            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRemark.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtRemark.Location = new System.Drawing.Point(157, 411);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(358, 60);
-            this.txtRemark.TabIndex = 166;
-            this.txtRemark.Text = "";
+            this.txtDec.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDec.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtDec.Location = new System.Drawing.Point(157, 411);
+            this.txtDec.Name = "txtDec";
+            this.txtDec.Size = new System.Drawing.Size(358, 60);
+            this.txtDec.TabIndex = 166;
+            this.txtDec.Text = "";
             // 
             // label9
             // 
@@ -294,7 +295,7 @@
             // 
             this.txtUnitPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtUnitPrice.Location = new System.Drawing.Point(157, 335);
-            this.txtUnitPrice.MaxLength = 2;
+            this.txtUnitPrice.MaxLength = 2147483647;
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(188, 25);
             this.txtUnitPrice.TabIndex = 173;
@@ -319,14 +320,14 @@
             this.label16.TabIndex = 177;
             this.label16.Text = ":";
             // 
-            // textBox1
+            // txtStockHand
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBox1.Location = new System.Drawing.Point(157, 298);
-            this.textBox1.MaxLength = 2;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 25);
-            this.textBox1.TabIndex = 178;
+            this.txtStockHand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtStockHand.Location = new System.Drawing.Point(157, 298);
+            this.txtStockHand.MaxLength = 2147483647;
+            this.txtStockHand.Name = "txtStockHand";
+            this.txtStockHand.Size = new System.Drawing.Size(188, 25);
+            this.txtStockHand.TabIndex = 178;
             // 
             // label17
             // 
@@ -367,7 +368,7 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.cmbUnitQty);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtStockHand);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -378,7 +379,7 @@
             this.Controls.Add(this.cmbMeasureUnit);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtRemark);
+            this.Controls.Add(this.txtDec);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtItemCode);
@@ -411,7 +412,7 @@
             this.Controls.SetChildIndex(this.txtItemCode, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.txtRemark, 0);
+            this.Controls.SetChildIndex(this.txtDec, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.cmbMeasureUnit, 0);
@@ -422,7 +423,7 @@
             this.Controls.SetChildIndex(this.label13, 0);
             this.Controls.SetChildIndex(this.label15, 0);
             this.Controls.SetChildIndex(this.label16, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.txtStockHand, 0);
             this.Controls.SetChildIndex(this.cmbUnitQty, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.label17, 0);
@@ -447,7 +448,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtItemCode;
-        private System.Windows.Forms.RichTextBox txtRemark;
+        private System.Windows.Forms.RichTextBox txtDec;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbMeasureUnit;
@@ -458,7 +459,7 @@
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStockHand;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbUnitQty;

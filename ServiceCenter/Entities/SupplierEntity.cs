@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace ServiceCenter.Entities
 {
-    public class CompanyEntity
+    public class SupplierEntity
     {
-        public int intCompanyID { get; set; }
-        public string vcCompanyName { get; set; }
+        public int intSupplierID { get; set; }
+        public string vcSupplierName { get; set; }
         public string vcAddress { get; set; }
         public int intContactNo { get; set; }
         public string vcCity { get; set; }
         public string vcEmail { get; set; }
-        public string vcSupplierName { get; set; }
-        public string vcDesignature { get; set; }
+      
     }
 }

@@ -39,7 +39,6 @@ namespace ServiceCenter.Setup
         public void Clear()
         {
             txtMainCategoryName.Text = string.Empty;
-            txtCategoryCode.Text = string.Empty;
         }
 
 
@@ -78,8 +77,7 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                    Execute.AddParameter("@MainCategoryName",txtMainCategoryName.Text.Trim()),
-                     Execute.AddParameter("@vcItemCode",txtCategoryCode.Text.Trim()),
+                    Execute.AddParameter("@MainCategoryName",txtMainCategoryName.Text.Trim())
                    };
 
                 int NoOfRowsEffected = objExecute.Executes("SaveMainCategory", param, CommandType.StoredProcedure);

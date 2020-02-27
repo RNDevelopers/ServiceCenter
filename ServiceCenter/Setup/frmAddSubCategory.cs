@@ -16,24 +16,8 @@ namespace ServiceCenter.Setup
             this.SetFormName();
 
             GetMainCategory();
-            GetBrand();
-            GetItemUnit();
 
-            //from Ramod
-
-            //fromn nethsara
         }
-
-        //public void GetCompany()
-        //{
-        //    Execute objExecute = new Execute();
-        //    DataTable dt = (DataTable)objExecute.Executes("spGetAllCompany", ReturnType.DataTable, CommandType.StoredProcedure);
-
-        //    cmbCompanyName.DataSource = dt;
-        //    cmbCompanyName.DisplayMember = "vcCompanyName";
-        //    cmbCompanyName.ValueMember = "intCompanyID";
-        //    cmbCompanyName.SelectedIndex = -1;
-        //}
 
         public void GetMainCategory()
         {
@@ -46,36 +30,23 @@ namespace ServiceCenter.Setup
             cmbMainCategory.SelectedIndex = -1;
         }
 
-        public void GetBrand()
-        {
-            Execute objExecute = new Execute();
-            DataTable dt = (DataTable)objExecute.Executes("spGetBrand", ReturnType.DataTable, CommandType.StoredProcedure);
-
-            cmbBrand.DataSource = dt;
-            cmbBrand.DisplayMember = "vcName";
-            cmbBrand.ValueMember = "intBrandID";
-            cmbBrand.SelectedIndex = -1;
-        }
-
-        public void GetItemUnit()
-        {
-            Execute objExecute = new Execute();
-            DataTable dt = (DataTable)objExecute.Executes("spGetItemUnit", ReturnType.DataTable, CommandType.StoredProcedure);
-
-            cmbUnit.DataSource = dt;
-            cmbUnit.DisplayMember = "vcUnitDesc";
-            cmbUnit.ValueMember = "intUnitID";
-            cmbUnit.SelectedIndex = -1;
-        }
-
-        private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            txtSubCategory.Text = (cmbBrand.Text.ToString() + ' ' + '-' + ' ');
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveSubCategory();
+        }
+
+        public void LoadGrid()
+        {
+            Execute objExecute = new Execute();
+            string Query = "[dbo].[spGetSubCat]";
+            SqlParameter[] para = new SqlParameter[]
+              {
+                      Execute.AddParameter("@intMainCategoryID",Convert.ToInt32(cmbMainCategory.SelectedValue))
+
+              };
+            DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+            dgvAddSubCategory.DataSource = dt;
         }
 
         public void SaveSubCategory()
@@ -88,11 +59,7 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                   // Execute.AddParameter("@MainCategoryName",Text.Trim()),
-                  //   Execute.AddParameter("@vcItemCode",txtCategoryCode.Text.Trim()),
                      Execute.AddParameter("@intMainCategoryID",Convert.ToInt32(cmbMainCategory.SelectedValue)),
-                     Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue)),
-                     Execute.AddParameter("@intUnitID",Convert.ToInt32(cmbUnit.SelectedValue)),
                      Execute.AddParameter("@vcSubCategoryName",txtSubCategory.Text.Trim().ToUpper()),
                    };
 
@@ -101,6 +68,7 @@ namespace ServiceCenter.Setup
                 if (NoOfRowsEffected < 0)
                 {
                     MessageBox.Show("Save..");
+                    LoadGrid();
                 }
                 else
                 {
@@ -111,7 +79,12 @@ namespace ServiceCenter.Setup
 
         private void frmAddSubCategory_Load(object sender, EventArgs e)
         {
+           
+        }
 
+        private void cmbMainCategory_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoadGrid();
         }
     }
 }

@@ -4,6 +4,7 @@ using ServiceCenter.Enums;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
 {
@@ -100,5 +101,42 @@ namespace ServiceCenter.Setup
 
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveItem();
+        }
+
+        public void SaveItem()
+        {
+            DialogResult dr = MessageBox.Show("Are You Sure Want to Add Item ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.Yes)
+            {
+
+                Execute objExecute = new Execute();
+                SqlParameter[] param = new SqlParameter[]
+                   {
+                    Execute.AddParameter("@intMainCategoryID",Convert.ToInt32(cmbMainCategory.SelectedValue)),
+                    Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue)),
+                    Execute.AddParameter("@intSubCatDetailsID",Convert.ToInt32(cmbSubCat.SelectedValue)),
+                    Execute.AddParameter("@IntPackingMethodID",Convert.ToInt32(cmbUnitQty.SelectedValue)),
+                    Execute.AddParameter("@decStockInHand",Convert.ToDecimal(txtStockHand.Text.Trim())),
+                    Execute.AddParameter("@decUnitPrice",Convert.ToDecimal(txtUnitPrice.Text.Trim())),
+                    Execute.AddParameter("@vcItemCode",txtItemCode.Text.ToUpper()),
+                    Execute.AddParameter("@vcItemDescription",txtDec.Text.ToUpper())
+                   };
+
+                int NoOfRowsEffected = objExecute.Executes("spSaveItem", param, CommandType.StoredProcedure);
+
+                if (NoOfRowsEffected < 0)
+                {
+                    MessageBox.Show("Save..");
+                }
+                else
+                {
+                    MessageBox.Show("Cant't Save..");
+                }
+            }
+        }
     }
 }
