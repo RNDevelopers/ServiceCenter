@@ -1,4 +1,5 @@
 ﻿using ServiceCenter.Common;
+using ServiceCenter.Customer;
 using ServiceCenter.Setup;
 using System;
 using System.Collections.Generic;
@@ -178,12 +179,16 @@ namespace ServiceCenter
             //issues button
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnIssues.Top;
+
+            frmIssues obj = new frmIssues();
+            obj.MdiParent = this;
+            obj.Show();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             //add customer button
-            frmCustomerRegister obj = new frmCustomerRegister();
+            frmAddCustomer obj = new frmAddCustomer();
             obj.MdiParent = this;
             obj.Show();
         }
@@ -195,5 +200,13 @@ namespace ServiceCenter
             obj.MdiParent = this;
             obj.Show();
         }
+
+        private void mnuAssignSubCategoryBrand_Click(object sender, EventArgs e)
+        {
+            frmAssignSubCategoryBrand obj = new frmAssignSubCategoryBrand();
+            obj.MdiParent = this;
+            obj.Show();
+        }
+
     }
 }

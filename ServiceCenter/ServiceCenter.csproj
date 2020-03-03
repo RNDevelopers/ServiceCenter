@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.3</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.0.4</MinimumRequiredVersion>
     <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -83,6 +83,12 @@
     <Compile Include="Common\BaseUI.Designer.cs">
       <DependentUpon>BaseUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer\frmAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\frmAddCustomer.Designer.cs">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnection\ClsConnection.cs" />
     <Compile Include="DBConnection\Execute.cs" />
     <Compile Include="Entities\BrandEntity.cs" />
@@ -132,26 +138,29 @@
     <Compile Include="Setup\frmAddUnit.Designer.cs">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup\frmCustomerRegister.cs">
+    <Compile Include="Issues\frmIssues.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setup\frmCustomerRegister.Designer.cs">
-      <DependentUpon>frmCustomerRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Setup\frmIssues.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Setup\frmIssues.Designer.cs">
+    <Compile Include="Issues\frmIssues.Designer.cs">
       <DependentUpon>frmIssues.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup\frmReceive.cs">
+    <Compile Include="Recivces\frmReceive.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setup\frmReceive.Designer.cs">
+    <Compile Include="Recivces\frmReceive.Designer.cs">
       <DependentUpon>frmReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAssignSubCategoryBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAssignSubCategoryBrand.Designer.cs">
+      <DependentUpon>frmAssignSubCategoryBrand.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\frmAddCustomer.resx">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -184,14 +193,14 @@
     <EmbeddedResource Include="Setup\frmAddUnit.resx">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setup\frmCustomerRegister.resx">
-      <DependentUpon>frmCustomerRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Setup\frmIssues.resx">
+    <EmbeddedResource Include="Issues\frmIssues.resx">
       <DependentUpon>frmIssues.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setup\frmReceive.resx">
+    <EmbeddedResource Include="Recivces\frmReceive.resx">
       <DependentUpon>frmReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAssignSubCategoryBrand.resx">
+      <DependentUpon>frmAssignSubCategoryBrand.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -212,10 +221,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Customer\" />
-    <Folder Include="Recivces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\plus_math_30px.png" />
   </ItemGroup>

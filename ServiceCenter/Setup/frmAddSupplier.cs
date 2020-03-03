@@ -27,13 +27,14 @@ namespace ServiceCenter.Setup
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveSupplier();
+
         }
 
         public void SaveSupplier() 
         {
             SupplierEntity objSupplierEntity = new SupplierEntity
             {
-                vcSupplierName = txtSuppilerName.Text.Trim(),
+                vcSupplierName = txtSuppilerName.Text.ToString(),
                 vcAddress = txtAddress.Text.Trim().ToUpper(),
                 vcCity = txtCity.Text.Trim().ToUpper(),
                 intContactNo = Convert.ToInt32(txtContactNo.Text.Trim()),

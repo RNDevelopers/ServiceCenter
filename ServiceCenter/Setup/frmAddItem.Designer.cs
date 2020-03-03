@@ -57,6 +57,15 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbUnitQty = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cmbAPI = new System.Windows.Forms.ComboBox();
+            this.cmbEngineType = new System.Windows.Forms.ComboBox();
+            this.cmbSAE = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -112,7 +121,7 @@
             this.cmbBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbBrand.FormattingEnabled = true;
-            this.cmbBrand.Location = new System.Drawing.Point(157, 151);
+            this.cmbBrand.Location = new System.Drawing.Point(157, 109);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(188, 25);
             this.cmbBrand.TabIndex = 157;
@@ -122,7 +131,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 153);
+            this.label3.Location = new System.Drawing.Point(20, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 19);
             this.label3.TabIndex = 156;
@@ -132,7 +141,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(133, 155);
+            this.label6.Location = new System.Drawing.Point(133, 113);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(11, 17);
             this.label6.TabIndex = 155;
@@ -144,16 +153,17 @@
             this.cmbMainCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbMainCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.cmbMainCategory.FormattingEnabled = true;
-            this.cmbMainCategory.Location = new System.Drawing.Point(157, 104);
+            this.cmbMainCategory.Location = new System.Drawing.Point(157, 155);
             this.cmbMainCategory.Name = "cmbMainCategory";
             this.cmbMainCategory.Size = new System.Drawing.Size(187, 25);
             this.cmbMainCategory.TabIndex = 160;
+            this.cmbMainCategory.SelectionChangeCommitted += new System.EventHandler(this.cmbMainCategory_SelectionChangeCommitted);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 106);
+            this.label5.Location = new System.Drawing.Point(20, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 19);
             this.label5.TabIndex = 159;
@@ -163,7 +173,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 107);
+            this.label2.Location = new System.Drawing.Point(132, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(11, 17);
             this.label2.TabIndex = 158;
@@ -208,6 +218,7 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(190, 25);
             this.txtItemCode.TabIndex = 163;
+            this.txtItemCode.Click += new System.EventHandler(this.txtItemCode_Click);
             // 
             // txtDec
             // 
@@ -360,11 +371,113 @@
             this.cmbUnitQty.Size = new System.Drawing.Size(62, 25);
             this.cmbUnitQty.TabIndex = 179;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(351, 207);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(75, 19);
+            this.label19.TabIndex = 182;
+            this.label19.Text = "API Grade ";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(351, 253);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 19);
+            this.label20.TabIndex = 183;
+            this.label20.Text = "SAE Grade ";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(351, 298);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 19);
+            this.label21.TabIndex = 184;
+            this.label21.Text = "Engine Type";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(435, 207);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(11, 17);
+            this.label22.TabIndex = 185;
+            this.label22.Text = ":";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(435, 255);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(11, 17);
+            this.label23.TabIndex = 186;
+            this.label23.Text = ":";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(435, 300);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(11, 17);
+            this.label24.TabIndex = 187;
+            this.label24.Text = ":";
+            // 
+            // cmbAPI
+            // 
+            this.cmbAPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbAPI.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cmbAPI.FormattingEnabled = true;
+            this.cmbAPI.Location = new System.Drawing.Point(452, 205);
+            this.cmbAPI.Name = "cmbAPI";
+            this.cmbAPI.Size = new System.Drawing.Size(110, 25);
+            this.cmbAPI.TabIndex = 188;
+            // 
+            // cmbEngineType
+            // 
+            this.cmbEngineType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEngineType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbEngineType.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cmbEngineType.FormattingEnabled = true;
+            this.cmbEngineType.Location = new System.Drawing.Point(452, 295);
+            this.cmbEngineType.Name = "cmbEngineType";
+            this.cmbEngineType.Size = new System.Drawing.Size(110, 25);
+            this.cmbEngineType.TabIndex = 189;
+            // 
+            // cmbSAE
+            // 
+            this.cmbSAE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSAE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbSAE.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cmbSAE.FormattingEnabled = true;
+            this.cmbSAE.Location = new System.Drawing.Point(452, 250);
+            this.cmbSAE.Name = "cmbSAE";
+            this.cmbSAE.Size = new System.Drawing.Size(110, 25);
+            this.cmbSAE.TabIndex = 190;
+            // 
             // frmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 528);
+            this.ClientSize = new System.Drawing.Size(578, 528);
+            this.Controls.Add(this.cmbSAE);
+            this.Controls.Add(this.cmbEngineType);
+            this.Controls.Add(this.cmbAPI);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.cmbUnitQty);
@@ -427,6 +540,15 @@
             this.Controls.SetChildIndex(this.cmbUnitQty, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.label17, 0);
+            this.Controls.SetChildIndex(this.label19, 0);
+            this.Controls.SetChildIndex(this.label20, 0);
+            this.Controls.SetChildIndex(this.label21, 0);
+            this.Controls.SetChildIndex(this.label22, 0);
+            this.Controls.SetChildIndex(this.label23, 0);
+            this.Controls.SetChildIndex(this.label24, 0);
+            this.Controls.SetChildIndex(this.cmbAPI, 0);
+            this.Controls.SetChildIndex(this.cmbEngineType, 0);
+            this.Controls.SetChildIndex(this.cmbSAE, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,5 +585,14 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbUnitQty;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox cmbAPI;
+        private System.Windows.Forms.ComboBox cmbEngineType;
+        private System.Windows.Forms.ComboBox cmbSAE;
     }
 }

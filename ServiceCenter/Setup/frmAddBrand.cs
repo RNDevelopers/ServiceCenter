@@ -115,8 +115,9 @@ namespace ServiceCenter.Setup
 
                         if (NoOfRowsEffected < 0)
                         {
-                            GridLoad();
+                         
                             MessageBox.Show("Successfully DELETE !");
+                            GridLoad();
                         }
                         else
                         {
