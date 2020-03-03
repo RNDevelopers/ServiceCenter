@@ -94,6 +94,7 @@
     <Compile Include="Entities\BrandEntity.cs" />
     <Compile Include="Entities\SupplierEntity.cs" />
     <Compile Include="Enums\Enums.cs" />
+    <Compile Include="ErrorLog\Logger.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

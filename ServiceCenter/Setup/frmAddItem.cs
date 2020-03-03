@@ -19,8 +19,6 @@ namespace ServiceCenter.Setup
         public Nullable<int> intEngineTypeID { get; set; }
 
 
-
-
         public frmAddItem()
         {
             InitializeComponent();

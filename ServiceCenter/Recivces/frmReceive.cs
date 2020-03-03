@@ -1,6 +1,7 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
 using ServiceCenter.Enums;
+using ServiceCenter.ErrorLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,19 +87,27 @@ namespace ServiceCenter.Setup
 
         public void LoadAddItem()
         {
-            Execute objExecute = new Execute();
-            string Query = "[dbo].[spGetItemGRNadd]";
-            SqlParameter[] para = new SqlParameter[]
-              {
+            try
+            {
+                Execute objExecute = new Execute();
+                string Query = "[dbo].[spGetItemGRNadd]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
                       Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue)),
                       Execute.AddParameter("@intSubCatDetailsID",Convert.ToInt32(cmbSubCat.SelectedValue))
 
-              };
-            DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+                  };
+                DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
-            dgvAddItem.DataSource = null;
-            dgvAddItem.AutoGenerateColumns = false;
-            dgvAddItem.DataSource = dt;
+                dgvAddItem.DataSource = null;
+                dgvAddItem.AutoGenerateColumns = false;
+                dgvAddItem.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data Loading Error");
+                Logger.LoggError(ex, "LoadAddItem");
+            }
 
         }
 
