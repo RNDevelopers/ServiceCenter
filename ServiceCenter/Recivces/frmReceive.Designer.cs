@@ -38,20 +38,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvGRN = new System.Windows.Forms.DataGridView();
             this.dgvAddItem = new System.Windows.Forms.DataGridView();
-            this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decStockInHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.cmbBrand = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,7 +60,7 @@
             this.lblSubcat = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtItemCode = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.clmItemID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemCode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +72,10 @@
             this.clmDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDiscountedValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decStockInHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGRN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddItem)).BeginInit();
             this.SuspendLayout();
@@ -126,11 +125,11 @@
             this.btnSave.TabIndex = 169;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dgvGRN
             // 
             this.dgvGRN.AllowUserToAddRows = false;
-            this.dgvGRN.AllowUserToDeleteRows = false;
             this.dgvGRN.AllowUserToOrderColumns = true;
             this.dgvGRN.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -161,8 +160,7 @@
             this.clmUnitPrice,
             this.clmDiscount,
             this.clmValue,
-            this.clmDiscountedValue,
-            this.dataGridViewButtonColumn1});
+            this.clmDiscountedValue});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,6 +169,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGRN.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvGRN.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvGRN.EnableHeadersVisualStyles = false;
             this.dgvGRN.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvGRN.Location = new System.Drawing.Point(17, 318);
@@ -195,6 +194,8 @@
             this.dgvGRN.Size = new System.Drawing.Size(1018, 285);
             this.dgvGRN.TabIndex = 168;
             this.dgvGRN.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGRN_CellEndEdit);
+            this.dgvGRN.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvGRN_EditingControlShowing);
+            this.dgvGRN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvGRN_KeyPress);
             // 
             // dgvAddItem
             // 
@@ -255,43 +256,6 @@
             this.dgvAddItem.Size = new System.Drawing.Size(694, 226);
             this.dgvAddItem.TabIndex = 165;
             this.dgvAddItem.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAddItem_CellDoubleClick);
-            // 
-            // clmItemID
-            // 
-            this.clmItemID.DataPropertyName = "intItemID";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmItemID.DefaultCellStyle = dataGridViewCellStyle10;
-            this.clmItemID.HeaderText = "Item ID";
-            this.clmItemID.Name = "clmItemID";
-            this.clmItemID.ReadOnly = true;
-            this.clmItemID.Visible = false;
-            this.clmItemID.Width = 5;
-            // 
-            // clmItemCode
-            // 
-            this.clmItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clmItemCode.DataPropertyName = "vcItemCode";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            this.clmItemCode.Width = 80;
-            // 
-            // vcItemDescription
-            // 
-            this.vcItemDescription.DataPropertyName = "vcItemDescription";
-            this.vcItemDescription.HeaderText = "Item Description";
-            this.vcItemDescription.Name = "vcItemDescription";
-            this.vcItemDescription.ReadOnly = true;
-            this.vcItemDescription.Width = 400;
-            // 
-            // decStockInHand
-            // 
-            this.decStockInHand.DataPropertyName = "decStockInHand";
-            this.decStockInHand.HeaderText = "Balance Stock ";
-            this.decStockInHand.Name = "decStockInHand";
-            this.decStockInHand.ReadOnly = true;
             // 
             // cmbSupplier
             // 
@@ -404,31 +368,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(70, 618);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(59, 618);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 17);
+            this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 195;
-            this.label3.Text = ":";
+            this.label3.Text = "= Rs.";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 616);
+            this.label8.Location = new System.Drawing.Point(21, 617);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 19);
             this.label8.TabIndex = 194;
             this.label8.Text = "Total ";
             // 
-            // txtItemCode
+            // lblTotal
             // 
-            this.txtItemCode.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtItemCode.Location = new System.Drawing.Point(86, 615);
-            this.txtItemCode.MaxLength = 2147483647;
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(190, 25);
-            this.txtItemCode.TabIndex = 193;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(107, 617);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 19);
+            this.lblTotal.TabIndex = 196;
             // 
             // clmItemID1
             // 
@@ -448,12 +412,14 @@
             this.clmItemCode1.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmItemCode1.HeaderText = "Item Code";
             this.clmItemCode1.Name = "clmItemCode1";
+            this.clmItemCode1.ReadOnly = true;
             // 
             // clmSubCategoryName
             // 
             this.clmSubCategoryName.DataPropertyName = "vcSubCategoryName";
             this.clmSubCategoryName.HeaderText = "SubCategory";
             this.clmSubCategoryName.Name = "clmSubCategoryName";
+            this.clmSubCategoryName.ReadOnly = true;
             this.clmSubCategoryName.Width = 50;
             // 
             // clmItemDesc
@@ -461,6 +427,7 @@
             this.clmItemDesc.DataPropertyName = "vcItemDescription";
             this.clmItemDesc.HeaderText = "Item Description";
             this.clmItemDesc.Name = "clmItemDesc";
+            this.clmItemDesc.ReadOnly = true;
             this.clmItemDesc.Width = 350;
             // 
             // clmUnit
@@ -468,11 +435,14 @@
             this.clmUnit.DataPropertyName = "vcUnit";
             this.clmUnit.HeaderText = "vcUnit";
             this.clmUnit.Name = "clmUnit";
+            this.clmUnit.ReadOnly = true;
+            this.clmUnit.Width = 70;
             // 
             // clmLastGRNPrice
             // 
             this.clmLastGRNPrice.HeaderText = "Last GRN Price";
             this.clmLastGRNPrice.Name = "clmLastGRNPrice";
+            this.clmLastGRNPrice.ReadOnly = true;
             this.clmLastGRNPrice.Visible = false;
             this.clmLastGRNPrice.Width = 50;
             // 
@@ -481,43 +451,78 @@
             this.clmGRNQty.DataPropertyName = "GRNQty";
             this.clmGRNQty.HeaderText = "GRN Qty";
             this.clmGRNQty.Name = "clmGRNQty";
-            this.clmGRNQty.Width = 80;
+            this.clmGRNQty.Width = 50;
             // 
             // clmUnitPrice
             // 
             this.clmUnitPrice.DataPropertyName = "decUnitPrice";
             this.clmUnitPrice.HeaderText = "Unit Price";
             this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.ReadOnly = true;
             // 
             // clmDiscount
             // 
             this.clmDiscount.HeaderText = "Discount (%)";
             this.clmDiscount.Name = "clmDiscount";
+            this.clmDiscount.Width = 50;
             // 
             // clmValue
             // 
+            this.clmValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clmValue.HeaderText = "Value";
             this.clmValue.Name = "clmValue";
+            this.clmValue.ReadOnly = true;
             // 
             // clmDiscountedValue
             // 
+            this.clmDiscountedValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clmDiscountedValue.HeaderText = "Value (Discounted)";
             this.clmDiscountedValue.Name = "clmDiscountedValue";
             // 
-            // dataGridViewButtonColumn1
+            // clmItemID
             // 
-            this.dataGridViewButtonColumn1.HeaderText = "Press to Delete";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Visible = false;
+            this.clmItemID.DataPropertyName = "intItemID";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmItemID.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmItemID.HeaderText = "Item ID";
+            this.clmItemID.Name = "clmItemID";
+            this.clmItemID.ReadOnly = true;
+            this.clmItemID.Visible = false;
+            this.clmItemID.Width = 5;
+            // 
+            // clmItemCode
+            // 
+            this.clmItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmItemCode.DataPropertyName = "vcItemCode";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            // 
+            // vcItemDescription
+            // 
+            this.vcItemDescription.DataPropertyName = "vcItemDescription";
+            this.vcItemDescription.HeaderText = "Item Description";
+            this.vcItemDescription.Name = "vcItemDescription";
+            this.vcItemDescription.ReadOnly = true;
+            this.vcItemDescription.Width = 400;
+            // 
+            // decStockInHand
+            // 
+            this.decStockInHand.DataPropertyName = "decStockInHand";
+            this.decStockInHand.HeaderText = "Balance Stock ";
+            this.decStockInHand.Name = "decStockInHand";
+            this.decStockInHand.ReadOnly = true;
             // 
             // frmReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 663);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtItemCode);
             this.Controls.Add(this.cmbSubCat);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblSubcat);
@@ -553,9 +558,9 @@
             this.Controls.SetChildIndex(this.lblSubcat, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.cmbSubCat, 0);
-            this.Controls.SetChildIndex(this.txtItemCode, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.lblTotal, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGRN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddItem)).EndInit();
             this.ResumeLayout(false);
@@ -580,13 +585,9 @@
         private System.Windows.Forms.ComboBox cmbSubCat;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblSubcat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decStockInHand;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtItemCode;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubCategoryName;
@@ -598,6 +599,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscountedValue;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decStockInHand;
     }
 }

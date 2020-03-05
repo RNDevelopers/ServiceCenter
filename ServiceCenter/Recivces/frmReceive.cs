@@ -1,17 +1,14 @@
-﻿using ServiceCenter.Common;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
 using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using ServiceCenter.ErrorLog;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
@@ -20,16 +17,14 @@ namespace ServiceCenter.Setup
     {
         public int intItemID { get; set; }
 
-        ItemEntity objItemEntity;
-
-        List<ItemEntity> GlobalList;
-
-        ItemEntity objItem;
+        private ItemEntity objItemEntity;
+        private List<ItemEntity> GlobalList;
+        private ItemEntity objItem;
 
         public frmReceive()
         {
             InitializeComponent();
-            this.SetFormName();
+            SetFormName();
 
             GetSupplier();
             GetBrand();
@@ -110,20 +105,22 @@ namespace ServiceCenter.Setup
 
                 ItemEntity objItemEntity;
                 List<ItemEntity> lstGetItemAdd = new List<ItemEntity>();
-            
+
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    objItemEntity = new ItemEntity();
-                    objItemEntity.intItemID = (int)dr["intItemID"];
-                    objItemEntity.vcItemCode = dr["vcItemCode"].ToString();
-                    objItemEntity.vcItemDescription = dr["vcItemDescription"].ToString();
-                    objItemEntity.decStockInHand = (Decimal)dr["decStockInHand"];
+                    objItemEntity = new ItemEntity
+                    {
+                        intItemID = (int)dr["intItemID"],
+                        vcItemCode = dr["vcItemCode"].ToString(),
+                        vcItemDescription = dr["vcItemDescription"].ToString(),
+                        decStockInHand = (decimal)dr["decStockInHand"]
+                    };
 
                     lstGetItemAdd.Add(objItemEntity);
                 }
 
-     
+
                 dgvAddItem.DataSource = null;
                 dgvAddItem.AutoGenerateColumns = false;
                 dgvAddItem.DataSource = lstGetItemAdd;
@@ -136,7 +133,7 @@ namespace ServiceCenter.Setup
 
         }
 
-     
+
         public void GetSubCat()
         {
             Execute objExecute = new Execute();
@@ -168,10 +165,10 @@ namespace ServiceCenter.Setup
 
         private void dgvAddItem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-         
+
             try
             {
-       
+
 
                 intItemID = Convert.ToInt32(dgvAddItem.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
 
@@ -180,7 +177,7 @@ namespace ServiceCenter.Setup
                 SqlParameter[] para = new SqlParameter[]
                   {
                       Execute.AddParameter("@intItemID",intItemID),
-               
+
                   };
                 DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
@@ -206,7 +203,7 @@ namespace ServiceCenter.Setup
                     objItemEntity.decUnitPrice = (decimal)dr["decUnitPrice"];
 
                     lstGetItemGRN.Add(objItemEntity);
-          
+
                 }
 
                 foreach (ItemEntity objItem in lstGetItemGRN)
@@ -236,8 +233,6 @@ namespace ServiceCenter.Setup
 
                 throw;
             }
-           
-
 
         }
 
@@ -251,6 +246,130 @@ namespace ServiceCenter.Setup
             foreach (DataGridViewRow row in dgvGRN.Rows)
             {
                 row.Cells[dgvGRN.Columns[clmValue.Name].Index].Value = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value) * Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmUnitPrice.Name].Index].Value));
+
+                CalculateDiscountedPrice();
+                SumOfDiscountedValue();
+            }
+        }
+
+        private void CalculateDiscountedPrice()
+        {
+            double Discount = 0;
+            double unitPrice = 0;
+            double totDiscout = 0;
+            double Qty = 0;
+            double Val = 0;
+            double x = 0;
+
+            foreach (DataGridViewRow row in dgvGRN.Rows)
+            {
+                Discount = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
+                Qty = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value));
+                unitPrice = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmUnitPrice.Name].Index].Value));
+
+                Val = Qty * unitPrice;
+
+                x = (Val * Discount) / 100;
+                totDiscout = Val - x;
+                row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value = totDiscout;
+            }
+
+        }
+
+        private void SumOfDiscountedValue()
+        {
+
+            double Tot = 0;
+
+           
+            foreach (DataGridViewRow row in dgvGRN.Rows)
+            {
+                double SumOfDisPrice = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value));
+
+                Tot += SumOfDisPrice;
+
+      
+            }
+
+            lblTotal.Text = Tot.ToString("#,##0.00");
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<GRNEntity> lstGRNSave = new List<GRNEntity>();
+
+                Execute objExecute = new Execute();
+                SqlParameter[] param = new SqlParameter[]
+               {
+                    Execute.AddParameter("@intSupplierID", Convert.ToInt32(cmbSupplier.SelectedValue))
+               };
+
+                int intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
+
+                foreach (DataGridViewRow dr in dgvGRN.Rows)
+                {
+                    GRNEntity objGRNEntity = new GRNEntity
+                    {
+                        intGRNHeaderID = intGRNHeaderID,
+                        intItemID = Convert.ToInt32(dr.Cells[clmItemID1.Name].Value.ToString()),
+                        decGRNQty = Convert.ToDecimal(dr.Cells[clmGRNQty.Name].Value.ToString()),
+                        decUnitPrice = Convert.ToDecimal(dr.Cells[clmUnitPrice.Name].Value.ToString()),
+                        decDiscount = Convert.ToDecimal(dr.Cells[clmDiscount.Name].Value.ToString()),
+                        decTotal = Convert.ToDecimal(dr.Cells[clmValue.Name].Value.ToString())
+                    };
+                    lstGRNSave.Add(objGRNEntity);
+                }
+
+                foreach (GRNEntity item in lstGRNSave)
+                {
+                    Execute objExecuteX = new Execute();
+                    SqlParameter[] paramX = new SqlParameter[]
+                 {
+                    Execute.AddParameter("@intGRNHeaderID",item.intGRNHeaderID),
+                    Execute.AddParameter("@intItemID",item.intItemID),
+                    Execute.AddParameter("@decGRNQty",item.decGRNQty),
+                    Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
+                    Execute.AddParameter("@decDiscount",item.decDiscount),
+                    Execute.AddParameter("@decDiscount",item.decTotal),
+                 };
+
+                    objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
+
+                }
+                MessageBox.Show("Save.......");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public void GetReport()
+        {
+            ReportDocument rptDoc = new ReportDocument();
+
+
+        }
+
+        private void dgvGRN_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvGRN.CurrentCell.ColumnIndex == 6 || dgvGRN.CurrentCell.ColumnIndex == 8)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(dgvGRN_KeyPress);
+            }
+
+        }
+
+        private void dgvGRN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
             }
         }
     }
