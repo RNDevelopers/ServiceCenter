@@ -20,6 +20,12 @@ namespace ServiceCenter.Setup
     {
         public int intItemID { get; set; }
 
+        ItemEntity objItemEntity;
+
+        List<ItemEntity> GlobalList;
+
+        ItemEntity objItem;
+
         public frmReceive()
         {
             InitializeComponent();
@@ -104,7 +110,7 @@ namespace ServiceCenter.Setup
 
                 ItemEntity objItemEntity;
                 List<ItemEntity> lstGetItemAdd = new List<ItemEntity>();
-
+            
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -162,10 +168,67 @@ namespace ServiceCenter.Setup
 
         private void dgvAddItem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+         
             try
             {
+       
+
                 intItemID = Convert.ToInt32(dgvAddItem.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
 
+                Execute objExecute = new Execute();
+                string Query = "[dbo].[spGetItemDetails]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+                      Execute.AddParameter("@intItemID",intItemID),
+               
+                  };
+                DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+                List<ItemEntity> lstGetItemGRN = new List<ItemEntity>();
+
+                //if (lstGetItemGRN.Find(x => x.intItemID == GlobalList.IndexOf) != null)
+                //{
+                //    MessageBox.Show("You can't select Same Item!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+
+                // List<ItemEntity> GlobalList = new List<ItemEntity>();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    objItemEntity = new ItemEntity();
+                    dgvGRN.Rows.Add();
+                    objItemEntity.intItemID = (int)dr["intItemID"];
+                    objItemEntity.vcItemCode = dr["vcItemCode"].ToString();
+                    objItemEntity.vcSubCategoryName = dr["vcSubCategoryName"].ToString();
+                    objItemEntity.vcItemDescription = dr["vcItemDescription"].ToString();
+                    objItemEntity.vcUnit = dr["vcUnit"].ToString();
+                    objItemEntity.decUnitPrice = (decimal)dr["decUnitPrice"];
+
+                    lstGetItemGRN.Add(objItemEntity);
+          
+                }
+
+                foreach (ItemEntity objItem in lstGetItemGRN)
+                {
+                    dgvGRN["clmItemID1", dgvGRN.Rows.Count - 1].Value = objItem.intItemID;
+                    dgvGRN["clmItemCode1", dgvGRN.Rows.Count - 1].Value = objItem.vcItemCode;
+                    dgvGRN["clmSubCategoryName", dgvGRN.Rows.Count - 1].Value = objItem.vcSubCategoryName;
+                    dgvGRN["clmItemDesc", dgvGRN.Rows.Count - 1].Value = objItem.vcItemDescription;
+                    dgvGRN["clmUnit", dgvGRN.Rows.Count - 1].Value = objItem.vcUnit;
+                    dgvGRN["clmUnitPrice", dgvGRN.Rows.Count - 1].Value = objItem.decUnitPrice;
+
+                }
+
+                GlobalList = lstGetItemGRN.ToList();
+
+                //if (lstGetItemGRN.Count > 0)
+                //{
+                //    dgvGRN.AutoGenerateColumns = false;
+                //    dgvGRN.DataSource = lstGetItemGRN.ToList();
+                //}
+
+                //lstGetItemGRN.Clear();
 
             }
             catch (Exception)
@@ -181,6 +244,14 @@ namespace ServiceCenter.Setup
         private void cmbMainCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GetSubCat();
+        }
+
+        private void dgvGRN_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvGRN.Rows)
+            {
+                row.Cells[dgvGRN.Columns[clmValue.Name].Index].Value = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value) * Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmUnitPrice.Name].Index].Value));
+            }
         }
     }
 }

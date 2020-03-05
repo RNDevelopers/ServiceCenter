@@ -23,5 +23,12 @@ namespace ServiceCenter.Entities
         public decimal decUnitPrice { get; set; }
 
 
+
+       public string vcSubCategoryName { get; set; }
+
+        public string vcUnit { get; set; }
+
+        public List<ItemEntity> lstLastItem { get; set; }
+
     }
 }
