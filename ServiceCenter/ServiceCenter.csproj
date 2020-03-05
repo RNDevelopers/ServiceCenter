@@ -92,6 +92,7 @@
     <Compile Include="DBConnection\ClsConnection.cs" />
     <Compile Include="DBConnection\Execute.cs" />
     <Compile Include="Entities\BrandEntity.cs" />
+    <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Entities\SupplierEntity.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="ErrorLog\Logger.cs" />

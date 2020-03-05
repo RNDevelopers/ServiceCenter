@@ -167,9 +167,24 @@ namespace ServiceCenter.Setup
         public void SaveItem()
         {
 
+            if (cmbAPI.SelectedIndex == -1)
+            {
+                intAPIID = null;
+            }
+            if (cmbSAE.SelectedIndex == -1)
+            {
+                intSAEID = null;
+            }
+            if (cmbEngineType.SelectedIndex == -1)
+            {
+                intEngineTypeID = null;
+            }
+            else
+            { 
             intAPIID = Convert.ToInt32(cmbAPI.SelectedValue);
             intSAEID = Convert.ToInt32(cmbSAE.SelectedValue);
             intEngineTypeID = Convert.ToInt32(cmbEngineType.SelectedValue);
+            }
 
             DialogResult dr = MessageBox.Show("Are You Sure Want to Add Item ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 

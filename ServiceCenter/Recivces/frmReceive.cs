@@ -1,5 +1,6 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
+using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using ServiceCenter.ErrorLog;
 using System;
@@ -17,6 +18,8 @@ namespace ServiceCenter.Setup
 {
     public partial class frmReceive : BaseUI
     {
+        public int intItemID { get; set; }
+
         public frmReceive()
         {
             InitializeComponent();
@@ -99,9 +102,25 @@ namespace ServiceCenter.Setup
                   };
                 DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
+                ItemEntity objItemEntity;
+                List<ItemEntity> lstGetItemAdd = new List<ItemEntity>();
+
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    objItemEntity = new ItemEntity();
+                    objItemEntity.intItemID = (int)dr["intItemID"];
+                    objItemEntity.vcItemCode = dr["vcItemCode"].ToString();
+                    objItemEntity.vcItemDescription = dr["vcItemDescription"].ToString();
+                    objItemEntity.decStockInHand = (Decimal)dr["decStockInHand"];
+
+                    lstGetItemAdd.Add(objItemEntity);
+                }
+
+     
                 dgvAddItem.DataSource = null;
                 dgvAddItem.AutoGenerateColumns = false;
-                dgvAddItem.DataSource = dt;
+                dgvAddItem.DataSource = lstGetItemAdd;
             }
             catch (Exception ex)
             {
@@ -143,6 +162,19 @@ namespace ServiceCenter.Setup
 
         private void dgvAddItem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                intItemID = Convert.ToInt32(dgvAddItem.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+
 
         }
 
