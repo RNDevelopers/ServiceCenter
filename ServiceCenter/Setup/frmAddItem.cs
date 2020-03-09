@@ -167,6 +167,8 @@ namespace ServiceCenter.Setup
         public void SaveItem()
         {
 
+
+
             if (cmbAPI.SelectedIndex == -1)
             {
                 intAPIID = null;
@@ -236,6 +238,7 @@ namespace ServiceCenter.Setup
             {
                 ItemCode = cmbAPI.Text.ToString() + '-' + cmbSAE.Text.ToString() + '-' + cmbUnitQty.Text.ToString() + cmbMeasureUnit.Text.ToString();
                 txtItemCode.Text = ItemCode;
+                txtItemCode.ReadOnly = true;
             }
            
         }

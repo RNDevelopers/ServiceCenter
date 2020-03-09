@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -29,6 +30,8 @@ namespace ServiceCenter.Setup
             GetSupplier();
             GetBrand();
             GetMainCategory();
+
+
         }
 
         public void GetMainCategory()
@@ -159,7 +162,6 @@ namespace ServiceCenter.Setup
 
         private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //GetSubCat();
             cmbMainCategory.SelectedIndex = -1;
         }
 
@@ -168,8 +170,6 @@ namespace ServiceCenter.Setup
 
             try
             {
-
-
                 intItemID = Convert.ToInt32(dgvAddItem.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
 
                 Execute objExecute = new Execute();
@@ -194,7 +194,10 @@ namespace ServiceCenter.Setup
                 foreach (DataRow dr in dt.Rows)
                 {
                     objItemEntity = new ItemEntity();
+
+                    dgvGRN.Columns[clmGRNQty.Name].DefaultCellStyle.BackColor = Color.LightGreen;
                     dgvGRN.Rows.Add();
+
                     objItemEntity.intItemID = (int)dr["intItemID"];
                     objItemEntity.vcItemCode = dr["vcItemCode"].ToString();
                     objItemEntity.vcSubCategoryName = dr["vcSubCategoryName"].ToString();
@@ -218,14 +221,6 @@ namespace ServiceCenter.Setup
                 }
 
                 GlobalList = lstGetItemGRN.ToList();
-
-                //if (lstGetItemGRN.Count > 0)
-                //{
-                //    dgvGRN.AutoGenerateColumns = false;
-                //    dgvGRN.DataSource = lstGetItemGRN.ToList();
-                //}
-
-                //lstGetItemGRN.Clear();
 
             }
             catch (Exception)
@@ -263,7 +258,17 @@ namespace ServiceCenter.Setup
 
             foreach (DataGridViewRow row in dgvGRN.Rows)
             {
-                Discount = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
+
+                if (Convert.ToBoolean(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value == null))
+                {
+                    row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value = 0;
+                }
+                else
+                {
+                    Discount = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
+                }
+
+               
                 Qty = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value));
                 unitPrice = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmUnitPrice.Name].Index].Value));
 
@@ -281,14 +286,12 @@ namespace ServiceCenter.Setup
 
             double Tot = 0;
 
-           
+
             foreach (DataGridViewRow row in dgvGRN.Rows)
             {
                 double SumOfDisPrice = (Convert.ToDouble(row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value));
 
                 Tot += SumOfDisPrice;
-
-      
             }
 
             lblTotal.Text = Tot.ToString("#,##0.00");
@@ -298,6 +301,16 @@ namespace ServiceCenter.Setup
         {
             try
             {
+                foreach (DataGridViewRow row in dgvGRN.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value == null))
+                    {
+                        MessageBox.Show("Please Enter GRN Qty");
+                        return;
+                    }
+       
+                }
+
                 List<GRNEntity> lstGRNSave = new List<GRNEntity>();
 
                 Execute objExecute = new Execute();
@@ -371,6 +384,34 @@ namespace ServiceCenter.Setup
             {
                 e.Handled = true;
             }
+        }
+
+        private void SetFormatting()
+        {
+            dgvGRN.Columns[clmValue.Name].DefaultCellStyle.Format = "#,##0.00";
+            dgvGRN.Columns[clmDiscountedValue.Name].DefaultCellStyle.Format = "#,##0.00";
+        }
+
+        private void frmReceive_Load(object sender, EventArgs e)
+        {
+            SetFormatting();
+        }
+
+        private void dgvGRN_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (dgvGRN.CurrentCell.ColumnIndex == 6) // zero-based
+            {
+                if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
+                    MessageBox.Show("Please Enter GRN Qty");
+                   // e.Cancel = true;
+                }
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }

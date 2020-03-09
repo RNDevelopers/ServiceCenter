@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ServiceCenter
 {
-    public partial class MainWindow : BaseUI
+    public partial class MainWindow : Form
     {
         public MainWindow()
         {
             InitializeComponent();
-            this.SetFormName();
+           // this.SetFormName();
             //slidepline move
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnSetUp.Top;
