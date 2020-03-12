@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbSubCat = new System.Windows.Forms.ComboBox();
             this.cmbBrand = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.btnAssign = new System.Windows.Forms.Button();
             this.dgvSubCat = new System.Windows.Forms.DataGridView();
             this.clmSubCatDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubCatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBrandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubCatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmbtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCat)).BeginInit();
@@ -135,35 +137,37 @@
             this.dgvSubCat.AllowUserToDeleteRows = false;
             this.dgvSubCat.AllowUserToOrderColumns = true;
             this.dgvSubCat.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubCat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubCat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSubCat.BackgroundColor = System.Drawing.Color.White;
             this.dgvSubCat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubCat.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvSubCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(58)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(58)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSubCat.ColumnHeadersHeight = 35;
             this.dgvSubCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSubCat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSubCatDetailsID,
+            this.clmSubCatID,
+            this.clmBrandID,
             this.clmSubCatName,
             this.clmbtnDelete});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubCat.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubCat.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSubCat.EnableHeadersVisualStyles = false;
             this.dgvSubCat.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvSubCat.Location = new System.Drawing.Point(13, 165);
@@ -171,18 +175,18 @@
             this.dgvSubCat.Name = "dgvSubCat";
             this.dgvSubCat.ReadOnly = true;
             this.dgvSubCat.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvSubCat.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvSubCat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSubCat.RowHeadersVisible = false;
             this.dgvSubCat.RowHeadersWidth = 15;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSubCat.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubCat.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSubCat.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvSubCat.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSubCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -192,20 +196,36 @@
             // clmSubCatDetailsID
             // 
             this.clmSubCatDetailsID.DataPropertyName = "intSubCatDetailsID";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSubCatDetailsID.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmSubCatDetailsID.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmSubCatDetailsID.HeaderText = "SubCatDetailsID";
             this.clmSubCatDetailsID.Name = "clmSubCatDetailsID";
             this.clmSubCatDetailsID.ReadOnly = true;
             this.clmSubCatDetailsID.Visible = false;
             this.clmSubCatDetailsID.Width = 150;
             // 
+            // clmSubCatID
+            // 
+            this.clmSubCatID.DataPropertyName = "intSubCatID";
+            this.clmSubCatID.HeaderText = "SubCatID";
+            this.clmSubCatID.Name = "clmSubCatID";
+            this.clmSubCatID.ReadOnly = true;
+            this.clmSubCatID.Visible = false;
+            // 
+            // clmBrandID
+            // 
+            this.clmBrandID.DataPropertyName = "intBrandID";
+            this.clmBrandID.HeaderText = "BrandID";
+            this.clmBrandID.Name = "clmBrandID";
+            this.clmBrandID.ReadOnly = true;
+            this.clmBrandID.Visible = false;
+            // 
             // clmSubCatName
             // 
             this.clmSubCatName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.clmSubCatName.DataPropertyName = "vcSubCategoryName";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSubCatName.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmSubCatName.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmSubCatName.HeaderText = "Sub Category Name";
             this.clmSubCatName.Name = "clmSubCatName";
             this.clmSubCatName.ReadOnly = true;
@@ -231,7 +251,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblSubcat);
             this.Name = "frmAssignSubCategoryBrand";
-            this.Text = "frmAssignSubCategoryBrand";
+            this.Text = "Assign SubCategory Brand";
             this.Load += new System.EventHandler(this.frmAssignSubCategoryBrand_Load);
             this.Controls.SetChildIndex(this.lblSubcat, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -258,6 +278,8 @@
         private System.Windows.Forms.Button btnAssign;
         private System.Windows.Forms.DataGridView dgvSubCat;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubCatDetailsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubCatID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBrandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubCatName;
         private System.Windows.Forms.DataGridViewButtonColumn clmbtnDelete;
     }

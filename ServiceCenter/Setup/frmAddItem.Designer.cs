@@ -509,7 +509,7 @@
             this.Controls.Add(this.lblSubcat);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddItem";
-            this.Text = "Add Item";
+            this.Text = "1";
             this.Load += new System.EventHandler(this.frmAddItem_Load);
             this.Controls.SetChildIndex(this.lblSubcat, 0);
             this.Controls.SetChildIndex(this.label7, 0);

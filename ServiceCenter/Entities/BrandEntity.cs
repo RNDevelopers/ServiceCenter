@@ -11,5 +11,7 @@ namespace ServiceCenter.Entities
         public int intBrandID { get; set; }
 
         public string vcName { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

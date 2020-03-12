@@ -496,7 +496,6 @@
             this.clmUnitPrice.DataPropertyName = "decUnitPrice";
             this.clmUnitPrice.HeaderText = "Unit Price";
             this.clmUnitPrice.Name = "clmUnitPrice";
-            this.clmUnitPrice.ReadOnly = true;
             // 
             // clmDiscount
             // 

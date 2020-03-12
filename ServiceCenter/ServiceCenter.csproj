@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.4</MinimumRequiredVersion>
-    <ApplicationRevision>4</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.5</MinimumRequiredVersion>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -105,6 +105,7 @@
     <Compile Include="DBConnection\ClsConnection.cs" />
     <Compile Include="DBConnection\Execute.cs" />
     <Compile Include="Entities\BrandEntity.cs" />
+    <Compile Include="Entities\CategoryEntity.cs" />
     <Compile Include="Entities\GRNEntity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Entities\SupplierEntity.cs" />
@@ -253,6 +254,7 @@
   <ItemGroup>
     <Folder Include="ReportCriteria\" />
     <Folder Include="Schema\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_math_30px.png" />

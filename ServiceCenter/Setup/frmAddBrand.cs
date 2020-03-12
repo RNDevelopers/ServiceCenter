@@ -1,5 +1,6 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
+using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace ServiceCenter.Setup
     {
 
         public int intBrandID;
+
+        List<BrandEntity> GlobleBrandEntity;
+        BrandEntity objBrandEntity;
 
         public frmAddBrand()
         {
@@ -40,6 +44,18 @@ namespace ServiceCenter.Setup
 
         public void SaveBrand()
         {
+            if (GlobleBrandEntity == null)
+            {
+                GlobleBrandEntity = new List<BrandEntity>();
+            }
+
+            if (GlobleBrandEntity.Find(x => x.vcName == (txtBrand.Text.ToUpper())) != null)
+            {
+                MessageBox.Show("You can't Add Same Brand!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             DialogResult dr = MessageBox.Show("Are You Sure Want to Add New Brand ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
             if (dr == DialogResult.Yes)
@@ -67,6 +83,7 @@ namespace ServiceCenter.Setup
         public void GridLoad()
         {
             DataTable dt = new DataTable();
+            List<BrandEntity> lstBrandEntity = new List<BrandEntity>();
             try
             {
                 Execute objExecute = new Execute();
@@ -78,13 +95,29 @@ namespace ServiceCenter.Setup
 
                 dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
-                dgvBrand.DataSource = dt;
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    BrandEntity objBrandEntity = new BrandEntity
+                    {
+                        intBrandID = Convert.ToInt32(dr["intBrandID"]),
+                        vcName = dr["vcName"].ToString(),
+                        IsActive = Convert.ToBoolean(dr["IsActive"]),
+                    };
+
+                    lstBrandEntity.Add(objBrandEntity);
+                }
+
+                dgvBrand.DataSource = null;
+                dgvBrand.AutoGenerateColumns = false;
+                dgvBrand.DataSource = lstBrandEntity.ToList();
+
+                GlobleBrandEntity = lstBrandEntity;
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
-
-               
+                MessageBox.Show(ex.ToString());               
             }
 
         }

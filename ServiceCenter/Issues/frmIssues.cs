@@ -1,10 +1,13 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.Customer;
 using ServiceCenter.DBConnection;
+using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
@@ -15,6 +18,8 @@ namespace ServiceCenter.Setup
         public string vcVehicleNo { get; set; }
         public string intVehicleNo { get; set; }
         public string FullVehicleNO { get; set; }
+
+        List<ItemEntity> lstItems;
 
         public frmIssues()
         {
@@ -84,6 +89,54 @@ namespace ServiceCenter.Setup
         {
             frmAddCustomer obj = new frmAddCustomer();
             obj.Show();
+        }
+
+        public void GetAllItemDetails()
+        {
+            Execute objExecute = new Execute();
+            lstItems = new List<ItemEntity>();
+            string Query = "[dbo].[spGetAllItemDetails]";
+            SqlParameter[] para = new SqlParameter[]
+              {
+                     // Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue))
+
+              };
+            DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                ItemEntity objItemEntity = new ItemEntity
+                {
+                    intItemID = Convert.ToInt32(dr["intItemID"]),
+                    vcItemCode = dr["vcItemCode"].ToString(),
+                    vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
+                    vcItemDescription = dr["vcItemDescription"].ToString(),
+                    vcUnit = dr["vcUnit"].ToString(),
+                    decUnitPrice = Convert.ToDecimal(dr["decUnitPrice"]),
+                };
+
+                lstItems.Add(objItemEntity);
+            }
+
+            dgvAddItem.DataSource = null;
+            dgvAddItem.AutoGenerateColumns = false;
+            dgvAddItem.DataSource = lstItems.ToList();
+
+        }
+
+        private void frmIssues_Load(object sender, EventArgs e)
+        {
+            GetAllItemDetails();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvAddItem.DataSource = lstItems.FindAll(x => x.vcItemCode.Trim().ToLower().StartsWith(txtSearch.Text.Trim().ToLower()));
+        }
+
+        private void txtDecSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvAddItem.DataSource = lstItems.FindAll(x => x.vcItemDescription.Trim().ToLower().Contains(txtDecSearch.Text.Trim().ToLower()));
         }
     }
 }

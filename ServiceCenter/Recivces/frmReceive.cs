@@ -183,19 +183,20 @@ namespace ServiceCenter.Setup
 
                 List<ItemEntity> lstGetItemGRN = new List<ItemEntity>();
 
-                //if (lstGetItemGRN.Find(x => x.intItemID == GlobalList.IndexOf) != null)
+                //if (lstGetItemGRN.Find(x => x.intItemID == (int)dr["intItemID"]) != null)
                 //{
                 //    MessageBox.Show("You can't select Same Item!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //    return;
                 //}
 
-                // List<ItemEntity> GlobalList = new List<ItemEntity>();
+                //List<ItemEntity> GlobalList = new List<ItemEntity>();
 
                 foreach (DataRow dr in dt.Rows)
                 {
                     objItemEntity = new ItemEntity();
 
                     dgvGRN.Columns[clmGRNQty.Name].DefaultCellStyle.BackColor = Color.LightGreen;
+                    dgvGRN.Columns[clmUnitPrice.Name].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                     dgvGRN.Rows.Add();
 
                     objItemEntity.intItemID = (int)dr["intItemID"];
@@ -203,7 +204,7 @@ namespace ServiceCenter.Setup
                     objItemEntity.vcSubCategoryName = dr["vcSubCategoryName"].ToString();
                     objItemEntity.vcItemDescription = dr["vcItemDescription"].ToString();
                     objItemEntity.vcUnit = dr["vcUnit"].ToString();
-                    objItemEntity.decUnitPrice = (decimal)dr["decUnitPrice"];
+                   // objItemEntity.decUnitPrice = (decimal)dr["decUnitPrice"];
 
                     lstGetItemGRN.Add(objItemEntity);
 
@@ -216,7 +217,7 @@ namespace ServiceCenter.Setup
                     dgvGRN["clmSubCategoryName", dgvGRN.Rows.Count - 1].Value = objItem.vcSubCategoryName;
                     dgvGRN["clmItemDesc", dgvGRN.Rows.Count - 1].Value = objItem.vcItemDescription;
                     dgvGRN["clmUnit", dgvGRN.Rows.Count - 1].Value = objItem.vcUnit;
-                    dgvGRN["clmUnitPrice", dgvGRN.Rows.Count - 1].Value = objItem.decUnitPrice;
+                   // dgvGRN["clmUnitPrice", dgvGRN.Rows.Count - 1].Value = objItem.decUnitPrice;
 
                 }
 
@@ -308,7 +309,12 @@ namespace ServiceCenter.Setup
                         MessageBox.Show("Please Enter GRN Qty");
                         return;
                     }
-       
+                    if (Convert.ToBoolean(row.Cells[dgvGRN.Columns[clmUnitPrice.Name].Index].Value == null))
+                    {
+                        MessageBox.Show("Please Enter GRN Qty");
+                        return;
+                    }
+
                 }
 
                 List<GRNEntity> lstGRNSave = new List<GRNEntity>();
@@ -320,6 +326,7 @@ namespace ServiceCenter.Setup
                };
 
                 int intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
+                int NoOfRowsEffected = 0;
 
                 foreach (DataGridViewRow dr in dgvGRN.Rows)
                 {
@@ -345,13 +352,21 @@ namespace ServiceCenter.Setup
                     Execute.AddParameter("@decGRNQty",item.decGRNQty),
                     Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
                     Execute.AddParameter("@decDiscount",item.decDiscount),
-                    Execute.AddParameter("@decDiscount",item.decTotal),
+                    Execute.AddParameter("@decTotal",item.decTotal),
                  };
 
-                    objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
+                    NoOfRowsEffected = objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
 
                 }
-                MessageBox.Show("Save.......");
+
+                if (NoOfRowsEffected < 0)
+                {
+                    MessageBox.Show("Save..");
+                }
+                else
+                {
+                    MessageBox.Show("Cant't Save..");
+                }
 
             }
             catch (Exception)
