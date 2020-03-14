@@ -21,10 +21,10 @@ namespace ServiceCenter.Entities
 
         public decimal decStockInHand { get; set; }
         public decimal decUnitPrice { get; set; }
+        public decimal GRNqty { get; set; }
+        public decimal Discount { get; set; }
 
-
-
-       public string vcSubCategoryName { get; set; }
+        public string vcSubCategoryName { get; set; }
 
         public string vcUnit { get; set; }
 

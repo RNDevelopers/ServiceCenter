@@ -125,6 +125,18 @@
       <DependentUpon>rptGRN.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Return\frmToCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return\frmToCustomer.Designer.cs">
+      <DependentUpon>frmToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Return\frmToSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return\frmToSupplier.Designer.cs">
+      <DependentUpon>frmToSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setup\frmAddBrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +216,12 @@
     <EmbeddedResource Include="Report\rptGRN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGRN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return\frmToCustomer.resx">
+      <DependentUpon>frmToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return\frmToSupplier.resx">
+      <DependentUpon>frmToSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddBrand.resx">
       <DependentUpon>frmAddBrand.cs</DependentUpon>
