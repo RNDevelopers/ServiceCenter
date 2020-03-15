@@ -18,6 +18,7 @@ namespace ServiceCenter.Entities
         public int intSAEID { get; set; }
         public int intEngineTypeID { get; set; }
         public int intPackingMethodID { get; set; }
+        public string vcEngineType { get; set; }
 
         public decimal decStockInHand { get; set; }
         public decimal decUnitPrice { get; set; }
@@ -28,7 +29,11 @@ namespace ServiceCenter.Entities
 
         public string vcUnit { get; set; }
 
+        public int intGRNDetailID { get; set; }
+
         public List<ItemEntity> lstLastItem { get; set; }
 
+
+        public decimal Issueqty { get; set; }
     }
 }

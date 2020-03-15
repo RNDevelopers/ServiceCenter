@@ -3,6 +3,7 @@ using ServiceCenter.Customer;
 using ServiceCenter.DBConnection;
 using ServiceCenter.Entities;
 using ServiceCenter.Enums;
+using ServiceCenter.ErrorLog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,12 +20,27 @@ namespace ServiceCenter.Setup
         public string intVehicleNo { get; set; }
         public string FullVehicleNO { get; set; }
 
-        List<ItemEntity> lstItems;
+        private ItemEntity objItemEntity;
+        private List<ItemEntity> GlobalList;
+        private List<ItemEntity> GlobalSelectedItemList = new List<ItemEntity>();
 
         public frmIssues()
         {
             InitializeComponent();
             SetFormName();
+
+            GetService();
+        }
+
+        public void GetService()
+        {
+            Execute objExecute = new Execute();
+            DataTable dt = (DataTable)objExecute.Executes("spGetService", ReturnType.DataTable, CommandType.StoredProcedure);
+
+            cmbService.DataSource = dt;
+            cmbService.DisplayMember = "vcServiceName";
+            cmbService.ValueMember = "intServiceID";
+            cmbService.SelectedIndex = -1;
         }
 
         public void GetCustomerInfo()
@@ -91,52 +107,199 @@ namespace ServiceCenter.Setup
             obj.Show();
         }
 
-        public void GetAllItemDetails()
+        public void GetAllItemIssueAdd()
         {
-            Execute objExecute = new Execute();
-            lstItems = new List<ItemEntity>();
-            string Query = "[dbo].[spGetAllItemDetails]";
-            SqlParameter[] para = new SqlParameter[]
-              {
-                     // Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue))
-
-              };
-            DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
-
-            foreach (DataRow dr in dt.Rows)
+            try
             {
-                ItemEntity objItemEntity = new ItemEntity
+                Execute objExecute = new Execute();
+                string Query = "[dbo].[spGetAllItemIssueAdd]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+
+                  };
+                DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+                ItemEntity objItemEntity;
+                List<ItemEntity> lstGetItemAdd = new List<ItemEntity>();
+
+
+                foreach (DataRow dr in dt.Rows)
                 {
-                    intItemID = Convert.ToInt32(dr["intItemID"]),
-                    vcItemCode = dr["vcItemCode"].ToString(),
-                    vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
-                    vcItemDescription = dr["vcItemDescription"].ToString(),
-                    vcUnit = dr["vcUnit"].ToString(),
-                    decUnitPrice = Convert.ToDecimal(dr["decUnitPrice"]),
-                };
+                    objItemEntity = new ItemEntity
+                    {
+                        intItemID = (int)dr["intItemID"],
+                        vcItemCode = dr["vcItemCode"].ToString(),
+                        vcItemDescription = dr["vcItemDescription"].ToString(),
+                        vcEngineType = dr["vcEngineType"].ToString(),
+                        decStockInHand = (decimal)dr["decStockInHand"],
+                        vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
+                        vcUnit = dr["vcUnit"].ToString(),
+                        decUnitPrice = (decimal)dr["decUnitPrice"],
+                    };
 
-                lstItems.Add(objItemEntity);
+                    lstGetItemAdd.Add(objItemEntity);
+                }
+
+                dgvAddItem.DataSource = null;
+                dgvAddItem.AutoGenerateColumns = false;
+                dgvAddItem.DataSource = lstGetItemAdd;
+
+                GlobalList = lstGetItemAdd.ToList();
             }
-
-            dgvAddItem.DataSource = null;
-            dgvAddItem.AutoGenerateColumns = false;
-            dgvAddItem.DataSource = lstItems.ToList();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data Loading Error");
+                Logger.LoggError(ex, "GetAllItemIssueAdd");
+            }
 
         }
 
         private void frmIssues_Load(object sender, EventArgs e)
         {
-            GetAllItemDetails();
+            GetAllItemIssueAdd();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            dgvAddItem.DataSource = lstItems.FindAll(x => x.vcItemCode.Trim().ToLower().StartsWith(txtSearch.Text.Trim().ToLower()));
+            dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemCode.Trim().ToLower().StartsWith(txtSearch.Text.Trim().ToLower()));
         }
 
         private void txtDecSearch_TextChanged(object sender, EventArgs e)
         {
-            dgvAddItem.DataSource = lstItems.FindAll(x => x.vcItemDescription.Trim().ToLower().Contains(txtDecSearch.Text.Trim().ToLower()));
+            dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemDescription.Trim().ToLower().Contains(txtDecSearch.Text.Trim().ToLower()));
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            GetCustomerInfo();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkApplyService_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkApplyService.Checked)
+            {
+                cmbService.Enabled = true;
+                btnAdd.Enabled = true;
+                txtOtherChargers.Enabled = true;
+                txtOtherValue.Enabled = true;
+                btnOtherAdd.Enabled = true;
+                dgvService.Enabled = true;
+            }
+            else
+            {
+                cmbService.Enabled = false;
+                btnAdd.Enabled = false;
+                txtOtherChargers.Enabled = false;
+                txtOtherValue.Enabled = false;
+                btnOtherAdd.Enabled = false;
+                dgvService.Enabled = false;
+            }
+        }
+
+        private void dgvAddItem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(dgvAddItem.Rows[dgvAddItem.CurrentCell.RowIndex].Cells[clmItemID.Name].Value);
+
+                if (GlobalSelectedItemList.Find(x => x.intItemID == id) != null)
+                {
+                    MessageBox.Show("You can't select Same Item!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                ItemEntity obj = GlobalList.Find(x => x.intItemID == id);
+
+                GlobalSelectedItemList.Add(obj);
+                dgvItemIssue.AutoGenerateColumns = false;
+                dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void dgvItemIssue_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //int id = Convert.ToInt32(dgvItemIssue.Rows[dgvItemIssue.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
+            //GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+            //dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
+
+        }
+
+        private void dgvItemIssue_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            CalculateDiscountedPrice();
+        }
+
+        private void CalculateDiscountedPrice()
+        {
+            decimal Discount = 0;
+            decimal unitPrice = 0;
+            decimal totDiscout = 0;
+            decimal IndexDiscount = 0;
+            decimal Qty = 0;
+            decimal Val = 0;
+            decimal x = 0;
+            int id = 0;
+
+
+            foreach (DataGridViewRow row in dgvItemIssue.Rows)
+            {
+
+                if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value == null))
+                {
+                    row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value = 0;
+                }
+                else
+                {
+                    Discount = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value));
+                }
+
+                Qty = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value));
+                unitPrice = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmUnitPrice.Name].Index].Value));
+                id = (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmItemID1.Name].Index].Value));
+                IndexDiscount = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value));
+
+                ItemEntity obj = GlobalSelectedItemList.Find(xx => xx.intItemID == id);
+                int index = GlobalSelectedItemList.IndexOf(obj);
+
+
+                GlobalSelectedItemList[index].decUnitPrice = unitPrice;
+                GlobalSelectedItemList[index].Issueqty = Qty;
+                GlobalSelectedItemList[index].Discount = IndexDiscount;
+
+                Val = Qty * unitPrice;
+
+                row.Cells[dgvItemIssue.Columns[clmValue.Name].Index].Value = Val;
+
+                x = (Val * Discount) / 100;
+                totDiscout = totDiscout + (Val - x);
+                row.Cells[dgvItemIssue.Columns[clmDiscountedValue.Name].Index].Value = (Val - x);
+
+            }
+
+            lblTotal.Text = totDiscout.ToString("#,##0.00");
+
+        }
+
+        private void dgvItemIssue_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvItemIssue.Columns[e.ColumnIndex] == clmbtnDelete)
+            {
+                int id = Convert.ToInt32(dgvItemIssue.Rows[dgvItemIssue.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
+                GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+                dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
+
+            }
         }
     }
 }

@@ -21,7 +21,6 @@ namespace ServiceCenter.Setup
         private List<ItemEntity> GlobalList;
         private List<ItemEntity> GlobalSelectedItemList = new List<ItemEntity>();
 
-        private ItemEntity objItem;
         private List<ItemEntity> lstGetItemGRN = new List<ItemEntity>();
 
         public frmReceive()
@@ -111,6 +110,7 @@ namespace ServiceCenter.Setup
                         intItemID = (int)dr["intItemID"],
                         vcItemCode = dr["vcItemCode"].ToString(),
                         vcItemDescription = dr["vcItemDescription"].ToString(),
+                        vcEngineType = dr["vcEngineType"].ToString(),
                         decStockInHand = (decimal)dr["decStockInHand"],
                         vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
                         vcUnit = dr["vcUnit"].ToString()
@@ -159,7 +159,10 @@ namespace ServiceCenter.Setup
 
         private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            lstGetItemGRN.Clear();
+            dgvAddItem.DataSource = null;
             cmbMainCategory.SelectedIndex = -1;
+            cmbSubCat.SelectedIndex = -1;
         }
 
         private void dgvAddItem_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -167,10 +170,7 @@ namespace ServiceCenter.Setup
 
             try
             {
-                intItemID = Convert.ToInt32(dgvAddItem.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
-
                 int id = Convert.ToInt32(dgvAddItem.Rows[dgvAddItem.CurrentCell.RowIndex].Cells[clmItemID.Name].Value);
-
 
                 if (GlobalSelectedItemList.Find(x => x.intItemID == id) != null)
                 {
@@ -419,16 +419,33 @@ namespace ServiceCenter.Setup
 
         private void cmbMainCategory_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
+            lstGetItemGRN.Clear();
+            dgvAddItem.DataSource = null;
             GetSubCat();
         }
 
         private void dgvGRN_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
 
-            GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+            //int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
 
-            dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+            //GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+
+            //dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+        }
+
+        private void dgvGRN_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvGRN.Columns[e.ColumnIndex] == clmbtnDelete)
+            {
+                int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
+
+                GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+
+                dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+
+            }
+
         }
     }
 }

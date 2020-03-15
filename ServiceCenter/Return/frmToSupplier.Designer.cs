@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,14 +45,16 @@
             this.dtSubmissionDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dgvAddItem = new System.Windows.Forms.DataGridView();
+            this.dgvReturnItem = new System.Windows.Forms.DataGridView();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decStockInHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAddItem)).BeginInit();
+            this.clmReceivedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmReturnQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbSupplier
@@ -65,6 +67,7 @@
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(526, 25);
             this.cmbSupplier.TabIndex = 180;
+            this.cmbSupplier.SelectionChangeCommitted += new System.EventHandler(this.cmbSupplier_SelectionChangeCommitted);
             // 
             // label4
             // 
@@ -126,6 +129,7 @@
             this.cmbGRNNo.Name = "cmbGRNNo";
             this.cmbGRNNo.Size = new System.Drawing.Size(177, 25);
             this.cmbGRNNo.TabIndex = 184;
+            this.cmbGRNNo.SelectionChangeCommitted += new System.EventHandler(this.cmbGRNNo_SelectionChangeCommitted);
             // 
             // dtSubmissionDate
             // 
@@ -156,100 +160,66 @@
             this.label7.TabIndex = 186;
             this.label7.Text = ":";
             // 
-            // dgvAddItem
+            // dgvReturnItem
             // 
-            this.dgvAddItem.AllowUserToAddRows = false;
-            this.dgvAddItem.AllowUserToDeleteRows = false;
-            this.dgvAddItem.AllowUserToOrderColumns = true;
-            this.dgvAddItem.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAddItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvAddItem.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgvAddItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(58)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAddItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvAddItem.ColumnHeadersHeight = 35;
-            this.dgvAddItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvAddItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvReturnItem.AllowUserToAddRows = false;
+            this.dgvReturnItem.AllowUserToDeleteRows = false;
+            this.dgvReturnItem.AllowUserToOrderColumns = true;
+            this.dgvReturnItem.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReturnItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvReturnItem.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvReturnItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(58)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReturnItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvReturnItem.ColumnHeadersHeight = 35;
+            this.dgvReturnItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvReturnItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmItemID,
             this.clmItemCode,
             this.vcItemDescription,
-            this.decStockInHand});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAddItem.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvAddItem.EnableHeadersVisualStyles = false;
-            this.dgvAddItem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvAddItem.Location = new System.Drawing.Point(19, 177);
-            this.dgvAddItem.MultiSelect = false;
-            this.dgvAddItem.Name = "dgvAddItem";
-            this.dgvAddItem.ReadOnly = true;
-            this.dgvAddItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvAddItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvAddItem.RowHeadersVisible = false;
-            this.dgvAddItem.RowHeadersWidth = 15;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAddItem.RowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvAddItem.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvAddItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAddItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAddItem.Size = new System.Drawing.Size(676, 226);
-            this.dgvAddItem.TabIndex = 188;
-            // 
-            // clmItemID
-            // 
-            this.clmItemID.DataPropertyName = "intItemID";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmItemID.DefaultCellStyle = dataGridViewCellStyle10;
-            this.clmItemID.HeaderText = "Item ID";
-            this.clmItemID.Name = "clmItemID";
-            this.clmItemID.ReadOnly = true;
-            this.clmItemID.Visible = false;
-            this.clmItemID.Width = 5;
-            // 
-            // clmItemCode
-            // 
-            this.clmItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmItemCode.DataPropertyName = "vcItemCode";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            // 
-            // vcItemDescription
-            // 
-            this.vcItemDescription.DataPropertyName = "vcItemDescription";
-            this.vcItemDescription.HeaderText = "Item Description";
-            this.vcItemDescription.Name = "vcItemDescription";
-            this.vcItemDescription.ReadOnly = true;
-            this.vcItemDescription.Width = 400;
-            // 
-            // decStockInHand
-            // 
-            this.decStockInHand.DataPropertyName = "decStockInHand";
-            this.decStockInHand.HeaderText = "Balance Stock ";
-            this.decStockInHand.Name = "decStockInHand";
-            this.decStockInHand.ReadOnly = true;
+            this.clmReceivedQty,
+            this.decAvailableQty,
+            this.clmReturnQty});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReturnItem.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvReturnItem.EnableHeadersVisualStyles = false;
+            this.dgvReturnItem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvReturnItem.Location = new System.Drawing.Point(19, 177);
+            this.dgvReturnItem.MultiSelect = false;
+            this.dgvReturnItem.Name = "dgvReturnItem";
+            this.dgvReturnItem.ReadOnly = true;
+            this.dgvReturnItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvReturnItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvReturnItem.RowHeadersVisible = false;
+            this.dgvReturnItem.RowHeadersWidth = 15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReturnItem.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvReturnItem.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReturnItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReturnItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReturnItem.Size = new System.Drawing.Size(796, 226);
+            this.dgvReturnItem.TabIndex = 188;
             // 
             // btnClear
             // 
@@ -260,7 +230,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(547, 409);
+            this.btnClear.Location = new System.Drawing.Point(667, 409);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(71, 35);
             this.btnClear.TabIndex = 189;
@@ -276,21 +246,71 @@
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(624, 409);
+            this.btnReturn.Location = new System.Drawing.Point(744, 409);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(71, 35);
             this.btnReturn.TabIndex = 190;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // clmItemID
+            // 
+            this.clmItemID.DataPropertyName = "intItemID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmItemID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmItemID.HeaderText = "Item ID";
+            this.clmItemID.Name = "clmItemID";
+            this.clmItemID.ReadOnly = true;
+            this.clmItemID.Visible = false;
+            this.clmItemID.Width = 5;
+            // 
+            // clmItemCode
+            // 
+            this.clmItemCode.DataPropertyName = "vcItemCode";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            // 
+            // vcItemDescription
+            // 
+            this.vcItemDescription.DataPropertyName = "vcItemDescription";
+            this.vcItemDescription.HeaderText = "Item Description";
+            this.vcItemDescription.Name = "vcItemDescription";
+            this.vcItemDescription.ReadOnly = true;
+            this.vcItemDescription.Width = 400;
+            // 
+            // clmReceivedQty
+            // 
+            this.clmReceivedQty.DataPropertyName = "GRNqty";
+            this.clmReceivedQty.HeaderText = "Received Qty";
+            this.clmReceivedQty.Name = "clmReceivedQty";
+            this.clmReceivedQty.ReadOnly = true;
+            // 
+            // decAvailableQty
+            // 
+            this.decAvailableQty.DataPropertyName = "decStockInHand";
+            this.decAvailableQty.HeaderText = "Available Qty";
+            this.decAvailableQty.Name = "decAvailableQty";
+            this.decAvailableQty.ReadOnly = true;
+            // 
+            // clmReturnQty
+            // 
+            this.clmReturnQty.DataPropertyName = "decReturnQty";
+            this.clmReturnQty.HeaderText = "Return Qty";
+            this.clmReturnQty.Name = "clmReturnQty";
+            this.clmReturnQty.ReadOnly = true;
             // 
             // frmToSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 456);
+            this.ClientSize = new System.Drawing.Size(828, 456);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.dgvAddItem);
+            this.Controls.Add(this.dgvReturnItem);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtSubmissionDate);
@@ -303,6 +323,7 @@
             this.Controls.Add(this.label6);
             this.Name = "frmToSupplier";
             this.Text = "To Supplier";
+            this.Load += new System.EventHandler(this.frmToSupplier_Load);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.cmbSupplier, 0);
@@ -313,10 +334,10 @@
             this.Controls.SetChildIndex(this.dtSubmissionDate, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.dgvAddItem, 0);
+            this.Controls.SetChildIndex(this.dgvReturnItem, 0);
             this.Controls.SetChildIndex(this.btnClear, 0);
             this.Controls.SetChildIndex(this.btnReturn, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAddItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,12 +355,14 @@
         private System.Windows.Forms.DateTimePicker dtSubmissionDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dgvAddItem;
+        private System.Windows.Forms.DataGridView dgvReturnItem;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decStockInHand;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmReceivedQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decAvailableQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmReturnQty;
     }
 }
