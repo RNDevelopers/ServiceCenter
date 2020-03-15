@@ -1,5 +1,6 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.Customer;
+using ServiceCenter.Return;
 using ServiceCenter.Setup;
 using System;
 using System.Collections.Generic;
@@ -64,8 +65,6 @@ namespace ServiceCenter
         }
 
 
-    
-
         private void button1_Click(object sender, EventArgs e)
         {
            frmAddSupplier obj = new frmAddSupplier();
@@ -88,11 +87,6 @@ namespace ServiceCenter
             slidePlane.Top = btnSetUp.Top;
 
             contextMenuStrip_Setup.Show(btnSetUp,btnSetUp.Right, btnSetUp.Left);
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnReceive_Click(object sender, EventArgs e)
@@ -126,11 +120,6 @@ namespace ServiceCenter
             slidePlane.Top = btnLogout.Top;
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void addBrandToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddBrand obj = new frmAddBrand();
@@ -157,21 +146,6 @@ namespace ServiceCenter
             frmAddSubCategory obj = new frmAddSubCategory();
             obj.MdiParent = this;
             obj.Show();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnIssues_Click(object sender, EventArgs e)
@@ -208,5 +182,18 @@ namespace ServiceCenter
             obj.Show();
         }
 
+        private void mnuFromCustomer_Click(object sender, EventArgs e)
+        {
+            frmToCustomer obj = new frmToCustomer();
+            obj.MdiParent = this;
+            obj.Show();
+        }
+
+        private void mnuToSupplier_Click(object sender, EventArgs e)
+        {
+            frmToSupplier obj = new frmToSupplier();
+            obj.MdiParent = this;
+            obj.Show();
+        }
     }
 }

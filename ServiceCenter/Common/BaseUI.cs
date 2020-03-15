@@ -23,7 +23,7 @@ namespace ServiceCenter.Common
 
         public void SetFormName()
         {
-            lblFormName.Text = this.Text + " | Colombo City Institute";
+            lblFormName.Text = this.Text + " | Nihal Car Service and Wax";
         }
 
         private void lblClose_Click(object sender, EventArgs e)
