@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -16,6 +17,8 @@ namespace ServiceCenter.Setup
     public partial class frmReceive : BaseUI
     {
         public int intItemID { get; set; }
+
+        public decimal TotalPrice { get; set; }
 
         private ItemEntity objItemEntity;
         private List<ItemEntity> GlobalList;
@@ -184,6 +187,7 @@ namespace ServiceCenter.Setup
                 dgvGRN.AutoGenerateColumns = false;
                 dgvGRN.DataSource = GlobalSelectedItemList.ToList();
 
+                CalculateDiscountedPrice();
             }
             catch (Exception)
             {
@@ -191,7 +195,6 @@ namespace ServiceCenter.Setup
             }
 
         }
-
         private void cmbMainCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GetSubCat();
@@ -199,9 +202,7 @@ namespace ServiceCenter.Setup
 
         private void dgvGRN_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
                 CalculateDiscountedPrice();
-
         }
 
         private void CalculateDiscountedPrice()
@@ -214,7 +215,9 @@ namespace ServiceCenter.Setup
             decimal Val = 0;
             decimal x = 0;
             int id = 0;
-           
+
+            decimal Value = 0;
+            decimal ValueDiscounted = 0;
 
             foreach (DataGridViewRow row in dgvGRN.Rows)
             {
@@ -233,6 +236,9 @@ namespace ServiceCenter.Setup
                 id = (Convert.ToInt32(row.Cells[dgvGRN.Columns[clmItemID1.Name].Index].Value));
                 IndexDiscount = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
 
+                Value = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmValue.Name].Index].Value));
+                ValueDiscounted = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value));
+  
                 ItemEntity obj = GlobalSelectedItemList.Find(xx=>xx.intItemID == id);
                 int index = GlobalSelectedItemList.IndexOf(obj);
     
@@ -240,6 +246,9 @@ namespace ServiceCenter.Setup
                 GlobalSelectedItemList[index].decUnitPrice = unitPrice;
                 GlobalSelectedItemList[index].GRNqty = Qty;
                 GlobalSelectedItemList[index].Discount = IndexDiscount;
+
+                GlobalSelectedItemList[index].value = Value;
+                GlobalSelectedItemList[index].Discounted = ValueDiscounted;
 
                 Val = Qty * unitPrice;
 
@@ -253,6 +262,9 @@ namespace ServiceCenter.Setup
 
             lblTotal.Text = totDiscout.ToString("#,##0.00");
 
+            TotalPrice = totDiscout;
+
+            lblTotal.Text = TotalPrice.ToString("#,##0.00");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -280,6 +292,12 @@ namespace ServiceCenter.Setup
                     return;
                 }
 
+                if (dgvGRN.Rows.Count == 0)
+                {
+                    MessageBox.Show("Please Item Add to Grid");
+                    return;
+                }
+
                 foreach (DataGridViewRow row in dgvGRN.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value == null) || (Convert.ToInt32(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value) == 0))
@@ -304,6 +322,7 @@ namespace ServiceCenter.Setup
                };
 
                 int intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
+
                 int NoOfRowsEffected = 0;
 
                 foreach (DataGridViewRow dr in dgvGRN.Rows)
@@ -336,7 +355,6 @@ namespace ServiceCenter.Setup
                     NoOfRowsEffected = objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
 
                 }
-
                 if (NoOfRowsEffected <= 2)
                 {
                     MessageBox.Show("Save..");
@@ -346,7 +364,6 @@ namespace ServiceCenter.Setup
                 {
                     MessageBox.Show("Data Saving Error");
                 }
-
             }
             catch (Exception ex)
             {
@@ -370,7 +387,6 @@ namespace ServiceCenter.Setup
         public void GetReport()
         {
             ReportDocument rptDoc = new ReportDocument();
-
         }
 
         private void dgvGRN_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -379,7 +395,6 @@ namespace ServiceCenter.Setup
             {
                 e.Control.KeyPress += new KeyPressEventHandler(dgvGRN_KeyPress);
             }
-
         }
 
         private void dgvGRN_KeyPress(object sender, KeyPressEventArgs e)
@@ -394,6 +409,10 @@ namespace ServiceCenter.Setup
         {
             dgvGRN.Columns[clmValue.Name].DefaultCellStyle.Format = "#,##0.00";
             dgvGRN.Columns[clmDiscountedValue.Name].DefaultCellStyle.Format = "#,##0.00";
+
+            dgvGRN.Columns[clmGRNQty.Name].DefaultCellStyle.BackColor = Color.LightGreen;
+            dgvGRN.Columns[clmUnitPrice.Name].DefaultCellStyle.BackColor = Color.LightBlue;
+            dgvGRN.Columns[clmDiscount.Name].DefaultCellStyle.BackColor = Color.Khaki;
         }
 
         private void frmReceive_Load(object sender, EventArgs e)
@@ -438,14 +457,47 @@ namespace ServiceCenter.Setup
         {
             if (dgvGRN.Columns[e.ColumnIndex] == clmbtnDelete)
             {
-                int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
+                Int32 index = dgvGRN.Rows.Count - 1;
 
-                GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+                if (index == 0)
+                {
+                    int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
 
-                dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+                    GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+                    dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+
+                    GlobalSelectedItemList.Clear();
+                    dgvGRN.DataSource = null;
+
+                    decimal DiscountedVal = 0; ;
+                    decimal TotalPrice = 0;
+                    TotalPrice = TotalPrice - DiscountedVal;
+                    lblTotal.Text = TotalPrice.ToString("#,##0.00");
+
+                    CalculateDiscountedPrice();
+                }
+                else
+                {
+                    int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
+
+                    decimal DiscountedVal = Convert.ToDecimal(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmDiscountedValue.Name].Value);
+                    TotalPrice = TotalPrice - DiscountedVal;
+                    lblTotal.Text = TotalPrice.ToString("#,##0.00");
+
+                    GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+
+                    dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+
+                    CalculateDiscountedPrice();
+                }
 
             }
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
         }
     }
 }

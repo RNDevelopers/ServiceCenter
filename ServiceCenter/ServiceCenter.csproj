@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.7</MinimumRequiredVersion>
-    <ApplicationRevision>8</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.10</MinimumRequiredVersion>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -108,6 +108,7 @@
     <Compile Include="Entities\CategoryEntity.cs" />
     <Compile Include="Entities\GRNEntity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
+    <Compile Include="Entities\ServiceEntity.cs" />
     <Compile Include="Entities\SupplierEntity.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="ErrorLog\Logger.cs" />
@@ -142,6 +143,18 @@
     </Compile>
     <Compile Include="Setup\frmAddBrand.designer.cs">
       <DependentUpon>frmAddBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddItemUtility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddItemUtility.Designer.cs">
+      <DependentUpon>frmAddItemUtility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddServiceCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddServiceCharge.Designer.cs">
+      <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\frmAddSupplier.cs">
       <SubType>Form</SubType>
@@ -191,6 +204,18 @@
     <Compile Include="Setup\frmAssignSubCategoryBrand.Designer.cs">
       <DependentUpon>frmAssignSubCategoryBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setup\frmEditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmEditItem.designer.cs">
+      <DependentUpon>frmEditItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmViewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmViewItem.designer.cs">
+      <DependentUpon>frmViewItem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +251,12 @@
     <EmbeddedResource Include="Setup\frmAddBrand.resx">
       <DependentUpon>frmAddBrand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddItemUtility.resx">
+      <DependentUpon>frmAddItemUtility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddServiceCharge.resx">
+      <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddSupplier.resx">
       <DependentUpon>frmAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +280,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAssignSubCategoryBrand.resx">
       <DependentUpon>frmAssignSubCategoryBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmEditItem.resx">
+      <DependentUpon>frmEditItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmViewItem.resx">
+      <DependentUpon>frmViewItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

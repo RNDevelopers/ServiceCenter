@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnView = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnIssues = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,8 @@
             this.mnuAssignSubCategoryBrand = new System.Windows.Forms.ToolStripMenuItem();
             this.addBrandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddItemUtility = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEditItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Returt = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuFromCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuToSupplier = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,17 +56,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip_Customer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip_View = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnubtnReceivesView = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnubtnIssuesView = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
             this.contextMenuStrip_Returt.SuspendLayout();
             this.panel2.SuspendLayout();
             this.contextMenuStrip_Customer.SuspendLayout();
+            this.contextMenuStrip_View.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.btnView);
             this.panel1.Controls.Add(this.btnCustomer);
             this.panel1.Controls.Add(this.btnIssues);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -79,6 +87,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(166, 750);
             this.panel1.TabIndex = 154;
+            // 
+            // btnView
+            // 
+            this.btnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnView.FlatAppearance.BorderSize = 0;
+            this.btnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnView.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.ForeColor = System.Drawing.Color.White;
+            this.btnView.Image = global::ServiceCenter.Properties.Resources.report_30px;
+            this.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnView.Location = new System.Drawing.Point(9, 376);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(154, 56);
+            this.btnView.TabIndex = 159;
+            this.btnView.Text = "     View";
+            this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnCustomer
             // 
@@ -152,7 +180,7 @@
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = global::ServiceCenter.Properties.Resources.rounded_up_24px;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(10, 447);
+            this.btnLogout.Location = new System.Drawing.Point(10, 513);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(154, 56);
             this.btnLogout.TabIndex = 156;
@@ -172,7 +200,7 @@
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = global::ServiceCenter.Properties.Resources.report_30px;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(10, 383);
+            this.btnReport.Location = new System.Drawing.Point(10, 445);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(154, 56);
             this.btnReport.TabIndex = 155;
@@ -253,9 +281,11 @@
             this.addSubCategoryToolStripMenuItem,
             this.mnuAssignSubCategoryBrand,
             this.addBrandToolStripMenuItem,
-            this.addItemsToolStripMenuItem});
+            this.addItemsToolStripMenuItem,
+            this.mnuAddItemUtility,
+            this.mnuEditItem});
             this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(226, 136);
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(226, 180);
             // 
             // addCompanySupplierToolStripMenuItem
             // 
@@ -306,6 +336,22 @@
             this.addItemsToolStripMenuItem.Text = "Add Items";
             this.addItemsToolStripMenuItem.Click += new System.EventHandler(this.addItemsToolStripMenuItem_Click);
             // 
+            // mnuAddItemUtility
+            // 
+            this.mnuAddItemUtility.ForeColor = System.Drawing.Color.White;
+            this.mnuAddItemUtility.Name = "mnuAddItemUtility";
+            this.mnuAddItemUtility.Size = new System.Drawing.Size(225, 22);
+            this.mnuAddItemUtility.Text = "Add Item Utility";
+            this.mnuAddItemUtility.Click += new System.EventHandler(this.mnuAddItemUtility_Click);
+            // 
+            // mnuEditItem
+            // 
+            this.mnuEditItem.ForeColor = System.Drawing.Color.White;
+            this.mnuEditItem.Name = "mnuEditItem";
+            this.mnuEditItem.Size = new System.Drawing.Size(225, 22);
+            this.mnuEditItem.Text = "Edit Item";
+            this.mnuEditItem.Click += new System.EventHandler(this.mnuEditItem_Click);
+            // 
             // contextMenuStrip_Returt
             // 
             this.contextMenuStrip_Returt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -315,13 +361,13 @@
             this.mnuFromCustomer,
             this.mnuToSupplier});
             this.contextMenuStrip_Returt.Name = "contextMenuStrip_Returt";
-            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(161, 48);
             // 
             // mnuFromCustomer
             // 
             this.mnuFromCustomer.ForeColor = System.Drawing.Color.White;
             this.mnuFromCustomer.Name = "mnuFromCustomer";
-            this.mnuFromCustomer.Size = new System.Drawing.Size(180, 22);
+            this.mnuFromCustomer.Size = new System.Drawing.Size(160, 22);
             this.mnuFromCustomer.Text = "From Customer";
             this.mnuFromCustomer.Click += new System.EventHandler(this.mnuFromCustomer_Click);
             // 
@@ -330,7 +376,7 @@
             this.mnuToSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuToSupplier.ForeColor = System.Drawing.Color.White;
             this.mnuToSupplier.Name = "mnuToSupplier";
-            this.mnuToSupplier.Size = new System.Drawing.Size(180, 22);
+            this.mnuToSupplier.Size = new System.Drawing.Size(160, 22);
             this.mnuToSupplier.Text = "To Supplier";
             this.mnuToSupplier.Click += new System.EventHandler(this.mnuToSupplier_Click);
             // 
@@ -370,6 +416,28 @@
             this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             // 
+            // contextMenuStrip_View
+            // 
+            this.contextMenuStrip_View.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubtnReceivesView,
+            this.mnubtnIssuesView});
+            this.contextMenuStrip_View.Name = "contextMenuStrip_View";
+            this.contextMenuStrip_View.Size = new System.Drawing.Size(148, 48);
+            // 
+            // mnubtnReceivesView
+            // 
+            this.mnubtnReceivesView.Name = "mnubtnReceivesView";
+            this.mnubtnReceivesView.Size = new System.Drawing.Size(147, 22);
+            this.mnubtnReceivesView.Text = "Receives View";
+            this.mnubtnReceivesView.Click += new System.EventHandler(this.mnubtnReceivesView_Click);
+            // 
+            // mnubtnIssuesView
+            // 
+            this.mnubtnIssuesView.Name = "mnubtnIssuesView";
+            this.mnubtnIssuesView.Size = new System.Drawing.Size(147, 22);
+            this.mnubtnIssuesView.Text = "Issues View";
+            this.mnubtnIssuesView.Click += new System.EventHandler(this.mnubtnIssuesView_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,6 +456,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.contextMenuStrip_Customer.ResumeLayout(false);
+            this.contextMenuStrip_View.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -417,6 +486,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_Customer;
         private System.Windows.Forms.ToolStripMenuItem addCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuAssignSubCategoryBrand;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip_View;
+        private System.Windows.Forms.ToolStripMenuItem mnubtnReceivesView;
+        private System.Windows.Forms.ToolStripMenuItem mnubtnIssuesView;
+        private System.Windows.Forms.ToolStripMenuItem mnuAddItemUtility;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditItem;
     }
 }
 

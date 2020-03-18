@@ -195,5 +195,37 @@ namespace ServiceCenter
             obj.MdiParent = this;
             obj.Show();
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            slidePlane.Height = btnView.Height;
+            slidePlane.Top = btnView.Top;
+
+            contextMenuStrip_View.Show(btnView, btnView.Right, btnView.Left);
+        }
+
+        private void mnubtnReceivesView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnubtnIssuesView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuAddItemUtility_Click(object sender, EventArgs e)
+        {
+            frmAddItemUtility obj = new frmAddItemUtility();
+            obj.MdiParent = this;
+            obj.Show();
+        }
+
+        private void mnuEditItem_Click(object sender, EventArgs e)
+        {
+            frmViewItem obj = new frmViewItem();
+            obj.MdiParent = this;
+            obj.Show();
+        }
     }
 }

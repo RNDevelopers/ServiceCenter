@@ -24,6 +24,8 @@ namespace ServiceCenter.Entities
         public decimal decUnitPrice { get; set; }
         public decimal GRNqty { get; set; }
         public decimal Discount { get; set; }
+        public decimal value { get; set; }
+        public decimal Discounted { get; set; }
 
         public string vcSubCategoryName { get; set; }
 
@@ -33,7 +35,11 @@ namespace ServiceCenter.Entities
 
         public List<ItemEntity> lstLastItem { get; set; }
 
+        public List<ServiceEntity> lstServiceSave { get; set; }
+
 
         public decimal Issueqty { get; set; }
+
+        public int intIssueHeaderID { get; set; }
     }
 }

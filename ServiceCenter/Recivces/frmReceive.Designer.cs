@@ -66,7 +66,9 @@
             this.lblSubcat = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             this.clmItemID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmbtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmItemCode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +89,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 37);
@@ -97,6 +100,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(15, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 19);
@@ -107,6 +111,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(113, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(11, 17);
@@ -122,9 +127,9 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(964, 608);
+            this.btnSave.Location = new System.Drawing.Point(916, 613);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(71, 35);
+            this.btnSave.Size = new System.Drawing.Size(119, 43);
             this.btnSave.TabIndex = 169;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -346,6 +351,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(16, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 19);
@@ -356,6 +362,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(111, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(11, 17);
@@ -378,6 +385,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(15, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 19);
@@ -388,6 +396,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(113, 160);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(11, 17);
@@ -410,6 +419,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(116, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 17);
@@ -420,6 +430,7 @@
             // 
             this.lblSubcat.AutoSize = true;
             this.lblSubcat.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubcat.ForeColor = System.Drawing.Color.White;
             this.lblSubcat.Location = new System.Drawing.Point(16, 204);
             this.lblSubcat.Name = "lblSubcat";
             this.lblSubcat.Size = new System.Drawing.Size(94, 19);
@@ -429,31 +440,63 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 618);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(92, 612);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 17);
+            this.label3.Size = new System.Drawing.Size(42, 30);
             this.label3.TabIndex = 195;
-            this.label3.Text = "= Rs.";
+            this.label3.Text = "Rs.";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 617);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(19, 612);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 19);
-            this.label8.TabIndex = 194;
+            this.label8.Size = new System.Drawing.Size(67, 30);
+            this.label8.TabIndex = 198;
             this.label8.Text = "Total ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(71, 611);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 30);
+            this.label9.TabIndex = 199;
+            this.label9.Text = "=";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(107, 617);
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(126, 613);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 19);
-            this.lblTotal.TabIndex = 196;
+            this.lblTotal.Size = new System.Drawing.Size(55, 30);
+            this.lblTotal.TabIndex = 200;
+            this.lblTotal.Text = "0.00";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(780, 611);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(117, 45);
+            this.btnClear.TabIndex = 201;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // clmItemID1
             // 
@@ -530,6 +573,7 @@
             // clmDiscount
             // 
             this.clmDiscount.HeaderText = "Discount (%)";
+            this.clmDiscount.MaxInputLength = 2;
             this.clmDiscount.Name = "clmDiscount";
             this.clmDiscount.Width = 50;
             // 
@@ -551,10 +595,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(1047, 663);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbSubCat);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblSubcat);
@@ -591,9 +638,11 @@
             this.Controls.SetChildIndex(this.lblSubcat, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.cmbSubCat, 0);
-            this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.lblTotal, 0);
+            this.Controls.SetChildIndex(this.btnClear, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGRN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddItem)).EndInit();
             this.ResumeLayout(false);
@@ -619,14 +668,16 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblSubcat;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmvcUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEngineType;
         private System.Windows.Forms.DataGridViewTextBoxColumn decStockInHand;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID1;
         private System.Windows.Forms.DataGridViewButtonColumn clmbtnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode1;

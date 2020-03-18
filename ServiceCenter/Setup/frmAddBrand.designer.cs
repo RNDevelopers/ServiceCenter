@@ -167,6 +167,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(20, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 19);
@@ -185,6 +186,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 37);
@@ -194,6 +196,7 @@
             // frmAddBrand
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(400, 455);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
