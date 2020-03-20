@@ -38,6 +38,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmToCustomer";
             this.Text = "To Customer";
+            this.Load += new System.EventHandler(this.frmToCustomer_Load);
             this.ResumeLayout(false);
 
         }

@@ -46,14 +46,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvReturnItem = new System.Windows.Forms.DataGridView();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.clmSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmGRNDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReceivedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDiscountedUnitValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReturnQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,11 +192,14 @@
             this.dgvReturnItem.ColumnHeadersHeight = 35;
             this.dgvReturnItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReturnItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmSelect,
+            this.clmGRNDetailID,
             this.clmItemID,
             this.clmItemCode,
             this.vcItemDescription,
             this.clmReceivedQty,
-            this.decAvailableQty,
+            this.clmDiscountedUnitValue,
+            this.clmAvailableQty,
             this.clmReturnQty});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
@@ -208,7 +214,6 @@
             this.dgvReturnItem.Location = new System.Drawing.Point(19, 177);
             this.dgvReturnItem.MultiSelect = false;
             this.dgvReturnItem.Name = "dgvReturnItem";
-            this.dgvReturnItem.ReadOnly = true;
             this.dgvReturnItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -227,55 +232,8 @@
             this.dgvReturnItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReturnItem.Size = new System.Drawing.Size(796, 226);
             this.dgvReturnItem.TabIndex = 188;
-            // 
-            // clmItemID
-            // 
-            this.clmItemID.DataPropertyName = "intItemID";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmItemID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmItemID.HeaderText = "Item ID";
-            this.clmItemID.Name = "clmItemID";
-            this.clmItemID.ReadOnly = true;
-            this.clmItemID.Visible = false;
-            this.clmItemID.Width = 5;
-            // 
-            // clmItemCode
-            // 
-            this.clmItemCode.DataPropertyName = "vcItemCode";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            // 
-            // vcItemDescription
-            // 
-            this.vcItemDescription.DataPropertyName = "vcItemDescription";
-            this.vcItemDescription.HeaderText = "Item Description";
-            this.vcItemDescription.Name = "vcItemDescription";
-            this.vcItemDescription.ReadOnly = true;
-            this.vcItemDescription.Width = 400;
-            // 
-            // clmReceivedQty
-            // 
-            this.clmReceivedQty.DataPropertyName = "GRNqty";
-            this.clmReceivedQty.HeaderText = "Received Qty";
-            this.clmReceivedQty.Name = "clmReceivedQty";
-            this.clmReceivedQty.ReadOnly = true;
-            // 
-            // decAvailableQty
-            // 
-            this.decAvailableQty.DataPropertyName = "decStockInHand";
-            this.decAvailableQty.HeaderText = "Available Qty";
-            this.decAvailableQty.Name = "decAvailableQty";
-            this.decAvailableQty.ReadOnly = true;
-            // 
-            // clmReturnQty
-            // 
-            this.clmReturnQty.DataPropertyName = "decReturnQty";
-            this.clmReturnQty.HeaderText = "Return Qty";
-            this.clmReturnQty.Name = "clmReturnQty";
-            this.clmReturnQty.ReadOnly = true;
+            this.dgvReturnItem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturnItem_CellEndEdit);
+            this.dgvReturnItem.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReturnItem_DataBindingComplete);
             // 
             // btnClear
             // 
@@ -309,6 +267,78 @@
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // clmSelect
+            // 
+            this.clmSelect.HeaderText = "Select";
+            this.clmSelect.Name = "clmSelect";
+            this.clmSelect.Width = 40;
+            // 
+            // clmGRNDetailID
+            // 
+            this.clmGRNDetailID.DataPropertyName = "intGRNDetailID";
+            this.clmGRNDetailID.HeaderText = "GRNDetailID";
+            this.clmGRNDetailID.Name = "clmGRNDetailID";
+            this.clmGRNDetailID.Visible = false;
+            // 
+            // clmItemID
+            // 
+            this.clmItemID.DataPropertyName = "intItemID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmItemID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmItemID.HeaderText = "Item ID";
+            this.clmItemID.Name = "clmItemID";
+            this.clmItemID.Visible = false;
+            this.clmItemID.Width = 5;
+            // 
+            // clmItemCode
+            // 
+            this.clmItemCode.DataPropertyName = "vcItemCode";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 120;
+            // 
+            // vcItemDescription
+            // 
+            this.vcItemDescription.DataPropertyName = "vcItemDescription";
+            this.vcItemDescription.HeaderText = "Item Description";
+            this.vcItemDescription.Name = "vcItemDescription";
+            this.vcItemDescription.ReadOnly = true;
+            this.vcItemDescription.Width = 350;
+            // 
+            // clmReceivedQty
+            // 
+            this.clmReceivedQty.DataPropertyName = "GRNqty";
+            this.clmReceivedQty.HeaderText = "Received Qty";
+            this.clmReceivedQty.Name = "clmReceivedQty";
+            this.clmReceivedQty.ReadOnly = true;
+            this.clmReceivedQty.Width = 70;
+            // 
+            // clmDiscountedUnitValue
+            // 
+            this.clmDiscountedUnitValue.DataPropertyName = "decDiscountedUnitValue";
+            this.clmDiscountedUnitValue.HeaderText = "Discounted Price";
+            this.clmDiscountedUnitValue.Name = "clmDiscountedUnitValue";
+            this.clmDiscountedUnitValue.ReadOnly = true;
+            this.clmDiscountedUnitValue.Width = 70;
+            // 
+            // clmAvailableQty
+            // 
+            this.clmAvailableQty.DataPropertyName = "decStockInHand";
+            this.clmAvailableQty.HeaderText = "Available Qty";
+            this.clmAvailableQty.Name = "clmAvailableQty";
+            this.clmAvailableQty.ReadOnly = true;
+            this.clmAvailableQty.Width = 70;
+            // 
+            // clmReturnQty
+            // 
+            this.clmReturnQty.DataPropertyName = "decReturnQty";
+            this.clmReturnQty.HeaderText = "Return Qty";
+            this.clmReturnQty.Name = "clmReturnQty";
+            this.clmReturnQty.Width = 70;
             // 
             // frmToSupplier
             // 
@@ -366,11 +396,14 @@
         private System.Windows.Forms.DataGridView dgvReturnItem;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmGRNDetailID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReceivedQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decAvailableQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscountedUnitValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAvailableQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReturnQty;
     }
 }

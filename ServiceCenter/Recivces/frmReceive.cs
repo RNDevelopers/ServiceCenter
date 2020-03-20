@@ -231,6 +231,7 @@ namespace ServiceCenter.Setup
                     Discount = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
                 }
 
+
                 Qty = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmGRNQty.Name].Index].Value));
                 unitPrice = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmUnitPrice.Name].Index].Value));
                 id = (Convert.ToInt32(row.Cells[dgvGRN.Columns[clmItemID1.Name].Index].Value));
@@ -238,7 +239,9 @@ namespace ServiceCenter.Setup
 
                 Value = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmValue.Name].Index].Value));
                 ValueDiscounted = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value));
-  
+
+               // Discount = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
+
                 ItemEntity obj = GlobalSelectedItemList.Find(xx=>xx.intItemID == id);
                 int index = GlobalSelectedItemList.IndexOf(obj);
     
@@ -249,6 +252,8 @@ namespace ServiceCenter.Setup
 
                 GlobalSelectedItemList[index].value = Value;
                 GlobalSelectedItemList[index].Discounted = ValueDiscounted;
+
+              //  GlobalSelectedItemList[index].Discount = Discount;
 
                 Val = Qty * unitPrice;
 
@@ -334,7 +339,8 @@ namespace ServiceCenter.Setup
                         decGRNQty = Convert.ToDecimal(dr.Cells[clmGRNQty.Name].Value.ToString()),
                         decUnitPrice = Convert.ToDecimal(dr.Cells[clmUnitPrice.Name].Value.ToString()),
                         decDiscount = Convert.ToDecimal(dr.Cells[clmDiscount.Name].Value.ToString()),
-                        decTotal = Convert.ToDecimal(dr.Cells[clmValue.Name].Value.ToString())
+                        decTotal = Convert.ToDecimal(dr.Cells[clmValue.Name].Value.ToString()),
+                        decDiscountedValue = Convert.ToDecimal(dr.Cells[clmDiscountedValue.Name].Value.ToString()),
                     };
                     lstGRNSave.Add(objGRNEntity);
                 }
@@ -350,6 +356,7 @@ namespace ServiceCenter.Setup
                     Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
                     Execute.AddParameter("@decDiscount",item.decDiscount),
                     Execute.AddParameter("@decTotal",item.decTotal),
+                    Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
                  };
 
                     NoOfRowsEffected = objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
@@ -382,6 +389,8 @@ namespace ServiceCenter.Setup
             cmbSubCat.SelectedIndex = -1;
             GlobalSelectedItemList.Clear();
             lstGetItemGRN.Clear();
+            TotalPrice = 0;
+            lblTotal.Text = string.Empty;
         }
 
         public void GetReport()
@@ -422,16 +431,17 @@ namespace ServiceCenter.Setup
 
         private void dgvGRN_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (dgvGRN.CurrentCell.ColumnIndex == 6) // zero-based
+            if (dgvGRN.CurrentCell.ColumnIndex == 7) // zero-based
             {
                 if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
                 {
                     MessageBox.Show("Please Enter GRN Qty");
+                    return;
                 }
             }
             else
             {
-                return;
+                //return;
             }
 
         }
@@ -465,6 +475,7 @@ namespace ServiceCenter.Setup
 
                     GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
                     dgvGRN.DataSource = GlobalSelectedItemList.ToList();
+
 
                     GlobalSelectedItemList.Clear();
                     dgvGRN.DataSource = null;

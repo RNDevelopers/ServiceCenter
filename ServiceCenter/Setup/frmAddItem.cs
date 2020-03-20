@@ -31,6 +31,19 @@ namespace ServiceCenter.Setup
 
         private void frmAddItem_Load(object sender, EventArgs e)
         {
+            cmbAPI.Visible = false;
+            cmbSAE.Visible = false;
+            cmbEngineType.Visible = false;
+
+
+            lbl1.Visible = false;
+            lbl11.Visible = false;
+            lbl2.Visible = false;
+            lbl22.Visible = false;
+            lbl3.Visible = false;
+            lbl33.Visible = false;
+
+
             GetMainCategory();
             GetBrand();
             GetMeasureUnit();
@@ -167,7 +180,31 @@ namespace ServiceCenter.Setup
         public void SaveItem()
         {
 
-
+            if (cmbBrand.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Select the Brand");
+                return;
+            }
+            else if(cmbMainCategory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Select the Main Category");
+                return;
+            }
+            else if (cmbSubCat.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Select the Sub Category");
+                return;
+            }
+            else if (cmbMeasureUnit.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Select the Measure Unit");
+                return;
+            }
+            else if (cmbUnitQty.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Select the Unit Size");
+                return;
+            }
 
             if (cmbAPI.SelectedIndex == -1)
             {
@@ -247,17 +284,61 @@ namespace ServiceCenter.Setup
         {
             if (cmbMainCategory.SelectedIndex == 0)
             {
-                cmbAPI.Enabled = true;
-                cmbSAE.Enabled = true;
-                cmbEngineType.Enabled = true;
+                cmbAPI.Visible = true;
+                cmbSAE.Visible = true;
+                cmbEngineType.Visible = true;
+
+                lbl1.Visible = true;
+                lbl11.Visible = true;
+                lbl2.Visible = true;
+                lbl22.Visible = true;
+                lbl3.Visible = true;
+                lbl33.Visible = true;
+      
+
             }
             else
             {
-                cmbAPI.Enabled = false;
-                cmbSAE.Enabled = false;
-                cmbEngineType.Enabled = false;
+                cmbAPI.Visible = false;
+                cmbSAE.Visible = false;
+                cmbEngineType.Visible = false;
+
+
+                lbl1.Visible = false;
+                lbl11.Visible = false;
+                lbl2.Visible = false;
+                lbl22.Visible = false;
+                lbl3.Visible = false;
+                lbl33.Visible = false;
+
             }
             GetSubCat();
+        }
+
+        private void txtStockHand_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            GetMeasureUnit();
+            GetAPI();
+            GetSAE();
+            GetBrand();
         }
     }
 }

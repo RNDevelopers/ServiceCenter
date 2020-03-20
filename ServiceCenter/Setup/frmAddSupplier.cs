@@ -1,6 +1,7 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
 using ServiceCenter.Entities;
+using ServiceCenter.ErrorLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,36 +33,76 @@ namespace ServiceCenter.Setup
 
         public void SaveSupplier() 
         {
-            SupplierEntity objSupplierEntity = new SupplierEntity
-            {
-                vcSupplierName = txtSuppilerName.Text.ToString(),
-                vcAddress = txtAddress.Text.Trim().ToUpper(),
-                vcCity = txtCity.Text.Trim().ToUpper(),
-                intContactNo = Convert.ToInt32(txtContactNo.Text.Trim()),
-                vcEmail = txtEmail.Text.Trim(),
-            };
 
-            Execute objExecute = new Execute();
-            SqlParameter[] param = new SqlParameter[]
-               {
+            try
+            {
+                if (txtSuppilerName.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter the Supplier Name");
+                    return;
+                }
+                else if (txtContactNo.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter the Contact No Name");
+                    return;
+                }
+
+
+
+                int ContactNo = Convert.ToInt32(txtContactNo.Text);
+
+                SupplierEntity objSupplierEntity = new SupplierEntity
+                {
+                    vcSupplierName = txtSuppilerName.Text.Trim().ToUpper(),
+                    vcAddress = txtAddress.Text.Trim().ToUpper(),
+                    vcCity = txtCity.Text.Trim().ToUpper(),
+                    intContactNo = ContactNo,
+                    vcEmail = txtEmail.Text.Trim(),
+                };
+
+                Execute objExecute = new Execute();
+                SqlParameter[] param = new SqlParameter[]
+                   {
                     Execute.AddParameter("@vcSupplierName",objSupplierEntity.vcSupplierName),
                     Execute.AddParameter("@vcAddress",objSupplierEntity.vcAddress),
                     Execute.AddParameter("@vcCity",objSupplierEntity.vcCity),
                     Execute.AddParameter("@intContactNo",objSupplierEntity.intContactNo),
                     Execute.AddParameter("@vcEmail",objSupplierEntity.vcEmail),
-            
-               };
 
-            int NoOfRowsEffected =  objExecute.Executes("spSaveSupplier", param, CommandType.StoredProcedure);
+                   };
 
-            if (NoOfRowsEffected < 0)
-            {
-                MessageBox.Show("Save..");
+                int NoOfRowsEffected = objExecute.Executes("spSaveSupplier", param, CommandType.StoredProcedure);
+
+                if (NoOfRowsEffected < 0)
+                {
+                    MessageBox.Show("Save..");
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Cant't Save..");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Cant't Save..");
+                MessageBox.Show("Cant't Save.. Please Contact the Developer");
+                Logger.LoggError(ex, "SaveSupplier()");
             }
+
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+        private void clear()
+        {
+            txtSuppilerName.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtContactNo.Text = string.Empty;
+            txtEmail.Text = string.Empty;
 
         }
     }

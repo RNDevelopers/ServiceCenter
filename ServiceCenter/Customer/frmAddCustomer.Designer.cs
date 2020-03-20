@@ -48,6 +48,7 @@
             this.txtContactNo = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.chkVehicle = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label7
@@ -248,6 +249,7 @@
             this.btnClear.TabIndex = 171;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -266,12 +268,28 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // chkVehicle
+            // 
+            this.chkVehicle.AutoSize = true;
+            this.chkVehicle.Checked = true;
+            this.chkVehicle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkVehicle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.chkVehicle.ForeColor = System.Drawing.SystemColors.Control;
+            this.chkVehicle.Location = new System.Drawing.Point(282, 86);
+            this.chkVehicle.Name = "chkVehicle";
+            this.chkVehicle.Size = new System.Drawing.Size(108, 23);
+            this.chkVehicle.TabIndex = 218;
+            this.chkVehicle.Text = "Have Vehicle";
+            this.chkVehicle.UseVisualStyleBackColor = true;
+            this.chkVehicle.CheckedChanged += new System.EventHandler(this.chkVehical_CheckedChanged);
+            // 
             // frmAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(402, 348);
+            this.Controls.Add(this.chkVehicle);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label11);
@@ -294,6 +312,7 @@
             this.Controls.Add(this.txtvcVehicle);
             this.Name = "frmAddCustomer";
             this.Text = "";
+            this.Load += new System.EventHandler(this.frmAddCustomer_Load);
             this.Controls.SetChildIndex(this.txtvcVehicle, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -314,6 +333,7 @@
             this.Controls.SetChildIndex(this.label11, 0);
             this.Controls.SetChildIndex(this.btnSave, 0);
             this.Controls.SetChildIndex(this.btnClear, 0);
+            this.Controls.SetChildIndex(this.chkVehicle, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +361,6 @@
         private System.Windows.Forms.TextBox txtContactNo;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.CheckBox chkVehicle;
     }
 }

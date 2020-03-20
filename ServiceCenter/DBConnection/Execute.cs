@@ -86,7 +86,6 @@ namespace ServiceCenter.DBConnection
         }
 
 
-
         public int Executes(string cmdText, SqlParameter[] _SqlParameter, CommandType cmdType = CommandType.StoredProcedure)
         {
             int NoOfRowsEffected = 0;

@@ -36,6 +36,10 @@ namespace ServiceCenter.Entities
         public List<ServiceEntity> lstItemIssue { get; set; }
 
         public decimal decDiscountedValue { get; set; }
+
+        public string vcOtherName { get; set; }
+
+        public decimal decOtheVal { get; set; }
     }
 
 

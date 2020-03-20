@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Transactions;
 
 namespace ServiceCenter.Setup
 {
@@ -30,7 +31,11 @@ namespace ServiceCenter.Setup
         private int intPaymentMethodID { get; set; }
 
         public bool isServiceApply { get; set; }
+        private bool IsCheckVehical = true;
 
+        private int CustomerIDScopeID { get; set; }
+
+        private SupplierEntity objSupplierEntity;
         private BrandEntity objBrandEntity;
         private ItemEntity objItemEntity;
         private ItemEntity objIssueItemEntity;
@@ -53,6 +58,9 @@ namespace ServiceCenter.Setup
             GetService();
 
             rbtCash.Checked = true;
+
+            cmbPhoneNo.Enabled = true;
+            txtCustomerName.Enabled = true;
         }
 
         public void GetService()
@@ -70,47 +78,118 @@ namespace ServiceCenter.Setup
         #region
         public void GetCustomerInfo()
         {
-            lblCustomerName.Text = string.Empty;
-            lblPhoneNo.Text = string.Empty;
+            
 
-
-            if (txtIntVehicle.Text == string.Empty)
+            if (IsCheckVehical == true)
             {
-                MessageBox.Show("Please Enter Vehical No");
-                return;
-            }
-            if (txtvcVehicle.Text == string.Empty)
-            {
-                MessageBox.Show("Please Enter Vehical No");
-                return;
-            }
 
-            vcVehicleNo = txtvcVehicle.Text.ToUpper();
-            intVehicleNo = txtIntVehicle.Text.ToString();
-            FullVehicleNO = vcVehicleNo + '-' + intVehicleNo;
+                if (txtvcVehicle.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter Vehicle No");
+                    return;
+                }
+                else if (txtIntVehicle.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter Vehicle No");
+                    return;
+                }
 
-            Execute objExecute = new Execute();
-            string Query = "[dbo].[spGetCustomerInfo]";
-            SqlParameter[] para = new SqlParameter[]
-              {
-                      Execute.AddParameter("@vcVehicleNo",FullVehicleNO)
+                vcVehicleNo = txtvcVehicle.Text.ToUpper();
+                intVehicleNo = txtIntVehicle.Text.ToString();
+                FullVehicleNO = vcVehicleNo + '-' + intVehicleNo;
 
-              };
-            DataSet ds = (DataSet)objExecute.Executes(Query, ReturnType.DataSet, para, CommandType.StoredProcedure);
+                Execute objExecute = new Execute();
+                string Query = "[dbo].[spGetCustomerInfo]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+                      Execute.AddParameter("@vcVehicleNo",FullVehicleNO),
 
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                intCustomerID = Convert.ToInt32(ds.Tables[0].Rows[0]["intCustomerID"].ToString());
-                lblCustomerName.Text = ds.Tables[0].Rows[0]["vcCustomerName"].ToString();
-                lblPhoneNo.Text = ds.Tables[0].Rows[0]["intContactNo"].ToString();
+                  };
+                DataSet ds = (DataSet)objExecute.Executes(Query, ReturnType.DataSet, para, CommandType.StoredProcedure);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    intCustomerID = Convert.ToInt32(ds.Tables[0].Rows[0]["intCustomerID"].ToString());
+                    txtCustomerName.Text = ds.Tables[0].Rows[0]["vcCustomerName"].ToString();
+                    cmbPhoneNo.SelectedIndex = -1;
+                    cmbPhoneNo.Text = string.Empty;
+                    cmbPhoneNo.SelectedText = ds.Tables[0].Rows[0]["intContactNo"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Please Register Customer");
+
+                    frmAddCustomer obj = new frmAddCustomer(vcVehicleNo, intVehicleNo);
+                    obj.ShowDialog();
+                }
+
             }
             else
             {
-                MessageBox.Show("Please Register Customer");
 
-                frmAddCustomer obj = new frmAddCustomer();
-                obj.Show();
+                if (Convert.ToBoolean(cmbPhoneNo.Text == string.Empty))
+                {
+                    MessageBox.Show("Please enter the Phone Number");
+                    return;
+                }
+
+
+                Execute objExecute = new Execute();
+                string Query = "[dbo].[spGetCustomerInfoContactWise]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+                      Execute.AddParameter("@intContactNo",Convert.ToInt32(cmbPhoneNo.SelectedValue)),
+
+                  };
+                DataSet ds = (DataSet)objExecute.Executes(Query, ReturnType.DataSet, para, CommandType.StoredProcedure);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    intCustomerID = Convert.ToInt32(ds.Tables[0].Rows[0]["intCustomerID"].ToString());
+                    txtCustomerName.Text = ds.Tables[0].Rows[0]["vcCustomerName"].ToString();
+
+                }
+                else
+                {
+
+                    if (txtCustomerName.Text == string.Empty)
+                    {
+                        MessageBox.Show("Customer Not Found...! Please Enter Customer Name");
+                        return;
+                    }
+
+                    int ContactNo = Convert.ToInt32(cmbPhoneNo.Text);
+
+                    Execute objExecuteX = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                       {
+                          Execute.AddParameter("@intContactNo",ContactNo),
+                          Execute.AddParameter("@vcCustomerName",txtCustomerName.Text.Trim().ToUpper()),
+                       };
+
+                    int? CustomerID;
+                    CustomerID = objExecuteX.ExecuteIdentity("spSaveCustomerPhoneNo", param, CommandType.StoredProcedure);
+
+                    if (CustomerID !=null)
+                    {
+                        MessageBox.Show("Customer Save...");
+                        intCustomerID = Convert.ToInt32(CustomerID);
+                        btnSearch.Enabled = false;
+                        cmbPhoneNo.Enabled = false;
+                        txtCustomerName.Enabled = false;
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cant't Save..");
+                        return;
+                    }
+
+                }
             }
+
+
+
         }
         #endregion
 
@@ -138,12 +217,6 @@ namespace ServiceCenter.Setup
                 GetCustomerInfo();
             }
 
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            frmAddCustomer obj = new frmAddCustomer();
-            obj.Show();
         }
 
         public void spGetAllItemIssueAddBranWise()
@@ -174,6 +247,8 @@ namespace ServiceCenter.Setup
                         vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
                         vcUnit = dr["vcUnit"].ToString(),
                         decUnitPrice = (decimal)dr["decUnitPrice"],
+                        
+                        decDiscountedUnitValue = (decimal)dr["decUnitPriceDiscounted"],
                     };
 
                     lstGetItemAdd.Add(objItemEntity);
@@ -203,6 +278,8 @@ namespace ServiceCenter.Setup
 
             GetBrand();
 
+            GetPhoneNumber();
+
             intPaymentMethodID = 1;
         }
 
@@ -216,9 +293,11 @@ namespace ServiceCenter.Setup
 
             foreach (DataRow dr in dt.Rows)
             {
-                objBrandEntity = new BrandEntity();
-                objBrandEntity.intBrandID = Convert.ToInt32(dr["intBrandID"]);
-                objBrandEntity.vcName = dr["vcName"].ToString();
+                objBrandEntity = new BrandEntity
+                {
+                    intBrandID = Convert.ToInt32(dr["intBrandID"]),
+                    vcName = dr["vcName"].ToString()
+                };
                 lstBrand.Add(objBrandEntity);
             }
 
@@ -233,31 +312,56 @@ namespace ServiceCenter.Setup
             cmbBrand.SelectedIndex = 0;
         }
 
+        private void GetPhoneNumber()
+        {
+
+            List<SupplierEntity> lstCustomer = new List<SupplierEntity>();
+
+            Execute objExecute = new Execute();
+            DataTable dt = (DataTable)objExecute.Executes("spGetPhoneNumer", ReturnType.DataTable, CommandType.StoredProcedure);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                objSupplierEntity = new SupplierEntity
+                {
+                    intContactNo = Convert.ToInt32(dr["intContactNo"])
+                };
+
+                lstCustomer.Add(objSupplierEntity);
+            }
+
+            cmbPhoneNo.DataSource = lstCustomer;
+            cmbPhoneNo.DisplayMember = "intContactNo";
+            cmbPhoneNo.ValueMember = "intContactNo";
+            cmbPhoneNo.SelectedIndex = -1;
+
+        }
+
         private void SetFormatting()
         {
             dgvItemIssue.Columns[clmValue.Name].DefaultCellStyle.Format = "#,##0.00";
-            dgvItemIssue.Columns[clmDiscountedValue.Name].DefaultCellStyle.Format = "#,##0.00";
+            dgvItemIssue.Columns[clmDiscountedPrice.Name].DefaultCellStyle.Format = "#,##0.00";
             dgvItemIssue.Columns[clmUnitPrice.Name].DefaultCellStyle.Format = "#,##0.00";
 
 
             dgvService.Columns[clmServicePrice.Name].DefaultCellStyle.Format = "#,##0.00";
-            dgvService.Columns[clmValueService.Name].DefaultCellStyle.Format = "#,##0.00";
-            dgvService.Columns[clmDiscountedService.Name].DefaultCellStyle.Format = "#,##0.00";
+        
+    
 
             dgvAddItem.Columns[clmAddItemUnitPrice.Name].DefaultCellStyle.Format = "#,##0.00";
 
             dgvItemIssue.Columns[clmIssueQty.Name].DefaultCellStyle.BackColor = Color.LightGreen;
-            dgvItemIssue.Columns[clmDiscount.Name].DefaultCellStyle.BackColor = Color.Khaki;
+            dgvItemIssue.Columns[clmDiscountedPrice.Name].DefaultCellStyle.BackColor = Color.Khaki;
 
             dgvService.Columns[clmServicePrice.Name].DefaultCellStyle.BackColor = Color.LightGreen;
-            dgvService.Columns[clmDiscountService.Name].DefaultCellStyle.BackColor = Color.Khaki;
+
 
 
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemCode.Trim().ToLower().Contains(txtSearch.Text.Trim().ToLower()));
+            dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemCode.Trim().ToLower().Contains(txtCodeSearch.Text.Trim().ToLower()));
         }
 
         private void txtDecSearch_TextChanged(object sender, EventArgs e)
@@ -267,338 +371,419 @@ namespace ServiceCenter.Setup
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            GetCustomerInfo();
 
+            GetCustomerInfo();
 
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            #region
+            
             try
             {
-                if (lblCustomerName.Text == string.Empty)
+                if (txtCustomerName.Text == string.Empty)
                 {
-                    MessageBox.Show("Please select the Customer");
+                    MessageBox.Show("Please Select the Customer");
+                    return;
+                }
+                if (dgvItemIssue.Rows.Count <= 0 && dgvService.Rows.Count <= 0)
+                {
+                    MessageBox.Show("Please Add Item or Service");
                     return;
                 }
 
-                if (dgvItemIssue.Rows.Count == 0)
+                foreach (DataGridViewRow row in dgvItemIssue.Rows)
                 {
-                    DialogResult dr = MessageBox.Show("Are You Sure won't to use Items ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-                    if (dr == DialogResult.Yes)
+                    if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value == null) || (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value) == 0))
                     {
-                        if (chkApplyService.Checked == true)
-                        {
-                            if ((dgvService.Rows.Count == 0) && (lblOtherVal.Text == "0.00"))
-                            {
-                                MessageBox.Show("Please Add Service Charge or other Value");
-                                return;
-                            }
-                            else
-                            {
-                                List<ServiceEntity> lstServiceSave = new List<ServiceEntity>();
-
-                                Execute objExecute = new Execute();
-                                SqlParameter[] param = new SqlParameter[]
-                               {
-                                      Execute.AddParameter("@intCustomerID", intCustomerID),
-                                      Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID),
-                                      Execute.AddParameter("@isServiceApply", true),
-                                      Execute.AddParameter("@isItemOnly", false),
-                               };
-
-                                int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
-
-                                int NoOfRowsEffected = 0;
-
-                                foreach (DataGridViewRow dr1 in dgvService.Rows)
-                                {
-                                    ServiceEntity objServiceEntity = new ServiceEntity
-                                    {
-                                        intIssueHeaderID = intIssueHeaderID,
-                                        intServiceID = Convert.ToInt32(dr1.Cells[clmServiceID.Name].Value.ToString()),
-                                        decPrice = Convert.ToDecimal(dr1.Cells[clmServicePrice.Name].Value.ToString()),
-                                        decDiscountedValue = Convert.ToDecimal(dr1.Cells[clmDiscountedService.Name].Value.ToString()),
-                                        decTotal = Convert.ToDecimal(TotalDiscountedPrice)
-                                    };
-                                    lstServiceSave.Add(objServiceEntity);
-                                }
-
-                                foreach (ServiceEntity item in lstServiceSave)
-                                {
-                                    Execute objExecuteX = new Execute();
-                                    SqlParameter[] paramX = new SqlParameter[]
-                                 {
-                                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
-                                          Execute.AddParameter("@intServiceID",item.intServiceID),
-                                          Execute.AddParameter("@decServicePrice",item.decPrice),
-                                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
-                                          Execute.AddParameter("@decTotal",item.decTotal),
-                                 };
-
-                                    NoOfRowsEffected = objExecuteX.Executes("spSaveIssueServiceCharges", paramX, CommandType.StoredProcedure);
-
-                                }
-
-                                if (NoOfRowsEffected <= 2)
-                                {
-                                    MessageBox.Show("Save..");   //Report/////////////////////////////////////
-                                    clear();
-                                    return;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Data Saving Error");
-                                }
-
-                                //MessageBox.Show("Service charge ONLY SAVE.............");
-                                //return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Item Add to Grid");
+                        MessageBox.Show("Please Enter Issue Qty");
                         return;
                     }
                 }
 
-                if (chkApplyService.Checked == true)
+                ///////////////// trans begin
+                ///
+                using (TransactionScope ts = new TransactionScope())
                 {
-                    if ((dgvService.Rows.Count == 0) && (lblOtherVal.Text == "0.00"))
+
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
                     {
-                        MessageBox.Show("Please Add Service Charge or other Value");
-                        return;
-                    }
-                    else
+                    Execute.AddParameter("@intCustomerID", intCustomerID),
+                    Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID)
+                    };
+                    int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
+
+                    //int ItemIssueNoOfRowsEffected = 0;
+
+                    if (dgvItemIssue.Rows.Count > 0)
                     {
-                        foreach (DataGridViewRow row in dgvItemIssue.Rows)
-                        {
-                            if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value == null) || (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value) == 0))
-                            {
-                                MessageBox.Show("Please Enter Issue Qty");
-                                return;
-                            }
-                        }
-
-                        lstServiceSave = new List<ServiceEntity>();
-
-                        lstItemIssue = new List<ServiceEntity>();
-
-                        Execute objExecute = new Execute();
-                        SqlParameter[] param = new SqlParameter[]
-                       {
-                                       Execute.AddParameter("@intCustomerID", intCustomerID),
-                                       Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID),
-                                       Execute.AddParameter("@isServiceApply", true),
-                                       Execute.AddParameter("@isItemOnly", true),
-                       };
-
-                        int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
-
-                        int NoOfRowsEffected = 0;
-
-                        ServiceEntity objIssueItemEntity = new ServiceEntity();
-
-                        ServiceEntity objIssueServiceEntity = new ServiceEntity();
-
-                        foreach (DataGridViewRow dr3 in dgvItemIssue.Rows)
-                        {
-                            objIssueItemEntity = new ServiceEntity
-                            {
-                                intIssueHeaderID = intIssueHeaderID,
-                                intItemID = Convert.ToInt32(dr3.Cells[clmItemID1.Name].Value.ToString()),
-                                decUnitPrice = Convert.ToDecimal(dr3.Cells[clmUnitPrice.Name].Value.ToString()),
-                                Issueqty = Convert.ToDecimal(dr3.Cells[clmIssueQty.Name].Value.ToString()),
-                                decMeterialsTotal = Convert.ToDecimal(MeterialsTotal),
-                                decDiscountedValue = Convert.ToDecimal(dr3.Cells[clmDiscountedValue.Name].Value.ToString()),
-                            };
-
-                            lstItemIssue.Add(objIssueItemEntity);
-                        }
-
-                        foreach (DataGridViewRow dr4 in dgvService.Rows)
-                        {
-                            objIssueServiceEntity = new ServiceEntity
-                            {
-                                intIssueHeaderID = intIssueHeaderID,
-                                intServiceID = Convert.ToInt32(dr4.Cells[clmServiceID.Name].Value.ToString()),
-                                decPrice = Convert.ToDecimal(dr4.Cells[clmServicePrice.Name].Value.ToString()),
-                                decTotal = Convert.ToDecimal(TotalDiscountedPrice),
-                                decDiscountedValue = Convert.ToDecimal(dr4.Cells[clmDiscountedService.Name].Value.ToString()),
-                            };
-
-                            lstServiceSave.Add(objIssueServiceEntity);
-
-                        }
-                        //foreach (DataGridViewRow dr4 in dgvService.Rows)
-                        //{
-                        //    //for (int i = 0; i < dgvService.Rows.Count; i++)
-                        //    //{
-                        //     objIssueItemEntity = new ServiceEntity();
-
-                        //        objIssueItemEntity.intServiceID = Convert.ToInt32(dr4.Cells[clmServiceID.Name].Value.ToString());
-                        //        objIssueItemEntity.decPrice = Convert.ToDecimal(dr4.Cells[clmServicePrice.Name].Value.ToString());
-                        //        objIssueItemEntity.decTotal = Convert.ToDecimal(TotalDiscountedPrice);
-                        //    //}
-
-                        //    lstAllIssueSave.Add(objIssueItemEntity);
-                        //}
-
-
-
-                        //var mergedList = lstAllIssueSave.Concat(lstItemIssue).ToList();
-
-                        ////objIssueItemEntity.lstItemIssue = lstItemIssue;
-                        //objIssueItemEntity.lstAllIssueSave = mergedList;
-
-                        //objIssueItemEntity.lstAllIssueSave = lstAllIssueSave.ToList();
-
-                        foreach (ServiceEntity item in lstItemIssue)
+                        foreach (DataGridViewRow drItemIssue in dgvItemIssue.Rows)
                         {
                             Execute objExecuteX = new Execute();
                             SqlParameter[] paramX = new SqlParameter[]
                             {
-                                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
-                                          Execute.AddParameter("@intItemID",item.intItemID),
-                                          Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
-                                          Execute.AddParameter("@decIssuedQty",item.Issueqty),
-                                          Execute.AddParameter("@decMeterialsTotal",item.decMeterialsTotal),
-                                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
+                            Execute.AddParameter("@intIssueHeaderID",intIssueHeaderID),
+                            Execute.AddParameter("@intItemID",Convert.ToInt32(drItemIssue.Cells[clmItemID1.Name].Value)),
+                            Execute.AddParameter("@decUnitPrice",Convert.ToDecimal(drItemIssue.Cells[clmUnitPrice.Name].Value)),
+                            Execute.AddParameter("@decIssuedQty",Convert.ToDecimal(drItemIssue.Cells[clmIssueQty.Name].Value)),
+                            Execute.AddParameter("@decDiscountedValue",Convert.ToDecimal(drItemIssue.Cells[clmDiscountedPrice.Name].Value)),
 
                             };
 
-                            NoOfRowsEffected = objExecuteX.Executes("spSaveIssueItem", paramX, CommandType.StoredProcedure);
-
+                            objExecuteX.Executes("spSaveIssueItem", paramX, CommandType.StoredProcedure);
+                            //ItemIssueNoOfRowsEffected++;
                         }
+                    }
 
-                        foreach (ServiceEntity item in lstServiceSave)
+                    //int ServiceNoOfRowsEffected = 0;
+
+                    if (dgvService.Rows.Count > 0)
+                    {
+                        foreach (DataGridViewRow drvService in dgvService.Rows)
                         {
                             Execute objExecuteX = new Execute();
                             SqlParameter[] paramX = new SqlParameter[]
                             {
-
-                                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
-                                          Execute.AddParameter("@intServiceID",item.intServiceID),
-                                          Execute.AddParameter("@decServicePrice",item.decPrice),
-                                          Execute.AddParameter("@decTotal",item.decTotal),
-                                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
-
+                            Execute.AddParameter("@intIssueHeaderID",intIssueHeaderID),
+                            Execute.AddParameter("@intServiceID",Convert.ToInt32(drvService.Cells[clmServiceID.Name].Value)),
+                            Execute.AddParameter("@decServicePrice",Convert.ToDecimal(drvService.Cells[clmServicePrice.Name].Value)),
+                            Execute.AddParameter("@vcServiceDec",(drvService.Cells[clmServiceDescription.Name].Value.ToString())),
                             };
 
-                            NoOfRowsEffected = objExecuteX.Executes("spSaveIssueServiceCharges", paramX, CommandType.StoredProcedure);
-
+                            objExecuteX.Executes("spSaveIssueServiceCharges", paramX, CommandType.StoredProcedure);
+                            //ServiceNoOfRowsEffected++;
                         }
-
-                        if ((NoOfRowsEffected <= 3) && (NoOfRowsEffected <= 2))
-                        {
-                            MessageBox.Show("Save..");   //Report/////////////////////////////////////
-                            clear();
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Data Saving Error");
-                        }
-
-
-                        MessageBox.Show("all save.............");
-                        return;
                     }
+                    ts.Complete();
                 }
 
-                if (chkApplyService.Checked == false)
-                {
-                    if (dgvItemIssue.Rows.Count == 0)
-                    {
-                        MessageBox.Show("Please Item Add to Grid");
-                        return;
-                    }
-                    else
-                    {
-
-                        foreach (DataGridViewRow row in dgvItemIssue.Rows)
-                        {
-                            if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value == null) || (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value) == 0))
-                            {
-                                MessageBox.Show("Please Enter Issue Qty");
-                                return;
-                            }
-                        }
-
-                        List<ServiceEntity> lstServiceSave = new List<ServiceEntity>();
-
-                        Execute objExecute = new Execute();
-                        SqlParameter[] param = new SqlParameter[]
-                       {
-                                      Execute.AddParameter("@intCustomerID", intCustomerID),
-                                      Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID),
-                                      Execute.AddParameter("@isServiceApply", false),
-                                      Execute.AddParameter("@isItemOnly", true),
-                       };
-
-                        int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
-
-                        int NoOfRowsEffected = 0;
 
 
-                        foreach (DataGridViewRow dr2 in dgvItemIssue.Rows)
-                        {
-                            ServiceEntity objIssueItemEntity = new ServiceEntity
-                            {
-                                intIssueHeaderID = intIssueHeaderID,
-                                intItemID = Convert.ToInt32(dr2.Cells[clmItemID1.Name].Value.ToString()),
-                                decUnitPrice = Convert.ToDecimal(dr2.Cells[clmUnitPrice.Name].Value.ToString()),
-                                Issueqty = Convert.ToDecimal(dr2.Cells[clmIssueQty.Name].Value.ToString()),
-                                decMeterialsTotal = Convert.ToDecimal(MeterialsTotal),
-                                decDiscountedValue = Convert.ToDecimal(dr2.Cells[clmDiscountedValue.Name].Value.ToString()),
-                            };
-
-                            lstServiceSave.Add(objIssueItemEntity);
-                        }
-
-                        foreach (ServiceEntity item in lstServiceSave)
-                        {
-                            Execute objExecuteX = new Execute();
-                            SqlParameter[] paramX = new SqlParameter[]
-                         {
-                                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
-                                          Execute.AddParameter("@intItemID",item.intItemID),
-                                          Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
-                                          Execute.AddParameter("@decIssuedQty",item.Issueqty),
-                                          Execute.AddParameter("@decMeterialsTotal",item.decMeterialsTotal),
-                                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
-                         };
-
-                            NoOfRowsEffected = objExecuteX.Executes("spSaveIssueItem", paramX, CommandType.StoredProcedure);
-
-                        }
-
-                        if (NoOfRowsEffected <= 3)
-                        {
-                            MessageBox.Show("Save..");   //Report/////////////////////////////////////
-                            clear();
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Data Saving Error");
-                        }
+                MessageBox.Show("Saved Successfully");
+                clear();
 
 
-                        MessageBox.Show("Item only save.............");
-                        return;
-                    }
-                }
 
+
+
+
+
+
+
+
+
+
+
+
+
+                return;
+
+
+
+
+                #region
+                ////if (txtCustomerName.Text == string.Empty)
+                ////{
+                ////    MessageBox.Show("Please select the Customer");
+                ////    return;
+                ////}
+
+                ////if (dgvItemIssue.Rows.Count == 0)
+                ////{
+                ////    DialogResult dr = MessageBox.Show("Are You Sure won't to use Items ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                ////    if (dr == DialogResult.Yes)
+                ////    {
+                ////        if (chkApplyService.Checked == true)
+                ////        {
+                ////            if ((dgvService.Rows.Count == 0) && (lblOtherVal.Text == "0.00"))
+                ////            {
+                ////                MessageBox.Show("Please Add Service Charge or other Value");
+                ////                return;
+                ////            }
+                ////            else
+                ////            {
+                ////                List<ServiceEntity> lstServiceSave = new List<ServiceEntity>();
+
+                ////                Execute objExecute = new Execute();
+                ////                SqlParameter[] param = new SqlParameter[]
+                ////               {
+                ////                      Execute.AddParameter("@intCustomerID", intCustomerID),
+                ////                      Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID),
+                ////                      Execute.AddParameter("@isServiceApply", true),
+                ////                      Execute.AddParameter("@isItemOnly", false),
+                ////               };
+
+                ////                int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
+
+                ////                int NoOfRowsEffected = 0;
+
+                ////                foreach (DataGridViewRow dr1 in dgvService.Rows)
+                ////                {
+                ////                    ServiceEntity objServiceEntity = new ServiceEntity
+                ////                    {
+                ////                        intIssueHeaderID = intIssueHeaderID,
+                ////                        intServiceID = Convert.ToInt32(dr1.Cells[clmServiceID.Name].Value.ToString()),
+                ////                        decPrice = Convert.ToDecimal(dr1.Cells[clmServicePrice.Name].Value.ToString()),
+                ////                        decDiscountedValue = Convert.ToDecimal(dr1.Cells[clmDiscountedService.Name].Value.ToString()),
+                ////                        decTotal = Convert.ToDecimal(TotalDiscountedPrice)
+                ////                    };
+                ////                    lstServiceSave.Add(objServiceEntity);
+                ////                }
+
+                ////                foreach (ServiceEntity item in lstServiceSave)
+                ////                {
+                ////                    Execute objExecuteX = new Execute();
+                ////                    SqlParameter[] paramX = new SqlParameter[]
+                ////                 {
+                ////                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
+                ////                          Execute.AddParameter("@intServiceID",item.intServiceID),
+                ////                          Execute.AddParameter("@decServicePrice",item.decPrice),
+                ////                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
+                ////                          Execute.AddParameter("@decTotal",item.decTotal),
+                ////                 };
+
+                ////                    NoOfRowsEffected = objExecuteX.Executes("spSaveIssueServiceCharges", paramX, CommandType.StoredProcedure);
+
+                ////                }
+
+                ////                if (NoOfRowsEffected <= 2)
+                ////                {
+                ////                    MessageBox.Show("Save..");   //Report/////////////////////////////////////
+                ////                    clear();
+                ////                    return;
+                ////                }
+                ////                else
+                ////                {
+                ////                    MessageBox.Show("Data Saving Error");
+                ////                }
+
+                ////                //MessageBox.Show("Service charge ONLY SAVE.............");
+                ////                //return;
+                ////            }
+                ////        }
+                ////    }
+                ////    else
+                ////    {
+                ////        MessageBox.Show("Please Item Add to Grid");
+                ////        return;
+                ////    }
+                ////}
+
+                ////if (chkApplyService.Checked == true)
+                ////{
+                ////    if ((dgvService.Rows.Count == 0) && (lblOtherVal.Text == "0.00"))
+                ////    {
+                ////        MessageBox.Show("Please Add Service Charge or other Value");
+                ////        return;
+                ////    }
+                ////    else
+                ////    {
+                ////        foreach (DataGridViewRow row in dgvItemIssue.Rows)
+                ////        {
+                ////            if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value == null) || (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value) == 0))
+                ////            {
+                ////                MessageBox.Show("Please Enter Issue Qty");
+                ////                return;
+                ////            }
+                ////        }
+
+                ////        lstServiceSave = new List<ServiceEntity>();
+
+                ////        lstItemIssue = new List<ServiceEntity>();
+
+                ////        Execute objExecute = new Execute();
+                ////        SqlParameter[] param = new SqlParameter[]
+                ////       {
+                ////                       Execute.AddParameter("@intCustomerID", intCustomerID),
+                ////                       Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID),
+                ////                       Execute.AddParameter("@isServiceApply", true),
+                ////                       Execute.AddParameter("@isItemOnly", true),
+                ////       };
+
+                ////        int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
+
+                ////        int NoOfRowsEffected = 0;
+
+                ////        ServiceEntity objIssueItemEntity = new ServiceEntity();
+
+                ////        ServiceEntity objIssueServiceEntity = new ServiceEntity();
+
+                ////        foreach (DataGridViewRow dr3 in dgvItemIssue.Rows)
+                ////        {
+                ////            objIssueItemEntity = new ServiceEntity
+                ////            {
+                ////                intIssueHeaderID = intIssueHeaderID,
+                ////                intItemID = Convert.ToInt32(dr3.Cells[clmItemID1.Name].Value.ToString()),
+                ////                decUnitPrice = Convert.ToDecimal(dr3.Cells[clmUnitPrice.Name].Value.ToString()),
+                ////                Issueqty = Convert.ToDecimal(dr3.Cells[clmIssueQty.Name].Value.ToString()),
+                ////                decMeterialsTotal = Convert.ToDecimal(MeterialsTotal),
+                ////                decDiscountedValue = Convert.ToDecimal(dr3.Cells[clmDiscountedValue.Name].Value.ToString()),
+                ////            };
+
+                ////            lstItemIssue.Add(objIssueItemEntity);
+                ////        }
+
+                ////        foreach (DataGridViewRow dr4 in dgvService.Rows)
+                ////        {
+                ////            objIssueServiceEntity = new ServiceEntity
+                ////            {
+                ////                intIssueHeaderID = intIssueHeaderID,
+                ////                intServiceID = Convert.ToInt32(dr4.Cells[clmServiceID.Name].Value.ToString()),
+                ////                decPrice = Convert.ToDecimal(dr4.Cells[clmServicePrice.Name].Value.ToString()),
+                ////                decTotal = Convert.ToDecimal(TotalDiscountedPrice),
+                ////                decDiscountedValue = Convert.ToDecimal(dr4.Cells[clmDiscountedService.Name].Value.ToString()),
+                ////            };
+
+                ////            lstServiceSave.Add(objIssueServiceEntity);
+
+                ////        }
+
+                ////        foreach (ServiceEntity item in lstItemIssue)
+                ////        {
+                ////            Execute objExecuteX = new Execute();
+                ////            SqlParameter[] paramX = new SqlParameter[]
+                ////            {
+                ////                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
+                ////                          Execute.AddParameter("@intItemID",item.intItemID),
+                ////                          Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
+                ////                          Execute.AddParameter("@decIssuedQty",item.Issueqty),
+                ////                          Execute.AddParameter("@decMeterialsTotal",item.decMeterialsTotal),
+                ////                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
+
+                ////            };
+
+                ////            NoOfRowsEffected = objExecuteX.Executes("spSaveIssueItem", paramX, CommandType.StoredProcedure);
+
+                ////        }
+
+                ////        foreach (ServiceEntity item in lstServiceSave)
+                ////        {
+                ////            Execute objExecuteX = new Execute();
+                ////            SqlParameter[] paramX = new SqlParameter[]
+                ////            {
+
+                ////                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
+                ////                          Execute.AddParameter("@intServiceID",item.intServiceID),
+                ////                          Execute.AddParameter("@decServicePrice",item.decPrice),
+                ////                          Execute.AddParameter("@decTotal",item.decTotal),
+                ////                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
+
+                ////            };
+
+                ////            NoOfRowsEffected = objExecuteX.Executes("spSaveIssueServiceCharges", paramX, CommandType.StoredProcedure);
+
+                ////        }
+
+                ////        if ((NoOfRowsEffected <= 3) && (NoOfRowsEffected <= 2))
+                ////        {
+                ////            MessageBox.Show("Save..");   //Report/////////////////////////////////////
+                ////            clear();
+                ////            return;
+                ////        }
+                ////        else
+                ////        {
+                ////            MessageBox.Show("Data Saving Error");
+                ////        }
+
+
+                ////        MessageBox.Show("all save.............");
+                ////        return;
+                ////    }
+                ////}
+
+                ////if (chkApplyService.Checked == false)
+                ////{
+                ////    if (dgvItemIssue.Rows.Count == 0)
+                ////    {
+                ////        MessageBox.Show("Please Item Add to Grid");
+                ////        return;
+                ////    }
+                ////    else
+                ////    {
+
+                ////        foreach (DataGridViewRow row in dgvItemIssue.Rows)
+                ////        {
+                ////            if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value == null) || (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value) == 0))
+                ////            {
+                ////                MessageBox.Show("Please Enter Issue Qty");
+                ////                return;
+                ////            }
+                ////        }
+
+                ////        List<ServiceEntity> lstServiceSave = new List<ServiceEntity>();
+
+                ////        Execute objExecute = new Execute();
+                ////        SqlParameter[] param = new SqlParameter[]
+                ////       {
+                ////                      Execute.AddParameter("@intCustomerID", intCustomerID),
+                ////                      Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID),
+                ////                      Execute.AddParameter("@isServiceApply", false),
+                ////                      Execute.AddParameter("@isItemOnly", true),
+                ////       };
+
+                ////        int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
+
+                ////        int NoOfRowsEffected = 0;
+
+
+                ////        foreach (DataGridViewRow dr2 in dgvItemIssue.Rows)
+                ////        {
+                ////            ServiceEntity objIssueItemEntity = new ServiceEntity
+                ////            {
+                ////                intIssueHeaderID = intIssueHeaderID,
+                ////                intItemID = Convert.ToInt32(dr2.Cells[clmItemID1.Name].Value.ToString()),
+                ////                decUnitPrice = Convert.ToDecimal(dr2.Cells[clmUnitPrice.Name].Value.ToString()),
+                ////                Issueqty = Convert.ToDecimal(dr2.Cells[clmIssueQty.Name].Value.ToString()),
+                ////                decMeterialsTotal = Convert.ToDecimal(MeterialsTotal),
+                ////                decDiscountedValue = Convert.ToDecimal(dr2.Cells[clmDiscountedValue.Name].Value.ToString()),
+                ////            };
+
+                ////            lstServiceSave.Add(objIssueItemEntity);
+                ////        }
+
+                ////        foreach (ServiceEntity item in lstServiceSave)
+                ////        {
+                ////            Execute objExecuteX = new Execute();
+                ////            SqlParameter[] paramX = new SqlParameter[]
+                ////         {
+                ////                          Execute.AddParameter("@intIssueHeaderID",item.intIssueHeaderID),
+                ////                          Execute.AddParameter("@intItemID",item.intItemID),
+                ////                          Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
+                ////                          Execute.AddParameter("@decIssuedQty",item.Issueqty),
+                ////                          Execute.AddParameter("@decMeterialsTotal",item.decMeterialsTotal),
+                ////                          Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
+                ////         };
+
+                ////            NoOfRowsEffected = objExecuteX.Executes("spSaveIssueItem", paramX, CommandType.StoredProcedure);
+
+                ////        }
+
+                ////        if (NoOfRowsEffected <= 3)
+                ////        {
+                ////            MessageBox.Show("Save..");   //Report/////////////////////////////////////
+                ////            clear();
+                ////            return;
+                ////        }
+                ////        else
+                ////        {
+                ////            MessageBox.Show("Data Saving Error");
+                ////        }
+
+
+                ////        MessageBox.Show("Item only save.............");
+                ////        return;
+                ////    }
+                ////}
+                #endregion //  // Ramod Fools
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Data Saving Error");
+                Logger.LoggError(ex, "btnSave_Click");
             }
-            #endregion   ////////// Save Button //////////////////
+             ////////// Save Button //////////////////
         }
 
         private void chkApplyService_CheckedChanged(object sender, EventArgs e)
@@ -614,7 +799,7 @@ namespace ServiceCenter.Setup
                 btnOtherAdd.Enabled = true;
                 dgvService.Enabled = true;
 
-                btnDeleteOtherCharge.Enabled = true;
+  
 
                 lblSC.Enabled = true;
                 lblOC.Enabled = true;
@@ -631,7 +816,7 @@ namespace ServiceCenter.Setup
                 btnOtherAdd.Enabled = false;
                 dgvService.Enabled = false;
 
-                btnDeleteOtherCharge.Enabled = false;
+
 
 
                 GlobalListServicelSelectedList.Clear();
@@ -674,15 +859,13 @@ namespace ServiceCenter.Setup
                     }
                 }
 
-
-
                 ItemEntity obj = GlobalList.Find(x => x.intItemID == id);
 
                 GlobalSelectedItemList.Add(obj);
                 dgvItemIssue.AutoGenerateColumns = false;
                 dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
 
-                CalculateItemPrice();
+               CalculateItemPrice();
 
             }
             catch (Exception ex)
@@ -706,10 +889,10 @@ namespace ServiceCenter.Setup
 
         private void CalculateItemPrice()
         {
-            decimal Discount = 0;
+            decimal DiscountedPrice = 0;
             decimal unitPrice = 0;
             decimal totDiscout = 0;
-            decimal IndexDiscount = 0;
+            //decimal IndexDiscount = 0;
             decimal Qty = 0;
             decimal Val = 0;
             decimal x = 0;
@@ -719,20 +902,16 @@ namespace ServiceCenter.Setup
             foreach (DataGridViewRow row in dgvItemIssue.Rows)
             {
 
-                if (Convert.ToBoolean(row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value == null))
-                {
-                    row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value = 0;
-                }
-                else
-                {
-                    Discount = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value));
-                }
+ 
+                //DiscountedPrice = (Convert.ToDecimal(dgvItemIssue.Rows[dgvItemIssue.CurrentCell.RowIndex].Cells[clmDiscountedPrice.Name].Value));
+            
 
                 Qty = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value));
                 unitPrice = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmUnitPrice.Name].Index].Value));
                 id = (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmItemID1.Name].Index].Value));
-                IndexDiscount = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmDiscount.Name].Index].Value));
+                DiscountedPrice = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmDiscountedPrice.Name].Index].Value));
                 CurrentStock = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmCurrentStock.Name].Index].Value));
+               // totDiscout = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmValue.Name].Index].Value));
 
                 //Cehck the Balance Qty
                 if (Qty > CurrentStock)
@@ -743,24 +922,17 @@ namespace ServiceCenter.Setup
                     return;
                 }
 
-
                 ItemEntity obj = GlobalSelectedItemList.Find(xx => xx.intItemID == id);
                 int index = GlobalSelectedItemList.IndexOf(obj);
 
-
-                GlobalSelectedItemList[index].decUnitPrice = unitPrice;
                 GlobalSelectedItemList[index].Issueqty = Qty;
-                GlobalSelectedItemList[index].Discount = IndexDiscount;
+                GlobalSelectedItemList[index].DiscountedPrice = DiscountedPrice;
 
-
-
-                Val = Qty * unitPrice;
+                Val = Qty * DiscountedPrice;
 
                 row.Cells[dgvItemIssue.Columns[clmValue.Name].Index].Value = Val;
 
-                x = (Val * Discount) / 100;
-                totDiscout = totDiscout + (Val - x);
-                row.Cells[dgvItemIssue.Columns[clmDiscountedValue.Name].Index].Value = (Val - x);
+                totDiscout += (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmValue.Name].Index].Value));
 
             }
 
@@ -802,6 +974,7 @@ namespace ServiceCenter.Setup
                     GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
 
                     dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
+
 
                     UpdateTotalPrice();
                     CalculateItemPrice();
@@ -914,7 +1087,7 @@ namespace ServiceCenter.Setup
                 {
                     int id = Convert.ToInt32(dgvService.Rows[dgvService.CurrentCell.RowIndex].Cells[clmServiceID.Name].Value);
 
-                    decimal DiscountedVal = Convert.ToDecimal(dgvService.Rows[dgvService.CurrentCell.RowIndex].Cells[clmDiscountedService.Name].Value);
+                    decimal DiscountedVal = Convert.ToDecimal(dgvService.Rows[dgvService.CurrentCell.RowIndex].Cells[clmServicePrice.Name].Value);
 
                     ServiceTotal = ServiceTotal - DiscountedVal;
 
@@ -941,13 +1114,13 @@ namespace ServiceCenter.Setup
             TotalDiscountedPrice = ServiceTotal + MeterialsTotal + OtherCharges;
             lblTotal.Text = TotalDiscountedPrice.ToString("#,##0.00");
             lblServiceChargeTot.Text = ServiceTotal.ToString("#,##0.00");
-            lblOtherVal.Text = OtherCharges.ToString("#,##0.00");
+
 
         }
 
         private void ServiceGridCal()
         {
-            decimal Discount = 0;
+            decimal DiscountedServicePrice = 0;
             decimal ServicePrice = 0;
             decimal totDiscout = 0;
             decimal x = 0;
@@ -955,27 +1128,11 @@ namespace ServiceCenter.Setup
             foreach (DataGridViewRow row in dgvService.Rows)
             {
 
-                if (Convert.ToBoolean(row.Cells[dgvService.Columns[clmDiscountService.Name].Index].Value == null))
-                {
-                    row.Cells[dgvService.Columns[clmDiscountService.Name].Index].Value = 0;
-                }
-                else
-                {
-                    Discount = (Convert.ToDecimal(row.Cells[dgvService.Columns[clmDiscountService.Name].Index].Value));
-                }
-
-                ServicePrice = (Convert.ToDecimal(row.Cells[dgvService.Columns[clmServicePrice.Name].Index].Value));
-
-
-                row.Cells[dgvService.Columns[clmValueService.Name].Index].Value = ServicePrice;
-
-                x = (ServicePrice * Discount) / 100;
-                totDiscout = totDiscout + (ServicePrice - x);
-                row.Cells[dgvService.Columns[clmDiscountedService.Name].Index].Value = (ServicePrice - x);
+                DiscountedServicePrice += (Convert.ToDecimal(row.Cells[dgvService.Columns[clmServicePrice.Name].Index].Value));
             }
 
-            lblServiceChargeTot.Text = totDiscout.ToString("#,##0.00");
-            ServiceTotal = totDiscout;
+            lblServiceChargeTot.Text = DiscountedServicePrice.ToString("#,##0.00");
+            ServiceTotal = DiscountedServicePrice;
             TotalDiscountedPrice = ServiceTotal + MeterialsTotal + OtherCharges;
             lblTotal.Text = TotalDiscountedPrice.ToString("#,##0.00");
         }
@@ -1000,7 +1157,7 @@ namespace ServiceCenter.Setup
 
             decOtherCharges = Convert.ToDecimal(txtOtherValue.Text.ToString());
 
-            lblOtherVal.Text = decOtherCharges.ToString("#,##0.00");
+       
 
             if (txtOtherValue.Text.ToString() == string.Empty)
             {
@@ -1018,14 +1175,37 @@ namespace ServiceCenter.Setup
 
         private void btnOtherAdd_Click(object sender, EventArgs e)
         {
-            btnOntherClick();
+            if (txtOtherValue.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter Value");
+                return;
+            }
+            
+
+            if (GlobalListServicelSelectedList.Find(x => x.intServiceID == 1) != null)
+            {
+                MessageBox.Show("You can't add onther Serive", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ServiceEntity obj = new ServiceEntity();
+            obj.intServiceID = 1;
+            obj.vcServiceName = txtOtherChargers.Text;
+            obj.decPrice = Convert.ToDecimal(txtOtherValue.Text);
+
+            GlobalListServicelSelectedList.Add(obj);
+            dgvService.AutoGenerateColumns = false;
+
+            dgvService.DataSource = GlobalListServicelSelectedList.ToList();
+
+            ServiceGridCal();
         }
 
         private void btnOtherCharge_Click(object sender, EventArgs e)
         {
             OtherCharges = 0;
             txtOtherChargers.Text = string.Empty;
-            lblOtherVal.Text = ServiceTotal.ToString("#,##0.00");
+  
             UpdateTotalPrice();
         }
 
@@ -1116,14 +1296,13 @@ namespace ServiceCenter.Setup
             FullVehicleNO = string.Empty;
 
             intCustomerID = 0;
-            lblCustomerName.Text = string.Empty;
-            lblCustomerName.Text = string.Empty;
-            lblPhoneNo.Text = string.Empty;
+
 
             lblMeterialsTotal.Text = "0.00";
             lblServiceChargeTot.Text = "0.00";
-            lblOtherVal.Text = "0.00";
+
             lblTotal.Text = "0.00";
+      
 
             txtvcVehicle.Text = string.Empty;
             txtIntVehicle.Text = string.Empty;
@@ -1147,14 +1326,25 @@ namespace ServiceCenter.Setup
 
             spGetAllItemIssueAddBranWise();
             GetServiceAdd();
-
+            GetBrand();
             SetFormatting();
 
             chkApplyService.Checked = true;
             rbtCash.Checked = true;
             intPaymentMethodID = 1;
-            txtOtherChargers.Text = "Other Chargers :- ";
+            txtOtherChargers.Text = "Other Chargers ";
+            txtOtherValue.Text = string.Empty;
 
+            txtCustomerName.Text = string.Empty;
+            cmbPhoneNo.Text = string.Empty;
+
+            btnSearch.Enabled = true;
+            cmbPhoneNo.Enabled = true;
+
+            txtMilege.Text = string.Empty;
+
+            chkVehicle.Checked = true;
+            IsCheckVehical = true;
         }
 
         private void dgvAddItem_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -1163,14 +1353,14 @@ namespace ServiceCenter.Setup
             {
                 if (Convert.ToInt32(row.Cells[clmdecStockInHand.Name].Value) <= 5)
                 {
-                    row.DefaultCellStyle.BackColor = Color.LightPink;
-           
+                    row.DefaultCellStyle.BackColor = Color.AntiqueWhite;
+
                 }
-                
+
 
                 if (Convert.ToInt32(row.Cells[clmdecStockInHand.Name].Value) <= 2)
                 {
-                    row.DefaultCellStyle.BackColor = Color.IndianRed;
+                    row.DefaultCellStyle.BackColor = Color.LightPink;
 
                 }
             }
@@ -1180,6 +1370,92 @@ namespace ServiceCenter.Setup
         private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
             spGetAllItemIssueAddBranWise();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chkVehicle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkVehicle.Checked == true)
+            {
+                txtvcVehicle.Enabled = true;
+                txtIntVehicle.Enabled = true;
+                IsCheckVehical = true;
+
+                cmbPhoneNo.Enabled = false;
+                txtCustomerName.Enabled = false;
+
+
+
+                txtCustomerName.Text = string.Empty;
+                cmbPhoneNo.Text = string.Empty;
+
+                cmbPhoneNo.Enabled = true;
+                btnSearch.Enabled = true;
+                
+            }
+            else
+            {
+                txtvcVehicle.Enabled = false;
+                txtIntVehicle.Enabled = false;
+
+
+                IsCheckVehical = false;
+
+                cmbPhoneNo.Enabled = true;
+                txtCustomerName.Enabled = true;
+
+                txtCustomerName.Text = string.Empty;
+                cmbPhoneNo.Text = string.Empty;
+
+                cmbPhoneNo.Enabled = true;
+
+                txtIntVehicle.Text = string.Empty;
+                txtvcVehicle.Text = string.Empty;
+
+                btnSearch.Enabled = true;
+            }
+        }
+
+        private void cmbPhoneNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (cmbPhoneNo.Text == "" && e.KeyChar == '0')
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtMilege_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbPhoneNo_Click(object sender, EventArgs e)
+        {
+           GetPhoneNumber();
+            txtCustomerName.Text = string.Empty;
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+            txtDecSearch.Text = string.Empty;
+        }
+
+        private void txtDecSearch_Click(object sender, EventArgs e)
+        {
+            txtCodeSearch.Text = string.Empty;
         }
     }
 }

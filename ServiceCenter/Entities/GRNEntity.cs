@@ -20,7 +20,8 @@ namespace ServiceCenter.Entities
         public decimal decUnitPrice { get; set; }
         public decimal decDiscount { get; set; }
 
+        public decimal decDiscountedValue { get; set; }
 
-       public List<GRNEntity> lstGRNSave { get; set; }
+        public List<GRNEntity> lstGRNSave { get; set; }
     }
 }

@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.10</MinimumRequiredVersion>
-    <ApplicationRevision>11</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.11</MinimumRequiredVersion>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -70,6 +70,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -274,6 +275,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Issues\frmIssues.resx">
       <DependentUpon>frmIssues.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Recivces\frmReceive.resx">
       <DependentUpon>frmReceive.cs</DependentUpon>

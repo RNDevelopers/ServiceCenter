@@ -15,15 +15,24 @@ namespace ServiceCenter.Customer
 {
     public partial class frmAddCustomer : BaseUI
     {
+        string vcVehicleNotext;
+        string intVehicleNotext;
 
         public string vcVehicleNo { get; set; }
         public string intVehicleNo { get; set; }
         public string FullVehicleNO { get; set; }
 
-        public frmAddCustomer()
+        private bool IsCheckVehical = true;
+
+        public frmAddCustomer(string vcVehicleNo, string intVehicleNo)
         {
             InitializeComponent();
             this.SetFormName();
+            this.vcVehicleNotext = vcVehicleNo;
+            this.intVehicleNotext = intVehicleNo;
+
+            txtvcVehicle.Text = vcVehicleNo;
+            txtIntVehicle.Text = intVehicleNo;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -33,17 +42,21 @@ namespace ServiceCenter.Customer
 
         public void SaveCustomer()
         {
+            if (IsCheckVehical == true)
+            {
 
-            if (txtvcVehicle.Text == string.Empty)
-            {
-                MessageBox.Show("Please Enter Vehical No");
-                return;
+                if (txtvcVehicle.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter Vehical No");
+                    return;
+                }
+                else if (txtIntVehicle.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter Vehical No");
+                    return;
+                }
             }
-            else if (txtIntVehicle.Text == string.Empty)
-            {
-                MessageBox.Show("Please Enter Vehical No");
-                return; 
-            }
+
             else if (txtName.Text == string.Empty)
             {
                 MessageBox.Show("Please Enter Name");
@@ -89,12 +102,16 @@ namespace ServiceCenter.Customer
                 if (NoOfRowsEffected < 0)
                 {
                     MessageBox.Show("Save..");
+                    this.Close();
+                    return;
                 }
                 else
                 {
                     MessageBox.Show("Cant't Save..");
                 }
+             
             }
+         
         }
 
         private void txtIntVehicle_KeyPress(object sender, KeyPressEventArgs e)
@@ -106,5 +123,37 @@ namespace ServiceCenter.Customer
             }
         }
 
+        private void chkVehical_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkVehicle.Checked == true)
+            {
+                txtvcVehicle.Enabled = true;
+                txtIntVehicle.Enabled = true;
+                 IsCheckVehical = true;
+    }
+            else
+            {
+                txtvcVehicle.Enabled = false;
+                txtIntVehicle.Enabled = false;
+
+                IsCheckVehical = false;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtIntVehicle.Text = string.Empty;
+            txtvcVehicle.Text = string.Empty;
+            txtName.Text = string.Empty;
+
+            txtAddress.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtContactNo.Text = string.Empty;
+        }
+
+        private void frmAddCustomer_Load(object sender, EventArgs e)
+        {
+            this.txtName.Focus();
+        }
     }
 }

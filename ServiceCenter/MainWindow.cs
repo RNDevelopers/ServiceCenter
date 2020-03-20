@@ -161,8 +161,11 @@ namespace ServiceCenter
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            //add customer button
-            frmAddCustomer obj = new frmAddCustomer();
+            ////add customer button
+         
+            string  vcName = null;
+            string vcCar = null;
+            frmAddCustomer obj = new frmAddCustomer(vcName, vcCar);
             obj.MdiParent = this;
             obj.Show();
         }

@@ -41,5 +41,24 @@ namespace ServiceCenter.Entities
         public decimal Issueqty { get; set; }
 
         public int intIssueHeaderID { get; set; }
+
+
+
+
+
+        public int intMeasureUnitID { get; set; }
+        public string vcMeasureUnit { get; set; }
+        public string vcMeasureUnitDesc { get; set; }
+
+        public string vcAPI { get; set; }
+
+        public string vcSAE { get; set; }
+
+
+        public int decQty { get; set; }
+
+        public decimal decDiscountedUnitValue { get; set; }
+
+        public decimal DiscountedPrice { get; set; }
     }
 }

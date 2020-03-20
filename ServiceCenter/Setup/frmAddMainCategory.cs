@@ -77,7 +77,7 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                    Execute.AddParameter("@MainCategoryName",txtMainCategoryName.Text.Trim())
+                    Execute.AddParameter("@MainCategoryName",txtMainCategoryName.Text.Trim().ToUpper())
                    };
 
                 int NoOfRowsEffected = objExecute.Executes("SaveMainCategory", param, CommandType.StoredProcedure);
