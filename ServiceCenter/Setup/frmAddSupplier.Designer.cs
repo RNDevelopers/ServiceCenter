@@ -205,9 +205,11 @@
             // 
             this.txtContactNo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtContactNo.Location = new System.Drawing.Point(140, 222);
+            this.txtContactNo.MaxLength = 10;
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(349, 25);
             this.txtContactNo.TabIndex = 134;
+            this.txtContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNo_KeyPress);
             // 
             // btnSave
             // 

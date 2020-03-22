@@ -47,7 +47,6 @@
             this.clmSubCatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBrandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSubCatName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmbtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,8 +161,7 @@
             this.clmSubCatDetailsID,
             this.clmSubCatID,
             this.clmBrandID,
-            this.clmSubCatName,
-            this.clmbtnDelete});
+            this.clmSubCatName});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,13 +231,7 @@
             this.clmSubCatName.HeaderText = "Sub Category Name";
             this.clmSubCatName.Name = "clmSubCatName";
             this.clmSubCatName.ReadOnly = true;
-            this.clmSubCatName.Width = 250;
-            // 
-            // clmbtnDelete
-            // 
-            this.clmbtnDelete.HeaderText = "Press to Delete";
-            this.clmbtnDelete.Name = "clmbtnDelete";
-            this.clmbtnDelete.ReadOnly = true;
+            this.clmSubCatName.Width = 360;
             // 
             // frmAssignSubCategoryBrand
             // 
@@ -286,6 +278,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubCatID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBrandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSubCatName;
-        private System.Windows.Forms.DataGridViewButtonColumn clmbtnDelete;
     }
 }

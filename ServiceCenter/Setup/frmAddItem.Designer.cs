@@ -67,6 +67,8 @@
             this.cmbEngineType = new System.Windows.Forms.ComboBox();
             this.cmbSAE = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -82,14 +84,14 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSave.BackColor = System.Drawing.Color.OliveDrab;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(444, 482);
+            this.btnSave.Location = new System.Drawing.Point(491, 481);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(71, 35);
             this.btnSave.TabIndex = 153;
@@ -236,7 +238,7 @@
             this.txtDec.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtDec.Location = new System.Drawing.Point(157, 411);
             this.txtDec.Name = "txtDec";
-            this.txtDec.Size = new System.Drawing.Size(358, 60);
+            this.txtDec.Size = new System.Drawing.Size(405, 60);
             this.txtDec.TabIndex = 166;
             this.txtDec.Text = "";
             // 
@@ -509,12 +511,46 @@
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.IndianRed;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(362, 109);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 26);
+            this.button1.TabIndex = 192;
+            this.button1.Text = "Add New Brand";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.IndianRed;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(362, 155);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 26);
+            this.button2.TabIndex = 193;
+            this.button2.Text = "Assign Sub Category";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // frmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(578, 528);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbSAE);
             this.Controls.Add(this.cmbEngineType);
@@ -556,7 +592,7 @@
             this.Controls.Add(this.lblSubcat);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddItem";
-            this.Text = "1";
+            this.Text = "Add Item";
             this.Load += new System.EventHandler(this.frmAddItem_Load);
             this.Controls.SetChildIndex(this.lblSubcat, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -597,6 +633,8 @@
             this.Controls.SetChildIndex(this.cmbEngineType, 0);
             this.Controls.SetChildIndex(this.cmbSAE, 0);
             this.Controls.SetChildIndex(this.btnRefresh, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.button2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -643,5 +681,7 @@
         private System.Windows.Forms.ComboBox cmbEngineType;
         private System.Windows.Forms.ComboBox cmbSAE;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

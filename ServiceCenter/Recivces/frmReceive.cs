@@ -4,12 +4,14 @@ using ServiceCenter.DBConnection;
 using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using ServiceCenter.ErrorLog;
+using ServiceCenter.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace ServiceCenter.Setup
@@ -19,6 +21,8 @@ namespace ServiceCenter.Setup
         public int intItemID { get; set; }
 
         public decimal TotalPrice { get; set; }
+
+        private int intGRNHeaderID { get; set; }
 
         private ItemEntity objItemEntity;
         private List<ItemEntity> GlobalList;
@@ -202,7 +206,7 @@ namespace ServiceCenter.Setup
 
         private void dgvGRN_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-                CalculateDiscountedPrice();
+            CalculateDiscountedPrice();
         }
 
         private void CalculateDiscountedPrice()
@@ -240,11 +244,10 @@ namespace ServiceCenter.Setup
                 Value = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmValue.Name].Index].Value));
                 ValueDiscounted = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value));
 
-               // Discount = (Convert.ToDecimal(row.Cells[dgvGRN.Columns[clmDiscount.Name].Index].Value));
 
-                ItemEntity obj = GlobalSelectedItemList.Find(xx=>xx.intItemID == id);
+                ItemEntity obj = GlobalSelectedItemList.Find(xx => xx.intItemID == id);
                 int index = GlobalSelectedItemList.IndexOf(obj);
-    
+
 
                 GlobalSelectedItemList[index].decUnitPrice = unitPrice;
                 GlobalSelectedItemList[index].GRNqty = Qty;
@@ -253,14 +256,12 @@ namespace ServiceCenter.Setup
                 GlobalSelectedItemList[index].value = Value;
                 GlobalSelectedItemList[index].Discounted = ValueDiscounted;
 
-              //  GlobalSelectedItemList[index].Discount = Discount;
-
                 Val = Qty * unitPrice;
 
                 row.Cells[dgvGRN.Columns[clmValue.Name].Index].Value = Val;
 
                 x = (Val * Discount) / 100;
-                totDiscout = totDiscout+(Val - x);
+                totDiscout = totDiscout + (Val - x);
                 row.Cells[dgvGRN.Columns[clmDiscountedValue.Name].Index].Value = (Val - x);
 
             }
@@ -315,65 +316,91 @@ namespace ServiceCenter.Setup
                         MessageBox.Show("Please Enter Unit Price Qty");
                         return;
                     }
-                    
+
                 }
 
-                List<GRNEntity> lstGRNSave = new List<GRNEntity>();
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    intGRNHeaderID = 0;
+                    List<GRNEntity> lstGRNSave = new List<GRNEntity>();
 
-                Execute objExecute = new Execute();
-                SqlParameter[] param = new SqlParameter[]
-               {
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                       {
                     Execute.AddParameter("@intSupplierID", Convert.ToInt32(cmbSupplier.SelectedValue))
-               };
+                       };
 
-                int intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
+                     intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
 
-                int NoOfRowsEffected = 0;
-
-                foreach (DataGridViewRow dr in dgvGRN.Rows)
-                {
-                    GRNEntity objGRNEntity = new GRNEntity
+                    foreach (DataGridViewRow dr in dgvGRN.Rows)
                     {
-                        intGRNHeaderID = intGRNHeaderID,
-                        intItemID = Convert.ToInt32(dr.Cells[clmItemID1.Name].Value.ToString()),
-                        decGRNQty = Convert.ToDecimal(dr.Cells[clmGRNQty.Name].Value.ToString()),
-                        decUnitPrice = Convert.ToDecimal(dr.Cells[clmUnitPrice.Name].Value.ToString()),
-                        decDiscount = Convert.ToDecimal(dr.Cells[clmDiscount.Name].Value.ToString()),
-                        decTotal = Convert.ToDecimal(dr.Cells[clmValue.Name].Value.ToString()),
-                        decDiscountedValue = Convert.ToDecimal(dr.Cells[clmDiscountedValue.Name].Value.ToString()),
-                    };
-                    lstGRNSave.Add(objGRNEntity);
-                }
+                        GRNEntity objGRNEntity = new GRNEntity
+                        {
+                            intGRNHeaderID = intGRNHeaderID,
+                            intItemID = Convert.ToInt32(dr.Cells[clmItemID1.Name].Value.ToString()),
+                            decGRNQty = Convert.ToDecimal(dr.Cells[clmGRNQty.Name].Value.ToString()),
+                            decUnitPrice = Convert.ToDecimal(dr.Cells[clmUnitPrice.Name].Value.ToString()),
+                            decDiscountedValue = Convert.ToDecimal(dr.Cells[clmDiscountedValue.Name].Value.ToString()),
+                        };
+                        lstGRNSave.Add(objGRNEntity);
+                    }
 
-                foreach (GRNEntity item in lstGRNSave)
-                {
-                    Execute objExecuteX = new Execute();
-                    SqlParameter[] paramX = new SqlParameter[]
-                 {
+                    foreach (GRNEntity item in lstGRNSave)
+                    {
+                        Execute objExecuteX = new Execute();
+                        SqlParameter[] paramX = new SqlParameter[]
+                     {
                     Execute.AddParameter("@intGRNHeaderID",item.intGRNHeaderID),
                     Execute.AddParameter("@intItemID",item.intItemID),
                     Execute.AddParameter("@decGRNQty",item.decGRNQty),
                     Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
-                    Execute.AddParameter("@decDiscount",item.decDiscount),
-                    Execute.AddParameter("@decTotal",item.decTotal),
                     Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
-                 };
+                     };
 
-                    NoOfRowsEffected = objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
+                        objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
+                    }
 
+                    ts.Complete();
                 }
-                if (NoOfRowsEffected <= 2)
-                {
-                    MessageBox.Show("Save..");
-                    clear();
-                }
-                else
-                {
-                    MessageBox.Show("Data Saving Error");
-                }
+
+                MessageBox.Show("Save..");
+
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+
+                ///Report///////////////////////////////////////////////////
+                ///
+                rptGRN rpt = new rptGRN();
+                ReportDocument rptDoc = new ReportDocument();
+
+                rptDoc = rpt;
+
+                Execute objExecuteXX = new Execute();
+                string Query = "[dbo].[spGetGRNReportDetails]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+                      Execute.AddParameter("@intGRNHeaderID",intGRNHeaderID)
+                     
+                  };
+                DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+                rpt.SetDataSource(dt);
+
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+
+                frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+                objfrmReportViewer.Show();
+
+                //  rptDoc.PrintToPrinter(1, true, 0, 0);
+
+                clear();
+
+                //////////////////////////////
+
+
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Data Saving Error");
                 Logger.LoggError(ex, "btnSave_Click");
             }
 
@@ -391,6 +418,7 @@ namespace ServiceCenter.Setup
             lstGetItemGRN.Clear();
             TotalPrice = 0;
             lblTotal.Text = string.Empty;
+            
         }
 
         public void GetReport()
@@ -467,18 +495,16 @@ namespace ServiceCenter.Setup
         {
             if (dgvGRN.Columns[e.ColumnIndex] == clmbtnDelete)
             {
-                Int32 index = dgvGRN.Rows.Count - 1;
+                int index = dgvGRN.Rows.Count - 1;
 
                 if (index == 0)
                 {
                     int id = Convert.ToInt32(dgvGRN.Rows[dgvGRN.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
 
                     GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+
                     dgvGRN.DataSource = GlobalSelectedItemList.ToList();
 
-
-                    GlobalSelectedItemList.Clear();
-                    dgvGRN.DataSource = null;
 
                     decimal DiscountedVal = 0; ;
                     decimal TotalPrice = 0;
@@ -509,6 +535,11 @@ namespace ServiceCenter.Setup
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

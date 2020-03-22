@@ -43,6 +43,7 @@
             this.clmEngineType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.decStockInHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmbtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmbtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtDecSearch = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -79,11 +80,12 @@
             this.clmvcUnit,
             this.clmEngineType,
             this.decStockInHand,
-            this.clmbtnEdit});
+            this.clmbtnEdit,
+            this.clmbtnDelete});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -111,7 +113,7 @@
             this.dgvViewItemList.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvViewItemList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvViewItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvViewItemList.Size = new System.Drawing.Size(1049, 278);
+            this.dgvViewItemList.Size = new System.Drawing.Size(1108, 439);
             this.dgvViewItemList.TabIndex = 223;
             this.dgvViewItemList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewItemList_CellClick);
             this.dgvViewItemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewItemList_CellContentClick);
@@ -174,16 +176,25 @@
             this.clmbtnEdit.HeaderText = "Edit";
             this.clmbtnEdit.Name = "clmbtnEdit";
             this.clmbtnEdit.ReadOnly = true;
-            this.clmbtnEdit.Width = 50;
+            this.clmbtnEdit.Text = "";
+            this.clmbtnEdit.Width = 75;
+            // 
+            // clmbtnDelete
+            // 
+            this.clmbtnDelete.HeaderText = "Delete";
+            this.clmbtnDelete.Name = "clmbtnDelete";
+            this.clmbtnDelete.ReadOnly = true;
+            this.clmbtnDelete.Text = "";
+            this.clmbtnDelete.Width = 50;
             // 
             // txtDecSearch
             // 
             this.txtDecSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtDecSearch.Location = new System.Drawing.Point(629, 93);
+            this.txtDecSearch.Location = new System.Drawing.Point(667, 93);
             this.txtDecSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtDecSearch.MaxLength = 4;
             this.txtDecSearch.Name = "txtDecSearch";
-            this.txtDecSearch.Size = new System.Drawing.Size(316, 29);
+            this.txtDecSearch.Size = new System.Drawing.Size(462, 29);
             this.txtDecSearch.TabIndex = 222;
             this.txtDecSearch.TextChanged += new System.EventHandler(this.txtDecSearch_TextChanged);
             // 
@@ -191,7 +202,8 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(405, 95);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(458, 95);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(201, 23);
@@ -213,6 +225,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(16, 95);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -224,6 +237,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(13, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -235,13 +249,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 605);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
+            this.ClientSize = new System.Drawing.Size(1152, 605);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvViewItemList);
             this.Controls.Add(this.txtDecSearch);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label3);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmViewItem";
             this.Text = "frmViewItem";
             this.Load += new System.EventHandler(this.frmViewItem_Load);
@@ -272,5 +288,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEngineType;
         private System.Windows.Forms.DataGridViewTextBoxColumn decStockInHand;
         private System.Windows.Forms.DataGridViewButtonColumn clmbtnEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn clmbtnDelete;
     }
 }

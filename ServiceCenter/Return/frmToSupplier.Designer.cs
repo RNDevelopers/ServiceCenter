@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmToSupplier));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
@@ -48,11 +49,16 @@
             this.dgvReturnItem = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.clmSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmGRNDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmvcUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReceivedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDiscountedUnitValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -197,6 +203,7 @@
             this.clmItemID,
             this.clmItemCode,
             this.vcItemDescription,
+            this.clmvcUnit,
             this.clmReceivedQty,
             this.clmDiscountedUnitValue,
             this.clmAvailableQty,
@@ -237,36 +244,84 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(667, 409);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(560, 418);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(71, 35);
+            this.btnClear.Size = new System.Drawing.Size(120, 55);
             this.btnClear.TabIndex = 189;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "       Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             // 
             // btnReturn
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReturn.BackColor = System.Drawing.Color.OliveDrab;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.FlatAppearance.BorderSize = 0;
             this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(744, 409);
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReturn.Location = new System.Drawing.Point(696, 418);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(71, 35);
+            this.btnReturn.Size = new System.Drawing.Size(120, 55);
             this.btnReturn.TabIndex = 190;
-            this.btnReturn.Text = "Return";
+            this.btnReturn.Text = "      Return";
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(157, 436);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(72, 37);
+            this.lblTotal.TabIndex = 204;
+            this.lblTotal.Text = "0.00";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(86, 435);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 37);
+            this.label9.TabIndex = 203;
+            this.label9.Text = "=";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(12, 436);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 37);
+            this.label8.TabIndex = 202;
+            this.label8.Text = "Total ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(114, 436);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 37);
+            this.label10.TabIndex = 201;
+            this.label10.Text = "Rs.";
             // 
             // clmSelect
             // 
@@ -307,7 +362,14 @@
             this.vcItemDescription.HeaderText = "Item Description";
             this.vcItemDescription.Name = "vcItemDescription";
             this.vcItemDescription.ReadOnly = true;
-            this.vcItemDescription.Width = 350;
+            this.vcItemDescription.Width = 290;
+            // 
+            // clmvcUnit
+            // 
+            this.clmvcUnit.DataPropertyName = "vcUnit";
+            this.clmvcUnit.HeaderText = "Unit Size";
+            this.clmvcUnit.Name = "clmvcUnit";
+            this.clmvcUnit.Width = 80;
             // 
             // clmReceivedQty
             // 
@@ -345,7 +407,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(828, 455);
+            this.ClientSize = new System.Drawing.Size(828, 485);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvReturnItem);
@@ -375,6 +441,10 @@
             this.Controls.SetChildIndex(this.dgvReturnItem, 0);
             this.Controls.SetChildIndex(this.btnClear, 0);
             this.Controls.SetChildIndex(this.btnReturn, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.lblTotal, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -396,11 +466,16 @@
         private System.Windows.Forms.DataGridView dgvReturnItem;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmGRNDetailID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmvcUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReceivedQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscountedUnitValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAvailableQty;

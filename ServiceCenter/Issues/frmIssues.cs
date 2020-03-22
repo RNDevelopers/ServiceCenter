@@ -35,6 +35,7 @@ namespace ServiceCenter.Setup
 
         private int CustomerIDScopeID { get; set; }
 
+        private ServiceEntity objServiceEntity;
         private SupplierEntity objSupplierEntity;
         private BrandEntity objBrandEntity;
         private ItemEntity objItemEntity;
@@ -65,9 +66,20 @@ namespace ServiceCenter.Setup
 
         public void GetService()
         {
+            List<ServiceEntity> lstService = new List<ServiceEntity>();
+
             Execute objExecute = new Execute();
             DataTable dt = (DataTable)objExecute.Executes("spGetService", ReturnType.DataTable, CommandType.StoredProcedure);
 
+            foreach (DataRow dr in dt.Rows)
+            {
+                objServiceEntity = new ServiceEntity
+                {
+                    intServiceID = Convert.ToInt32(dr["intServiceID"]),
+                    vcServiceName = dr["vcServiceName"].ToString()
+                };
+                lstService.Add(objServiceEntity);
+            }
 
             cmbService.DataSource = dt;
             cmbService.DisplayMember = "vcServiceName";
@@ -78,7 +90,7 @@ namespace ServiceCenter.Setup
         #region
         public void GetCustomerInfo()
         {
-            
+
 
             if (IsCheckVehical == true)
             {
@@ -117,10 +129,15 @@ namespace ServiceCenter.Setup
                 }
                 else
                 {
-                    MessageBox.Show("Please Register Customer");
+                    if (MessageBox.Show("Please Register Customer", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        frmAddCustomer obj = new frmAddCustomer(vcVehicleNo, intVehicleNo);
+                        obj.ShowDialog();
 
-                    frmAddCustomer obj = new frmAddCustomer(vcVehicleNo, intVehicleNo);
-                    obj.ShowDialog();
+                    }
+
+                   //  GetCustomerInfo();
+                   
                 }
 
             }
@@ -130,6 +147,7 @@ namespace ServiceCenter.Setup
                 if (Convert.ToBoolean(cmbPhoneNo.Text == string.Empty))
                 {
                     MessageBox.Show("Please enter the Phone Number");
+                    cmbPhoneNo.Focus();
                     return;
                 }
 
@@ -147,14 +165,16 @@ namespace ServiceCenter.Setup
                 {
                     intCustomerID = Convert.ToInt32(ds.Tables[0].Rows[0]["intCustomerID"].ToString());
                     txtCustomerName.Text = ds.Tables[0].Rows[0]["vcCustomerName"].ToString();
-
+                    txtCustomerName.Enabled = false;
                 }
                 else
                 {
+                    txtCustomerName.Enabled = true;
 
                     if (txtCustomerName.Text == string.Empty)
                     {
                         MessageBox.Show("Customer Not Found...! Please Enter Customer Name");
+                        txtCustomerName.Focus();
                         return;
                     }
 
@@ -170,9 +190,9 @@ namespace ServiceCenter.Setup
                     int? CustomerID;
                     CustomerID = objExecuteX.ExecuteIdentity("spSaveCustomerPhoneNo", param, CommandType.StoredProcedure);
 
-                    if (CustomerID !=null)
+                    if (CustomerID != null)
                     {
-                        MessageBox.Show("Customer Save...");
+                        MessageBox.Show("Customer Saved successfully");
                         intCustomerID = Convert.ToInt32(CustomerID);
                         btnSearch.Enabled = false;
                         cmbPhoneNo.Enabled = false;
@@ -187,8 +207,6 @@ namespace ServiceCenter.Setup
 
                 }
             }
-
-
 
         }
         #endregion
@@ -247,7 +265,7 @@ namespace ServiceCenter.Setup
                         vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
                         vcUnit = dr["vcUnit"].ToString(),
                         decUnitPrice = (decimal)dr["decUnitPrice"],
-                        
+
                         decDiscountedUnitValue = (decimal)dr["decUnitPriceDiscounted"],
                     };
 
@@ -345,8 +363,8 @@ namespace ServiceCenter.Setup
 
 
             dgvService.Columns[clmServicePrice.Name].DefaultCellStyle.Format = "#,##0.00";
-        
-    
+
+
 
             dgvAddItem.Columns[clmAddItemUnitPrice.Name].DefaultCellStyle.Format = "#,##0.00";
 
@@ -378,7 +396,7 @@ namespace ServiceCenter.Setup
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 if (txtCustomerName.Text == string.Empty)
@@ -462,18 +480,6 @@ namespace ServiceCenter.Setup
 
                 MessageBox.Show("Saved Successfully");
                 clear();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -783,7 +789,7 @@ namespace ServiceCenter.Setup
                 MessageBox.Show("Data Saving Error");
                 Logger.LoggError(ex, "btnSave_Click");
             }
-             ////////// Save Button //////////////////
+            ////////// Save Button //////////////////
         }
 
         private void chkApplyService_CheckedChanged(object sender, EventArgs e)
@@ -799,7 +805,7 @@ namespace ServiceCenter.Setup
                 btnOtherAdd.Enabled = true;
                 dgvService.Enabled = true;
 
-  
+
 
                 lblSC.Enabled = true;
                 lblOC.Enabled = true;
@@ -865,7 +871,7 @@ namespace ServiceCenter.Setup
                 dgvItemIssue.AutoGenerateColumns = false;
                 dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
 
-               CalculateItemPrice();
+                CalculateItemPrice();
 
             }
             catch (Exception ex)
@@ -902,16 +908,16 @@ namespace ServiceCenter.Setup
             foreach (DataGridViewRow row in dgvItemIssue.Rows)
             {
 
- 
+
                 //DiscountedPrice = (Convert.ToDecimal(dgvItemIssue.Rows[dgvItemIssue.CurrentCell.RowIndex].Cells[clmDiscountedPrice.Name].Value));
-            
+
 
                 Qty = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmIssueQty.Name].Index].Value));
                 unitPrice = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmUnitPrice.Name].Index].Value));
                 id = (Convert.ToInt32(row.Cells[dgvItemIssue.Columns[clmItemID1.Name].Index].Value));
                 DiscountedPrice = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmDiscountedPrice.Name].Index].Value));
                 CurrentStock = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmCurrentStock.Name].Index].Value));
-               // totDiscout = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmValue.Name].Index].Value));
+                // totDiscout = (Convert.ToDecimal(row.Cells[dgvItemIssue.Columns[clmValue.Name].Index].Value));
 
                 //Cehck the Balance Qty
                 if (Qty > CurrentStock)
@@ -946,12 +952,10 @@ namespace ServiceCenter.Setup
         {
             if (dgvItemIssue.Columns[e.ColumnIndex] == clmbtnDelete)
             {
-
                 int index = dgvItemIssue.Rows.Count - 1;
 
                 if (index == 0)
                 {
-
                     int id = Convert.ToInt32(dgvItemIssue.Rows[dgvItemIssue.CurrentCell.RowIndex].Cells[clmItemID1.Name].Value);
 
                     decimal MeterialsTotal = 0;
@@ -962,6 +966,11 @@ namespace ServiceCenter.Setup
                     UpdateTotalPrice();
 
                     GlobalSelectedItemList.RemoveAll(x => x.intItemID == id);
+
+                    GlobalSelectedItemList.Clear();
+
+                    dgvItemIssue.DataSource = null;
+                    spGetAllItemIssueAddBranWise();
 
                     dgvItemIssue.DataSource = GlobalSelectedItemList.ToList();
 
@@ -997,6 +1006,8 @@ namespace ServiceCenter.Setup
                     MessageBox.Show("You can't select Same Serive", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                //ServiceEntity obj = new ServiceEntity();
 
                 ServiceEntity obj = GlobalListService.Find(x => x.intServiceID == Convert.ToInt32(cmbService.SelectedValue));
 
@@ -1073,6 +1084,14 @@ namespace ServiceCenter.Setup
                     lblTotal.Text = TotalDiscountedPrice.ToString("#,##0.00");
                     GlobalListServicelSelectedList.RemoveAll(x => x.intServiceID == id);
 
+
+                    if (id == 1)
+                    {
+                        btnOtherAdd.Enabled = true;
+                        txtOtherValue.Enabled = true;
+                        txtOtherChargers.Enabled = true;
+                    }
+
                     GlobalListServicelSelectedList.Clear();
                     dgvService.DataSource = null;
 
@@ -1093,8 +1112,16 @@ namespace ServiceCenter.Setup
 
                     lblServiceChargeTot.Text = ServiceTotal.ToString("#,##0.00");
 
-                    // UpdateTotalPrice();
+
                     GlobalListServicelSelectedList.RemoveAll(x => x.intServiceID == id);
+
+                    if (id == 1)
+                    {
+                        btnOtherAdd.Enabled = true;
+                        txtOtherValue.Enabled = true;
+                        txtOtherChargers.Enabled = true;
+                    }
+
                     UpdateTotalPrice();
                     dgvService.DataSource = GlobalListServicelSelectedList.ToList();
 
@@ -1137,50 +1164,21 @@ namespace ServiceCenter.Setup
             lblTotal.Text = TotalDiscountedPrice.ToString("#,##0.00");
         }
 
-        private void btnOntherClick()
+        private void btnOtherAdd_Click()
         {
-            decimal decOtherCharges = 0;
-
-            if (txtOtherChargers.Text.ToString() == string.Empty)
+            if (txtOtherChargers.Text == string.Empty)
             {
                 MessageBox.Show("please Enter service charge Descrpition");
                 txtOtherChargers.Focus();
                 return;
-
             }
-            if (txtOtherValue.Text.ToString() == string.Empty)
+
+            if (txtOtherValue.Text == string.Empty) 
             {
-                MessageBox.Show("please Enter service charge Value");
+                MessageBox.Show("Please Enter Value");
                 txtOtherValue.Focus();
                 return;
             }
-
-            decOtherCharges = Convert.ToDecimal(txtOtherValue.Text.ToString());
-
-       
-
-            if (txtOtherValue.Text.ToString() == string.Empty)
-            {
-                OtherCharges = 0;
-            }
-            else
-            {
-                OtherCharges = (Convert.ToDecimal(txtOtherValue.Text.ToString()));
-            }
-
-            txtOtherValue.Text = string.Empty;
-
-            UpdateTotalPrice();
-        }
-
-        private void btnOtherAdd_Click(object sender, EventArgs e)
-        {
-            if (txtOtherValue.Text == string.Empty)
-            {
-                MessageBox.Show("Please Enter Value");
-                return;
-            }
-            
 
             if (GlobalListServicelSelectedList.Find(x => x.intServiceID == 1) != null)
             {
@@ -1193,12 +1191,25 @@ namespace ServiceCenter.Setup
             obj.vcServiceName = txtOtherChargers.Text;
             obj.decPrice = Convert.ToDecimal(txtOtherValue.Text);
 
+         
             GlobalListServicelSelectedList.Add(obj);
             dgvService.AutoGenerateColumns = false;
 
             dgvService.DataSource = GlobalListServicelSelectedList.ToList();
 
             ServiceGridCal();
+
+            btnOtherAdd.Enabled = false;
+            txtOtherValue.Enabled = false;
+            txtOtherValue.Text = string.Empty;
+            txtOtherChargers.Text = string.Empty;
+            txtOtherChargers.Enabled = false;
+        }
+
+
+        private void btnOtherAdd_Click(object sender, EventArgs e)
+        {
+            btnOtherAdd_Click();
         }
 
         private void btnOtherCharge_Click(object sender, EventArgs e)
@@ -1250,7 +1261,7 @@ namespace ServiceCenter.Setup
 
         private void dgvService_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dgvService.CurrentCell.ColumnIndex == 3 || dgvService.CurrentCell.ColumnIndex == 4)
+            if (dgvService.CurrentCell.ColumnIndex == 3)
             {
                 e.Control.KeyPress += new KeyPressEventHandler(dgvService_KeyPress);
             }
@@ -1260,7 +1271,7 @@ namespace ServiceCenter.Setup
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnOntherClick();
+                btnOtherAdd_Click();
             }
         }
 
@@ -1296,7 +1307,6 @@ namespace ServiceCenter.Setup
             FullVehicleNO = string.Empty;
 
             intCustomerID = 0;
-
 
             lblMeterialsTotal.Text = "0.00";
             lblServiceChargeTot.Text = "0.00";
@@ -1345,6 +1355,10 @@ namespace ServiceCenter.Setup
 
             chkVehicle.Checked = true;
             IsCheckVehical = true;
+
+            btnOtherAdd.Enabled = true;
+            txtOtherValue.Enabled = true;
+            txtOtherChargers.Enabled = true;
         }
 
         private void dgvAddItem_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -1356,7 +1370,6 @@ namespace ServiceCenter.Setup
                     row.DefaultCellStyle.BackColor = Color.AntiqueWhite;
 
                 }
-
 
                 if (Convert.ToInt32(row.Cells[clmdecStockInHand.Name].Value) <= 2)
                 {
@@ -1370,11 +1383,6 @@ namespace ServiceCenter.Setup
         private void cmbBrand_SelectionChangeCommitted(object sender, EventArgs e)
         {
             spGetAllItemIssueAddBranWise();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void chkVehicle_CheckedChanged(object sender, EventArgs e)
@@ -1456,6 +1464,54 @@ namespace ServiceCenter.Setup
         private void txtDecSearch_Click(object sender, EventArgs e)
         {
             txtCodeSearch.Text = string.Empty;
+        }
+
+        private void cmbService_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (GlobalListServicelSelectedList.Find(x => x.intServiceID == Convert.ToInt32(cmbService.SelectedValue)) != null)
+                {
+                    MessageBox.Show("You can't select Same Serive", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                ServiceEntity obj = GlobalListService.Find(x => x.intServiceID == Convert.ToInt32(cmbService.SelectedValue));
+
+                GlobalListServicelSelectedList.Add(obj);
+                dgvService.AutoGenerateColumns = false;
+                dgvService.DataSource = GlobalListServicelSelectedList.ToList();
+
+                ServiceGridCal();
+            }
+        }
+
+        private void txtCustomerName_Leave(object sender, EventArgs e)
+        {
+            if (txtCustomerName.Text == string.Empty)
+            {
+                return;
+            }
+            else
+            {
+                if (MessageBox.Show("Please Register the Customer?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    GetCustomerInfo();
+                }
+                else
+                {
+                    txtCustomerName.Text = string.Empty;
+                }
+            }
+
+        }
+
+        private void cmbPhoneNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCustomerName.Text = string.Empty;
+                GetCustomerInfo();
+            }
         }
     }
 }

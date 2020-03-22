@@ -230,5 +230,12 @@ namespace ServiceCenter
             obj.MdiParent = this;
             obj.Show();
         }
+
+        private void mnuServiceCharges_Click(object sender, EventArgs e)
+        {
+            frmAddServiceCharge obj = new frmAddServiceCharge();
+            obj.MdiParent = this;
+            obj.Show();
+        }
     }
 }

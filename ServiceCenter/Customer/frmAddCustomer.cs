@@ -94,7 +94,7 @@ namespace ServiceCenter.Customer
                     Execute.AddParameter("@vcCustomerName",txtName.Text.ToUpper()),
                     Execute.AddParameter("@vcAddress",txtAddress.Text.ToUpper()),
                     Execute.AddParameter("@vcCity",txtCity.Text.ToUpper()),
-                    Execute.AddParameter("@intContactNo",Convert.ToInt32(txtContactNo.Text.ToString()))
+                    Execute.AddParameter("@intContactNo",Convert.ToInt32(txtContactNo.Text))
                    };
 
                 int NoOfRowsEffected = objExecute.Executes("spSaveCustomer", param, CommandType.StoredProcedure);
@@ -103,7 +103,7 @@ namespace ServiceCenter.Customer
                 {
                     MessageBox.Show("Save..");
                     this.Close();
-                    return;
+                
                 }
                 else
                 {
@@ -154,6 +154,15 @@ namespace ServiceCenter.Customer
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
             this.txtName.Focus();
+        }
+
+        private void txtContactNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+              (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ServiceCenter.Setup
 {
     public partial class frmViewItem : BaseUI
     {
+        public int intItemID;
         public int intCustomerID { get; set; }
         public string vcVehicleNo { get; set; }
         public string intVehicleNo { get; set; }
@@ -30,7 +31,7 @@ namespace ServiceCenter.Setup
         {
             InitializeComponent();
             GetService();
-         
+
         }
 
         public void GetService()
@@ -108,6 +109,7 @@ namespace ServiceCenter.Setup
 
         private void dgvViewItemList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
             {
                 if (dgvViewItemList.Columns[e.ColumnIndex] == clmbtnEdit)
                 {
@@ -115,7 +117,40 @@ namespace ServiceCenter.Setup
                     obj.txtItemID.Text = dgvViewItemList.SelectedRows[0].Cells[0].Value.ToString();
                     obj.ShowDialog();
                 }
+                if (dgvViewItemList.Columns[e.ColumnIndex] == clmbtnDelete)
+                {
+                    intItemID = Convert.ToInt32(dgvViewItemList.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
+
+                    DialogResult dr = MessageBox.Show("Are you sure want to Delete in this Item ?", "CONFIRMATION", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        Execute objExecute = new Execute();
+                        SqlParameter[] param = new SqlParameter[]
+                        {
+                          Execute.AddParameter("@intItemID",intItemID),
+                        };
+
+                        int NoOfRowsEffected = objExecute.Executes("spDeleteItem", param, CommandType.StoredProcedure);
+
+                        if (NoOfRowsEffected < 0)
+                        {
+                            MessageBox.Show("Successfully DELETE !");
+                            GetAllItemViewItem();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item DELETE Process Error !");
+                        }
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data Deleting Error");
+                Logger.LoggError(ex, "dgvViewItemList_CellClick");
+            }
+
         }
     }
 }

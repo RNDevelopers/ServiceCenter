@@ -23,5 +23,6 @@ namespace ServiceCenter.Entities
         public decimal decDiscountedValue { get; set; }
 
         public List<GRNEntity> lstGRNSave { get; set; }
+
     }
 }

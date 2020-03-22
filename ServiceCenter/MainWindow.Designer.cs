@@ -59,6 +59,7 @@
             this.contextMenuStrip_View = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnubtnReceivesView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnIssuesView = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuServiceCharges = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
@@ -283,9 +284,11 @@
             this.addBrandToolStripMenuItem,
             this.addItemsToolStripMenuItem,
             this.mnuAddItemUtility,
-            this.mnuEditItem});
+            this.mnuEditItem,
+            this.mnuServiceCharges});
             this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(226, 180);
+            this.contextMenuStrip_Setup.ShowImageMargin = false;
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(201, 202);
             // 
             // addCompanySupplierToolStripMenuItem
             // 
@@ -361,7 +364,8 @@
             this.mnuFromCustomer,
             this.mnuToSupplier});
             this.contextMenuStrip_Returt.Name = "contextMenuStrip_Returt";
-            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(161, 48);
+            this.contextMenuStrip_Returt.ShowImageMargin = false;
+            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(136, 48);
             // 
             // mnuFromCustomer
             // 
@@ -405,38 +409,54 @@
             // 
             // contextMenuStrip_Customer
             // 
+            this.contextMenuStrip_Customer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.contextMenuStrip_Customer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.contextMenuStrip_Customer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCustomerToolStripMenuItem});
             this.contextMenuStrip_Customer.Name = "contextMenuStrip_Customer";
-            this.contextMenuStrip_Customer.Size = new System.Drawing.Size(152, 26);
+            this.contextMenuStrip_Customer.ShowImageMargin = false;
+            this.contextMenuStrip_Customer.Size = new System.Drawing.Size(129, 26);
             // 
             // addCustomerToolStripMenuItem
             // 
+            this.addCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             // 
             // contextMenuStrip_View
             // 
+            this.contextMenuStrip_View.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.contextMenuStrip_View.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.contextMenuStrip_View.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnubtnReceivesView,
             this.mnubtnIssuesView});
             this.contextMenuStrip_View.Name = "contextMenuStrip_View";
-            this.contextMenuStrip_View.Size = new System.Drawing.Size(148, 48);
+            this.contextMenuStrip_View.Size = new System.Drawing.Size(181, 70);
             // 
             // mnubtnReceivesView
             // 
+            this.mnubtnReceivesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnReceivesView.Name = "mnubtnReceivesView";
-            this.mnubtnReceivesView.Size = new System.Drawing.Size(147, 22);
+            this.mnubtnReceivesView.Size = new System.Drawing.Size(180, 22);
             this.mnubtnReceivesView.Text = "Receives View";
             this.mnubtnReceivesView.Click += new System.EventHandler(this.mnubtnReceivesView_Click);
             // 
             // mnubtnIssuesView
             // 
+            this.mnubtnIssuesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnIssuesView.Name = "mnubtnIssuesView";
-            this.mnubtnIssuesView.Size = new System.Drawing.Size(147, 22);
+            this.mnubtnIssuesView.Size = new System.Drawing.Size(180, 22);
             this.mnubtnIssuesView.Text = "Issues View";
             this.mnubtnIssuesView.Click += new System.EventHandler(this.mnubtnIssuesView_Click);
+            // 
+            // mnuServiceCharges
+            // 
+            this.mnuServiceCharges.ForeColor = System.Drawing.Color.White;
+            this.mnuServiceCharges.Name = "mnuServiceCharges";
+            this.mnuServiceCharges.Size = new System.Drawing.Size(225, 22);
+            this.mnuServiceCharges.Text = "Add Service Charges";
+            this.mnuServiceCharges.Click += new System.EventHandler(this.mnuServiceCharges_Click);
             // 
             // MainWindow
             // 
@@ -492,6 +512,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnubtnIssuesView;
         private System.Windows.Forms.ToolStripMenuItem mnuAddItemUtility;
         private System.Windows.Forms.ToolStripMenuItem mnuEditItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuServiceCharges;
     }
 }
 

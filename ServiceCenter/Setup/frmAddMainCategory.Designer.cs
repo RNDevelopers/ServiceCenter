@@ -35,15 +35,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAddMainCategory = new System.Windows.Forms.DataGridView();
-            this.clmMainCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmMainCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmbtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmDeactivate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtMainCategoryName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.clmMainCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMainCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmbtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddMainCategory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,8 +72,7 @@
             this.dgvAddMainCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmMainCategoryID,
             this.clmMainCategoryName,
-            this.clmbtnEdit,
-            this.clmDeactivate});
+            this.clmbtnEdit});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,37 +105,6 @@
             this.dgvAddMainCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAddMainCategory.Size = new System.Drawing.Size(398, 304);
             this.dgvAddMainCategory.TabIndex = 120;
-            // 
-            // clmMainCategoryID
-            // 
-            this.clmMainCategoryID.DataPropertyName = "intMainCategoryID";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmMainCategoryID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmMainCategoryID.HeaderText = "intMainCategoryID";
-            this.clmMainCategoryID.Name = "clmMainCategoryID";
-            this.clmMainCategoryID.ReadOnly = true;
-            this.clmMainCategoryID.Visible = false;
-            this.clmMainCategoryID.Width = 150;
-            // 
-            // clmMainCategoryName
-            // 
-            this.clmMainCategoryName.DataPropertyName = "vcMainCategoryName";
-            this.clmMainCategoryName.HeaderText = "Category Name";
-            this.clmMainCategoryName.Name = "clmMainCategoryName";
-            this.clmMainCategoryName.ReadOnly = true;
-            this.clmMainCategoryName.Width = 200;
-            // 
-            // clmbtnEdit
-            // 
-            this.clmbtnEdit.HeaderText = "Press to Edit";
-            this.clmbtnEdit.Name = "clmbtnEdit";
-            this.clmbtnEdit.ReadOnly = true;
-            // 
-            // clmDeactivate
-            // 
-            this.clmDeactivate.HeaderText = "Press to Delete";
-            this.clmDeactivate.Name = "clmDeactivate";
-            this.clmDeactivate.ReadOnly = true;
             // 
             // txtMainCategoryName
             // 
@@ -197,6 +164,32 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // clmMainCategoryID
+            // 
+            this.clmMainCategoryID.DataPropertyName = "intMainCategoryID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmMainCategoryID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmMainCategoryID.HeaderText = "intMainCategoryID";
+            this.clmMainCategoryID.Name = "clmMainCategoryID";
+            this.clmMainCategoryID.ReadOnly = true;
+            this.clmMainCategoryID.Visible = false;
+            this.clmMainCategoryID.Width = 150;
+            // 
+            // clmMainCategoryName
+            // 
+            this.clmMainCategoryName.DataPropertyName = "vcMainCategoryName";
+            this.clmMainCategoryName.HeaderText = "Category Name";
+            this.clmMainCategoryName.Name = "clmMainCategoryName";
+            this.clmMainCategoryName.ReadOnly = true;
+            this.clmMainCategoryName.Width = 250;
+            // 
+            // clmbtnEdit
+            // 
+            this.clmbtnEdit.HeaderText = "Press to Edit";
+            this.clmbtnEdit.Name = "clmbtnEdit";
+            this.clmbtnEdit.ReadOnly = true;
+            this.clmbtnEdit.Width = 150;
+            // 
             // frmAddMainCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +228,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmMainCategoryID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmMainCategoryName;
         private System.Windows.Forms.DataGridViewButtonColumn clmbtnEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn clmDeactivate;
     }
 }

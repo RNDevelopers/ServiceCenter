@@ -245,7 +245,8 @@ namespace ServiceCenter.Setup
                     Execute.AddParameter("@decStockInHand",Convert.ToDecimal(txtStockHand.Text.Trim())),
                     Execute.AddParameter("@decUnitPrice",Convert.ToDecimal(txtUnitPrice.Text.Trim())),
                     Execute.AddParameter("@vcItemCode",txtItemCode.Text.ToUpper()),
-                    Execute.AddParameter("@vcItemDescription",txtDec.Text.ToUpper())
+                    Execute.AddParameter("@vcItemDescription",txtDec.Text.ToUpper()),
+                    Execute.AddParameter("@dtEnteredDate",System.DateTime.Now),
                    };
 
                 int NoOfRowsEffected = objExecute.Executes("spSaveItem", param, CommandType.StoredProcedure);

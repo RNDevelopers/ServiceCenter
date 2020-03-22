@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.labelEnginedot = new System.Windows.Forms.Label();
+            this.labelSAEbot = new System.Windows.Forms.Label();
+            this.labeldot = new System.Windows.Forms.Label();
+            this.labelENGING = new System.Windows.Forms.Label();
+            this.labelSAE = new System.Windows.Forms.Label();
+            this.labelAPI = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -66,76 +66,75 @@
             this.lblEngineType = new System.Windows.Forms.Label();
             this.lblSAEGrade = new System.Windows.Forms.Label();
             this.lblAPIGrade = new System.Windows.Forms.Label();
-            this.lblStockInHand = new System.Windows.Forms.Label();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnAddNewItem = new System.Windows.Forms.Button();
+            this.txtStockInHand = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label24
+            // labelEnginedot
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(519, 280);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(14, 23);
-            this.label24.TabIndex = 225;
-            this.label24.Text = ":";
+            this.labelEnginedot.AutoSize = true;
+            this.labelEnginedot.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnginedot.Location = new System.Drawing.Point(519, 280);
+            this.labelEnginedot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEnginedot.Name = "labelEnginedot";
+            this.labelEnginedot.Size = new System.Drawing.Size(14, 23);
+            this.labelEnginedot.TabIndex = 225;
+            this.labelEnginedot.Text = ":";
             // 
-            // label23
+            // labelSAEbot
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(519, 225);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(14, 23);
-            this.label23.TabIndex = 224;
-            this.label23.Text = ":";
+            this.labelSAEbot.AutoSize = true;
+            this.labelSAEbot.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSAEbot.Location = new System.Drawing.Point(519, 225);
+            this.labelSAEbot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSAEbot.Name = "labelSAEbot";
+            this.labelSAEbot.Size = new System.Drawing.Size(14, 23);
+            this.labelSAEbot.TabIndex = 224;
+            this.labelSAEbot.Text = ":";
             // 
-            // label22
+            // labeldot
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(519, 166);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(14, 23);
-            this.label22.TabIndex = 223;
-            this.label22.Text = ":";
+            this.labeldot.AutoSize = true;
+            this.labeldot.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldot.Location = new System.Drawing.Point(519, 166);
+            this.labeldot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labeldot.Name = "labeldot";
+            this.labeldot.Size = new System.Drawing.Size(14, 23);
+            this.labeldot.TabIndex = 223;
+            this.labeldot.Text = ":";
             // 
-            // label21
+            // labelENGING
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(407, 278);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(103, 23);
-            this.label21.TabIndex = 222;
-            this.label21.Text = "Engine Type";
+            this.labelENGING.AutoSize = true;
+            this.labelENGING.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelENGING.Location = new System.Drawing.Point(407, 278);
+            this.labelENGING.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelENGING.Name = "labelENGING";
+            this.labelENGING.Size = new System.Drawing.Size(103, 23);
+            this.labelENGING.TabIndex = 222;
+            this.labelENGING.Text = "Engine Type";
             // 
-            // label20
+            // labelSAE
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(407, 222);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(95, 23);
-            this.label20.TabIndex = 221;
-            this.label20.Text = "SAE Grade ";
+            this.labelSAE.AutoSize = true;
+            this.labelSAE.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSAE.Location = new System.Drawing.Point(407, 222);
+            this.labelSAE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSAE.Name = "labelSAE";
+            this.labelSAE.Size = new System.Drawing.Size(95, 23);
+            this.labelSAE.TabIndex = 221;
+            this.labelSAE.Text = "SAE Grade ";
             // 
-            // label19
+            // labelAPI
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(407, 166);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 23);
-            this.label19.TabIndex = 220;
-            this.label19.Text = "API Grade ";
+            this.labelAPI.AutoSize = true;
+            this.labelAPI.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAPI.Location = new System.Drawing.Point(407, 166);
+            this.labelAPI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAPI.Name = "labelAPI";
+            this.labelAPI.Size = new System.Drawing.Size(92, 23);
+            this.labelAPI.TabIndex = 220;
+            this.labelAPI.Text = "API Grade ";
             // 
             // label17
             // 
@@ -299,7 +298,6 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(252, 29);
             this.txtItemCode.TabIndex = 202;
-
             // 
             // label5
             // 
@@ -358,7 +356,7 @@
             // 
             // btnUpdateItem
             // 
-            this.btnUpdateItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUpdateItem.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdateItem.FlatAppearance.BorderSize = 0;
             this.btnUpdateItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
@@ -496,34 +494,6 @@
             this.lblAPIGrade.TabIndex = 238;
             this.lblAPIGrade.Text = "lblAPIGrade";
             // 
-            // lblStockInHand
-            // 
-            this.lblStockInHand.AutoSize = true;
-            this.lblStockInHand.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockInHand.Location = new System.Drawing.Point(200, 360);
-            this.lblStockInHand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStockInHand.Name = "lblStockInHand";
-            this.lblStockInHand.Size = new System.Drawing.Size(127, 23);
-            this.lblStockInHand.TabIndex = 239;
-            this.lblStockInHand.Text = "lblStockInHand";
-            // 
-            // btnDeleteItem
-            // 
-            this.btnDeleteItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnDeleteItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteItem.FlatAppearance.BorderSize = 0;
-            this.btnDeleteItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteItem.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteItem.Location = new System.Drawing.Point(372, 595);
-            this.btnDeleteItem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(153, 43);
-            this.btnDeleteItem.TabIndex = 240;
-            this.btnDeleteItem.Text = "Delete Item";
-            this.btnDeleteItem.UseVisualStyleBackColor = false;
-            // 
             // btnAddNewItem
             // 
             this.btnAddNewItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -533,7 +503,7 @@
             this.btnAddNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewItem.Location = new System.Drawing.Point(198, 595);
+            this.btnAddNewItem.Location = new System.Drawing.Point(378, 595);
             this.btnAddNewItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNewItem.Name = "btnAddNewItem";
             this.btnAddNewItem.Size = new System.Drawing.Size(155, 43);
@@ -542,14 +512,24 @@
             this.btnAddNewItem.UseVisualStyleBackColor = false;
             this.btnAddNewItem.Click += new System.EventHandler(this.btnAddNewItem_Click);
             // 
+            // txtStockInHand
+            // 
+            this.txtStockInHand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtStockInHand.Location = new System.Drawing.Point(201, 358);
+            this.txtStockInHand.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockInHand.MaxLength = 2147483647;
+            this.txtStockInHand.Name = "txtStockInHand";
+            this.txtStockInHand.Size = new System.Drawing.Size(249, 29);
+            this.txtStockInHand.TabIndex = 242;
+            // 
             // frmEditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(717, 676);
+            this.Controls.Add(this.txtStockInHand);
             this.Controls.Add(this.btnAddNewItem);
-            this.Controls.Add(this.btnDeleteItem);
-            this.Controls.Add(this.lblStockInHand);
             this.Controls.Add(this.lblAPIGrade);
             this.Controls.Add(this.lblSAEGrade);
             this.Controls.Add(this.lblEngineType);
@@ -559,12 +539,12 @@
             this.Controls.Add(this.lblMainCategory);
             this.Controls.Add(this.lblBrandName);
             this.Controls.Add(this.txtItemID);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.labelEnginedot);
+            this.Controls.Add(this.labelSAEbot);
+            this.Controls.Add(this.labeldot);
+            this.Controls.Add(this.labelENGING);
+            this.Controls.Add(this.labelSAE);
+            this.Controls.Add(this.labelAPI);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label16);
@@ -588,6 +568,7 @@
             this.Controls.Add(this.btnUpdateItem);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "frmEditItem";
             this.Text = "frmEditItem";
             this.Load += new System.EventHandler(this.frmEditItem_Load);
@@ -614,12 +595,12 @@
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.label17, 0);
-            this.Controls.SetChildIndex(this.label19, 0);
-            this.Controls.SetChildIndex(this.label20, 0);
-            this.Controls.SetChildIndex(this.label21, 0);
-            this.Controls.SetChildIndex(this.label22, 0);
-            this.Controls.SetChildIndex(this.label23, 0);
-            this.Controls.SetChildIndex(this.label24, 0);
+            this.Controls.SetChildIndex(this.labelAPI, 0);
+            this.Controls.SetChildIndex(this.labelSAE, 0);
+            this.Controls.SetChildIndex(this.labelENGING, 0);
+            this.Controls.SetChildIndex(this.labeldot, 0);
+            this.Controls.SetChildIndex(this.labelSAEbot, 0);
+            this.Controls.SetChildIndex(this.labelEnginedot, 0);
             this.Controls.SetChildIndex(this.txtItemID, 0);
             this.Controls.SetChildIndex(this.lblBrandName, 0);
             this.Controls.SetChildIndex(this.lblMainCategory, 0);
@@ -629,21 +610,20 @@
             this.Controls.SetChildIndex(this.lblEngineType, 0);
             this.Controls.SetChildIndex(this.lblSAEGrade, 0);
             this.Controls.SetChildIndex(this.lblAPIGrade, 0);
-            this.Controls.SetChildIndex(this.lblStockInHand, 0);
-            this.Controls.SetChildIndex(this.btnDeleteItem, 0);
             this.Controls.SetChildIndex(this.btnAddNewItem, 0);
+            this.Controls.SetChildIndex(this.txtStockInHand, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelEnginedot;
+        private System.Windows.Forms.Label labelSAEbot;
+        private System.Windows.Forms.Label labeldot;
+        private System.Windows.Forms.Label labelENGING;
+        private System.Windows.Forms.Label labelSAE;
+        private System.Windows.Forms.Label labelAPI;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
@@ -676,8 +656,7 @@
         private System.Windows.Forms.Label lblEngineType;
         private System.Windows.Forms.Label lblSAEGrade;
         private System.Windows.Forms.Label lblAPIGrade;
-        private System.Windows.Forms.Label lblStockInHand;
-        private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnAddNewItem;
+        private System.Windows.Forms.TextBox txtStockInHand;
     }
 }

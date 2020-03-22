@@ -89,9 +89,10 @@ namespace ServiceCenter.Return
                         intGRNDetailID = (int)dr["intGRNDetailID"],
                         vcItemCode = dr["vcItemCode"].ToString(),
                         vcItemDescription = dr["vcItemDescription"].ToString(),
+                        vcUnit = dr["vcUnit"].ToString(),
                         decDiscountedUnitValue = (decimal)dr["decDiscountedUnitValue"],
                         decStockInHand = (int)dr["decStockInHand"],
-                        GRNqty = (decimal)dr["decGRNQty"],
+                        GRNqty = (int)dr["decGRNQty"],
 
                     };
 
@@ -220,13 +221,17 @@ namespace ServiceCenter.Return
                 {                    
                     if (ReturnQty > ReceivedQty)
                     {
-                        MessageBox.Show("Please Check Recived Qty");                
+                        MessageBox.Show("Please Check Recived Qty");
+                        decimal empty = 0;
+                        dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmReturnQty.Name].Value = empty;
                         return;
                     }
                 }
                 else
                 {
                     MessageBox.Show("Please Check Available Qty");
+                    decimal empty = 0;
+                    dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmReturnQty.Name].Value = empty;
                     return;
                 }
             }

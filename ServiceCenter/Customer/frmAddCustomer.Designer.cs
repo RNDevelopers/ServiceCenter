@@ -233,6 +233,7 @@
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(261, 25);
             this.txtContactNo.TabIndex = 167;
+            this.txtContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNo_KeyPress);
             // 
             // btnClear
             // 
@@ -279,7 +280,7 @@
             this.chkVehicle.Name = "chkVehicle";
             this.chkVehicle.Size = new System.Drawing.Size(108, 23);
             this.chkVehicle.TabIndex = 218;
-            this.chkVehicle.Text = "Have Vehicle";
+            this.chkVehicle.Text = "With Vehicle";
             this.chkVehicle.UseVisualStyleBackColor = true;
             this.chkVehicle.CheckedChanged += new System.EventHandler(this.chkVehical_CheckedChanged);
             // 
