@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="xsGetIssueBillDetails"
+    targetNamespace="http://tempuri.org/xsGetIssueBillDetails.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/xsGetIssueBillDetails.xsd"
+    xmlns:mstns="http://tempuri.org/xsGetIssueBillDetails.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="xsGetIssueBillDetails">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="vcIssueNo" type="xs:string"></xs:element>
+        
+        <xs:element name="vcCustomerName" type="xs:string"></xs:element>
+        
+        <xs:element name="vcVehicleNo" type="xs:string"></xs:element>
+        
+        <xs:element name="intContactNo" type="xs:int"></xs:element>
+
+
+        <xs:element name="vcItemCode" type="xs:string"></xs:element>
+
+        <xs:element name="Description" type="xs:string"></xs:element>
+
+        <xs:element name="decIssuedQty" type="xs:string"></xs:element>
+
+        <xs:element name="decUnitPrice" type="xs:decimal"></xs:element>
+
+        <xs:element name="decDiscountedValue" type="xs:string"></xs:element>
+
+        <xs:element name="Amount" type="xs:decimal"></xs:element>
+
+        <xs:element name="IsService" type="xs:string"></xs:element>
+
+        <xs:element name="vcPayment" type="xs:string"></xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

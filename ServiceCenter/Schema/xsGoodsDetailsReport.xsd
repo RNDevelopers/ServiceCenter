@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="xsGoodsDetailsReport"
+    targetNamespace="http://tempuri.org/xsGoodsDetailsReport.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/xsGoodsDetailsReport.xsd"
+    xmlns:mstns="http://tempuri.org/xsGoodsDetailsReport.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="xsGoodsDetailsReport.xsd">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="intGRNHeaderID" type="xs:int"></xs:element>
+        <xs:element name="vcGRNNo" type="xs:string"></xs:element>
+        <xs:element name="vcItemCode" type="xs:string"></xs:element>
+
+        <xs:element name="vcItemDescription" type="xs:string"></xs:element>
+
+        <xs:element name="vcBrand" type="xs:string"></xs:element>
+   
+        <xs:element name="GRNQty" type="xs:int"></xs:element>
+        
+        <xs:element name="vcUnit" type="xs:decimal"></xs:element>
+
+        <xs:element name="decUnitPrice" type="xs:decimal"></xs:element>
+
+        <xs:element name="Discount" type="xs:decimal"></xs:element>
+
+        <xs:element name="vcSupplierName" type="xs:string"></xs:element>
+
+
+        <xs:element name="TotalPrice" type="xs:decimal"></xs:element>
+
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

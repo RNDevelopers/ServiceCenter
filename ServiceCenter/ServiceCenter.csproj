@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.13</MinimumRequiredVersion>
-    <ApplicationRevision>14</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.17</MinimumRequiredVersion>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -122,10 +122,34 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\rptGoodsDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGoodsDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rptGRN.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptGRN.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptIssue.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIssue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptStockSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptStockSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptSupplierReturn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplierReturn.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Return\frmToCustomer.cs">
@@ -158,12 +182,6 @@
     <Compile Include="Setup\frmAddServiceCharge.designer.cs">
       <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup\frmAddSupplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Setup\frmAddSupplier.Designer.cs">
-      <DependentUpon>frmAddSupplier.cs</DependentUpon>
-    </Compile>
     <Compile Include="Setup\frmAddItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +199,12 @@
     </Compile>
     <Compile Include="Setup\frmAddSubCategory.designer.cs">
       <DependentUpon>frmAddSubCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddSupplier.designer.cs">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\frmAddUnit.cs">
       <SubType>Form</SubType>
@@ -218,6 +242,24 @@
     <Compile Include="Setup\frmViewItem.designer.cs">
       <DependentUpon>frmViewItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmCustomerReturnDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCustomerReturnDetails.Designer.cs">
+      <DependentUpon>frmCustomerReturnDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCriteria\frmGoodsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCriteria\frmGoodsDetails.Designer.cs">
+      <DependentUpon>frmGoodsDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCriteria\frmStockSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCriteria\frmStockSummary.Designer.cs">
+      <DependentUpon>frmStockSummary.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Common\BaseUI.resx">
       <DependentUpon>BaseUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,9 +282,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\rptGoodsDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGoodsDetails.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptGRN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGRN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptIssue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIssue.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptStockSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStockSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptSupplierReturn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplierReturn.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Return\frmToCustomer.resx">
       <DependentUpon>frmToCustomer.cs</DependentUpon>
@@ -259,9 +317,6 @@
     <EmbeddedResource Include="Setup\frmAddServiceCharge.resx">
       <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setup\frmAddSupplier.resx">
-      <DependentUpon>frmAddSupplier.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddItem.resx">
       <DependentUpon>frmAddItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddSubCategory.resx">
       <DependentUpon>frmAddSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddSupplier.resx">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddUnit.resx">
       <DependentUpon>frmAddUnit.cs</DependentUpon>
@@ -290,6 +348,15 @@
     <EmbeddedResource Include="Setup\frmViewItem.resx">
       <DependentUpon>frmViewItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCustomerReturnDetails.resx">
+      <DependentUpon>frmCustomerReturnDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCriteria\frmGoodsDetails.resx">
+      <DependentUpon>frmGoodsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCriteria\frmStockSummary.resx">
+      <DependentUpon>frmStockSummary.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -302,6 +369,15 @@
     <None Include="Schema\xsGetGRNReportDetails.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Schema\xsGetIssueBillDetails.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\xsGetSupplierReturnBillDetails.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\xsGoodsDetailsReport.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ServiceCenter_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -312,10 +388,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ReportCriteria\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\plus_math_30px.png" />
   </ItemGroup>

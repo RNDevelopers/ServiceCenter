@@ -12,6 +12,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Transactions;
+using ServiceCenter.Report;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace ServiceCenter.Setup
 {
@@ -21,7 +23,7 @@ namespace ServiceCenter.Setup
         public string vcVehicleNo { get; set; }
         public string intVehicleNo { get; set; }
         public string FullVehicleNO { get; set; }
-
+        private int  intIssueHeaderID { get; set; }
         public decimal TotalDiscountedPrice { get; set; }
 
         public decimal MeterialsTotal { get; set; }
@@ -309,6 +311,15 @@ namespace ServiceCenter.Setup
             Execute objExecute = new Execute();
             DataTable dt = (DataTable)objExecute.Executes("spGetBrand", ReturnType.DataTable, CommandType.StoredProcedure);
 
+            objBrandEntity = new BrandEntity
+            {
+                intBrandID = 0,
+                vcName = "--All Brand--"
+
+            };
+
+            lstBrand.Add(objBrandEntity);
+
             foreach (DataRow dr in dt.Rows)
             {
                 objBrandEntity = new BrandEntity
@@ -318,11 +329,6 @@ namespace ServiceCenter.Setup
                 };
                 lstBrand.Add(objBrandEntity);
             }
-
-            objBrandEntity.intBrandID = 0;
-            objBrandEntity.vcName = "--All Brand--";
-
-            lstBrand.Insert(0, objBrandEntity);
 
             cmbBrand.DataSource = lstBrand;
             cmbBrand.DisplayMember = "vcName";
@@ -430,7 +436,8 @@ namespace ServiceCenter.Setup
                     Execute.AddParameter("@intCustomerID", intCustomerID),
                     Execute.AddParameter("@intPaymentMethodID", intPaymentMethodID)
                     };
-                    int intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
+
+                     intIssueHeaderID = objExecute.ExecuteIdentity("spSaveIssueHeader", param, CommandType.StoredProcedure);
 
                     //int ItemIssueNoOfRowsEffected = 0;
 
@@ -476,14 +483,40 @@ namespace ServiceCenter.Setup
                     ts.Complete();
                 }
 
-
-
+           
                 MessageBox.Show("Saved Successfully");
+         
+
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+
+                ///Report///////////////////////////////////////////////////
+                ///
+                rptIssue rpt = new rptIssue();
+                ReportDocument rptDoc = new ReportDocument();
+
+                rptDoc = rpt;
+
+                Execute objExecuteXX = new Execute();
+                string Query = "[dbo].[spGetIssueBillDetails]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+                      Execute.AddParameter("@intIssueHeaderID",intIssueHeaderID)
+
+                  };
+                DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+                rpt.SetDataSource(dt);
+
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+
+                frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+                objfrmReportViewer.Show();
+
+                //  rptDoc.PrintToPrinter(1, true, 0, 0);
+
                 clear();
 
-
-
-                return;
+                //////////////////////////////
 
 
 

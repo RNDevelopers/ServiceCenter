@@ -24,8 +24,10 @@ namespace ServiceCenter.Setup
 
         private int intGRNHeaderID { get; set; }
 
+        private BrandEntity objBrandEntity;
         private ItemEntity objItemEntity;
         private List<ItemEntity> GlobalList;
+  
         private List<ItemEntity> GlobalSelectedItemList = new List<ItemEntity>();
 
         private List<ItemEntity> lstGetItemGRN = new List<ItemEntity>();
@@ -319,83 +321,88 @@ namespace ServiceCenter.Setup
 
                 }
 
-                using (TransactionScope ts = new TransactionScope())
+                DialogResult drs = MessageBox.Show("Are You Sure All Infromation Correct?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                if (drs == DialogResult.Yes)
                 {
-                    intGRNHeaderID = 0;
-                    List<GRNEntity> lstGRNSave = new List<GRNEntity>();
-
-                    Execute objExecute = new Execute();
-                    SqlParameter[] param = new SqlParameter[]
-                       {
-                    Execute.AddParameter("@intSupplierID", Convert.ToInt32(cmbSupplier.SelectedValue))
-                       };
-
-                     intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
-
-                    foreach (DataGridViewRow dr in dgvGRN.Rows)
+                    using (TransactionScope ts = new TransactionScope())
                     {
-                        GRNEntity objGRNEntity = new GRNEntity
+                        intGRNHeaderID = 0;
+                        List<GRNEntity> lstGRNSave = new List<GRNEntity>();
+
+                        Execute objExecute = new Execute();
+                        SqlParameter[] param = new SqlParameter[]
+                           {
+                                 Execute.AddParameter("@intSupplierID", Convert.ToInt32(cmbSupplier.SelectedValue))
+                           };
+
+                        intGRNHeaderID = objExecute.ExecuteIdentity("spSaveGRNHeader", param, CommandType.StoredProcedure);
+
+                        foreach (DataGridViewRow dr in dgvGRN.Rows)
                         {
-                            intGRNHeaderID = intGRNHeaderID,
-                            intItemID = Convert.ToInt32(dr.Cells[clmItemID1.Name].Value.ToString()),
-                            decGRNQty = Convert.ToDecimal(dr.Cells[clmGRNQty.Name].Value.ToString()),
-                            decUnitPrice = Convert.ToDecimal(dr.Cells[clmUnitPrice.Name].Value.ToString()),
-                            decDiscountedValue = Convert.ToDecimal(dr.Cells[clmDiscountedValue.Name].Value.ToString()),
-                        };
-                        lstGRNSave.Add(objGRNEntity);
+                            GRNEntity objGRNEntity = new GRNEntity
+                            {
+                                intGRNHeaderID = intGRNHeaderID,
+                                intItemID = Convert.ToInt32(dr.Cells[clmItemID1.Name].Value.ToString()),
+                                decGRNQty = Convert.ToDecimal(dr.Cells[clmGRNQty.Name].Value.ToString()),
+                                decUnitPrice = Convert.ToDecimal(dr.Cells[clmUnitPrice.Name].Value.ToString()),
+                                decDiscountedValue = Convert.ToDecimal(dr.Cells[clmDiscountedValue.Name].Value.ToString()),
+                            };
+                            lstGRNSave.Add(objGRNEntity);
+                        }
+
+                        foreach (GRNEntity item in lstGRNSave)
+                        {
+                            Execute objExecuteX = new Execute();
+                            SqlParameter[] paramX = new SqlParameter[]
+                         {
+                                Execute.AddParameter("@intGRNHeaderID",item.intGRNHeaderID),
+                                Execute.AddParameter("@intItemID",item.intItemID),
+                                Execute.AddParameter("@decGRNQty",item.decGRNQty),
+                                Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
+                                Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
+                         };
+
+                            objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
+                        }
+
+                        ts.Complete();
                     }
 
-                    foreach (GRNEntity item in lstGRNSave)
-                    {
-                        Execute objExecuteX = new Execute();
-                        SqlParameter[] paramX = new SqlParameter[]
-                     {
-                    Execute.AddParameter("@intGRNHeaderID",item.intGRNHeaderID),
-                    Execute.AddParameter("@intItemID",item.intItemID),
-                    Execute.AddParameter("@decGRNQty",item.decGRNQty),
-                    Execute.AddParameter("@decUnitPrice",item.decUnitPrice),
-                    Execute.AddParameter("@decDiscountedValue",item.decDiscountedValue),
-                     };
+                    MessageBox.Show("Save..");
 
-                        objExecuteX.Executes("spSaveGRNDetails", paramX, CommandType.StoredProcedure);
-                    }
+                    System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
 
-                    ts.Complete();
-                }
+                    ///Report///////////////////////////////////////////////////
+                    ///
+                    rptGRN rpt = new rptGRN();
+                    ReportDocument rptDoc = new ReportDocument();
 
-                MessageBox.Show("Save..");
+                    rptDoc = rpt;
 
-                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
-
-                ///Report///////////////////////////////////////////////////
-                ///
-                rptGRN rpt = new rptGRN();
-                ReportDocument rptDoc = new ReportDocument();
-
-                rptDoc = rpt;
-
-                Execute objExecuteXX = new Execute();
-                string Query = "[dbo].[spGetGRNReportDetails]";
-                SqlParameter[] para = new SqlParameter[]
-                  {
+                    Execute objExecuteXX = new Execute();
+                    string Query = "[dbo].[spGetGRNReportDetails]";
+                    SqlParameter[] para = new SqlParameter[]
+                      {
                       Execute.AddParameter("@intGRNHeaderID",intGRNHeaderID)
-                     
-                  };
-                DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
-                rpt.SetDataSource(dt);
+                      };
+                    DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
-                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+                    rpt.SetDataSource(dt);
 
-                frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
-                objfrmReportViewer.Show();
+                    System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
 
-                //  rptDoc.PrintToPrinter(1, true, 0, 0);
+                    frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+                    objfrmReportViewer.Show();
 
-                clear();
+                    //  rptDoc.PrintToPrinter(1, true, 0, 0);
 
-                //////////////////////////////
+                    clear();
 
+                    //////////////////////////////
+
+                }
 
             }
             catch (Exception ex)
@@ -418,7 +425,7 @@ namespace ServiceCenter.Setup
             lstGetItemGRN.Clear();
             TotalPrice = 0;
             lblTotal.Text = string.Empty;
-            
+
         }
 
         public void GetReport()
@@ -455,6 +462,56 @@ namespace ServiceCenter.Setup
         private void frmReceive_Load(object sender, EventArgs e)
         {
             SetFormatting();
+            spGetAllItemIssueAddBranWise();
+        }
+
+        public void spGetAllItemIssueAddBranWise()
+        {
+            try
+            {
+                Execute objExecute = new Execute();
+                string Query = "[dbo].[spGetAllItemIssueAddBranWise]";
+                SqlParameter[] para = new SqlParameter[]
+                  {
+                      Execute.AddParameter("@intBrandID",Convert.ToInt32(cmbBrand.SelectedValue)),
+                  };
+                DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+                ItemEntity objItemEntity;
+                List<ItemEntity> lstGetItemAdd = new List<ItemEntity>();
+
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    objItemEntity = new ItemEntity
+                    {
+                        intItemID = (int)dr["intItemID"],
+                        vcItemCode = dr["vcItemCode"].ToString(),
+                        vcItemDescription = dr["vcItemDescription"].ToString(),
+                        vcEngineType = dr["vcEngineType"].ToString(),
+                        decStockInHand = (decimal)dr["decStockInHand"],
+                        vcSubCategoryName = dr["vcSubCategoryName"].ToString(),
+                        vcUnit = dr["vcUnit"].ToString(),
+                        //decUnitPrice = (decimal)dr["decUnitPrice"],
+
+                        decDiscountedUnitValue = (decimal)dr["decUnitPriceDiscounted"],
+                    };
+
+                    lstGetItemAdd.Add(objItemEntity);
+                }
+
+                dgvAddItem.DataSource = null;
+                dgvAddItem.AutoGenerateColumns = false;
+                dgvAddItem.DataSource = lstGetItemAdd;
+
+                GlobalList = lstGetItemAdd.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data Loading Error");
+                Logger.LoggError(ex, "GetAllItemIssueAdd");
+            }
+
         }
 
         private void dgvGRN_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -540,6 +597,21 @@ namespace ServiceCenter.Setup
         private void lblTotal_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCodeSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemCode.Trim().ToLower().Contains(txtCodeSearch.Text.Trim().ToLower()));
+        }
+
+        private void txtDecSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemDescription.Trim().ToLower().Contains(txtDecSearch.Text.Trim().ToLower()));
+        }
+
+        private void cmbBrandAll_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            spGetAllItemIssueAddBranWise();
         }
     }
 }

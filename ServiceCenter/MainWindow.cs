@@ -2,6 +2,7 @@
 using ServiceCenter.Customer;
 using ServiceCenter.Return;
 using ServiceCenter.Setup;
+using ServiceCenter.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +93,10 @@ namespace ServiceCenter
         private void btnReceive_Click(object sender, EventArgs e)
         {
             //Receive button
+
+            slidePlane.Height = btnSetUp.Height;
+            slidePlane.Top = btnReceive.Top;
+
             frmReceive obj = new frmReceive();
             obj.MdiParent = this;
             obj.Show();
@@ -111,6 +116,8 @@ namespace ServiceCenter
             //report button
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnReport.Top;
+
+            contextMenuStrip_Report.Show(btnReport, btnReturn.Right, btnSetUp.Left);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -162,7 +169,9 @@ namespace ServiceCenter
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             ////add customer button
-         
+            slidePlane.Height = btnSetUp.Height;
+            slidePlane.Top = btnCustomer.Top;
+
             string  vcName = null;
             string vcCar = null;
             frmAddCustomer obj = new frmAddCustomer(vcName, vcCar);
@@ -234,6 +243,13 @@ namespace ServiceCenter
         private void mnuServiceCharges_Click(object sender, EventArgs e)
         {
             frmAddServiceCharge obj = new frmAddServiceCharge();
+            obj.MdiParent = this;
+            obj.Show();
+        }
+
+        private void mnuGoodsView_Click(object sender, EventArgs e)
+        {
+            frmGoodsDetails obj = new frmGoodsDetails();
             obj.MdiParent = this;
             obj.Show();
         }

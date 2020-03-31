@@ -1,8 +1,10 @@
-﻿using ServiceCenter.Common;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
 using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using ServiceCenter.ErrorLog;
+using ServiceCenter.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,8 @@ namespace ServiceCenter.Return
 {
     public partial class frmToSupplier : BaseUI
     {
+        private int intSupplierReturnHeaderID { get; set; }
+
         public frmToSupplier()
         {
             InitializeComponent();
@@ -172,7 +176,7 @@ namespace ServiceCenter.Return
                 {
 
                 };
-                int intSupplierReturnHeaderID = objExecute.ExecuteIdentity("spSaveSupplierReturnHeader", param, CommandType.StoredProcedure);
+                 intSupplierReturnHeaderID = objExecute.ExecuteIdentity("spSaveSupplierReturnHeader", param, CommandType.StoredProcedure);
 
 
                 foreach (DataGridViewRow drReturnItem in dgvReturnItem.Rows)
@@ -195,6 +199,37 @@ namespace ServiceCenter.Return
             }
 
             MessageBox.Show("Returned Successfully");
+
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+
+            ///Report///////////////////////////////////////////////////
+            ///
+            rptSupplierReturn rpt = new rptSupplierReturn();
+            ReportDocument rptDoc = new ReportDocument();
+
+            rptDoc = rpt;
+
+            Execute objExecuteXX = new Execute();
+            string Query = "[dbo].[spGetSupplierReturnBillDetails]";
+            SqlParameter[] para = new SqlParameter[]
+              {
+                      Execute.AddParameter("@intSupplierReturnHeaderID",intSupplierReturnHeaderID)
+
+              };
+            DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+            rpt.SetDataSource(dt);
+
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+
+            frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+            objfrmReportViewer.Show();
+
+            //  rptDoc.PrintToPrinter(1, true, 0, 0);
+
+            //////////////////////////////
+
+
 
             LoadGrid();/// Testing Purpose
 

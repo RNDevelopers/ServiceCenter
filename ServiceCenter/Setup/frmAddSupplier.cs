@@ -36,7 +36,7 @@ namespace ServiceCenter.Setup
 
             try
             {
-                if (txtSuppilerName.Text == string.Empty)
+                if (txtCity.Text == string.Empty)
                 {
                     MessageBox.Show("Please Enter the Supplier Name");
                     return;
@@ -53,7 +53,7 @@ namespace ServiceCenter.Setup
 
                 SupplierEntity objSupplierEntity = new SupplierEntity
                 {
-                    vcSupplierName = txtSuppilerName.Text.Trim().ToUpper(),
+                    vcSupplierName = txtSupplierName.Text.Trim().ToUpper(),
                     vcAddress = txtAddress.Text.Trim().ToUpper(),
                     vcCity = txtCity.Text.Trim().ToUpper(),
                     intContactNo = ContactNo,
@@ -98,9 +98,9 @@ namespace ServiceCenter.Setup
         }
         private void clear()
         {
-            txtSuppilerName.Text = string.Empty;
-            txtAddress.Text = string.Empty;
             txtCity.Text = string.Empty;
+            txtSupplierName.Text = string.Empty;
+            txtAddress.Text = string.Empty;
             txtContactNo.Text = string.Empty;
             txtEmail.Text = string.Empty;
 

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="xsGetSupplierReturnBillDetails"
+    targetNamespace="http://tempuri.org/xsGetSupplierReturnBillDetails.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/xsGetSupplierReturnBillDetails.xsd"
+    xmlns:mstns="http://tempuri.org/xsGetSupplierReturnBillDetails.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="xsGetSupplierReturnBillDetails">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="vcSupplierReturnNo" type="xs:string"></xs:element>
+        
+        <xs:element name="vcSupplierName" type="xs:string"></xs:element>
+
+        <xs:element name="vcGRNNo" type="xs:string"></xs:element>
+
+        <xs:element name="dtGRNDate" type="xs:dateTime"></xs:element>
+
+        <xs:element name="dtReturnedData" type="xs:dateTime"></xs:element>
+
+        <xs:element name="vcItemCode" type="xs:string"></xs:element>
+
+        <xs:element name="Description" type="xs:string"></xs:element>
+
+        <xs:element name="vcUnit" type="xs:string"></xs:element>
+        
+        <xs:element name="ReturnQty" type="xs:int"></xs:element>
+        
+        <xs:element name="decDiscountedValue" type="xs:decimal"></xs:element>
+       
+        <xs:element name="Amount" type="xs:decimal"></xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
