@@ -117,4 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="clmSubCategoryName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="vcItemDescription.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="clmvcUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="clmEngineType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="clmAddItemUnitPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="clmdecStockInHand.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZVJREFUWEft
+        lr1KA0EUhfMYNsHaVtDCNxAENaAgGgULRTGg4E+h72ApIlbprGIl+ATqOwg2ae0S/I/fGQ+jWQ1kExdS
+        7IEPck7m3rmZCcsWBlqtVqsGE7ZB+GGYtI0im4Uh2yDVQs02vShuQsk2CF+BZ5hxpKwMr7DsKAhfgqZt
+        eqlYTWyjyHbgDRZh059X/XUUWTYDSOSH8AL65VuO26RayGyAJXgHDTHtuE2qhUyuYAPCsUO8Dn8dRfb/
+        A+AXQMdecaTsCPTHnHIUhM9kgFFYt40i24YR2yDVQncDsHAcduHgB7rfaiJLg2rV42emPca87ZcIVkDH
+        ep+gDg+JLA2qVY9krr3K3j4McAmntplLe8H3ExJzBce2mUt7aU/bfIB8gHyAfIDOA5DpMfrYJ3W3iyLr
+        eoAGnMBaj6i24XZRZL8GOIdbmEvwBPNellqqdY9k3zs487KwsAg3kDy+D9jzstSidt89kn21V9HLOotF
+        uoI/3wm7kWrVwza98gEGZYBr0BtML6i2rwH0UnnRJ1W3G0QVCp/bwTkbaPys5AAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

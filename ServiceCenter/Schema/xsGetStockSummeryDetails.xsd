@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="xsGetStockSummeryDetails"
+    targetNamespace="http://tempuri.org/xsGetStockSummeryDetails.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/xsGetStockSummeryDetails.xsd"
+    xmlns:mstns="http://tempuri.org/xsGetStockSummeryDetails.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="xsGetStockSummeryDetails">
+    <xs:complexType>
+      <xs:sequence>
+
+
+        <xs:element name="vcItemCode" type="xs:string"></xs:element>
+
+        
+
+        <xs:element name="vcName" type="xs:string"></xs:element>
+
+        <xs:element name="vcItemDescription" type="xs:string"></xs:element>
+
+        <xs:element name="vcSubCategoryName" type="xs:string"></xs:element>
+
+        <xs:element name="vcEngineType" type="xs:string"></xs:element>
+        
+        <xs:element name="vcUnit" type="xs:string"></xs:element>
+
+        <xs:element name="decStockInHand" type="xs:decimal"></xs:element>
+
+        <xs:element name="decUnitPrice" type="xs:decimal"></xs:element>
+        
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

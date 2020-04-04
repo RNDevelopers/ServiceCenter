@@ -253,5 +253,12 @@ namespace ServiceCenter
             obj.MdiParent = this;
             obj.Show();
         }
+
+        private void mnustockView_Click(object sender, EventArgs e)
+        {
+            frmStockSummary obj = new frmStockSummary();
+            obj.MdiParent = this;
+            obj.Show();
+        }
     }
 }
