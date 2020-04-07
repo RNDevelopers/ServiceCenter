@@ -24,9 +24,9 @@ namespace ServiceCenter.Setup
             InitializeComponent();
             SetFormName();
 
-            cmbAPI.Enabled = false;
-            cmbSAE.Enabled = false;
-            cmbEngineType.Enabled = false;
+            //cmbAPI.Enabled = false;
+            //cmbSAE.Enabled = false;
+            //cmbEngineType.Enabled = false;
         }
 
         private void frmAddItem_Load(object sender, EventArgs e)
