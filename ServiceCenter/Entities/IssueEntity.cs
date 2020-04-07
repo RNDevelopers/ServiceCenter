@@ -23,7 +23,11 @@ namespace ServiceCenter.Entities
         public int IssuedQty { get; set; }
 
         public decimal decUnitPrice { get; set; }
-        
+
+        public decimal AleadyReturnedQty { get; set; }
+
+        public int IsAleadyReturned { get; set; }
+
 
         public decimal decDiscountedUnitValue { get; set; }
 

@@ -37,6 +37,10 @@ namespace ServiceCenter.Entities
 
         public List<ServiceEntity> lstServiceSave { get; set; }
 
+        public decimal AleadyReturnedQty { get; set; }
+
+        public int IsAleadyReturned { get; set; }
+
 
         public decimal Issueqty { get; set; }
 

@@ -55,10 +55,12 @@
             this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmvcUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIssuedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAleadyReturnedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDiscountedUnitValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReturnQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmIsAleadyReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,10 +143,12 @@
             this.vcItemDescription,
             this.clmvcUnit,
             this.clmIssuedQty,
+            this.clmAleadyReturnedQty,
             this.clmUnitPrice,
             this.clmDiscountedUnitValue,
             this.clmAvailableQty,
-            this.clmReturnQty});
+            this.clmReturnQty,
+            this.clmIsAleadyReturned});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,7 +178,7 @@
             this.dgvReturnItem.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvReturnItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvReturnItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReturnItem.Size = new System.Drawing.Size(881, 248);
+            this.dgvReturnItem.Size = new System.Drawing.Size(955, 248);
             this.dgvReturnItem.TabIndex = 216;
             this.dgvReturnItem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturnItem_CellEndEdit);
             this.dgvReturnItem.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReturnItem_DataBindingComplete);
@@ -190,7 +194,7 @@
             this.btnReturn.ForeColor = System.Drawing.Color.White;
             this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(773, 399);
+            this.btnReturn.Location = new System.Drawing.Point(842, 399);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(120, 55);
             this.btnReturn.TabIndex = 218;
@@ -209,7 +213,7 @@
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(641, 398);
+            this.btnClear.Location = new System.Drawing.Point(710, 398);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 55);
             this.btnClear.TabIndex = 217;
@@ -329,6 +333,14 @@
             this.clmIssuedQty.ReadOnly = true;
             this.clmIssuedQty.Width = 70;
             // 
+            // clmAleadyReturnedQty
+            // 
+            this.clmAleadyReturnedQty.DataPropertyName = "AleadyReturnedQty";
+            this.clmAleadyReturnedQty.HeaderText = "Aleady Returned Qty";
+            this.clmAleadyReturnedQty.Name = "clmAleadyReturnedQty";
+            this.clmAleadyReturnedQty.ReadOnly = true;
+            this.clmAleadyReturnedQty.Width = 80;
+            // 
             // clmUnitPrice
             // 
             this.clmUnitPrice.DataPropertyName = "decUnitPrice";
@@ -359,12 +371,18 @@
             this.clmReturnQty.Name = "clmReturnQty";
             this.clmReturnQty.Width = 70;
             // 
+            // clmIsAleadyReturned
+            // 
+            this.clmIsAleadyReturned.DataPropertyName = "IsAleadyReturned";
+            this.clmIsAleadyReturned.HeaderText = "IsAleadyReturned";
+            this.clmIsAleadyReturned.Name = "clmIsAleadyReturned";
+            // 
             // frmToCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(905, 466);
+            this.ClientSize = new System.Drawing.Size(979, 466);
             this.Controls.Add(this.cmbInvoiceNo);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label2);
@@ -419,9 +437,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vcItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmvcUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIssuedQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAleadyReturnedQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDiscountedUnitValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAvailableQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReturnQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmIsAleadyReturned;
     }
 }

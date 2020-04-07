@@ -43,7 +43,6 @@ namespace ServiceCenter.Setup
             lbl3.Visible = false;
             lbl33.Visible = false;
 
-
             GetMainCategory();
             GetBrand();
             GetMeasureUnit();
@@ -185,7 +184,7 @@ namespace ServiceCenter.Setup
                 MessageBox.Show("Please Select the Brand");
                 return;
             }
-            else if(cmbMainCategory.SelectedIndex == -1)
+            else if (cmbMainCategory.SelectedIndex == -1)
             {
                 MessageBox.Show("Please Select the Main Category");
                 return;
@@ -203,6 +202,26 @@ namespace ServiceCenter.Setup
             else if (cmbUnitQty.SelectedIndex == -1)
             {
                 MessageBox.Show("Please Select the Unit Size");
+                return;
+            }
+            else if (txtStockHand.Text == "" || txtStockHand.Text == null)
+            {
+                MessageBox.Show("Please Enter Stock in Hand");
+                return;
+            }
+            else if (txtUnitPrice.Text == "" || txtUnitPrice.Text == null)
+            {
+                MessageBox.Show("Please Enter Unit Price");
+                return;
+            }
+            else if (txtItemCode.Text == "" || txtItemCode.Text == null)
+            {
+                MessageBox.Show("Please Enter Item Code");
+                return;
+            }
+            else if (txtDec.Text == "" || txtDec.Text == null)
+            {
+                MessageBox.Show("Please Enter Add Description");
                 return;
             }
 
@@ -341,5 +360,68 @@ namespace ServiceCenter.Setup
             GetSAE();
             GetBrand();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAddBrand obj = new frmAddBrand();
+            obj.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmAssignSubCategoryBrand obj = new frmAssignSubCategoryBrand();
+            obj.Show();
+        }
+
+
+        private void txtStockHand_TextChanged(object sender, EventArgs e)
+        {
+            if (txtStockHand.Text == "")
+            {
+                lblSIH.Visible = true;
+            }
+            else
+            {
+                lblSIH.Visible = false;
+            }
+        }
+
+        private void txtUnitPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnitPrice.Text == "")
+            {
+                lblUP.Visible = true;
+            }
+            else
+            {
+                lblUP.Visible = false;
+            }
+        }
+
+        private void txtItemCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtItemCode.Text == "")
+            {
+                lblIC.Visible = true;
+            }
+            else
+            {
+                lblIC.Visible = false;
+            }
+        }
+
+        private void txtDec_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDec.Text == "")
+            {
+                lblD.Visible = true;
+            }
+            else
+            {
+                lblD.Visible = false;
+            }
+        }
+
+        
     }
 }

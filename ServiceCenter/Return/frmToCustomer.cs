@@ -85,6 +85,8 @@ namespace ServiceCenter.Return
                         decUnitPrice = (decimal)dr["decUnitPrice"],
                         decDiscountedUnitValue = (decimal)dr["decDiscountedUnitValue"],
                         decStockInHand = (int)dr["decStockInHand"],
+                        AleadyReturnedQty = (int)dr["AleadyReturnedQty"],
+                        IsAleadyReturned = (int)dr["IsAleadyReturned"],
                     };
 
                     lstGetItem.Add(objIssueEntity);
@@ -210,21 +212,39 @@ namespace ServiceCenter.Return
         private void dgvReturnItem_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvReturnItem.Columns[clmReturnQty.Name].DefaultCellStyle.BackColor = Color.LightGreen;
+
+
+            foreach (DataGridViewRow row in dgvReturnItem.Rows)
+            {
+                if (Convert.ToInt32(row.Cells[clmIsAleadyReturned.Name].Value) == 1)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightPink;
+
+                }
+               
+            }
+
         }
 
         private void Validation()
         {
             decimal ReturnQty = 0;
             decimal IssuedQty = 0;
+            decimal AleadyReturnedQty = 0;
+            decimal chkBal = 0;
 
             foreach (DataGridViewRow row in dgvReturnItem.Rows)
             {
                 IssuedQty = (Convert.ToDecimal(dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmIssuedQty.Name].Value));
+                AleadyReturnedQty = (Convert.ToDecimal(dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmAleadyReturnedQty.Name].Value));
                 ReturnQty = (Convert.ToDecimal(dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmReturnQty.Name].Value));
 
-                if (IssuedQty < ReturnQty)
+                chkBal = IssuedQty - AleadyReturnedQty;
+
+
+                if ((chkBal < ReturnQty))
                 {
-                    MessageBox.Show("Please Check Issued Qty");
+                    MessageBox.Show("Please Check Issued Qty OR Already Returned Qty");
                     decimal empty = 0;
                     dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmReturnQty.Name].Value = empty;
                     return;

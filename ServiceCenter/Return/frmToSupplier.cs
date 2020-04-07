@@ -97,7 +97,8 @@ namespace ServiceCenter.Return
                         decDiscountedUnitValue = (decimal)dr["decDiscountedUnitValue"],
                         decStockInHand = (int)dr["decStockInHand"],
                         GRNqty = (int)dr["decGRNQty"],
-
+                        AleadyReturnedQty = (int)dr["AleadyReturnedQty"],
+                        IsAleadyReturned = (int)dr["IsAleadyReturned"],
                     };
 
                     lstGetItemAdd.Add(objItemEntity);
@@ -275,6 +276,15 @@ namespace ServiceCenter.Return
         private void dgvReturnItem_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvReturnItem.Columns[clmReturnQty.Name].DefaultCellStyle.BackColor = Color.LightGreen;
+
+            foreach (DataGridViewRow row in dgvReturnItem.Rows)
+            {
+                if (Convert.ToInt32(row.Cells[clmIsAleadyReturned.Name].Value) == 1)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightPink;
+
+                }
+            }
         }
     }
 }
