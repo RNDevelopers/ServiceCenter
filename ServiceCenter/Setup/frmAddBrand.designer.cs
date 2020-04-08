@@ -159,7 +159,7 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(104, 90);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 17);
+            this.label7.Size = new System.Drawing.Size(14, 23);
             this.label7.TabIndex = 145;
             this.label7.Text = ":";
             // 
@@ -170,7 +170,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(20, 91);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 19);
+            this.label10.Size = new System.Drawing.Size(106, 23);
             this.label10.TabIndex = 144;
             this.label10.Text = "Brand Name";
             // 
@@ -179,8 +179,9 @@
             this.txtBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtBrand.Location = new System.Drawing.Point(121, 90);
             this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(261, 25);
+            this.txtBrand.Size = new System.Drawing.Size(261, 29);
             this.txtBrand.TabIndex = 143;
+            this.txtBrand.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBrand_KeyDown);
             // 
             // label1
             // 
@@ -189,7 +190,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(10, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 37);
+            this.label1.Size = new System.Drawing.Size(184, 45);
             this.label1.TabIndex = 149;
             this.label1.Text = "Add Brand";
             // 

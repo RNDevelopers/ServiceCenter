@@ -250,15 +250,15 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                    Execute.AddParameter("@vcSAE",txtSAE.Text.Trim().ToUpper()),
+                    Execute.AddParameter("@vcAPI",txtAPI.Text.Trim().ToUpper()),
                    };
 
-                int NoOfRowsEffected = objExecute.Executes("spSaveSAE", param, CommandType.StoredProcedure);
+                int NoOfRowsEffected = objExecute.Executes("spSaveAPI", param, CommandType.StoredProcedure);
 
                 if (NoOfRowsEffected < 0)
                 {
                     MessageBox.Show("Save..");
-                    txtSAE.Text = string.Empty;
+                    txtAPI.Text = string.Empty;
                     GetAPI();
                 }
                 else
@@ -284,7 +284,6 @@ namespace ServiceCenter.Setup
                 return;
             }
 
-
             DialogResult dr = MessageBox.Show("Are You Sure Want to Add New SAE ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
             if (dr == DialogResult.Yes)
@@ -293,10 +292,10 @@ namespace ServiceCenter.Setup
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                    Execute.AddParameter("@vcAPI",txtAPI.Text.Trim().ToUpper()),
+                    Execute.AddParameter("@vcSAE",txtSAE.Text.Trim().ToUpper()),
                    };
 
-                int NoOfRowsEffected = objExecute.Executes("spSaveAPI", param, CommandType.StoredProcedure);
+                int NoOfRowsEffected = objExecute.Executes("spSaveSAE", param, CommandType.StoredProcedure);
 
                 if (NoOfRowsEffected < 0)
                 {
@@ -309,6 +308,9 @@ namespace ServiceCenter.Setup
                     MessageBox.Show("Cant't Save..");
                 }
             }
+
+
+
         }
 
         private void txtMeasureUnitSize_KeyPress(object sender, KeyPressEventArgs e)

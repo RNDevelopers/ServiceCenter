@@ -97,5 +97,15 @@ namespace ServiceCenter.Setup
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
+
+        private void txtMainCategoryName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaveMainCategory();
+                GridLoad();
+                Clear();
+            }
+        }
     }
 }

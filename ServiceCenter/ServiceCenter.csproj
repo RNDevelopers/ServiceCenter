@@ -182,17 +182,17 @@
     <Compile Include="Setup\frmAddItemUtility.Designer.cs">
       <DependentUpon>frmAddItemUtility.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup\frmAddServiceCharge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Setup\frmAddServiceCharge.designer.cs">
-      <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
-    </Compile>
     <Compile Include="Setup\frmAddMainCategory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Setup\frmAddMainCategory.designer.cs">
       <DependentUpon>frmAddMainCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\frmAddServiceCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup\frmAddServiceCharge.designer.cs">
+      <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\frmAddSubCategory.cs">
       <SubType>Form</SubType>
@@ -317,11 +317,11 @@
     <EmbeddedResource Include="Setup\frmAddItemUtility.resx">
       <DependentUpon>frmAddItemUtility.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setup\frmAddServiceCharge.resx">
-      <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddMainCategory.resx">
       <DependentUpon>frmAddMainCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup\frmAddServiceCharge.resx">
+      <DependentUpon>frmAddServiceCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setup\frmAddSubCategory.resx">
       <DependentUpon>frmAddSubCategory.cs</DependentUpon>

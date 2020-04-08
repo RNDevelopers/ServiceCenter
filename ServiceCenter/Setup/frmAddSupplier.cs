@@ -113,5 +113,46 @@ namespace ServiceCenter.Setup
                 e.Handled = true;
             }
         }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaveSupplier();
+            }
+        }
+
+        private void txtSupplierName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtAddress.Focus();
+            }
+            
+        }
+
+        private void txtAddress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCity.Focus();
+            }
+        }
+
+        private void txtCity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtContactNo.Focus();
+            }
+        }
+
+        private void txtContactNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtEmail.Focus();
+            }
+        }
     }
 }

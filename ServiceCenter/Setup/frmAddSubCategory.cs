@@ -86,5 +86,13 @@ namespace ServiceCenter.Setup
         {
             LoadGrid();
         }
+
+        private void txtSubCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                SaveSubCategory();
+            }
+        }
     }
 }

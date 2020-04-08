@@ -80,6 +80,7 @@
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(464, 29);
             this.txtSupplierName.TabIndex = 120;
+            this.txtSupplierName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSupplierName_KeyDown);
             // 
             // label2
             // 
@@ -101,6 +102,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(464, 29);
             this.txtAddress.TabIndex = 122;
+            this.txtAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAddress_KeyDown);
             // 
             // label5
             // 
@@ -158,6 +160,7 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(464, 29);
             this.txtCity.TabIndex = 128;
+            this.txtCity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCity_KeyDown);
             // 
             // label13
             // 
@@ -203,6 +206,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(464, 29);
             this.txtEmail.TabIndex = 136;
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             // 
             // label16
             // 
@@ -225,6 +229,7 @@
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(464, 29);
             this.txtContactNo.TabIndex = 134;
+            this.txtContactNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContactNo_KeyDown);
             this.txtContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNo_KeyPress);
             // 
             // btnSave

@@ -166,5 +166,15 @@ namespace ServiceCenter.Setup
         {
 
         }
+
+        private void txtBrand_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                SaveBrand();
+                Clear();
+                GridLoad();
+            }
+        }
     }
 }
