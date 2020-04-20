@@ -1,8 +1,10 @@
-﻿using ServiceCenter.Common;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using ServiceCenter.Common;
 using ServiceCenter.DBConnection;
 using ServiceCenter.Entities;
 using ServiceCenter.Enums;
 using ServiceCenter.ErrorLog;
+using ServiceCenter.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,6 +19,7 @@ namespace ServiceCenter.Return
     public partial class frmToCustomer : BaseUI
     {
         private IssueEntity objSupplierEntity;
+        private int  intCustomerReturnHeaderID { get; set; }
 
         public frmToCustomer()
         {
@@ -157,7 +160,7 @@ namespace ServiceCenter.Return
                 {
 
                 };
-                int intCustomerReturnHeaderID = objExecute.ExecuteIdentity("spSaveCustomerReturnHeader", param, CommandType.StoredProcedure);
+                 intCustomerReturnHeaderID = objExecute.ExecuteIdentity("spSaveCustomerReturnHeader", param, CommandType.StoredProcedure);
 
 
                 foreach (DataGridViewRow drReturnItem in dgvReturnItem.Rows)
@@ -181,7 +184,50 @@ namespace ServiceCenter.Return
 
             MessageBox.Show("Returned Successfully");
 
+
+
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+
+            ///Report///////////////////////////////////////////////////
+            ///
+            rptCustomerReturn rpt = new rptCustomerReturn();
+            ReportDocument rptDoc = new ReportDocument();
+
+            rptDoc = rpt;
+
+            Execute objExecuteXX = new Execute();
+            string Query = "[dbo].[spGetCustomerReturnBillDetails]";
+            SqlParameter[] para = new SqlParameter[]
+              {
+                      Execute.AddParameter("@intCustomerReturnHeaderID",intCustomerReturnHeaderID)
+
+              };
+            DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
+
+            rpt.SetDataSource(dt);
+
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+
+            frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+            objfrmReportViewer.Show();
+
+            //  rptDoc.PrintToPrinter(1, true, 0, 0);
+
+            //////////////////////////////
+
+
+
+
+
+
+
             LoadGrid();/// Testing Purpose
+        }
+
+        private void Clear()
+        {
+            cmbInvoiceNo.SelectedIndex = -1;
+            dgvReturnItem.DataSource = null;
         }
 
 
@@ -232,12 +278,15 @@ namespace ServiceCenter.Return
             decimal IssuedQty = 0;
             decimal AleadyReturnedQty = 0;
             decimal chkBal = 0;
+           
 
             foreach (DataGridViewRow row in dgvReturnItem.Rows)
             {
                 IssuedQty = (Convert.ToDecimal(dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmIssuedQty.Name].Value));
                 AleadyReturnedQty = (Convert.ToDecimal(dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmAleadyReturnedQty.Name].Value));
                 ReturnQty = (Convert.ToDecimal(dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmReturnQty.Name].Value));
+              
+
 
                 chkBal = IssuedQty - AleadyReturnedQty;
 
@@ -249,7 +298,37 @@ namespace ServiceCenter.Return
                     dgvReturnItem.Rows[dgvReturnItem.CurrentCell.RowIndex].Cells[clmReturnQty.Name].Value = empty;
                     return;
                 }
+
+              // CalTotal();
             }
+          
+        }
+
+        private void CalTotal()
+        {
+            decimal ReturnQty = 0;
+            decimal DiscountValue = 0;
+            decimal UnitTotal = 0;
+            decimal Total = 0;
+            decimal FinalTotal = 0;
+
+            foreach (DataGridViewRow row in dgvReturnItem.Rows)
+            {
+
+                ReturnQty = (Convert.ToDecimal(row.Cells[dgvReturnItem.Columns[clmReturnQty.Name].Index].Value));
+
+                DiscountValue = (Convert.ToDecimal(row.Cells[dgvReturnItem.Columns[clmDiscountedUnitValue.Name].Index].Value));
+
+                UnitTotal = DiscountValue * ReturnQty;
+
+                row.Cells[dgvReturnItem.Columns[clmTotVal.Name].Index].Value = UnitTotal;
+                // Total = ReturnQty * (Convert.ToDecimal(row.Cells[dgvReturnItem.Columns[clmDiscountedUnitValue.Name].Index].Value));
+
+                Total += (Convert.ToDecimal(row.Cells[dgvReturnItem.Columns[clmTotVal.Name].Index].Value));
+            }
+            FinalTotal = Total;
+           lblTotal.Text = FinalTotal.ToString("#,##0.00");
+
         }
 
         private void dgvReturnItem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -257,6 +336,48 @@ namespace ServiceCenter.Return
             Validation();
         }
 
+        private void dgvReturnItem_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvReturnItem.CurrentCell.ColumnIndex == 11)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(dgvReturnItem_KeyPress);
+            }
+        } 
 
+        private void dgvReturnItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        //CheckBox Headercheckbox = null;
+        //bool IsHeadercheckbox = false;
+
+        //private void HeadercheckboxClick(CheckBox HCheckeBox)
+        //{
+        //    IsHeadercheckbox = true;
+
+        //    foreach (DataGridViewRow dr in dgvReturnItem.Rows)
+        //        ((DataGridViewCheckBoxCell)dr.Cells["clmSelect"]).Value = HCheckeBox.Checked;
+        //    {
+        //        CalTotal();
+        //    }
+        //}
+
+
+        private void dgvReturnItem_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvReturnItem.Columns[e.ColumnIndex] == clmSelect)
+            {
+                foreach (DataGridViewRow row in dgvReturnItem.Rows)
+                {
+    
+
+                }
+
+            }
+        }
     }
 }

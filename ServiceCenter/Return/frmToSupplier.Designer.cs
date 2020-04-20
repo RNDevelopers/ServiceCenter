@@ -33,26 +33,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmToSupplier));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmToSupplier));
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbGRNNo = new System.Windows.Forms.ComboBox();
             this.dtSubmissionDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvReturnItem = new System.Windows.Forms.DataGridView();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.clmSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmGRNDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +58,13 @@
             this.clmAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReturnQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIsAleadyReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbGRNNo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,18 +134,6 @@
             this.label3.Size = new System.Drawing.Size(11, 17);
             this.label3.TabIndex = 182;
             this.label3.Text = ":";
-            // 
-            // cmbGRNNo
-            // 
-            this.cmbGRNNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGRNNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbGRNNo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cmbGRNNo.FormattingEnabled = true;
-            this.cmbGRNNo.Location = new System.Drawing.Point(148, 129);
-            this.cmbGRNNo.Name = "cmbGRNNo";
-            this.cmbGRNNo.Size = new System.Drawing.Size(177, 25);
-            this.cmbGRNNo.TabIndex = 184;
-            this.cmbGRNNo.SelectionChangeCommitted += new System.EventHandler(this.cmbGRNNo_SelectionChangeCommitted);
             // 
             // dtSubmissionDate
             // 
@@ -245,87 +233,8 @@
             this.dgvReturnItem.TabIndex = 188;
             this.dgvReturnItem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturnItem_CellEndEdit);
             this.dgvReturnItem.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReturnItem_DataBindingComplete);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(653, 418);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(120, 55);
-            this.btnClear.TabIndex = 189;
-            this.btnClear.Text = "       Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
-            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(789, 418);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(120, 55);
-            this.btnReturn.TabIndex = 190;
-            this.btnReturn.Text = "      Return";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(157, 436);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(72, 37);
-            this.lblTotal.TabIndex = 204;
-            this.lblTotal.Text = "0.00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(86, 435);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 37);
-            this.label9.TabIndex = 203;
-            this.label9.Text = "=";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 436);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 37);
-            this.label8.TabIndex = 202;
-            this.label8.Text = "Total ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(114, 436);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 37);
-            this.label10.TabIndex = 201;
-            this.label10.Text = "Rs.";
+            this.dgvReturnItem.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvReturnItem_EditingControlShowing);
+            this.dgvReturnItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvReturnItem_KeyPress);
             // 
             // clmSelect
             // 
@@ -420,12 +329,107 @@
             this.clmIsAleadyReturned.Name = "clmIsAleadyReturned";
             this.clmIsAleadyReturned.Visible = false;
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(653, 418);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 55);
+            this.btnClear.TabIndex = 189;
+            this.btnClear.Text = "       Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReturn.Location = new System.Drawing.Point(789, 418);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(120, 55);
+            this.btnReturn.TabIndex = 190;
+            this.btnReturn.Text = "      Return";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(157, 436);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(72, 37);
+            this.lblTotal.TabIndex = 204;
+            this.lblTotal.Text = "0.00";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(86, 435);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 37);
+            this.label9.TabIndex = 203;
+            this.label9.Text = "=";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(12, 436);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 37);
+            this.label8.TabIndex = 202;
+            this.label8.Text = "Total ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(114, 436);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 37);
+            this.label10.TabIndex = 201;
+            this.label10.Text = "Rs.";
+            // 
+            // cmbGRNNo
+            // 
+            this.cmbGRNNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGRNNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbGRNNo.FormattingEnabled = true;
+            this.cmbGRNNo.Location = new System.Drawing.Point(145, 134);
+            this.cmbGRNNo.MaxLength = 40;
+            this.cmbGRNNo.Name = "cmbGRNNo";
+            this.cmbGRNNo.Size = new System.Drawing.Size(188, 21);
+            this.cmbGRNNo.TabIndex = 254;
+            this.cmbGRNNo.SelectionChangeCommitted += new System.EventHandler(this.cmbGRNNo_SelectionChangeCommitted_1);
+            this.cmbGRNNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbGRNNo_KeyDown);
+            // 
             // frmToSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(929, 485);
+            this.Controls.Add(this.cmbGRNNo);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -436,7 +440,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtSubmissionDate);
-            this.Controls.Add(this.cmbGRNNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -445,14 +448,12 @@
             this.Controls.Add(this.label6);
             this.Name = "frmToSupplier";
             this.Text = "To Supplier";
-            this.Load += new System.EventHandler(this.frmToSupplier_Load);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.cmbSupplier, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.cmbGRNNo, 0);
             this.Controls.SetChildIndex(this.dtSubmissionDate, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label5, 0);
@@ -463,6 +464,7 @@
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.lblTotal, 0);
+            this.Controls.SetChildIndex(this.cmbGRNNo, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -477,7 +479,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbGRNNo;
         private System.Windows.Forms.DateTimePicker dtSubmissionDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
@@ -500,5 +501,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAvailableQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReturnQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIsAleadyReturned;
+        private System.Windows.Forms.ComboBox cmbGRNNo;
     }
 }

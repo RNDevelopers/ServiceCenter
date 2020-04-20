@@ -594,11 +594,6 @@ namespace ServiceCenter.Setup
             clear();
         }
 
-        private void lblTotal_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtCodeSearch_TextChanged(object sender, EventArgs e)
         {
             dgvAddItem.DataSource = GlobalList.FindAll(x => x.vcItemCode.Trim().ToLower().Contains(txtCodeSearch.Text.Trim().ToLower()));
@@ -612,6 +607,11 @@ namespace ServiceCenter.Setup
         private void cmbBrandAll_SelectionChangeCommitted(object sender, EventArgs e)
         {
             spGetAllItemIssueAddBranWise();
+        }
+
+        private void dgvGRN_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
         }
     }
 }

@@ -14,13 +14,17 @@ namespace ServiceCenter.Setup
     public partial class frmAddItemUtility : BaseUI
     {
 
+        public int MeasureUnitID;
+        public int PackingMeasureSizeID;
+        public int API;
+        public int SAE;
 
-        private List<ItemEntity> GlobleAPIEntity; 
-        private List<ItemEntity> GlobleSAE; 
-        private List<ItemEntity> GlobleMeasureUnitDetails; 
+        private List<ItemEntity> GlobleAPIEntity;
+        private List<ItemEntity> GlobleSAE;
+        private List<ItemEntity> GlobleMeasureUnitDetails;
         private List<ItemEntity> GlobleMeasureSizes;
 
-        private List<ItemEntity> GloblelAPISelectedItem= new List<ItemEntity>();
+        private List<ItemEntity> GloblelAPISelectedItem = new List<ItemEntity>();
 
         private ItemEntity objItemEntity;
 
@@ -172,17 +176,10 @@ namespace ServiceCenter.Setup
             }
         }
 
-        private void dgvAPI_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(dgvAPI.Columns[e.ColumnIndex] == clmbtnUpdate)
-            {
-                int id = Convert.ToInt32(dgvAPI.Rows[dgvAPI.CurrentCell.RowIndex].Cells[clmAPIID.Name].Value);
-            }
-        }
-
         private void cmbMeasureUnit_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GetMeasureSize();
+            txtMeasureUnitSize.Focus();
         }
 
         public void GetMeasureSize()
@@ -228,6 +225,11 @@ namespace ServiceCenter.Setup
 
         private void btnSaveAPI_Click(object sender, EventArgs e)
         {
+            APIGradeSave();
+        }
+
+        public void APIGradeSave()
+        {
             if (GlobleAPIEntity == null)
             {
                 GlobleAPIEntity = new List<ItemEntity>();
@@ -266,9 +268,15 @@ namespace ServiceCenter.Setup
                     MessageBox.Show("Cant't Save..");
                 }
             }
+
         }
 
         private void btnSaveSAE_Click(object sender, EventArgs e)
+        {
+            SAEGradeSave();
+        }
+
+        public void SAEGradeSave()
         {
 
             if (GlobleSAE == null)
@@ -309,8 +317,6 @@ namespace ServiceCenter.Setup
                 }
             }
 
-
-
         }
 
         private void txtMeasureUnitSize_KeyPress(object sender, KeyPressEventArgs e)
@@ -324,6 +330,12 @@ namespace ServiceCenter.Setup
 
         private void btnSaveUnitSize_Click(object sender, EventArgs e)
         {
+            unitSizeSave();
+        }
+
+        public void unitSizeSave()
+        {
+
             if (cmbMeasureUnit.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select the Measure Unit!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -379,6 +391,12 @@ namespace ServiceCenter.Setup
 
         private void btnMeasureDecSave_Click(object sender, EventArgs e)
         {
+            DescriptionSave();
+            GetMeasureUnit();
+        }
+
+        public void DescriptionSave()
+        {
 
             if (txtMeasureCode.Text == string.Empty)
             {
@@ -431,9 +449,178 @@ namespace ServiceCenter.Setup
                     MessageBox.Show("Cant't Save..");
                 }
             }
+        }
 
+        private void txtMeasureDesc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DescriptionSave();
+            }
+        }
+
+        private void txtMeasureUnitSize_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                unitSizeSave();
+            }
+        }
+
+        private void txtAPI_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                APIGradeSave();
+            }
+        }
+
+        private void txtSAE_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SAEGradeSave();
+            }
+        }
+
+        private void txtMeasureCode_Leave(object sender, EventArgs e)
+        {
+            txtMeasureDesc.Focus();
+        }
+
+        //measure code grid delete item
+        private void dgvMeasureDetails_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvMeasureDetails.Columns[e.ColumnIndex] == clmbtnDeleteDescription)
+            {
+                MeasureUnitID = Convert.ToInt32(dgvMeasureDetails.Rows[e.RowIndex].Cells[clmMeasureUnitID.Name].Value);
+
+                DialogResult dr = MessageBox.Show("Are you sure want to Delete in this Measure Code ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                       {
+                          Execute.AddParameter("@intMeasureUnitID",MeasureUnitID),
+                       };
+
+                    int NoOfRowsEffected = objExecute.Executes("spDeleteMeasureUnit", param, CommandType.StoredProcedure);
+
+                    if (NoOfRowsEffected == 1)
+                    {
+
+                        MessageBox.Show("Successfully DELETE !");
+                        GetMeasureUnitDetails();
+                        GetMeasureUnit();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Measure Code DELETE Process Error !");
+                    }
+
+                }
+            }            
+        }
+        //SAE delete
+        private void dgvSAE_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSAE.Columns[e.ColumnIndex] == clmbtnSAEDelete)
+            {
+                SAE = Convert.ToInt32(dgvSAE.Rows[e.RowIndex].Cells[clmSAEID.Name].Value);
+
+                DialogResult dr = MessageBox.Show("Are you sure want to Delete in this SAE ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                    {
+                        Execute.AddParameter("@intSAEID", SAE),
+                    };
+
+                    int NoOfRowsEffected = objExecute.Executes("spDeleteSAE", param, CommandType.StoredProcedure);
+
+                    if (NoOfRowsEffected == 1)
+                    {
+                        MessageBox.Show("SUCCESSFULLY DELETE !");
+                        GetSAE();
+                    }
+                    else
+                    {
+                        MessageBox.Show("SAE Delete Error !");
+                    }
+                }
+
+            }
+        }
+
+        //Measure code delete (packing Method)
+        private void dgvMeasureSize_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvMeasureSize.Columns[e.ColumnIndex] == clmbtnMeasureSizeDelete)
+            {
+                PackingMeasureSizeID = Convert.ToInt32(dgvMeasureSize.Rows[e.RowIndex].Cells[clmPackingMethodID.Name].Value);
+
+                DialogResult dr = MessageBox.Show("Are you sure want to Delete in this Measure Size ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if(dr== DialogResult.Yes)
+                {
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                    {
+                        Execute.AddParameter("@intPackingMethodID", PackingMeasureSizeID),
+                    };
+
+                    int NoOfRowsEffected = objExecute.Executes("spDeletePackingMethods", param, CommandType.StoredProcedure);
+
+                    if(NoOfRowsEffected == 1)
+                    {
+                        MessageBox.Show("SUCCESSFULLY DELETE !");
+                        GetMeasureSize();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Measure Size Delete Error !");
+                    }
+                }
+
+            }
+        }
+        //API delete
+        private void dgvAPI_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvAPI.Columns[e.ColumnIndex] == clmbtnDelete)
+            {
+                API = Convert.ToInt32(dgvAPI.Rows[e.RowIndex].Cells[clmAPIID.Name].Value);
+
+                DialogResult dr = MessageBox.Show("Are you sure want to Delete in this API ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                    {
+                        Execute.AddParameter("@intAPIID", API),
+                    };
+
+                    int NoOfRowsEffected = objExecute.Executes("spDeleteAPI", param, CommandType.StoredProcedure);
+
+                    if (NoOfRowsEffected == 1)
+                    {
+                        MessageBox.Show("SUCCESSFULLY DELETE !");
+                        GetAPI();
+                    }
+                    else
+                    {
+                        MessageBox.Show("API Delete Error !");
+                    }
+                }
+
+            }
         }
     }
-
 }
+
+
 

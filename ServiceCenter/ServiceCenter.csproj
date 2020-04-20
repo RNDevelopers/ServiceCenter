@@ -122,6 +122,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\rptCustomerReturn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCustomerReturn.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rptGoodsDetails.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,7 +185,7 @@
     <Compile Include="Setup\frmAddItemUtility.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setup\frmAddItemUtility.Designer.cs">
+    <Compile Include="Setup\frmAddItemUtility.designer.cs">
       <DependentUpon>frmAddItemUtility.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\frmAddMainCategory.cs">
@@ -282,6 +288,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\rptCustomerReturn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCustomerReturn.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptGoodsDetails.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGoodsDetails.cs</LastGenOutput>
@@ -366,6 +376,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Schema\xsGetCustomerReturnBillDetails.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Schema\xsGetGRNReportDetails.xsd">
       <SubType>Designer</SubType>
     </None>

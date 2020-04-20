@@ -280,6 +280,7 @@
             this.txtDec.TabIndex = 166;
             this.txtDec.Text = "";
             this.txtDec.TextChanged += new System.EventHandler(this.txtDec_TextChanged);
+            this.txtDec.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDec_KeyDown);
             // 
             // label9
             // 

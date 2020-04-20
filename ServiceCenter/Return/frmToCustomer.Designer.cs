@@ -33,21 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmToCustomer));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmToCustomer));
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvReturnItem = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbInvoiceNo = new System.Windows.Forms.ComboBox();
             this.clmSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmIssueDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +54,14 @@
             this.clmAvailableQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmReturnQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIsAleadyReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbInvoiceNo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +149,8 @@
             this.clmDiscountedUnitValue,
             this.clmAvailableQty,
             this.clmReturnQty,
-            this.clmIsAleadyReturned});
+            this.clmIsAleadyReturned,
+            this.clmTotVal});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,101 +182,11 @@
             this.dgvReturnItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReturnItem.Size = new System.Drawing.Size(955, 248);
             this.dgvReturnItem.TabIndex = 216;
+            this.dgvReturnItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturnItem_CellClick);
             this.dgvReturnItem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturnItem_CellEndEdit);
             this.dgvReturnItem.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReturnItem_DataBindingComplete);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
-            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(842, 399);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(120, 55);
-            this.btnReturn.TabIndex = 218;
-            this.btnReturn.Text = "       Return";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(710, 398);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(120, 55);
-            this.btnClear.TabIndex = 217;
-            this.btnClear.Text = "      Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(157, 416);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(72, 37);
-            this.lblTotal.TabIndex = 222;
-            this.lblTotal.Text = "0.00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(86, 415);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 37);
-            this.label2.TabIndex = 221;
-            this.label2.Text = "=";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 416);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 37);
-            this.label8.TabIndex = 220;
-            this.label8.Text = "Total ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(114, 416);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 37);
-            this.label3.TabIndex = 219;
-            this.label3.Text = "Rs.";
-            // 
-            // cmbInvoiceNo
-            // 
-            this.cmbInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbInvoiceNo.FormattingEnabled = true;
-            this.cmbInvoiceNo.Location = new System.Drawing.Point(116, 99);
-            this.cmbInvoiceNo.MaxLength = 40;
-            this.cmbInvoiceNo.Name = "cmbInvoiceNo";
-            this.cmbInvoiceNo.Size = new System.Drawing.Size(188, 21);
-            this.cmbInvoiceNo.TabIndex = 253;
-            this.cmbInvoiceNo.SelectionChangeCommitted += new System.EventHandler(this.cmbInvoiceNo_SelectionChangeCommitted);
+            this.dgvReturnItem.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvReturnItem_EditingControlShowing);
+            this.dgvReturnItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvReturnItem_KeyPress);
             // 
             // clmSelect
             // 
@@ -376,6 +288,106 @@
             this.clmIsAleadyReturned.DataPropertyName = "IsAleadyReturned";
             this.clmIsAleadyReturned.HeaderText = "IsAleadyReturned";
             this.clmIsAleadyReturned.Name = "clmIsAleadyReturned";
+            this.clmIsAleadyReturned.Visible = false;
+            // 
+            // clmTotVal
+            // 
+            this.clmTotVal.HeaderText = "TotVal";
+            this.clmTotVal.Name = "clmTotVal";
+            this.clmTotVal.Visible = false;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReturn.Location = new System.Drawing.Point(842, 399);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(120, 55);
+            this.btnReturn.TabIndex = 218;
+            this.btnReturn.Text = "       Return";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(710, 398);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 55);
+            this.btnClear.TabIndex = 217;
+            this.btnClear.Text = "      Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(157, 416);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(72, 37);
+            this.lblTotal.TabIndex = 222;
+            this.lblTotal.Text = "0.00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(86, 415);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 37);
+            this.label2.TabIndex = 221;
+            this.label2.Text = "=";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(12, 416);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 37);
+            this.label8.TabIndex = 220;
+            this.label8.Text = "Total ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(114, 416);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 37);
+            this.label3.TabIndex = 219;
+            this.label3.Text = "Rs.";
+            // 
+            // cmbInvoiceNo
+            // 
+            this.cmbInvoiceNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbInvoiceNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbInvoiceNo.FormattingEnabled = true;
+            this.cmbInvoiceNo.Location = new System.Drawing.Point(116, 99);
+            this.cmbInvoiceNo.MaxLength = 40;
+            this.cmbInvoiceNo.Name = "cmbInvoiceNo";
+            this.cmbInvoiceNo.Size = new System.Drawing.Size(188, 21);
+            this.cmbInvoiceNo.TabIndex = 253;
+            this.cmbInvoiceNo.SelectionChangeCommitted += new System.EventHandler(this.cmbInvoiceNo_SelectionChangeCommitted);
             // 
             // frmToCustomer
             // 
@@ -443,5 +455,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAvailableQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReturnQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIsAleadyReturned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotVal;
     }
 }

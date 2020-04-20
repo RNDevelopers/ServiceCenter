@@ -23,6 +23,8 @@ namespace ServiceCenter.Return
     {
         private int intSupplierReturnHeaderID { get; set; }
 
+        private GRNEntity objGRNEntity;
+
         public frmToSupplier()
         {
             InitializeComponent();
@@ -44,6 +46,10 @@ namespace ServiceCenter.Return
 
         public void GetGRNNo()
         {
+
+            List<GRNEntity> lstGRNNo = new List<GRNEntity>();
+
+
             Execute objExecute = new Execute();
             string Query = "[dbo].[spGetGRNNo]";
             SqlParameter[] para = new SqlParameter[]
@@ -53,16 +59,22 @@ namespace ServiceCenter.Return
               };
             DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
-            cmbGRNNo.DataSource = dt;
+            foreach (DataRow dr in dt.Rows)
+            {
+                objGRNEntity = new GRNEntity
+                {
+                    intGRNHeaderID = Convert.ToInt32(dr["intGRNHeaderID"]),
+                    vcGRNNo = dr["vcGRNNo"].ToString()
+                };
+
+                lstGRNNo.Add(objGRNEntity);
+            }
+
+            cmbGRNNo.DataSource = lstGRNNo;
             cmbGRNNo.DisplayMember = "vcGRNNo";
             cmbGRNNo.ValueMember = "intGRNHeaderID";
             cmbGRNNo.SelectedIndex = -1;
 
-        }
-
-        private void frmToSupplier_Load(object sender, EventArgs e)
-        {
-           
         }
 
         private void cmbSupplier_SelectionChangeCommitted(object sender, EventArgs e)
@@ -123,11 +135,6 @@ namespace ServiceCenter.Return
                 Logger.LoggError(ex, "LoadGrid");
             }
 
-        }
-
-        private void cmbGRNNo_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            LoadGrid();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -236,6 +243,13 @@ namespace ServiceCenter.Return
 
         }
 
+        private void Clear()
+        {
+            cmbSupplier.SelectedIndex = -1;
+            cmbGRNNo.SelectedIndex = 1;
+            dgvReturnItem.DataSource = null;
+        }
+
         private void dgvReturnItem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             Validation();
@@ -284,6 +298,35 @@ namespace ServiceCenter.Return
                     row.DefaultCellStyle.BackColor = Color.LightPink;
 
                 }
+            }
+        }
+
+        private void dgvReturnItem_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvReturnItem.CurrentCell.ColumnIndex == 10)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(dgvReturnItem_KeyPress);
+            }
+        }
+
+        private void dgvReturnItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbGRNNo_SelectionChangeCommitted_1(object sender, EventArgs e)
+        {
+            LoadGrid();
+        }
+
+        private void cmbGRNNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadGrid();
             }
         }
     }

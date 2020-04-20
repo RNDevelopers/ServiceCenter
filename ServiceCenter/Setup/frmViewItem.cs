@@ -94,12 +94,6 @@ namespace ServiceCenter.Setup
                 MessageBox.Show("Data Loading Error");
                 Logger.LoggError(ex, "GetAllItemIssueAdd");
             }
-
-        }
-
-        private void dgvViewItemList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void txtDecSearch_TextChanged(object sender, EventArgs e)
@@ -111,12 +105,17 @@ namespace ServiceCenter.Setup
         {
             try
             {
+                //edit
                 if (dgvViewItemList.Columns[e.ColumnIndex] == clmbtnEdit)
                 {
                     frmEditItem obj = new frmEditItem();
                     obj.txtItemID.Text = dgvViewItemList.SelectedRows[0].Cells[0].Value.ToString();
                     obj.ShowDialog();
+                    GetAllItemViewItem();
+                    txtDecSearch.Text = string.Empty;
+                    txtSearch.Text = string.Empty;
                 }
+                //delete
                 if (dgvViewItemList.Columns[e.ColumnIndex] == clmbtnDelete)
                 {
                     intItemID = Convert.ToInt32(dgvViewItemList.Rows[e.RowIndex].Cells[clmItemID.Name].Value);
@@ -151,6 +150,7 @@ namespace ServiceCenter.Setup
                 Logger.LoggError(ex, "dgvViewItemList_CellClick");
             }
 
+            //GetAllItemViewItem();
         }
     }
 }

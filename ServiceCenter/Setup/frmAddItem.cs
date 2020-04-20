@@ -35,7 +35,6 @@ namespace ServiceCenter.Setup
             cmbSAE.Visible = false;
             cmbEngineType.Visible = false;
 
-
             lbl1.Visible = false;
             lbl11.Visible = false;
             lbl2.Visible = false;
@@ -86,7 +85,7 @@ namespace ServiceCenter.Setup
         }
 
 
-
+        //load combobox
         //==============================================================================
         public void GetEngineType()
         {
@@ -160,7 +159,6 @@ namespace ServiceCenter.Setup
             SqlParameter[] para = new SqlParameter[]
               {
                       Execute.AddParameter("@intMeasureUnitID",Convert.ToInt32(cmbMeasureUnit.SelectedValue))
-
               };
             DataTable dt = (DataTable)objExecute.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
@@ -168,7 +166,6 @@ namespace ServiceCenter.Setup
             cmbUnitQty.DisplayMember = "decQty";
             cmbUnitQty.ValueMember = "intPackingMethodID";
             cmbUnitQty.SelectedIndex = -1;
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -178,7 +175,7 @@ namespace ServiceCenter.Setup
 
         public void SaveItem()
         {
-
+            //validations
             if (cmbBrand.SelectedIndex == -1)
             {
                 MessageBox.Show("Please Select the Brand");
@@ -229,26 +226,34 @@ namespace ServiceCenter.Setup
             {
                 intAPIID = null;
             }
+            else
+            {
+                intAPIID = Convert.ToInt32(cmbAPI.SelectedValue);
+            }
+
             if (cmbSAE.SelectedIndex == -1)
             {
                 intSAEID = null;
             }
+            else
+            {
+                intSAEID = Convert.ToInt32(cmbSAE.SelectedValue);
+            }
+
             if (cmbEngineType.SelectedIndex == -1)
             {
                 intEngineTypeID = null;
             }
             else
-            { 
-            intAPIID = Convert.ToInt32(cmbAPI.SelectedValue);
-            intSAEID = Convert.ToInt32(cmbSAE.SelectedValue);
-            intEngineTypeID = Convert.ToInt32(cmbEngineType.SelectedValue);
+            {
+                intEngineTypeID = Convert.ToInt32(cmbEngineType.SelectedValue);
             }
 
             DialogResult dr = MessageBox.Show("Are You Sure Want to Add Item ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
+            //db
             if (dr == DialogResult.Yes)
             {
-               
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
@@ -289,6 +294,7 @@ namespace ServiceCenter.Setup
             txtDec.Text = string.Empty;
         }
 
+        //Auto generate item code
         private void txtItemCode_Click(object sender, EventArgs e)
         {
             if (cmbMainCategory.SelectedIndex == 0)
@@ -297,7 +303,6 @@ namespace ServiceCenter.Setup
                 txtItemCode.Text = ItemCode;
                 txtItemCode.ReadOnly = true;
             }
-           
         }
 
         private void cmbMainCategory_SelectionChangeCommitted(object sender, EventArgs e)
@@ -314,8 +319,6 @@ namespace ServiceCenter.Setup
                 lbl22.Visible = true;
                 lbl3.Visible = true;
                 lbl33.Visible = true;
-      
-
             }
             else
             {
@@ -323,14 +326,12 @@ namespace ServiceCenter.Setup
                 cmbSAE.Visible = false;
                 cmbEngineType.Visible = false;
 
-
                 lbl1.Visible = false;
                 lbl11.Visible = false;
                 lbl2.Visible = false;
                 lbl22.Visible = false;
                 lbl3.Visible = false;
                 lbl33.Visible = false;
-
             }
             GetSubCat();
         }
@@ -359,6 +360,7 @@ namespace ServiceCenter.Setup
             GetAPI();
             GetSAE();
             GetBrand();
+            GetEngineType();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -373,7 +375,6 @@ namespace ServiceCenter.Setup
             obj.Show();
         }
 
-
         private void txtStockHand_TextChanged(object sender, EventArgs e)
         {
             if (txtStockHand.Text == "")
@@ -386,6 +387,7 @@ namespace ServiceCenter.Setup
             }
         }
 
+        //red marks
         private void txtUnitPrice_TextChanged(object sender, EventArgs e)
         {
             if (txtUnitPrice.Text == "")
@@ -397,7 +399,6 @@ namespace ServiceCenter.Setup
                 lblUP.Visible = false;
             }
         }
-
         private void txtItemCode_TextChanged(object sender, EventArgs e)
         {
             if (txtItemCode.Text == "")
@@ -409,7 +410,6 @@ namespace ServiceCenter.Setup
                 lblIC.Visible = false;
             }
         }
-
         private void txtDec_TextChanged(object sender, EventArgs e)
         {
             if (txtDec.Text == "")
@@ -421,7 +421,14 @@ namespace ServiceCenter.Setup
                 lblD.Visible = false;
             }
         }
+        private void txtDec_KeyDown(object sender, KeyEventArgs e)
+        {
 
-        
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaveItem();
+            }
+        }
+
     }
 }

@@ -1546,5 +1546,10 @@ namespace ServiceCenter.Setup
                 GetCustomerInfo();
             }
         }
+
+        private void dgvItemIssue_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //MessageBox.Show("Yesssss");
+        }
     }
 }

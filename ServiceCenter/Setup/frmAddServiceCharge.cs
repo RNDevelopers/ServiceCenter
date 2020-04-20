@@ -30,49 +30,60 @@ namespace ServiceCenter.Setup
             InitializeComponent();
             SetFormName();
             GridLoad();
+            btnUpdate.Visible = false;
 
         }
 
         public void saveAddServiceCharge()
         {
-            if (GlobleBrandEntity == null)
+            if (txtServiceDec.Text == null || txtServiceDec.Text == "" || txtPrice.Text == null || txtPrice.Text == "")
             {
-                GlobleBrandEntity = new List<ServiceEntity>();
+                MessageBox.Show("There is Empty value");
             }
-
-            if (GlobleBrandEntity.Find(x => x.vcServiceName == (txtServiceDec.Text.ToUpper())) != null)
-            {
-                MessageBox.Show("You can't Add Same Service!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-
-            DialogResult dr = MessageBox.Show("Are You Sure Want to Add New Service ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (dr == DialogResult.Yes)
+            else
             {
 
-                Execute objExecute = new Execute();
-                SqlParameter[] param = new SqlParameter[]
-                   {
+                if (GlobleBrandEntity == null)
+                {
+                    GlobleBrandEntity = new List<ServiceEntity>();
+                }
+
+                if (GlobleBrandEntity.Find(x => x.vcServiceName == (txtServiceDec.Text.ToUpper())) != null)
+                {
+                    MessageBox.Show("You can't Add Same Service!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                DialogResult dr = MessageBox.Show("Are You Sure Want to Add New Service ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+
+                    Execute objExecute = new Execute();
+                    SqlParameter[] param = new SqlParameter[]
+                       {
                     Execute.AddParameter("@vcServiceName",txtServiceDec.Text.Trim().ToUpper()),
                     Execute.AddParameter("@decPrice",Convert.ToInt32( txtPrice.Text))
-                   };
+                       };
 
-                int NoOfRowsEffected = objExecute.Executes("spSaveServiceCharges", param, CommandType.StoredProcedure);
+                    int NoOfRowsEffected = objExecute.Executes("spSaveServiceCharges", param, CommandType.StoredProcedure);
 
-                if (NoOfRowsEffected < 0)
-                {
-                    MessageBox.Show("Save..");
-                    GridLoad();
+                    if (NoOfRowsEffected < 0)
+                    {
+                        MessageBox.Show("Save..");
+                        GridLoad();
+                        txtServiceDec.Text = string.Empty;
+                        txtPrice.Text = string.Empty;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cant't Save..");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Cant't Save..");
-                }
+
             }
-
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -123,17 +134,22 @@ namespace ServiceCenter.Setup
 
         private void dgvAddServiceChange_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             try
             {
                 //Delete Column
                 if (dgvAddServiceChange.Columns[e.ColumnIndex] == clmbtnDelete)
                 {
+                    btnUpdate.Visible = true;
+                    btnUpdate.Visible = false;
+
                     ServiceID = Convert.ToInt32(dgvAddServiceChange.Rows[e.RowIndex].Cells[clmServiceID.Name].Value);
 
                     DialogResult dr = MessageBox.Show("Are you sure want to Delete in this Service ?", "CONFIRMATION", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
                     if (dr == DialogResult.Yes)
                     {
+                        
                         Execute objExecute = new Execute();
                         SqlParameter[] param = new SqlParameter[]
                         {
@@ -145,6 +161,8 @@ namespace ServiceCenter.Setup
                         {
                             MessageBox.Show("Successfully DELETE !");
                             GridLoad();
+                            btnSave.Visible = true;
+                            btnUpdate.Visible = false;
                         }
                         else
                         {
@@ -156,7 +174,8 @@ namespace ServiceCenter.Setup
 
                 //edit column
 
-                btnSave.Enabled = false;
+               // btnSave.Visible = false;
+               // btnUpdate.Visible = true;
 
                 if (dgvAddServiceChange.Columns[e.ColumnIndex] == clmbtnEdit)
                 {
@@ -164,10 +183,7 @@ namespace ServiceCenter.Setup
                    
 
                     ServiceID = Convert.ToInt32(dgvAddServiceChange.Rows[e.RowIndex].Cells[clmServiceID.Name].Value);
-
-                    //DialogResult dr = MessageBox.Show("Are you sure want to Delete in this Service ?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    //if (dr == DialogResult.Yes)
+                    
                     {
                         Execute objExecute = new Execute();
                         string Query = "[dbo].[spGetServiceToEdit]";
@@ -184,8 +200,10 @@ namespace ServiceCenter.Setup
                             ServicePrice = Convert.ToDecimal(ds.Tables[0].Rows[0]["decPrice"].ToString());
                             txtPrice.Text = ServicePrice.ToString();
 
-                            
                         }
+
+                        btnSave.Visible = false;
+                        btnUpdate.Visible = true;
                     }
                 }
             }
@@ -212,8 +230,7 @@ namespace ServiceCenter.Setup
                 using (TransactionScope ts = new TransactionScope())
                 {
                     DialogResult dr = MessageBox.Show("Update The Service ?", "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    //txtServiceID.Text = ServiceID.ToString();
-
+                    
                     if (dr == DialogResult.Yes)
                     {
                         Execute objExecute = new Execute();
@@ -225,12 +242,13 @@ namespace ServiceCenter.Setup
 
                         };
 
-                        objExecute.Executes("[spUpdateService]", param, CommandType.StoredProcedure);
+                        objExecute.Executes("[spUpdateServiceCharges]", param, CommandType.StoredProcedure);
                         MessageBox.Show("Update Item..");
 
-                        txtServiceID.Text = string.Empty;
                         txtServiceDec.Text = string.Empty;
                         txtPrice.Text = string.Empty;
+                        btnSave.Visible = true;
+                        btnUpdate.Visible = false;
 
                         GridLoad();
                     }
@@ -241,6 +259,52 @@ namespace ServiceCenter.Setup
             {
                 MessageBox.Show("Data Updating Error");
                 Logger.LoggError(ex, "btnUpdate_Click");
+            }
+        }
+
+        private void txtPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((txtPrice.Text == String.Empty) && (txtServiceDec.Text==String.Empty))
+            {
+                btnSave.Visible = true;
+                btnUpdate.Visible = false;
+            }
+        }
+        
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(btnSave.Visible==true)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    saveAddServiceCharge();
+                }
+            }
+            else
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    updateService();
+                }
+            }
+            
+        }
+
+        private void txtServiceDec_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((txtPrice.Text == String.Empty) && (txtServiceDec.Text == String.Empty))
+            {
+                btnSave.Visible = true;
+                btnUpdate.Visible = false;
             }
         }
     }

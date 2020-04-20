@@ -64,7 +64,7 @@ namespace ServiceCenter.Setup
                 intItemInfo = Convert.ToInt32(ds.Tables[0].Rows[0]["intItemID"].ToString());
                 unitprice = Convert.ToDecimal(ds.Tables[0].Rows[0]["decUnitPrice"].ToString());
                 txtUnitPrice.Text = unitprice.ToString();
-                stockHand = Convert.ToDecimal(ds.Tables[0].Rows[0]["decStockInHand"].ToString());
+                stockHand = Convert.ToInt32(ds.Tables[0].Rows[0]["decStockInHand"]);
                 txtStockInHand.Text = stockHand.ToString();
                 txtItemCode.Text = ds.Tables[0].Rows[0]["vcItemCode"].ToString();
                 txtDec.Text = ds.Tables[0].Rows[0]["vcItemDescription"].ToString();
@@ -107,6 +107,7 @@ namespace ServiceCenter.Setup
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
             UpdateItem();
+
         }
 
 
