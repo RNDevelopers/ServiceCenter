@@ -284,21 +284,21 @@ namespace ServiceCenter.Setup
                     MessageBox.Show("Please select the Supplier");
                     return;
                 }
-                else if (cmbBrand.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select the Brand");
-                    return;
-                }
-                else if (cmbMainCategory.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select the Main Category");
-                    return;
-                }
-                else if (cmbSubCat.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select the Sub Category");
-                    return;
-                }
+                //else if (cmbBrand.SelectedIndex == -1)
+                //{
+                //    MessageBox.Show("Please select the Brand");
+                //    return;
+                //}
+                //else if (cmbMainCategory.SelectedIndex == -1)
+                //{
+                //    MessageBox.Show("Please select the Main Category");
+                //    return;
+                //}
+                //else if (cmbSubCat.SelectedIndex == -1)
+                //{
+                //    MessageBox.Show("Please select the Sub Category");
+                //    return;
+                //}
 
                 if (dgvGRN.Rows.Count == 0)
                 {

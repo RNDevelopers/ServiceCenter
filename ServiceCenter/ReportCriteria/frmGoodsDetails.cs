@@ -33,8 +33,11 @@ namespace ServiceCenter.Views
         {
             rptGoodsDetails rpt = new rptGoodsDetails();
             ReportDocument rptDoc = new ReportDocument();
-
+     
             rptDoc = rpt;
+
+
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
 
             Execute objExecuteXX = new Execute();
             string Query = "[dbo].[spGetGoodsDetailsReport]";
@@ -46,12 +49,28 @@ namespace ServiceCenter.Views
               };
             DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
-            rpt.SetDataSource(dt);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                rpt.SetDataSource(dt);
 
-            //System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+                rpt.SetParameterValue("XXXFromDate", dtFrom.Value.Date);
+                rpt.SetParameterValue("XXXToDate", dtTo.Value.Date);
 
-            frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
-            objfrmReportViewer.Show();
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+
+                frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+                objfrmReportViewer.Show();
+
+
+
+            }
+            else {
+
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+                MessageBox.Show("No Data For Selected Time Period");
+            }
+  
+
 
         }
     }

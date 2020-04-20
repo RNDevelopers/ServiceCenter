@@ -1142,7 +1142,7 @@
             // 
             this.txtMilege.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtMilege.Location = new System.Drawing.Point(133, 203);
-            this.txtMilege.MaxLength = 4;
+            this.txtMilege.MaxLength = 10000000;
             this.txtMilege.Name = "txtMilege";
             this.txtMilege.Size = new System.Drawing.Size(84, 25);
             this.txtMilege.TabIndex = 257;

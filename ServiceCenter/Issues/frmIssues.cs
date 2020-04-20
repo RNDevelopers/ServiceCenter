@@ -37,6 +37,8 @@ namespace ServiceCenter.Setup
 
         private int CustomerIDScopeID { get; set; }
 
+        private string milage { get; set; }
+
         private ServiceEntity objServiceEntity;
         private SupplierEntity objSupplierEntity;
         private BrandEntity objBrandEntity;
@@ -402,6 +404,7 @@ namespace ServiceCenter.Setup
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+                
 
             try
             {
@@ -483,9 +486,18 @@ namespace ServiceCenter.Setup
                     ts.Complete();
                 }
 
-           
+            
                 MessageBox.Show("Saved Successfully");
-         
+
+             
+
+
+                if(txtMilege.Text.Trim() == string.Empty)
+                {
+                    milage = "";
+                }
+
+                milage = txtMilege.Text.Trim();
 
                 System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
 
@@ -506,7 +518,7 @@ namespace ServiceCenter.Setup
                 DataTable dt = (DataTable)objExecuteXX.Executes(Query, ReturnType.DataTable, para, CommandType.StoredProcedure);
 
                 rpt.SetDataSource(dt);
-
+                rpt.SetParameterValue("XXXMilege", milage);
                 System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
 
                 frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
