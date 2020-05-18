@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.17</MinimumRequiredVersion>
-    <ApplicationRevision>18</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.18</MinimumRequiredVersion>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -260,6 +260,18 @@
     <Compile Include="ReportCriteria\frmGoodsDetails.Designer.cs">
       <DependentUpon>frmGoodsDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmIssuesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmIssuesView.Designer.cs">
+      <DependentUpon>frmIssuesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmReceivesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmReceivesView.Designer.cs">
+      <DependentUpon>frmReceivesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmStockSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportCriteria\frmGoodsDetails.resx">
       <DependentUpon>frmGoodsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmIssuesView.resx">
+      <DependentUpon>frmIssuesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmReceivesView.resx">
+      <DependentUpon>frmReceivesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmStockSummary.resx">
       <DependentUpon>frmStockSummary.cs</DependentUpon>

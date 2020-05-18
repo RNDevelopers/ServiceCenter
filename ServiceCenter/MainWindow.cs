@@ -218,12 +218,16 @@ namespace ServiceCenter
 
         private void mnubtnReceivesView_Click(object sender, EventArgs e)
         {
-
+            frmReceivesView obj = new frmReceivesView();
+            obj.MdiParent = this;
+            obj.Show();
         }
 
         private void mnubtnIssuesView_Click(object sender, EventArgs e)
         {
-
+            frmIssuesView obj = new frmIssuesView();
+            obj.MdiParent = this;
+            obj.Show();
         }
 
         private void mnuAddItemUtility_Click(object sender, EventArgs e)
@@ -259,6 +263,11 @@ namespace ServiceCenter
             frmStockSummary obj = new frmStockSummary();
             obj.MdiParent = this;
             obj.Show();
+        }
+
+        private void goodsViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

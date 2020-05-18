@@ -18,6 +18,8 @@ namespace ServiceCenter.Customer
         string vcVehicleNotext;
         string intVehicleNotext;
 
+
+
         public string vcVehicleNo { get; set; }
         public string intVehicleNo { get; set; }
         public string FullVehicleNO { get; set; }
@@ -80,8 +82,12 @@ namespace ServiceCenter.Customer
          
             vcVehicleNo = txtvcVehicle.Text.ToUpper();
             intVehicleNo = txtIntVehicle.Text.ToString();
-            FullVehicleNO = vcVehicleNo + '-' + intVehicleNo;
 
+            if (!Convert.ToBoolean(txtvcVehicle.Text == string.Empty))
+            {
+                FullVehicleNO = vcVehicleNo + '-' + intVehicleNo;
+            }
+      
             DialogResult dr = MessageBox.Show("Are You Sure Want to Add Customer ?", "CONFIRM", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
             if (dr == DialogResult.Yes)
@@ -90,7 +96,7 @@ namespace ServiceCenter.Customer
                 Execute objExecute = new Execute();
                 SqlParameter[] param = new SqlParameter[]
                    {
-                    Execute.AddParameter("@vcVehicleNo",FullVehicleNO),
+                    Execute.AddParameter("@vcVehicleNo",FullVehicleNO ==null?DBNull.Value : (object) FullVehicleNO),
                     Execute.AddParameter("@vcCustomerName",txtName.Text.ToUpper()),
                     Execute.AddParameter("@vcAddress",txtAddress.Text.ToUpper()),
                     Execute.AddParameter("@vcCity",txtCity.Text.ToUpper()),

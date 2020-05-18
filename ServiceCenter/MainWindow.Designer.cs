@@ -472,6 +472,7 @@
             this.goodsViewToolStripMenuItem.Name = "goodsViewToolStripMenuItem";
             this.goodsViewToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.goodsViewToolStripMenuItem.Text = "Goods View";
+            this.goodsViewToolStripMenuItem.Click += new System.EventHandler(this.goodsViewToolStripMenuItem_Click);
             // 
             // mnustockView
             // 
