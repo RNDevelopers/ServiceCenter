@@ -312,7 +312,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtvcVehicle);
             this.Name = "frmAddCustomer";
-            this.Text = "";
+            this.Text = "Customer Registration";
             this.Load += new System.EventHandler(this.frmAddCustomer_Load);
             this.Controls.SetChildIndex(this.txtvcVehicle, 0);
             this.Controls.SetChildIndex(this.label10, 0);

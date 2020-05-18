@@ -10,6 +10,8 @@ namespace ServiceCenter.Setup
 {
     public partial class frmAddSubCategory : BaseUI
     {
+        public int intSubCategoryID;
+
         public frmAddSubCategory()
         {
             InitializeComponent();
@@ -69,6 +71,7 @@ namespace ServiceCenter.Setup
                 {
                     MessageBox.Show("Save..");
                     LoadGrid();
+                    txtSubCategory.Text = String.Empty;
                 }
                 else
                 {
@@ -92,6 +95,42 @@ namespace ServiceCenter.Setup
             if(e.KeyCode==Keys.Enter)
             {
                 SaveSubCategory();
+            }
+        }
+
+        private void dgvAddSubCategory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+                if (dgvAddSubCategory.Columns[e.ColumnIndex] == clmbtnDelete)
+                {
+                    intSubCategoryID = Convert.ToInt32(dgvAddSubCategory.Rows[e.RowIndex].Cells[clmintSubCategoryID.Name].Value);
+
+                    DialogResult dr = MessageBox.Show("Are you sure want to Delete in this SubCategory ?", "CONFIRMATION", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        Execute objExecute = new Execute();
+                        SqlParameter[] param = new SqlParameter[]
+                           {
+                          Execute.AddParameter("@intSubCategoryID",intSubCategoryID),
+                           };
+
+                        int NoOfRowsEffected = objExecute.Executes("spDeleteSubcategory", param, CommandType.StoredProcedure);
+
+                        if (NoOfRowsEffected < 0)
+                        {
+
+                            MessageBox.Show("Successfully DELETE !");
+                            LoadGrid();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("SubCategory DELETE Process Error !");
+                        }
+
+                    }
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using ServiceCenter.Common;
 using ServiceCenter.Customer;
+using ServiceCenter.ReportCriteria;
 using ServiceCenter.Return;
 using ServiceCenter.Setup;
 using ServiceCenter.Views;
@@ -20,7 +21,7 @@ namespace ServiceCenter
         public MainWindow()
         {
             InitializeComponent();
-           // this.SetFormName();
+            // this.SetFormName();
             //slidepline move
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnSetUp.Top;
@@ -28,12 +29,12 @@ namespace ServiceCenter
             this.IsMdiContainer = true;
 
 
-           
+
 
 
         }
 
-            bool flag = false;
+        bool flag = false;
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
 
@@ -72,10 +73,10 @@ namespace ServiceCenter
 
         private void button1_Click(object sender, EventArgs e)
         {
-           frmAddSupplier obj = new frmAddSupplier();
+            frmAddSupplier obj = new frmAddSupplier();
             obj.MdiParent = this;
-            obj.Show(); 
-            
+            obj.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace ServiceCenter
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnSetUp.Top;
 
-            contextMenuStrip_Setup.Show(btnSetUp,btnSetUp.Right, btnSetUp.Left);
+            contextMenuStrip_Setup.Show(btnSetUp, btnSetUp.Right, btnSetUp.Left);
         }
 
         private void btnReceive_Click(object sender, EventArgs e)
@@ -176,7 +177,7 @@ namespace ServiceCenter
             slidePlane.Height = btnSetUp.Height;
             slidePlane.Top = btnCustomer.Top;
 
-            string  vcName = null;
+            string vcName = null;
             string vcCar = null;
             frmAddCustomer obj = new frmAddCustomer(vcName, vcCar);
             obj.MdiParent = this;
@@ -276,7 +277,7 @@ namespace ServiceCenter
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void customersViewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,6 +285,15 @@ namespace ServiceCenter
             frmCustomersView obj = new frmCustomersView();
             obj.MdiParent = this;
             obj.Show();
+        }
+
+        private void issuesViewReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                frmIssueDetails obj = new frmIssueDetails();
+                obj.MdiParent = this;
+                obj.Show();
+            }
         }
     }
 }

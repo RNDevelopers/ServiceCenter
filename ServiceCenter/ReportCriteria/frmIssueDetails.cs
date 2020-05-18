@@ -14,33 +14,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ServiceCenter.Views
+namespace ServiceCenter.ReportCriteria
 {
-    public partial class frmGoodsDetails : BaseUI
+    public partial class frmIssueDetails : BaseUI
     {
-        public frmGoodsDetails()
+        public frmIssueDetails()
         {
             InitializeComponent();
             SetFormName();
         }
 
-        private void btnView_Click(object sender, EventArgs e)
-        {
-            Report();
-        }
-
         private void Report()
         {
-            rptGoodsDetails rpt = new rptGoodsDetails();
+            rptIssueDetails rpt = new rptIssueDetails();
             ReportDocument rptDoc = new ReportDocument();
-     
+
             rptDoc = rpt;
 
 
             System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
 
             Execute objExecuteXX = new Execute();
-            string Query = "[dbo].[spGetGoodsDetailsReport]";
+            string Query = "[dbo].[spGetIssueDetailsReport]";  //not Completed
             SqlParameter[] para = new SqlParameter[]
               {
                       Execute.AddParameter("@dtFrom",dtFrom.Value.Date),
@@ -61,47 +56,20 @@ namespace ServiceCenter.Views
                 frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
                 objfrmReportViewer.Show();
 
-
-
             }
-            else {
+            else
+            {
 
                 System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
                 MessageBox.Show("No Data For Selected Time Period");
             }
-  
-
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+        private void btnView_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dtTo_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtFrom_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            Report();
         }
     }
 }

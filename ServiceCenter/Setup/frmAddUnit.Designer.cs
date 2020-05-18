@@ -225,7 +225,7 @@
             this.Controls.Add(this.txtUnit);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddUnit";
-            this.Text = "frmAddUnit";
+            this.Text = "Add Unit";
             this.Controls.SetChildIndex(this.txtUnit, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label7, 0);

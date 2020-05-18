@@ -327,7 +327,7 @@ namespace ServiceCenter.Return
                 Total += (Convert.ToDecimal(row.Cells[dgvReturnItem.Columns[clmTotVal.Name].Index].Value));
             }
             FinalTotal = Total;
-           lblTotal.Text = FinalTotal.ToString("#,##0.00");
+
 
         }
 

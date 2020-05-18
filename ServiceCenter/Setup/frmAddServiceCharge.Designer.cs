@@ -260,14 +260,14 @@
             this.clmbtnEdit.HeaderText = "Press to Edit";
             this.clmbtnEdit.Name = "clmbtnEdit";
             this.clmbtnEdit.ReadOnly = true;
-            this.clmbtnEdit.Width = 90;
+            this.clmbtnEdit.Width = 70;
             // 
             // clmbtnDelete
             // 
             this.clmbtnDelete.HeaderText = "Delete";
             this.clmbtnDelete.Name = "clmbtnDelete";
             this.clmbtnDelete.ReadOnly = true;
-            this.clmbtnDelete.Width = 50;
+            this.clmbtnDelete.Width = 70;
             // 
             // frmAddServiceCharge
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtServiceDec);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddServiceCharge";
             this.Text = "Add Service Charge";
             this.Controls.SetChildIndex(this.txtServiceDec, 0);

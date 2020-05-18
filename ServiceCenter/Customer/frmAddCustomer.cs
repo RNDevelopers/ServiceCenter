@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,7 +40,21 @@ namespace ServiceCenter.Customer
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveCustomer();
+            contactValidation();
+        }
+
+
+        private void contactValidation()
+        {
+            Regex phoneNumpattern = new Regex(@"^7|0|(?:\+94)[0-9]{9,10}$");
+            if (phoneNumpattern.IsMatch(txtContactNo.Text))
+            {
+                SaveCustomer();
+            }
+            else
+            {
+                MessageBox.Show("Invalid phone number");
+            }
         }
 
         public void SaveCustomer()

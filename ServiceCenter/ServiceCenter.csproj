@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>1.0.0.18</MinimumRequiredVersion>
-    <ApplicationRevision>19</ApplicationRevision>
+    <MinimumRequiredVersion>1.0.0.21</MinimumRequiredVersion>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -60,6 +60,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_car.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -107,6 +110,7 @@
     <Compile Include="DBConnection\Execute.cs" />
     <Compile Include="Entities\BrandEntity.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Entities\GRNEntity.cs" />
     <Compile Include="Entities\IssueEntity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
@@ -122,6 +126,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportCriteria\frmIssueDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportCriteria\frmIssueDetails.Designer.cs">
+      <DependentUpon>frmIssueDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\rptCustomerReturn.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +154,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptIssue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptIssueDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIssueDetails.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\rptStockSummary.cs">
@@ -306,6 +322,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportCriteria\frmIssueDetails.resx">
+      <DependentUpon>frmIssueDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptCustomerReturn.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptCustomerReturn.cs</LastGenOutput>
@@ -321,6 +340,10 @@
     <EmbeddedResource Include="Report\rptIssue.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIssue.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptIssueDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIssueDetails.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\rptStockSummary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -431,7 +454,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="icons8_car.ico" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_math_30px.png" />
   </ItemGroup>

@@ -16,6 +16,9 @@ namespace ServiceCenter.Setup
 {
     public partial class frmAddMainCategory : BaseUI
     {
+
+        public int intMainCategoryID;
+
         public frmAddMainCategory()
         {
             InitializeComponent();    
@@ -106,6 +109,42 @@ namespace ServiceCenter.Setup
                 GridLoad();
                 Clear();
             }
+        }
+
+        private void dgvAddMainCategory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+                if (dgvAddMainCategory.Columns[e.ColumnIndex] == clmbtnDelete)
+                {
+                    intMainCategoryID = Convert.ToInt32(dgvAddMainCategory.Rows[e.RowIndex].Cells[clmMainCategoryID.Name].Value);
+
+                    DialogResult dr = MessageBox.Show("Are you sure want to Delete in this MainCategory ?", "CONFIRMATION", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        Execute objExecute = new Execute();
+                        SqlParameter[] param = new SqlParameter[]
+                           {
+                          Execute.AddParameter("@intMainCategoryID",intMainCategoryID),
+                           };
+
+                        int NoOfRowsEffected = objExecute.Executes("spDeleteMaincategory", param, CommandType.StoredProcedure);
+
+                        if (NoOfRowsEffected < 0)
+                        {
+
+                            MessageBox.Show("Successfully DELETE !");
+                            GridLoad();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Main Category DELETE Process Error !");
+                        }
+
+                    }
+                }
+            }
+
         }
     }
 }

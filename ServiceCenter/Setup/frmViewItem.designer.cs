@@ -36,11 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvViewItemList = new System.Windows.Forms.DataGridView();
-            this.txtDecSearch = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.clmItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +45,11 @@
             this.decStockInHand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmbtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmbtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtDecSearch = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewItemList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,59 +117,6 @@
             this.dgvViewItemList.Size = new System.Drawing.Size(902, 357);
             this.dgvViewItemList.TabIndex = 223;
             this.dgvViewItemList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewItemList_CellClick);
-            // 
-            // txtDecSearch
-            // 
-            this.txtDecSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtDecSearch.Location = new System.Drawing.Point(500, 76);
-            this.txtDecSearch.MaxLength = 4;
-            this.txtDecSearch.Name = "txtDecSearch";
-            this.txtDecSearch.Size = new System.Drawing.Size(418, 25);
-            this.txtDecSearch.TabIndex = 222;
-            this.txtDecSearch.TextChanged += new System.EventHandler(this.txtDecSearch_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(344, 77);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(166, 19);
-            this.label13.TabIndex = 221;
-            this.label13.Text = "Search Item Description :";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtSearch.Location = new System.Drawing.Point(135, 77);
-            this.txtSearch.MaxLength = 4;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(203, 25);
-            this.txtSearch.TabIndex = 220;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 19);
-            this.label3.TabIndex = 219;
-            this.label3.Text = "Search Item Code :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 37);
-            this.label1.TabIndex = 224;
-            this.label1.Text = "View Items";
             // 
             // clmItemID
             // 
@@ -248,6 +195,60 @@
             this.clmbtnDelete.Text = "";
             this.clmbtnDelete.Width = 45;
             // 
+            // txtDecSearch
+            // 
+            this.txtDecSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtDecSearch.Location = new System.Drawing.Point(500, 76);
+            this.txtDecSearch.MaxLength = 4;
+            this.txtDecSearch.Name = "txtDecSearch";
+            this.txtDecSearch.Size = new System.Drawing.Size(418, 25);
+            this.txtDecSearch.TabIndex = 222;
+            this.txtDecSearch.TextChanged += new System.EventHandler(this.txtDecSearch_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(344, 77);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(166, 19);
+            this.label13.TabIndex = 221;
+            this.label13.Text = "Search Item Description :";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtSearch.Location = new System.Drawing.Point(135, 77);
+            this.txtSearch.MaxLength = 4;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(203, 25);
+            this.txtSearch.TabIndex = 220;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(12, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 19);
+            this.label3.TabIndex = 219;
+            this.label3.Text = "Search Item Code :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 37);
+            this.label1.TabIndex = 224;
+            this.label1.Text = "View Items";
+            // 
             // frmViewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,7 +264,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmViewItem";
-            this.Text = "frmViewItem";
+            this.Text = "View Item";
             this.Load += new System.EventHandler(this.frmViewItem_Load);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.txtSearch, 0);
