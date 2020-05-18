@@ -27,6 +27,10 @@ namespace ServiceCenter
 
             this.IsMdiContainer = true;
 
+
+           
+
+
         }
 
             bool flag = false;
@@ -268,6 +272,18 @@ namespace ServiceCenter
         private void goodsViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void customersViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomersView obj = new frmCustomersView();
+            obj.MdiParent = this;
+            obj.Show();
         }
     }
 }

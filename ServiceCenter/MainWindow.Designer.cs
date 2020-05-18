@@ -60,10 +60,10 @@
             this.contextMenuStrip_View = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnubtnReceivesView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnIssuesView = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodsViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnustockView = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Report = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuGoodsView = new System.Windows.Forms.ToolStripMenuItem();
+            this.customersViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
@@ -444,11 +444,11 @@
             this.contextMenuStrip_View.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnubtnReceivesView,
             this.mnubtnIssuesView,
-            this.goodsViewToolStripMenuItem,
-            this.mnustockView});
+            this.mnustockView,
+            this.customersViewToolStripMenuItem});
             this.contextMenuStrip_View.Name = "contextMenuStrip_View";
             this.contextMenuStrip_View.ShowImageMargin = false;
-            this.contextMenuStrip_View.Size = new System.Drawing.Size(131, 92);
+            this.contextMenuStrip_View.Size = new System.Drawing.Size(156, 114);
             // 
             // mnubtnReceivesView
             // 
@@ -466,14 +466,6 @@
             this.mnubtnIssuesView.Text = "Issues View";
             this.mnubtnIssuesView.Click += new System.EventHandler(this.mnubtnIssuesView_Click);
             // 
-            // goodsViewToolStripMenuItem
-            // 
-            this.goodsViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.goodsViewToolStripMenuItem.Name = "goodsViewToolStripMenuItem";
-            this.goodsViewToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.goodsViewToolStripMenuItem.Text = "Goods View";
-            this.goodsViewToolStripMenuItem.Click += new System.EventHandler(this.goodsViewToolStripMenuItem_Click);
-            // 
             // mnustockView
             // 
             this.mnustockView.ForeColor = System.Drawing.Color.White;
@@ -489,27 +481,36 @@
             this.mnuGoodsView});
             this.contextMenuStrip_Report.Name = "contextMenuStrip_Report";
             this.contextMenuStrip_Report.ShowImageMargin = false;
-            this.contextMenuStrip_Report.Size = new System.Drawing.Size(112, 26);
+            this.contextMenuStrip_Report.Size = new System.Drawing.Size(150, 26);
             // 
             // mnuGoodsView
             // 
             this.mnuGoodsView.ForeColor = System.Drawing.Color.White;
             this.mnuGoodsView.Name = "mnuGoodsView";
-            this.mnuGoodsView.Size = new System.Drawing.Size(111, 22);
-            this.mnuGoodsView.Text = "Goods View";
+            this.mnuGoodsView.Size = new System.Drawing.Size(149, 22);
+            this.mnuGoodsView.Text = "Goods View Report";
             this.mnuGoodsView.Click += new System.EventHandler(this.mnuGoodsView_Click);
+            // 
+            // customersViewToolStripMenuItem
+            // 
+            this.customersViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.customersViewToolStripMenuItem.Name = "customersViewToolStripMenuItem";
+            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.customersViewToolStripMenuItem.Text = "Customers View";
+            this.customersViewToolStripMenuItem.Click += new System.EventHandler(this.customersViewToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1350, 750);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
             this.Text = "Nihal Car Service & Wax";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip_Setup.ResumeLayout(false);
@@ -555,10 +556,10 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAddItemUtility;
         private System.Windows.Forms.ToolStripMenuItem mnuEditItem;
         private System.Windows.Forms.ToolStripMenuItem mnuServiceCharges;
-        private System.Windows.Forms.ToolStripMenuItem goodsViewToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_Report;
         private System.Windows.Forms.ToolStripMenuItem mnuGoodsView;
         private System.Windows.Forms.ToolStripMenuItem mnustockView;
+        private System.Windows.Forms.ToolStripMenuItem customersViewToolStripMenuItem;
     }
 }
 
