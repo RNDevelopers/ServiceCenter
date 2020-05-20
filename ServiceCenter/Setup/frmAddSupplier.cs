@@ -36,9 +36,14 @@ namespace ServiceCenter.Setup
 
             try
             {
-                if (txtCity.Text == string.Empty)
+                if (txtSupplierName.Text == string.Empty)
                 {
                     MessageBox.Show("Please Enter the Supplier Name");
+                    return;
+                }
+                if (txtAddress.Text == string.Empty)
+                {
+                    MessageBox.Show("Please Enter the Address");
                     return;
                 }
                 else if (txtContactNo.Text == string.Empty)
