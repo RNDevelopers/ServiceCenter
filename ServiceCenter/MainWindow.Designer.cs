@@ -66,6 +66,7 @@
             this.contextMenuStrip_Report = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuGoodsView = new System.Windows.Forms.ToolStripMenuItem();
             this.issuesViewReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerReturnViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
@@ -448,16 +449,17 @@
             this.mnubtnReceivesView,
             this.mnubtnIssuesView,
             this.mnustockView,
-            this.customersViewToolStripMenuItem});
+            this.customersViewToolStripMenuItem,
+            this.customerReturnViewToolStripMenuItem});
             this.contextMenuStrip_View.Name = "contextMenuStrip_View";
             this.contextMenuStrip_View.ShowImageMargin = false;
-            this.contextMenuStrip_View.Size = new System.Drawing.Size(140, 92);
+            this.contextMenuStrip_View.Size = new System.Drawing.Size(177, 136);
             // 
             // mnubtnReceivesView
             // 
             this.mnubtnReceivesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnReceivesView.Name = "mnubtnReceivesView";
-            this.mnubtnReceivesView.Size = new System.Drawing.Size(139, 22);
+            this.mnubtnReceivesView.Size = new System.Drawing.Size(176, 22);
             this.mnubtnReceivesView.Text = "Receives View";
             this.mnubtnReceivesView.Click += new System.EventHandler(this.mnubtnReceivesView_Click);
             // 
@@ -465,7 +467,7 @@
             // 
             this.mnubtnIssuesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnIssuesView.Name = "mnubtnIssuesView";
-            this.mnubtnIssuesView.Size = new System.Drawing.Size(139, 22);
+            this.mnubtnIssuesView.Size = new System.Drawing.Size(176, 22);
             this.mnubtnIssuesView.Text = "Issues View";
             this.mnubtnIssuesView.Click += new System.EventHandler(this.mnubtnIssuesView_Click);
             // 
@@ -473,7 +475,7 @@
             // 
             this.mnustockView.ForeColor = System.Drawing.Color.White;
             this.mnustockView.Name = "mnustockView";
-            this.mnustockView.Size = new System.Drawing.Size(139, 22);
+            this.mnustockView.Size = new System.Drawing.Size(176, 22);
             this.mnustockView.Text = "Stock View";
             this.mnustockView.Click += new System.EventHandler(this.mnustockView_Click);
             // 
@@ -481,7 +483,7 @@
             // 
             this.customersViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customersViewToolStripMenuItem.Name = "customersViewToolStripMenuItem";
-            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.customersViewToolStripMenuItem.Text = "Customers View";
             this.customersViewToolStripMenuItem.Click += new System.EventHandler(this.customersViewToolStripMenuItem_Click);
             // 
@@ -493,13 +495,13 @@
             this.issuesViewReportToolStripMenuItem});
             this.contextMenuStrip_Report.Name = "contextMenuStrip_Report";
             this.contextMenuStrip_Report.ShowImageMargin = false;
-            this.contextMenuStrip_Report.Size = new System.Drawing.Size(156, 70);
+            this.contextMenuStrip_Report.Size = new System.Drawing.Size(150, 48);
             // 
             // mnuGoodsView
             // 
             this.mnuGoodsView.ForeColor = System.Drawing.Color.White;
             this.mnuGoodsView.Name = "mnuGoodsView";
-            this.mnuGoodsView.Size = new System.Drawing.Size(155, 22);
+            this.mnuGoodsView.Size = new System.Drawing.Size(149, 22);
             this.mnuGoodsView.Text = "Goods View Report";
             this.mnuGoodsView.Click += new System.EventHandler(this.mnuGoodsView_Click);
             // 
@@ -507,9 +509,17 @@
             // 
             this.issuesViewReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.issuesViewReportToolStripMenuItem.Name = "issuesViewReportToolStripMenuItem";
-            this.issuesViewReportToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.issuesViewReportToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.issuesViewReportToolStripMenuItem.Text = "Issues View Report ";
             this.issuesViewReportToolStripMenuItem.Click += new System.EventHandler(this.issuesViewReportToolStripMenuItem_Click);
+            // 
+            // customerReturnViewToolStripMenuItem
+            // 
+            this.customerReturnViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.customerReturnViewToolStripMenuItem.Name = "customerReturnViewToolStripMenuItem";
+            this.customerReturnViewToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.customerReturnViewToolStripMenuItem.Text = "Customer Return View";
+            this.customerReturnViewToolStripMenuItem.Click += new System.EventHandler(this.customerReturnViewToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -574,6 +584,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnustockView;
         private System.Windows.Forms.ToolStripMenuItem customersViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issuesViewReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerReturnViewToolStripMenuItem;
     }
 }
 

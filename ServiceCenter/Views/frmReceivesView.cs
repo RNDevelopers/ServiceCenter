@@ -76,7 +76,7 @@ namespace ServiceCenter.Views
         private void GetGRNNo()
         {
             Execute objExecute = new Execute();
-            string Query = "[dbo].[spGetDateWiseGRNNo]";
+            string Query = "[dbo].[spGetDateWiseGRNNo]"; 
             SqlParameter[] para = new SqlParameter[]
               {
                    Execute.AddParameter("@dtFrom",dtFrom.Value.Date),

@@ -57,7 +57,7 @@ namespace ServiceCenter.Views
             LableFill();
             GridLoad();
         }
-
+         
         private void GridLoad()
         {
             System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;

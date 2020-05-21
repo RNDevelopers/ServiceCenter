@@ -295,5 +295,12 @@ namespace ServiceCenter
                 obj.Show();
             }
         }
+
+        private void customerReturnViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomerReturnDetails obj = new frmCustomerReturnDetails();
+            obj.MdiParent = this;
+            obj.Show();
+        }
     }
 }

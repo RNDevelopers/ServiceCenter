@@ -23,7 +23,8 @@
 
         <xs:element name="Description" type="xs:string"></xs:element>
 
-        <xs:element name="decIssuedQty" type="xs:string"></xs:element>
+
+        <xs:element name="IssuedQty" type="xs:decimal"></xs:element>
 
         <xs:element name="decUnitPrice" type="xs:decimal"></xs:element>
 

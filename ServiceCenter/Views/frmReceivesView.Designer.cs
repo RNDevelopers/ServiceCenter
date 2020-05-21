@@ -42,9 +42,6 @@
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvReceivesView = new System.Windows.Forms.DataGridView();
-            this.cmbGRNNo = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vcItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +50,9 @@
             this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDiscountedUnitValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbGRNNo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -200,40 +200,6 @@
             this.dgvReceivesView.Size = new System.Drawing.Size(923, 353);
             this.dgvReceivesView.TabIndex = 250;
             // 
-            // cmbGRNNo
-            // 
-            this.cmbGRNNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGRNNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbGRNNo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.cmbGRNNo.FormattingEnabled = true;
-            this.cmbGRNNo.Location = new System.Drawing.Point(92, 156);
-            this.cmbGRNNo.Name = "cmbGRNNo";
-            this.cmbGRNNo.Size = new System.Drawing.Size(173, 25);
-            this.cmbGRNNo.TabIndex = 253;
-            this.cmbGRNNo.SelectionChangeCommitted += new System.EventHandler(this.cmbGRNNo_SelectionChangeCommitted);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(7, 158);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 19);
-            this.label4.TabIndex = 252;
-            this.label4.Text = "GRN No.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(72, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(11, 17);
-            this.label6.TabIndex = 251;
-            this.label6.Text = ":";
-            // 
             // clmItemCode
             // 
             this.clmItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -296,6 +262,40 @@
             this.clmTotalPrice.DataPropertyName = "TotalPrice";
             this.clmTotalPrice.HeaderText = "Total Price";
             this.clmTotalPrice.Name = "clmTotalPrice";
+            // 
+            // cmbGRNNo
+            // 
+            this.cmbGRNNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGRNNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbGRNNo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.cmbGRNNo.FormattingEnabled = true;
+            this.cmbGRNNo.Location = new System.Drawing.Point(92, 156);
+            this.cmbGRNNo.Name = "cmbGRNNo";
+            this.cmbGRNNo.Size = new System.Drawing.Size(173, 25);
+            this.cmbGRNNo.TabIndex = 253;
+            this.cmbGRNNo.SelectionChangeCommitted += new System.EventHandler(this.cmbGRNNo_SelectionChangeCommitted);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(7, 158);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 19);
+            this.label4.TabIndex = 252;
+            this.label4.Text = "GRN No.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(72, 160);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(11, 17);
+            this.label6.TabIndex = 251;
+            this.label6.Text = ":";
             // 
             // label8
             // 
@@ -378,6 +378,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(948, 605);
+            this.Controls.Add(this.dgvReceivesView);
             this.Controls.Add(this.lblGRNDate);
             this.Controls.Add(this.lblSupName);
             this.Controls.Add(this.label12);
@@ -388,7 +389,6 @@
             this.Controls.Add(this.cmbGRNNo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dgvReceivesView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -405,7 +405,6 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.dgvReceivesView, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.cmbGRNNo, 0);
@@ -416,6 +415,7 @@
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.lblSupName, 0);
             this.Controls.SetChildIndex(this.lblGRNDate, 0);
+            this.Controls.SetChildIndex(this.dgvReceivesView, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivesView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -323,7 +323,7 @@
             this.vcItemDescription.HeaderText = "Item Description";
             this.vcItemDescription.Name = "vcItemDescription";
             this.vcItemDescription.ReadOnly = true;
-            this.vcItemDescription.Width = 300;
+            this.vcItemDescription.Width = 350;
             // 
             // clmvcUnit
             // 
@@ -334,7 +334,7 @@
             // 
             // clmIssuedQty
             // 
-            this.clmIssuedQty.DataPropertyName = "decIssuedQty";
+            this.clmIssuedQty.DataPropertyName = "IssuedQty";
             this.clmIssuedQty.HeaderText = "Issued Qty";
             this.clmIssuedQty.Name = "clmIssuedQty";
             this.clmIssuedQty.ReadOnly = true;
