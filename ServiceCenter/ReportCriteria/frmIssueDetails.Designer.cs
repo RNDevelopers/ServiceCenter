@@ -133,7 +133,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtFrom);
             this.Name = "frmIssueDetails";
-            this.Text = "frmIssueDetails";
+            this.Text = "Issue Details";
             this.Controls.SetChildIndex(this.dtFrom, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label5, 0);

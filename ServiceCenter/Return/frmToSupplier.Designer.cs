@@ -61,6 +61,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.cmbGRNNo = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -375,12 +377,34 @@
             this.cmbGRNNo.SelectionChangeCommitted += new System.EventHandler(this.cmbGRNNo_SelectionChangeCommitted_1);
             this.cmbGRNNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbGRNNo_KeyDown);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(45, 441);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(118, 15);
+            this.label17.TabIndex = 257;
+            this.label17.Text = "Already Return Items";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightPink;
+            this.panel2.Location = new System.Drawing.Point(19, 438);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(20, 20);
+            this.panel2.TabIndex = 256;
+            // 
             // frmToSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(929, 485);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.cmbGRNNo);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnClear);
@@ -409,6 +433,8 @@
             this.Controls.SetChildIndex(this.btnClear, 0);
             this.Controls.SetChildIndex(this.btnReturn, 0);
             this.Controls.SetChildIndex(this.cmbGRNNo, 0);
+            this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.label17, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -442,5 +468,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmReturnQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIsAleadyReturned;
         private System.Windows.Forms.ComboBox cmbGRNNo;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -63,10 +63,10 @@
             this.mnubtnIssuesView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnustockView = new System.Windows.Forms.ToolStripMenuItem();
             this.customersViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerReturnViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Report = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuGoodsView = new System.Windows.Forms.ToolStripMenuItem();
             this.issuesViewReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customerReturnViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
@@ -420,9 +420,9 @@
             this.label1.Location = new System.Drawing.Point(4, 2);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(432, 46);
+            this.label1.Size = new System.Drawing.Size(327, 46);
             this.label1.TabIndex = 156;
-            this.label1.Text = "Nihal Car Service and Wax";
+            this.label1.Text = "Nihal Auto Car Max";
             // 
             // contextMenuStrip_Customer
             // 
@@ -453,13 +453,13 @@
             this.customerReturnViewToolStripMenuItem});
             this.contextMenuStrip_View.Name = "contextMenuStrip_View";
             this.contextMenuStrip_View.ShowImageMargin = false;
-            this.contextMenuStrip_View.Size = new System.Drawing.Size(177, 136);
+            this.contextMenuStrip_View.Size = new System.Drawing.Size(190, 114);
             // 
             // mnubtnReceivesView
             // 
             this.mnubtnReceivesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnReceivesView.Name = "mnubtnReceivesView";
-            this.mnubtnReceivesView.Size = new System.Drawing.Size(176, 22);
+            this.mnubtnReceivesView.Size = new System.Drawing.Size(189, 22);
             this.mnubtnReceivesView.Text = "Receives View";
             this.mnubtnReceivesView.Click += new System.EventHandler(this.mnubtnReceivesView_Click);
             // 
@@ -467,7 +467,7 @@
             // 
             this.mnubtnIssuesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnIssuesView.Name = "mnubtnIssuesView";
-            this.mnubtnIssuesView.Size = new System.Drawing.Size(176, 22);
+            this.mnubtnIssuesView.Size = new System.Drawing.Size(189, 22);
             this.mnubtnIssuesView.Text = "Issues View";
             this.mnubtnIssuesView.Click += new System.EventHandler(this.mnubtnIssuesView_Click);
             // 
@@ -475,7 +475,7 @@
             // 
             this.mnustockView.ForeColor = System.Drawing.Color.White;
             this.mnustockView.Name = "mnustockView";
-            this.mnustockView.Size = new System.Drawing.Size(176, 22);
+            this.mnustockView.Size = new System.Drawing.Size(189, 22);
             this.mnustockView.Text = "Stock View";
             this.mnustockView.Click += new System.EventHandler(this.mnustockView_Click);
             // 
@@ -483,9 +483,18 @@
             // 
             this.customersViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customersViewToolStripMenuItem.Name = "customersViewToolStripMenuItem";
-            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.customersViewToolStripMenuItem.Text = "Customers View";
             this.customersViewToolStripMenuItem.Click += new System.EventHandler(this.customersViewToolStripMenuItem_Click);
+            // 
+            // customerReturnViewToolStripMenuItem
+            // 
+            this.customerReturnViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.customerReturnViewToolStripMenuItem.Name = "customerReturnViewToolStripMenuItem";
+            this.customerReturnViewToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.customerReturnViewToolStripMenuItem.Text = "Customer Return View(*)";
+            this.customerReturnViewToolStripMenuItem.Visible = false;
+            this.customerReturnViewToolStripMenuItem.Click += new System.EventHandler(this.customerReturnViewToolStripMenuItem_Click);
             // 
             // contextMenuStrip_Report
             // 
@@ -513,14 +522,6 @@
             this.issuesViewReportToolStripMenuItem.Text = "Issues View Report ";
             this.issuesViewReportToolStripMenuItem.Click += new System.EventHandler(this.issuesViewReportToolStripMenuItem_Click);
             // 
-            // customerReturnViewToolStripMenuItem
-            // 
-            this.customerReturnViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.customerReturnViewToolStripMenuItem.Name = "customerReturnViewToolStripMenuItem";
-            this.customerReturnViewToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.customerReturnViewToolStripMenuItem.Text = "Customer Return View";
-            this.customerReturnViewToolStripMenuItem.Click += new System.EventHandler(this.customerReturnViewToolStripMenuItem_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,7 +533,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
-            this.Text = "Nihal Car Service & Wax";
+            this.Text = "Nihal Auto Car Wax";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

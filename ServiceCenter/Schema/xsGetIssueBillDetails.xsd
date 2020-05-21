@@ -28,7 +28,9 @@
 
         <xs:element name="decUnitPrice" type="xs:decimal"></xs:element>
 
-        <xs:element name="decDiscountedValue" type="xs:string"></xs:element>
+
+
+        <xs:element name="DiscountedValue" type="xs:decimal"></xs:element>
 
         <xs:element name="Amount" type="xs:decimal"></xs:element>
 

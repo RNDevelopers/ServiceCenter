@@ -28,14 +28,14 @@ namespace ServiceCenter.ReportCriteria
         {
             rptIssueDetails rpt = new rptIssueDetails();
             ReportDocument rptDoc = new ReportDocument();
-
+               
             rptDoc = rpt;
 
 
             System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
 
             Execute objExecuteXX = new Execute();
-            string Query = "[dbo].[spGetIssueDetailsReport]";  //not Completed
+            string Query = "[dbo].[spGetIssueDetailsReport]"; 
             SqlParameter[] para = new SqlParameter[]
               {
                       Execute.AddParameter("@dtFrom",dtFrom.Value.Date),

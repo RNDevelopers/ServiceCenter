@@ -248,7 +248,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblSubcat);
             this.Name = "frmAssignSubCategoryBrand";
-            this.Text = "Assign SubCategory Brand";
+            this.Text = "Assign Sub Category Brand";
             this.Load += new System.EventHandler(this.frmAssignSubCategoryBrand_Load);
             this.Controls.SetChildIndex(this.lblSubcat, 0);
             this.Controls.SetChildIndex(this.label7, 0);

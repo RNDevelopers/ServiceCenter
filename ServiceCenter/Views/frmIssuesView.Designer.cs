@@ -350,7 +350,7 @@
             // 
             // clmDiscountedUnitValue
             // 
-            this.clmDiscountedUnitValue.DataPropertyName = "decDiscountedValue";
+            this.clmDiscountedUnitValue.DataPropertyName = "DiscountedValue";
             this.clmDiscountedUnitValue.HeaderText = "Discounted Price";
             this.clmDiscountedUnitValue.Name = "clmDiscountedUnitValue";
             this.clmDiscountedUnitValue.ReadOnly = true;
