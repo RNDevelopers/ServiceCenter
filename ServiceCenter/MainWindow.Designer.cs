@@ -31,16 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnView = new System.Windows.Forms.Button();
-            this.btnCustomer = new System.Windows.Forms.Button();
-            this.btnIssues = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.slidePlane = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.btnReceive = new System.Windows.Forms.Button();
-            this.btnSetUp = new System.Windows.Forms.Button();
             this.contextMenuStrip_Setup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCompanySupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMainCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,14 +58,23 @@
             this.contextMenuStrip_Report = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuGoodsView = new System.Windows.Forms.ToolStripMenuItem();
             this.issuesViewReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnIssues = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnReceive = new System.Windows.Forms.Button();
+            this.btnSetUp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip_Setup.SuspendLayout();
             this.contextMenuStrip_Returt.SuspendLayout();
             this.panel2.SuspendLayout();
             this.contextMenuStrip_Customer.SuspendLayout();
             this.contextMenuStrip_View.SuspendLayout();
             this.contextMenuStrip_Report.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,80 +97,6 @@
             this.panel1.Size = new System.Drawing.Size(221, 923);
             this.panel1.TabIndex = 154;
             // 
-            // btnView
-            // 
-            this.btnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnView.FlatAppearance.BorderSize = 0;
-            this.btnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnView.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.ForeColor = System.Drawing.Color.White;
-            this.btnView.Image = global::ServiceCenter.Properties.Resources.report_30px;
-            this.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnView.Location = new System.Drawing.Point(12, 463);
-            this.btnView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(205, 69);
-            this.btnView.TabIndex = 159;
-            this.btnView.Text = "     View";
-            this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnView.UseVisualStyleBackColor = false;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // btnCustomer
-            // 
-            this.btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCustomer.FlatAppearance.BorderSize = 0;
-            this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnCustomer.Image = global::ServiceCenter.Properties.Resources.user_24px;
-            this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomer.Location = new System.Drawing.Point(13, 170);
-            this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(205, 69);
-            this.btnCustomer.TabIndex = 158;
-            this.btnCustomer.Text = "     Customer";
-            this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCustomer.UseVisualStyleBackColor = false;
-            this.btnCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
-            // 
-            // btnIssues
-            // 
-            this.btnIssues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnIssues.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIssues.FlatAppearance.BorderSize = 0;
-            this.btnIssues.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIssues.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssues.ForeColor = System.Drawing.Color.White;
-            this.btnIssues.Image = global::ServiceCenter.Properties.Resources.upload_24px;
-            this.btnIssues.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssues.Location = new System.Drawing.Point(13, 318);
-            this.btnIssues.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnIssues.Name = "btnIssues";
-            this.btnIssues.Size = new System.Drawing.Size(205, 69);
-            this.btnIssues.TabIndex = 157;
-            this.btnIssues.Text = "      Issues";
-            this.btnIssues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnIssues.UseVisualStyleBackColor = false;
-            this.btnIssues.Click += new System.EventHandler(this.btnIssues_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ServiceCenter.Properties.Resources.fiat_500_100px;
-            this.pictureBox1.Location = new System.Drawing.Point(27, -7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(165, 96);
-            this.pictureBox1.TabIndex = 156;
-            this.pictureBox1.TabStop = false;
-            // 
             // slidePlane
             // 
             this.slidePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -179,113 +105,6 @@
             this.slidePlane.Name = "slidePlane";
             this.slidePlane.Size = new System.Drawing.Size(11, 69);
             this.slidePlane.TabIndex = 155;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Image = global::ServiceCenter.Properties.Resources.rounded_up_24px;
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(13, 631);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(205, 69);
-            this.btnLogout.TabIndex = 156;
-            this.btnLogout.Text = "     Log out";
-            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Visible = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Image = global::ServiceCenter.Properties.Resources.report_30px;
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(13, 548);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(205, 69);
-            this.btnReport.TabIndex = 155;
-            this.btnReport.Text = "     Report";
-            this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReport.UseVisualStyleBackColor = false;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Image = global::ServiceCenter.Properties.Resources.undo_30px;
-            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(13, 391);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(205, 69);
-            this.btnReturn.TabIndex = 151;
-            this.btnReturn.Text = "     Return";
-            this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnReceive
-            // 
-            this.btnReceive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReceive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReceive.FlatAppearance.BorderSize = 0;
-            this.btnReceive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnReceive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReceive.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReceive.ForeColor = System.Drawing.Color.White;
-            this.btnReceive.Image = global::ServiceCenter.Properties.Resources.download_24px;
-            this.btnReceive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReceive.Location = new System.Drawing.Point(13, 244);
-            this.btnReceive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnReceive.Name = "btnReceive";
-            this.btnReceive.Size = new System.Drawing.Size(205, 69);
-            this.btnReceive.TabIndex = 150;
-            this.btnReceive.Text = "     Receive";
-            this.btnReceive.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReceive.UseVisualStyleBackColor = false;
-            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
-            // 
-            // btnSetUp
-            // 
-            this.btnSetUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSetUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetUp.FlatAppearance.BorderSize = 0;
-            this.btnSetUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSetUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
-            this.btnSetUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetUp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetUp.ForeColor = System.Drawing.Color.White;
-            this.btnSetUp.Image = global::ServiceCenter.Properties.Resources.plus_math_30px;
-            this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetUp.Location = new System.Drawing.Point(13, 96);
-            this.btnSetUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSetUp.Name = "btnSetUp";
-            this.btnSetUp.Size = new System.Drawing.Size(205, 69);
-            this.btnSetUp.TabIndex = 149;
-            this.btnSetUp.Text = "     Set Up";
-            this.btnSetUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSetUp.UseVisualStyleBackColor = true;
-            this.btnSetUp.Click += new System.EventHandler(this.button3_Click);
             // 
             // contextMenuStrip_Setup
             // 
@@ -531,6 +350,187 @@
             this.issuesViewReportToolStripMenuItem.Text = "Issues View Report ";
             this.issuesViewReportToolStripMenuItem.Click += new System.EventHandler(this.issuesViewReportToolStripMenuItem_Click);
             // 
+            // btnView
+            // 
+            this.btnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnView.FlatAppearance.BorderSize = 0;
+            this.btnView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnView.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.ForeColor = System.Drawing.Color.White;
+            this.btnView.Image = global::ServiceCenter.Properties.Resources.report_30px;
+            this.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnView.Location = new System.Drawing.Point(12, 463);
+            this.btnView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(205, 69);
+            this.btnView.TabIndex = 159;
+            this.btnView.Text = "     View";
+            this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCustomer.FlatAppearance.BorderSize = 0;
+            this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnCustomer.Image = global::ServiceCenter.Properties.Resources.user_24px;
+            this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomer.Location = new System.Drawing.Point(13, 170);
+            this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(205, 69);
+            this.btnCustomer.TabIndex = 158;
+            this.btnCustomer.Text = "     Customer";
+            this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomer.UseVisualStyleBackColor = false;
+            this.btnCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            // 
+            // btnIssues
+            // 
+            this.btnIssues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnIssues.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIssues.FlatAppearance.BorderSize = 0;
+            this.btnIssues.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIssues.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssues.ForeColor = System.Drawing.Color.White;
+            this.btnIssues.Image = global::ServiceCenter.Properties.Resources.upload_24px;
+            this.btnIssues.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIssues.Location = new System.Drawing.Point(13, 318);
+            this.btnIssues.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIssues.Name = "btnIssues";
+            this.btnIssues.Size = new System.Drawing.Size(205, 69);
+            this.btnIssues.TabIndex = 157;
+            this.btnIssues.Text = "      Issues";
+            this.btnIssues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIssues.UseVisualStyleBackColor = false;
+            this.btnIssues.Click += new System.EventHandler(this.btnIssues_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ServiceCenter.Properties.Resources.bruuum_500_100px1;
+            this.pictureBox1.Location = new System.Drawing.Point(13, -15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(183, 105);
+            this.pictureBox1.TabIndex = 156;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = global::ServiceCenter.Properties.Resources.rounded_up_24px;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(13, 631);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(205, 69);
+            this.btnLogout.TabIndex = 156;
+            this.btnLogout.Text = "     Log out";
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Visible = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Image = global::ServiceCenter.Properties.Resources.report_30px;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(13, 548);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(205, 69);
+            this.btnReport.TabIndex = 155;
+            this.btnReport.Text = "     Report";
+            this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Image = global::ServiceCenter.Properties.Resources.undo_30px;
+            this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReturn.Location = new System.Drawing.Point(13, 391);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(205, 69);
+            this.btnReturn.TabIndex = 151;
+            this.btnReturn.Text = "     Return";
+            this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // btnReceive
+            // 
+            this.btnReceive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReceive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReceive.FlatAppearance.BorderSize = 0;
+            this.btnReceive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnReceive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReceive.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReceive.ForeColor = System.Drawing.Color.White;
+            this.btnReceive.Image = global::ServiceCenter.Properties.Resources.download_24px;
+            this.btnReceive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReceive.Location = new System.Drawing.Point(13, 244);
+            this.btnReceive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReceive.Name = "btnReceive";
+            this.btnReceive.Size = new System.Drawing.Size(205, 69);
+            this.btnReceive.TabIndex = 150;
+            this.btnReceive.Text = "     Receive";
+            this.btnReceive.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReceive.UseVisualStyleBackColor = false;
+            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
+            // 
+            // btnSetUp
+            // 
+            this.btnSetUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSetUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetUp.FlatAppearance.BorderSize = 0;
+            this.btnSetUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSetUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(110)))), ((int)(((byte)(185)))));
+            this.btnSetUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetUp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetUp.ForeColor = System.Drawing.Color.White;
+            this.btnSetUp.Image = global::ServiceCenter.Properties.Resources.plus_math_30px;
+            this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetUp.Location = new System.Drawing.Point(13, 96);
+            this.btnSetUp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetUp.Name = "btnSetUp";
+            this.btnSetUp.Size = new System.Drawing.Size(205, 69);
+            this.btnSetUp.TabIndex = 149;
+            this.btnSetUp.Text = "     Set Up";
+            this.btnSetUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSetUp.UseVisualStyleBackColor = true;
+            this.btnSetUp.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -546,7 +546,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip_Setup.ResumeLayout(false);
             this.contextMenuStrip_Returt.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -554,6 +553,7 @@
             this.contextMenuStrip_Customer.ResumeLayout(false);
             this.contextMenuStrip_View.ResumeLayout(false);
             this.contextMenuStrip_Report.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

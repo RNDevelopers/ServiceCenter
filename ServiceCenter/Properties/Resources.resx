@@ -133,11 +133,17 @@
   <data name="download_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bruuum_500_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bruuum_500_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrow_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rounded_up_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rounded_up_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="upload_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\upload_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="undo_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,7 +154,7 @@
   <data name="car_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\car_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="upload_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\upload_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bruuum_500_100px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bruuum_500_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
