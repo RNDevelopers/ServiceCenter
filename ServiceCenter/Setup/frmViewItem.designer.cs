@@ -94,7 +94,8 @@
             this.dgvViewItemList.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvViewItemList.EnableHeadersVisualStyles = false;
             this.dgvViewItemList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvViewItemList.Location = new System.Drawing.Point(16, 107);
+            this.dgvViewItemList.Location = new System.Drawing.Point(21, 132);
+            this.dgvViewItemList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvViewItemList.MultiSelect = false;
             this.dgvViewItemList.Name = "dgvViewItemList";
             this.dgvViewItemList.ReadOnly = true;
@@ -114,7 +115,7 @@
             this.dgvViewItemList.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvViewItemList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvViewItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvViewItemList.Size = new System.Drawing.Size(902, 357);
+            this.dgvViewItemList.Size = new System.Drawing.Size(1203, 439);
             this.dgvViewItemList.TabIndex = 223;
             this.dgvViewItemList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewItemList_CellClick);
             // 
@@ -198,10 +199,11 @@
             // txtDecSearch
             // 
             this.txtDecSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtDecSearch.Location = new System.Drawing.Point(500, 76);
-            this.txtDecSearch.MaxLength = 4;
+            this.txtDecSearch.Location = new System.Drawing.Point(667, 94);
+            this.txtDecSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDecSearch.MaxLength = 150;
             this.txtDecSearch.Name = "txtDecSearch";
-            this.txtDecSearch.Size = new System.Drawing.Size(418, 25);
+            this.txtDecSearch.Size = new System.Drawing.Size(556, 29);
             this.txtDecSearch.TabIndex = 222;
             this.txtDecSearch.TextChanged += new System.EventHandler(this.txtDecSearch_TextChanged);
             // 
@@ -210,9 +212,10 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(344, 77);
+            this.label13.Location = new System.Drawing.Point(459, 95);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(166, 19);
+            this.label13.Size = new System.Drawing.Size(201, 23);
             this.label13.TabIndex = 221;
             this.label13.Text = "Search Item Description :";
             this.label13.Click += new System.EventHandler(this.label13_Click);
@@ -220,10 +223,11 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtSearch.Location = new System.Drawing.Point(135, 77);
-            this.txtSearch.MaxLength = 4;
+            this.txtSearch.Location = new System.Drawing.Point(180, 95);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.MaxLength = 50;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(203, 25);
+            this.txtSearch.Size = new System.Drawing.Size(269, 29);
             this.txtSearch.TabIndex = 220;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -232,9 +236,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 77);
+            this.label3.Location = new System.Drawing.Point(16, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 19);
+            this.label3.Size = new System.Drawing.Size(155, 23);
             this.label3.TabIndex = 219;
             this.label3.Text = "Search Item Code :";
             // 
@@ -243,18 +248,19 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 29);
+            this.label1.Location = new System.Drawing.Point(13, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 37);
+            this.label1.Size = new System.Drawing.Size(190, 45);
             this.label1.TabIndex = 224;
             this.label1.Text = "View Items";
             // 
             // frmViewItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(930, 481);
+            this.ClientSize = new System.Drawing.Size(1240, 592);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvViewItemList);
             this.Controls.Add(this.txtDecSearch);
@@ -262,7 +268,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label3);
             this.ForeColor = System.Drawing.Color.Black;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmViewItem";
             this.Text = "View Item";
             this.Load += new System.EventHandler(this.frmViewItem_Load);

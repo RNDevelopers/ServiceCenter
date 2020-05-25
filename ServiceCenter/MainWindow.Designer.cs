@@ -92,9 +92,9 @@
             this.panel1.Controls.Add(this.btnSetUp);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(166, 750);
+            this.panel1.Size = new System.Drawing.Size(221, 923);
             this.panel1.TabIndex = 154;
             // 
             // btnView
@@ -108,9 +108,10 @@
             this.btnView.ForeColor = System.Drawing.Color.White;
             this.btnView.Image = global::ServiceCenter.Properties.Resources.report_30px;
             this.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnView.Location = new System.Drawing.Point(9, 376);
+            this.btnView.Location = new System.Drawing.Point(12, 463);
+            this.btnView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(154, 56);
+            this.btnView.Size = new System.Drawing.Size(205, 69);
             this.btnView.TabIndex = 159;
             this.btnView.Text = "     View";
             this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -128,10 +129,10 @@
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.Image = global::ServiceCenter.Properties.Resources.user_24px;
             this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomer.Location = new System.Drawing.Point(10, 138);
+            this.btnCustomer.Location = new System.Drawing.Point(13, 170);
             this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(154, 56);
+            this.btnCustomer.Size = new System.Drawing.Size(205, 69);
             this.btnCustomer.TabIndex = 158;
             this.btnCustomer.Text = "     Customer";
             this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -149,9 +150,10 @@
             this.btnIssues.ForeColor = System.Drawing.Color.White;
             this.btnIssues.Image = global::ServiceCenter.Properties.Resources.upload_24px;
             this.btnIssues.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssues.Location = new System.Drawing.Point(10, 258);
+            this.btnIssues.Location = new System.Drawing.Point(13, 318);
+            this.btnIssues.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIssues.Name = "btnIssues";
-            this.btnIssues.Size = new System.Drawing.Size(154, 56);
+            this.btnIssues.Size = new System.Drawing.Size(205, 69);
             this.btnIssues.TabIndex = 157;
             this.btnIssues.Text = "      Issues";
             this.btnIssues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -161,21 +163,21 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ServiceCenter.Properties.Resources.fiat_500_100px;
-            this.pictureBox1.Location = new System.Drawing.Point(20, -6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(27, -7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(124, 78);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(165, 96);
             this.pictureBox1.TabIndex = 156;
             this.pictureBox1.TabStop = false;
             // 
             // slidePlane
             // 
             this.slidePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.slidePlane.Location = new System.Drawing.Point(3, 78);
-            this.slidePlane.Margin = new System.Windows.Forms.Padding(2);
+            this.slidePlane.Location = new System.Drawing.Point(4, 96);
+            this.slidePlane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.slidePlane.Name = "slidePlane";
-            this.slidePlane.Size = new System.Drawing.Size(8, 56);
+            this.slidePlane.Size = new System.Drawing.Size(11, 69);
             this.slidePlane.TabIndex = 155;
             // 
             // btnLogout
@@ -189,9 +191,10 @@
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = global::ServiceCenter.Properties.Resources.rounded_up_24px;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(10, 513);
+            this.btnLogout.Location = new System.Drawing.Point(13, 631);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(154, 56);
+            this.btnLogout.Size = new System.Drawing.Size(205, 69);
             this.btnLogout.TabIndex = 156;
             this.btnLogout.Text = "     Log out";
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -210,9 +213,10 @@
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Image = global::ServiceCenter.Properties.Resources.report_30px;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(10, 445);
+            this.btnReport.Location = new System.Drawing.Point(13, 548);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(154, 56);
+            this.btnReport.Size = new System.Drawing.Size(205, 69);
             this.btnReport.TabIndex = 155;
             this.btnReport.Text = "     Report";
             this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -230,9 +234,10 @@
             this.btnReturn.ForeColor = System.Drawing.Color.White;
             this.btnReturn.Image = global::ServiceCenter.Properties.Resources.undo_30px;
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturn.Location = new System.Drawing.Point(10, 318);
+            this.btnReturn.Location = new System.Drawing.Point(13, 391);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(154, 56);
+            this.btnReturn.Size = new System.Drawing.Size(205, 69);
             this.btnReturn.TabIndex = 151;
             this.btnReturn.Text = "     Return";
             this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -250,9 +255,10 @@
             this.btnReceive.ForeColor = System.Drawing.Color.White;
             this.btnReceive.Image = global::ServiceCenter.Properties.Resources.download_24px;
             this.btnReceive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReceive.Location = new System.Drawing.Point(10, 198);
+            this.btnReceive.Location = new System.Drawing.Point(13, 244);
+            this.btnReceive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReceive.Name = "btnReceive";
-            this.btnReceive.Size = new System.Drawing.Size(154, 56);
+            this.btnReceive.Size = new System.Drawing.Size(205, 69);
             this.btnReceive.TabIndex = 150;
             this.btnReceive.Text = "     Receive";
             this.btnReceive.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -271,9 +277,10 @@
             this.btnSetUp.ForeColor = System.Drawing.Color.White;
             this.btnSetUp.Image = global::ServiceCenter.Properties.Resources.plus_math_30px;
             this.btnSetUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetUp.Location = new System.Drawing.Point(10, 78);
+            this.btnSetUp.Location = new System.Drawing.Point(13, 96);
+            this.btnSetUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSetUp.Name = "btnSetUp";
-            this.btnSetUp.Size = new System.Drawing.Size(154, 56);
+            this.btnSetUp.Size = new System.Drawing.Size(205, 69);
             this.btnSetUp.TabIndex = 149;
             this.btnSetUp.Text = "     Set Up";
             this.btnSetUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -297,13 +304,13 @@
             this.mnuServiceCharges});
             this.contextMenuStrip_Setup.Name = "contextMenuStrip_Setup";
             this.contextMenuStrip_Setup.ShowImageMargin = false;
-            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(201, 202);
+            this.contextMenuStrip_Setup.Size = new System.Drawing.Size(249, 220);
             // 
             // addCompanySupplierToolStripMenuItem
             // 
             this.addCompanySupplierToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addCompanySupplierToolStripMenuItem.Name = "addCompanySupplierToolStripMenuItem";
-            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addCompanySupplierToolStripMenuItem.Size = new System.Drawing.Size(248, 24);
             this.addCompanySupplierToolStripMenuItem.Text = "Add Supplier";
             this.addCompanySupplierToolStripMenuItem.Click += new System.EventHandler(this.addCompanySupplierToolStripMenuItem_Click);
             // 
@@ -311,7 +318,7 @@
             // 
             this.addMainCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addMainCategoryToolStripMenuItem.Name = "addMainCategoryToolStripMenuItem";
-            this.addMainCategoryToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addMainCategoryToolStripMenuItem.Size = new System.Drawing.Size(248, 24);
             this.addMainCategoryToolStripMenuItem.Text = "Add Main Category";
             this.addMainCategoryToolStripMenuItem.Click += new System.EventHandler(this.addMainCategoryToolStripMenuItem_Click);
             // 
@@ -320,7 +327,7 @@
             this.addSubCategoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.addSubCategoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addSubCategoryToolStripMenuItem.Name = "addSubCategoryToolStripMenuItem";
-            this.addSubCategoryToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addSubCategoryToolStripMenuItem.Size = new System.Drawing.Size(248, 24);
             this.addSubCategoryToolStripMenuItem.Text = "Add Sub Category";
             this.addSubCategoryToolStripMenuItem.Click += new System.EventHandler(this.addSubCategoryToolStripMenuItem_Click);
             // 
@@ -328,7 +335,7 @@
             // 
             this.mnuAssignSubCategoryBrand.ForeColor = System.Drawing.Color.White;
             this.mnuAssignSubCategoryBrand.Name = "mnuAssignSubCategoryBrand";
-            this.mnuAssignSubCategoryBrand.Size = new System.Drawing.Size(200, 22);
+            this.mnuAssignSubCategoryBrand.Size = new System.Drawing.Size(248, 24);
             this.mnuAssignSubCategoryBrand.Text = "Assign Sub Category Brand ";
             this.mnuAssignSubCategoryBrand.Click += new System.EventHandler(this.mnuAssignSubCategoryBrand_Click);
             // 
@@ -336,7 +343,7 @@
             // 
             this.addBrandToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addBrandToolStripMenuItem.Name = "addBrandToolStripMenuItem";
-            this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addBrandToolStripMenuItem.Size = new System.Drawing.Size(248, 24);
             this.addBrandToolStripMenuItem.Text = "Add Brand";
             this.addBrandToolStripMenuItem.Click += new System.EventHandler(this.addBrandToolStripMenuItem_Click);
             // 
@@ -344,7 +351,7 @@
             // 
             this.addItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addItemsToolStripMenuItem.Name = "addItemsToolStripMenuItem";
-            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(248, 24);
             this.addItemsToolStripMenuItem.Text = "Add Items";
             this.addItemsToolStripMenuItem.Click += new System.EventHandler(this.addItemsToolStripMenuItem_Click);
             // 
@@ -352,7 +359,7 @@
             // 
             this.mnuAddItemUtility.ForeColor = System.Drawing.Color.White;
             this.mnuAddItemUtility.Name = "mnuAddItemUtility";
-            this.mnuAddItemUtility.Size = new System.Drawing.Size(200, 22);
+            this.mnuAddItemUtility.Size = new System.Drawing.Size(248, 24);
             this.mnuAddItemUtility.Text = "Add Item Utility";
             this.mnuAddItemUtility.Click += new System.EventHandler(this.mnuAddItemUtility_Click);
             // 
@@ -360,7 +367,7 @@
             // 
             this.mnuEditItem.ForeColor = System.Drawing.Color.White;
             this.mnuEditItem.Name = "mnuEditItem";
-            this.mnuEditItem.Size = new System.Drawing.Size(200, 22);
+            this.mnuEditItem.Size = new System.Drawing.Size(248, 24);
             this.mnuEditItem.Text = "Edit Item";
             this.mnuEditItem.Click += new System.EventHandler(this.mnuEditItem_Click);
             // 
@@ -368,7 +375,7 @@
             // 
             this.mnuServiceCharges.ForeColor = System.Drawing.Color.White;
             this.mnuServiceCharges.Name = "mnuServiceCharges";
-            this.mnuServiceCharges.Size = new System.Drawing.Size(200, 22);
+            this.mnuServiceCharges.Size = new System.Drawing.Size(248, 24);
             this.mnuServiceCharges.Text = "Add Service Charges";
             this.mnuServiceCharges.Click += new System.EventHandler(this.mnuServiceCharges_Click);
             // 
@@ -382,13 +389,13 @@
             this.mnuToSupplier});
             this.contextMenuStrip_Returt.Name = "contextMenuStrip_Returt";
             this.contextMenuStrip_Returt.ShowImageMargin = false;
-            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(136, 48);
+            this.contextMenuStrip_Returt.Size = new System.Drawing.Size(163, 52);
             // 
             // mnuFromCustomer
             // 
             this.mnuFromCustomer.ForeColor = System.Drawing.Color.White;
             this.mnuFromCustomer.Name = "mnuFromCustomer";
-            this.mnuFromCustomer.Size = new System.Drawing.Size(135, 22);
+            this.mnuFromCustomer.Size = new System.Drawing.Size(162, 24);
             this.mnuFromCustomer.Text = "From Customer";
             this.mnuFromCustomer.Click += new System.EventHandler(this.mnuFromCustomer_Click);
             // 
@@ -397,7 +404,7 @@
             this.mnuToSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuToSupplier.ForeColor = System.Drawing.Color.White;
             this.mnuToSupplier.Name = "mnuToSupplier";
-            this.mnuToSupplier.Size = new System.Drawing.Size(135, 22);
+            this.mnuToSupplier.Size = new System.Drawing.Size(162, 24);
             this.mnuToSupplier.Text = "To Supplier";
             this.mnuToSupplier.Click += new System.EventHandler(this.mnuToSupplier_Click);
             // 
@@ -406,10 +413,10 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(166, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(221, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1184, 55);
+            this.panel2.Size = new System.Drawing.Size(1579, 68);
             this.panel2.TabIndex = 155;
             // 
             // label1
@@ -417,10 +424,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(4, 2);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 46);
+            this.label1.Size = new System.Drawing.Size(416, 59);
             this.label1.TabIndex = 156;
             this.label1.Text = "Nihal Auto Car Max";
             // 
@@ -428,23 +434,25 @@
             // 
             this.contextMenuStrip_Customer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.contextMenuStrip_Customer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.contextMenuStrip_Customer.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip_Customer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCustomerToolStripMenuItem});
             this.contextMenuStrip_Customer.Name = "contextMenuStrip_Customer";
             this.contextMenuStrip_Customer.ShowImageMargin = false;
-            this.contextMenuStrip_Customer.Size = new System.Drawing.Size(129, 26);
+            this.contextMenuStrip_Customer.Size = new System.Drawing.Size(155, 28);
             // 
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             // 
             // contextMenuStrip_View
             // 
             this.contextMenuStrip_View.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.contextMenuStrip_View.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.contextMenuStrip_View.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip_View.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnubtnReceivesView,
             this.mnubtnIssuesView,
@@ -453,13 +461,13 @@
             this.customerReturnViewToolStripMenuItem});
             this.contextMenuStrip_View.Name = "contextMenuStrip_View";
             this.contextMenuStrip_View.ShowImageMargin = false;
-            this.contextMenuStrip_View.Size = new System.Drawing.Size(190, 114);
+            this.contextMenuStrip_View.Size = new System.Drawing.Size(231, 124);
             // 
             // mnubtnReceivesView
             // 
             this.mnubtnReceivesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnReceivesView.Name = "mnubtnReceivesView";
-            this.mnubtnReceivesView.Size = new System.Drawing.Size(189, 22);
+            this.mnubtnReceivesView.Size = new System.Drawing.Size(230, 24);
             this.mnubtnReceivesView.Text = "Receives View";
             this.mnubtnReceivesView.Click += new System.EventHandler(this.mnubtnReceivesView_Click);
             // 
@@ -467,7 +475,7 @@
             // 
             this.mnubtnIssuesView.ForeColor = System.Drawing.Color.White;
             this.mnubtnIssuesView.Name = "mnubtnIssuesView";
-            this.mnubtnIssuesView.Size = new System.Drawing.Size(189, 22);
+            this.mnubtnIssuesView.Size = new System.Drawing.Size(230, 24);
             this.mnubtnIssuesView.Text = "Issues View";
             this.mnubtnIssuesView.Click += new System.EventHandler(this.mnubtnIssuesView_Click);
             // 
@@ -475,7 +483,7 @@
             // 
             this.mnustockView.ForeColor = System.Drawing.Color.White;
             this.mnustockView.Name = "mnustockView";
-            this.mnustockView.Size = new System.Drawing.Size(189, 22);
+            this.mnustockView.Size = new System.Drawing.Size(230, 24);
             this.mnustockView.Text = "Stock View";
             this.mnustockView.Click += new System.EventHandler(this.mnustockView_Click);
             // 
@@ -483,7 +491,7 @@
             // 
             this.customersViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customersViewToolStripMenuItem.Name = "customersViewToolStripMenuItem";
-            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.customersViewToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
             this.customersViewToolStripMenuItem.Text = "Customers View";
             this.customersViewToolStripMenuItem.Click += new System.EventHandler(this.customersViewToolStripMenuItem_Click);
             // 
@@ -491,7 +499,7 @@
             // 
             this.customerReturnViewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerReturnViewToolStripMenuItem.Name = "customerReturnViewToolStripMenuItem";
-            this.customerReturnViewToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.customerReturnViewToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
             this.customerReturnViewToolStripMenuItem.Text = "Customer Return View(*)";
             this.customerReturnViewToolStripMenuItem.Visible = false;
             this.customerReturnViewToolStripMenuItem.Click += new System.EventHandler(this.customerReturnViewToolStripMenuItem_Click);
@@ -499,18 +507,19 @@
             // contextMenuStrip_Report
             // 
             this.contextMenuStrip_Report.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.contextMenuStrip_Report.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip_Report.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuGoodsView,
             this.issuesViewReportToolStripMenuItem});
             this.contextMenuStrip_Report.Name = "contextMenuStrip_Report";
             this.contextMenuStrip_Report.ShowImageMargin = false;
-            this.contextMenuStrip_Report.Size = new System.Drawing.Size(150, 48);
+            this.contextMenuStrip_Report.Size = new System.Drawing.Size(182, 52);
             // 
             // mnuGoodsView
             // 
             this.mnuGoodsView.ForeColor = System.Drawing.Color.White;
             this.mnuGoodsView.Name = "mnuGoodsView";
-            this.mnuGoodsView.Size = new System.Drawing.Size(149, 22);
+            this.mnuGoodsView.Size = new System.Drawing.Size(181, 24);
             this.mnuGoodsView.Text = "Goods View Report";
             this.mnuGoodsView.Click += new System.EventHandler(this.mnuGoodsView_Click);
             // 
@@ -518,22 +527,23 @@
             // 
             this.issuesViewReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.issuesViewReportToolStripMenuItem.Name = "issuesViewReportToolStripMenuItem";
-            this.issuesViewReportToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.issuesViewReportToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.issuesViewReportToolStripMenuItem.Text = "Issues View Report ";
             this.issuesViewReportToolStripMenuItem.Click += new System.EventHandler(this.issuesViewReportToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1350, 750);
+            this.ClientSize = new System.Drawing.Size(1800, 923);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MainWindow";
             this.Text = "Nihal Auto Car Wax";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -396,7 +396,7 @@ namespace ServiceCenter.Setup
                     frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
                     objfrmReportViewer.Show();
 
-                    //  rptDoc.PrintToPrinter(1, true, 0, 0);
+                    //rptDoc.PrintToPrinter(1, true, 0, 0);
 
                     clear();
 

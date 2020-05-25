@@ -521,10 +521,10 @@ namespace ServiceCenter.Setup
                 rpt.SetParameterValue("XXXMilege", milage);
                 System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
 
-                frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
-                objfrmReportViewer.Show();
+                //frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
+                //objfrmReportViewer.Show();
 
-                //  rptDoc.PrintToPrinter(1, true, 0, 0);
+                rptDoc.PrintToPrinter(1, true, 0, 0);
 
                 clear();
 
