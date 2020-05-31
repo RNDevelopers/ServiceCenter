@@ -247,7 +247,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(416, 59);
             this.label1.TabIndex = 156;
-            this.label1.Text = "Nihal Auto Car Max";
+            this.label1.Text = "Nihal Auto Car Wax";
             // 
             // contextMenuStrip_Customer
             // 

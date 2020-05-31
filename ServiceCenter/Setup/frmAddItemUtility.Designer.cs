@@ -40,6 +40,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,8 +56,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAPI = new System.Windows.Forms.DataGridView();
             this.clmAPIID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmvcAPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +69,9 @@
             this.btnSaveSAE = new System.Windows.Forms.Button();
             this.txtSAE = new System.Windows.Forms.TextBox();
             this.dgvSAE = new System.Windows.Forms.DataGridView();
+            this.clmSAEID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmvcSAE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmbtnSAEDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtMeasureCode = new System.Windows.Forms.TextBox();
@@ -94,9 +97,6 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmbtnMeasureSizeDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmSAEID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmvcSAE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmbtnSAEDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAPI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSAE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeasureDetails)).BeginInit();
@@ -161,7 +161,7 @@
             this.dgvAPI.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvAPI.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAPI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAPI.Size = new System.Drawing.Size(361, 331);
+            this.dgvAPI.Size = new System.Drawing.Size(361, 270);
             this.dgvAPI.TabIndex = 147;
             this.dgvAPI.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAPI_CellClick);
             // 
@@ -354,9 +354,36 @@
             this.dgvSAE.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvSAE.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSAE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSAE.Size = new System.Drawing.Size(361, 331);
+            this.dgvSAE.Size = new System.Drawing.Size(361, 270);
             this.dgvSAE.TabIndex = 193;
             this.dgvSAE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSAE_CellClick);
+            // 
+            // clmSAEID
+            // 
+            this.clmSAEID.DataPropertyName = "intSAEID";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmSAEID.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmSAEID.HeaderText = "SAEID";
+            this.clmSAEID.Name = "clmSAEID";
+            this.clmSAEID.ReadOnly = true;
+            this.clmSAEID.Visible = false;
+            this.clmSAEID.Width = 150;
+            // 
+            // clmvcSAE
+            // 
+            this.clmvcSAE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmvcSAE.DataPropertyName = "vcSAE";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmvcSAE.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmvcSAE.HeaderText = "Name";
+            this.clmvcSAE.Name = "clmvcSAE";
+            this.clmvcSAE.ReadOnly = true;
+            // 
+            // clmbtnSAEDelete
+            // 
+            this.clmbtnSAEDelete.HeaderText = "Press to Delete";
+            this.clmbtnSAEDelete.Name = "clmbtnSAEDelete";
+            this.clmbtnSAEDelete.ReadOnly = true;
             // 
             // label12
             // 
@@ -742,39 +769,12 @@
             this.clmbtnMeasureSizeDelete.Name = "clmbtnMeasureSizeDelete";
             this.clmbtnMeasureSizeDelete.ReadOnly = true;
             // 
-            // clmSAEID
-            // 
-            this.clmSAEID.DataPropertyName = "intSAEID";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmSAEID.DefaultCellStyle = dataGridViewCellStyle10;
-            this.clmSAEID.HeaderText = "SAEID";
-            this.clmSAEID.Name = "clmSAEID";
-            this.clmSAEID.ReadOnly = true;
-            this.clmSAEID.Visible = false;
-            this.clmSAEID.Width = 150;
-            // 
-            // clmvcSAE
-            // 
-            this.clmvcSAE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmvcSAE.DataPropertyName = "vcSAE";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmvcSAE.DefaultCellStyle = dataGridViewCellStyle11;
-            this.clmvcSAE.HeaderText = "Name";
-            this.clmvcSAE.Name = "clmvcSAE";
-            this.clmvcSAE.ReadOnly = true;
-            // 
-            // clmbtnSAEDelete
-            // 
-            this.clmbtnSAEDelete.HeaderText = "Press to Delete";
-            this.clmbtnSAEDelete.Name = "clmbtnSAEDelete";
-            this.clmbtnSAEDelete.ReadOnly = true;
-            // 
             // frmAddItemUtility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(828, 828);
+            this.ClientSize = new System.Drawing.Size(828, 766);
             this.Controls.Add(this.dgvMeasureSize);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);

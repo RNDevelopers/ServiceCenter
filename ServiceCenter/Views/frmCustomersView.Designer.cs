@@ -88,7 +88,8 @@
             this.dgvCustomerView.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCustomerView.EnableHeadersVisualStyles = false;
             this.dgvCustomerView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCustomerView.Location = new System.Drawing.Point(12, 147);
+            this.dgvCustomerView.Location = new System.Drawing.Point(19, 147);
+            this.dgvCustomerView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCustomerView.MultiSelect = false;
             this.dgvCustomerView.Name = "dgvCustomerView";
             this.dgvCustomerView.ReadOnly = true;
@@ -108,7 +109,7 @@
             this.dgvCustomerView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvCustomerView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCustomerView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomerView.Size = new System.Drawing.Size(1022, 515);
+            this.dgvCustomerView.Size = new System.Drawing.Size(1363, 571);
             this.dgvCustomerView.TabIndex = 220;
             // 
             // clmintCustomerID
@@ -169,19 +170,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 38);
+            this.label1.Location = new System.Drawing.Point(20, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 45);
+            this.label1.Size = new System.Drawing.Size(326, 54);
             this.label1.TabIndex = 247;
             this.label1.Text = "Customer Views";
             // 
             // txtNameSearch
             // 
             this.txtNameSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtNameSearch.Location = new System.Drawing.Point(492, 105);
+            this.txtNameSearch.Location = new System.Drawing.Point(656, 110);
+            this.txtNameSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNameSearch.MaxLength = 10000;
             this.txtNameSearch.Name = "txtNameSearch";
-            this.txtNameSearch.Size = new System.Drawing.Size(221, 25);
+            this.txtNameSearch.Size = new System.Drawing.Size(293, 29);
             this.txtNameSearch.TabIndex = 251;
             this.txtNameSearch.Click += new System.EventHandler(this.txtNameSearch_Click);
             this.txtNameSearch.TextChanged += new System.EventHandler(this.txtNameSearch_TextChanged);
@@ -191,19 +194,21 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(365, 106);
+            this.label13.Location = new System.Drawing.Point(487, 111);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(121, 19);
+            this.label13.Size = new System.Drawing.Size(148, 23);
             this.label13.TabIndex = 250;
             this.label13.Text = "Search for Name :";
             // 
             // txtVehicleSearch
             // 
             this.txtVehicleSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.txtVehicleSearch.Location = new System.Drawing.Point(147, 105);
+            this.txtVehicleSearch.Location = new System.Drawing.Point(196, 110);
+            this.txtVehicleSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtVehicleSearch.MaxLength = 1000;
             this.txtVehicleSearch.Name = "txtVehicleSearch";
-            this.txtVehicleSearch.Size = new System.Drawing.Size(198, 25);
+            this.txtVehicleSearch.Size = new System.Drawing.Size(263, 29);
             this.txtVehicleSearch.TabIndex = 249;
             this.txtVehicleSearch.Click += new System.EventHandler(this.txtVehicleSearch_Click);
             this.txtVehicleSearch.TextChanged += new System.EventHandler(this.txtCodeSearch_TextChanged);
@@ -213,24 +218,26 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(19, 106);
+            this.label12.Location = new System.Drawing.Point(25, 111);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 19);
+            this.label12.Size = new System.Drawing.Size(152, 23);
             this.label12.TabIndex = 248;
             this.label12.Text = "Search Vehicle No:";
             // 
             // frmCustomersView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(67)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(1046, 674);
+            this.ClientSize = new System.Drawing.Size(1395, 730);
             this.Controls.Add(this.txtNameSearch);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtVehicleSearch);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCustomerView);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "frmCustomersView";
             this.Text = "Customer View";
             this.Controls.SetChildIndex(this.dgvCustomerView, 0);
