@@ -302,5 +302,12 @@ namespace ServiceCenter
             obj.MdiParent = this;
             obj.Show();
         }
+
+        private void supplierViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSupplierView obj = new frmSupplierView();
+            obj.MdiParent = this;
+            obj.Show();
+        }
     }
 }

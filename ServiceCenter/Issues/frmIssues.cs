@@ -140,7 +140,7 @@ namespace ServiceCenter.Setup
 
                     }
 
-                   //  GetCustomerInfo();
+                    //GetCustomerInfo();
                    
                 }
 
@@ -196,12 +196,17 @@ namespace ServiceCenter.Setup
 
                     if (CustomerID != null)
                     {
-                        MessageBox.Show("Customer Saved successfully");
-                        intCustomerID = Convert.ToInt32(CustomerID);
-                        btnSearch.Enabled = false;
-                        cmbPhoneNo.Enabled = false;
-                        txtCustomerName.Enabled = false;
-                        return;
+                        //nethsara added
+                        if(MessageBox.Show("Please Register the Customer?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            MessageBox.Show("Customer Saved successfully");
+                            intCustomerID = Convert.ToInt32(CustomerID);
+                            btnSearch.Enabled = false;
+                            cmbPhoneNo.Enabled = false;
+                            txtCustomerName.Enabled = false;
+                            return;
+                        }
+                        
                     }
                     else
                     {
@@ -524,6 +529,7 @@ namespace ServiceCenter.Setup
                 frmReportViewer objfrmReportViewer = new frmReportViewer(rptDoc);
                 objfrmReportViewer.Show();
 
+                //should print
                 //rptDoc.PrintToPrinter(1, true, 0, 0);
 
                 clear();
@@ -1532,21 +1538,27 @@ namespace ServiceCenter.Setup
 
         private void txtCustomerName_Leave(object sender, EventArgs e)
         {
-            if (txtCustomerName.Text == string.Empty)
-            {
-                return;
-            }
-            else
-            {
-                if (MessageBox.Show("Please Register the Customer?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    GetCustomerInfo();
-                }
-                else
-                {
-                    txtCustomerName.Text = string.Empty;
-                }
-            }
+
+            //nethsara commented
+
+
+
+
+            //if (txtCustomerName.Text == string.Empty)
+            //{
+            //    return;
+            //}
+            //else
+            //{
+            //    if (MessageBox.Show("Please Register the Customer?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            //    {
+            //        GetCustomerInfo();
+            //    }
+            //    else
+            //    {
+            //        txtCustomerName.Text = string.Empty;
+            //    }
+            //}
 
         }
 
